@@ -28,12 +28,10 @@
 
     <link href="../theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+        <link href="../static/custom.css" rel="stylesheet">
 
-        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Prototyping and Scientific Computing ATOM Feed"/>
 
-        <link href="../feeds/python.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Prototyping and Scientific Computing Python ATOM Feed"/>
+
 </head>
 <body>
 
@@ -51,14 +49,16 @@ Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="../pages/calendar.html">
-                             Calendar
-                          </a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Assignments">Assignments</a></li>
                          <li><a href="../pages/lab-members.html">
                              Lab Members
                           </a></li>
                         <li class="active">
                             <a href="../category/python.html">Python</a>
+                        </li>
+                        <li >
+                            <a href="../category/worksheets.html">Worksheets</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -90,6 +90,15 @@ Prototyping and Scientific Computing            </a>
 <!-- Sidebar -->
 <section class="well well-sm">
   <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Recent Posts -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+  <ul class="list-group" id="recentposts">
+    <li class="list-group-item"><a href="../my-super-post.html">My super title</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Recent Posts -->
   </ul>
 </section>
 <!-- End Sidebar -->            </aside>
