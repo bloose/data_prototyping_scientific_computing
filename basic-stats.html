@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Python webscraper - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>Basic Stats - 2021 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,20 +9,18 @@
 
 
 
-<link rel="canonical" href="./python-webscraper.html">
+<link rel="canonical" href="./basic-stats.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="keywords" content="Worksheet" />
-        <meta name="description" content="Simple Python web scraper¶ Note: Check out http://datascience.ibm.com/blog/markdown-for-jupyter-notebooks-cheatsheet/ Introduction to Jupyter: https://www.youtube.com/watch?v=Rc4JQWowG5I In [1]: #Python Modules get imported here # import re import requests from bs4 import BeautifulSoup import time Load a webpage into memory and parse it using Beautiful Soup¶ In [2]: lyriclink = &#39;https://www.nytimes.com/&#39; #lyriclink = &#39;https://www.washingtonpost.com/&#39; webpg = requests.get(lyriclink) soup = BeautifulSoup(webpg.content,&#34;lxml&#34;) In [3]: #soup.findAll(text=re.compile(&#39;Irma&#39;)) In [4]: count=0 keyword = &#39;Kabul&#39; for lyrics in soup.findAll(text=re.compile(keyword)): count+=1 print(&#34;The Word &#34;" />
+        <meta name="description" content="Script to calculate Basic Statistics¶ Equation for the mean: $\mu_x = \sum_{i=1}^{N}\frac{x_i}{N}$¶Equation for the standard deviation: $\sigma_x = \sqrt{\sum_{i=1}^{N}\left(x_i - \mu \right)^2}\frac{1}{N-1}$¶Instructions: (1) Before you write code, write an algorithm that describes the sequence of steps you will take to compute the mean and standard deviation for your samples. The algorithm can be written in pseudocode or as an itemized list.*" />
 
         <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Python webscraper"/>
-        <meta property="og:url" content="./python-webscraper.html"/>
-        <meta property="og:description" content="Simple Python web scraper¶ Note: Check out http://datascience.ibm.com/blog/markdown-for-jupyter-notebooks-cheatsheet/ Introduction to Jupyter: https://www.youtube.com/watch?v=Rc4JQWowG5I In [1]: #Python Modules get imported here # import re import requests from bs4 import BeautifulSoup import time Load a webpage into memory and parse it using Beautiful Soup¶ In [2]: lyriclink = &#39;https://www.nytimes.com/&#39; #lyriclink = &#39;https://www.washingtonpost.com/&#39; webpg = requests.get(lyriclink) soup = BeautifulSoup(webpg.content,&#34;lxml&#34;) In [3]: #soup.findAll(text=re.compile(&#39;Irma&#39;)) In [4]: count=0 keyword = &#39;Kabul&#39; for lyrics in soup.findAll(text=re.compile(keyword)): count+=1 print(&#34;The Word &#34;"/>
-        <meta property="article:published_time" content="2020-09-14" />
-            <meta property="article:section" content="Notes" />
-            <meta property="article:tag" content="Worksheet" />
+        <meta property="og:title" content="Basic Stats"/>
+        <meta property="og:url" content="./basic-stats.html"/>
+        <meta property="og:description" content="Script to calculate Basic Statistics¶ Equation for the mean: $\mu_x = \sum_{i=1}^{N}\frac{x_i}{N}$¶Equation for the standard deviation: $\sigma_x = \sqrt{\sum_{i=1}^{N}\left(x_i - \mu \right)^2}\frac{1}{N-1}$¶Instructions: (1) Before you write code, write an algorithm that describes the sequence of steps you will take to compute the mean and standard deviation for your samples. The algorithm can be written in pseudocode or as an itemized list.*"/>
+        <meta property="article:published_time" content="2021-09-15" />
+            <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
 
@@ -58,10 +56,10 @@
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="./category/notes.html">Notes</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="./category/worksheets.html">Worksheets</a>
                         </li>
             </ul>
@@ -83,10 +81,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./python-webscraper.html"
+                    <a href="./basic-stats.html"
                        rel="bookmark"
-                       title="Permalink to Python webscraper">
-                        Python webscraper
+                       title="Permalink to Basic Stats">
+                        Basic Stats
                     </a>
                 </h1>
             </header>
@@ -96,15 +94,13 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2020-09-14T00:00:00-04:00"> Mon 14 September 2020</time>
+        <i class="fa fa-calendar"></i><time datetime="2021-09-15T00:00:00-04:00"> Wed 15 September 2021</time>
     </span>
 
 
 
 
 
-<span class="label label-default">Tags</span>
-	<a href="./tag/worksheet.html">Worksheet</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -156,11 +152,28 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
 .highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Simple-Python-web-scraper">Simple Python web scraper<a class="anchor-link" href="#Simple-Python-web-scraper">¶</a></h3><hr />
-<p>Note:</p>
-<blockquote><p><em>Check out <a href="http://datascience.ibm.com/blog/markdown-for-jupyter-notebooks-cheatsheet/">http://datascience.ibm.com/blog/markdown-for-jupyter-notebooks-cheatsheet/</a></em> <br />
-<em>Introduction to Jupyter: <a href="https://www.youtube.com/watch?v=Rc4JQWowG5I">https://www.youtube.com/watch?v=Rc4JQWowG5I</a></em></p>
-</blockquote>
+<h2 id="Script-to-calculate-Basic-Statistics">Script to calculate Basic Statistics<a class="anchor-link" href="#Script-to-calculate-Basic-Statistics">¶</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Equation-for-the-mean:---$\mu_x-=-\sum_{i=1}^{N}\frac{x_i}{N}$">Equation for the mean:   $\mu_x = \sum_{i=1}^{N}\frac{x_i}{N}$<a class="anchor-link" href="#Equation-for-the-mean:---$\mu_x-=-\sum_{i=1}^{N}\frac{x_i}{N}$">¶</a></h3><h3 id="Equation-for-the-standard-deviation:--$\sigma_x-=-\sqrt{\sum_{i=1}^{N}\left(x_i---\mu-\right)^2}\frac{1}{N-1}$">Equation for the standard deviation:  $\sigma_x = \sqrt{\sum_{i=1}^{N}\left(x_i - \mu \right)^2}\frac{1}{N-1}$<a class="anchor-link" href="#Equation-for-the-standard-deviation:--$\sigma_x-=-\sqrt{\sum_{i=1}^{N}\left(x_i---\mu-\right)^2}\frac{1}{N-1}$">¶</a></h3><p><strong>Instructions:</strong></p>
+<p><strong>(1) Before you write code, write an algorithm that describes the sequence of steps you will take to compute the mean and standard deviation for your samples.  The algorithm can be written in pseudocode or as an itemized list.*</strong></p>
+<p><strong>(2) Use 'for' loops to help yourself compute the average and standard deviation.</strong></p>
+<p><strong>(3) Use for loops and conditional operators to count the number of samples within $1\sigma$ of the mean.</strong></p>
+<p><strong>Note:</strong> It is not acceptable to use the pre-programmed routines for mean and st. dev., e.g. numpy.mean()</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Edit-this-box-to-write-an-algorithm-for-computing-the-mean-and-std.-deviation.">Edit this box to write an algorithm for computing the mean and std. deviation.<a class="anchor-link" href="#Edit-this-box-to-write-an-algorithm-for-computing-the-mean-and-std.-deviation.">¶</a></h3>
+<pre><code>
+</code></pre>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Write-your-code-using-instructions-in-the-cells-below.">Write your code using instructions in the cells below.<a class="anchor-link" href="#Write-your-code-using-instructions-in-the-cells-below.">¶</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
@@ -168,20 +181,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Python Modules get imported here #</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Put your Header information here.  Name, creation date, version, etc.</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Load-a-webpage-into-memory-and-parse-it-using-Beautiful-Soup">Load a webpage into memory and parse it using Beautiful Soup<a class="anchor-link" href="#Load-a-webpage-into-memory-and-parse-it-using-Beautiful-Soup">¶</a></h4>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
@@ -189,11 +193,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">lyriclink</span> <span class="o">=</span> <span class="s1">'https://www.nytimes.com/'</span>
-<span class="c1">#lyriclink = 'https://www.washingtonpost.com/'</span>
-<span class="n">webpg</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">lyriclink</span><span class="p">)</span>
-
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">webpg</span><span class="o">.</span><span class="n">content</span><span class="p">,</span><span class="s2">"lxml"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import the matplotlib module here.  No other modules should be used.</span>
 </pre></div>
 </div>
 </div>
@@ -205,43 +205,36 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#soup.findAll(text=re.compile('Irma'))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a list variable that contains at least 25 elements.  You can create this list any number of ways.  </span>
+<span class="c1"># This will be your sample.</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">keyword</span> <span class="o">=</span> <span class="s1">'Kabul'</span>
-<span class="k">for</span> <span class="n">lyrics</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">keyword</span><span class="p">)):</span>
-    <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"The Word "</span><span class="o">+</span> <span class="n">keyword</span> <span class="o">+</span> <span class="s2">" showed up"</span><span class="p">,</span><span class="n">count</span><span class="p">,</span><span class="s2">"times!!"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pretend you do not know how long x is; compute it's length, N, without using functions or modules.</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>The Word Kabul showed up 2 times!!
-</pre>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compute the mean of the elements in list x.</span>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>For homework, modify the variables webpg and the keyword to scrape a different website for a different word then upload the modified code to the assignments page for Sakai.</strong></p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
@@ -249,8 +242,74 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Uncomment the line below to see the output.</span>
-<span class="c1">#print(soup.prettify())</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compute the std deviation, using the mean and the elements in list x.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use the 'print' command to report the values of average (mu) and std. dev. (sigma).</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count the number of values that are within +/- 1 std. deviation of the mean.  </span>
+<span class="c1"># A normal distribution will have approx. 68% of the values within this range.  </span>
+<span class="c1"># Based on this criteria is the list normally distributed?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use print() and if statements to report a message about whether the data is normally distributed.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### Use Matplotlb.pyplot to make a histogram of x.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="OCG-593-students,-look-up-an-equation-for-Skewness-and-write-code-to-compute-the-skewness.">OCG 593 students, look up an equation for Skewness and write code to compute the skewness.<a class="anchor-link" href="#OCG-593-students,-look-up-an-equation-for-Skewness-and-write-code-to-compute-the-skewness.">¶</a></h3><h4 id="Compute-the-skewness-and-report-whether-the-sample-is-normally-distributed.">Compute the skewness and report whether the sample is normally distributed.<a class="anchor-link" href="#Compute-the-skewness-and-report-whether-the-sample-is-normally-distributed.">¶</a></h4>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
