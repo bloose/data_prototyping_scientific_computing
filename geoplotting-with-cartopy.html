@@ -162,7 +162,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [188]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import numpy and pyplot as well as cartopy.  </span>
@@ -203,6 +203,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Let's visualize a few of the many projections that cartopy permits</span>
+<span class="c1"># Uncomment the lines below to generate the figure.</span>
 
 
 <span class="c1">### NOTE:  You can uncomment/comment a block of code by highlighting it and typing CTRL + /, that's "Control Slash".</span>
@@ -314,7 +315,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The map you just made using plt.figure() gives you a vague idea of the distribution of earthquakes, it even roughly draws out the continental shapes that may be familiar to you, but it <strong>does not succeed in conveying the full geographic information we need</strong>.  Therefore, we need to make a map using geographic projections.   This is where cartopy becomes useful.</p>
+<p>The map you just made using Matplotlib gives you a vague idea of the distribution of earthquakes, it even roughly draws out the continental shapes that may be familiar to you, but it <strong>does not succeed in conveying the full geographic information we need</strong>.  Therefore, we need to make a map using geographic projections.   This is where cartopy becomes useful.</p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
@@ -331,7 +332,10 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 
 
 <span class="c1"># Determine the limits of your bounding box.</span>
-<span class="c1"># Go in order of [E,W,S,N] or [Left, Right, Bottom, Top]</span>
+<span class="c1"># Go in order of BBox = [E,W,S,N] or [Left, Right, Bottom, Top]</span>
+<span class="c1"># NOTE:  Try to use coding to introduce flexibility to the Bounding Box limits, rather than hardwire them.  </span>
+<span class="c1"># This is important, because your data may change.  Here, it is helpful to use the lat/lon data to establish the </span>
+<span class="c1"># map limits.</span>
 </pre></div>
 </div>
 </div>
@@ -446,6 +450,23 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">CSC 593:  Download a  satellite image of a recent natural disaster (e.g. wildfire, tropical storm) and overlay that on a map coordinate system.  (Extra credit for OCG 404).<a class="anchor-link" href="#CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">¶</a></h4><blockquote><p>Check out this example <a href="https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html">https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html</a></p>
 </blockquote>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="What-to-turn-in:">What to turn in:<a class="anchor-link" href="#What-to-turn-in:">¶</a></h3><p>Upload this .ipynb with the completed code for generating map limits and any other supporting docs, like the .csv files you downloaded.   Add comments to your code as you see fit.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
