@@ -12,13 +12,13 @@
 <link rel="canonical" href="./measuring-temperature-part-2.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial=2.7 &gt;&gt;&gt; conda install pyserial" />
+        <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial" />
 
         <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Measuring Temperature Part 2"/>
         <meta property="og:url" content="./measuring-temperature-part-2.html"/>
-        <meta property="og:description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial=2.7 &gt;&gt;&gt; conda install pyserial"/>
+        <meta property="og:description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial"/>
         <meta property="article:published_time" content="2021-10-13" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -154,8 +154,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Reading-and-decoding-Temperature-Data-from-Arduino">Reading and decoding Temperature Data from Arduino<a class="anchor-link" href="#Reading-and-decoding-Temperature-Data-from-Arduino">¶</a></h3><h4 id="(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">(This is Part 2 of the Measuring Temperature Lab ).<a class="anchor-link" href="#(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">¶</a></h4><p><strong> For this lab you will need pyserial.  This can be installed thru Anaconda the same way we did Basemap. 
 Try either of the following options for installation. </strong></p>
-<pre><code>>>> conda install -c anaconda pyserial=2.7
->>> conda install pyserial</code></pre>
+<ol>
+<li>
+<pre><code>>>> conda install -c anaconda pyserial</code></pre>
+</li>
+<li>Use Anaconda Navigator to install pyserial from the Enivronments tab.</li>
+</ol>
 <p>Check out <a href="https://pythonhosted.org/pyserial/pyserial.html">https://pythonhosted.org/pyserial/pyserial.html</a>  for more information on the Package.</p>
 <p>For parsing the incoming serial data you will want to use Python's string Methods:</p>
 <blockquote><p><a href="http://www.thehelloworldprogram.com/python/python-string-methods/">http://www.thehelloworldprogram.com/python/python-string-methods/</a>
