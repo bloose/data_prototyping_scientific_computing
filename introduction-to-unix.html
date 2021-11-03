@@ -306,6 +306,37 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <p><code>rm: cannot remove ‘ocg404’: Is a directory</code></p>
 <p>To delete the folder and all of its contents, we can force rm to recursively descend into the directory and remove everythng.</p>
 <pre><code>]$ rm -rf ocg404</code></pre>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Wild-cards">Wild cards<a class="anchor-link" href="#Wild-cards">¶</a></h2><p>Shell commands have lots of shortcuts for handling many files.  This is necessary, because without a mouse, you can't do things like SHIFT + Click to select multiple files.  The wildcards are two great examples of this.</p>
+<pre><code>]$ ls *.*   # List all of the files and all of the extensions (e.g. .csv, .txt. doc)</code></pre>
+<pre><code>]$ ls *.csv   # List all files of type .csv</code></pre>
+<pre><code>]$ rm *.png   # Delete all files of type .png.  This is powerful, but also dangerous!</code></pre>
+<pre><code>]$ ls 2021*   # List all the files that begin with 2021, regardless of their extension.</code></pre>
+<p>In my ocg404 directory, I have a bunch of geotiff files and associated metadata.  I want to get a list of the Landsat 5 files.  These all start with LT05</p>
+<pre><code>[urihpc25@login005 ocg404]$ ls -l LT05*  # List all the files that begin with 2021, regardless of their extension.
+
+-rw-r--r-- 1 urihpc25 uri_fall2021     34884 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_ANG.txt
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B1.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B2.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B3.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B4.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B5.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B6.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021  60124178 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_B7.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021 120189198 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_BQA.TIF
+-rw-r--r-- 1 urihpc25 uri_fall2021     17395 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_GCP.txt
+-rw-r--r-- 1 urihpc25 uri_fall2021      7392 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_MTL.txt
+-rw-r--r-- 1 urihpc25 uri_fall2021 132825010 Oct 25 20:16 LT05_L1TP_012031_20110902_20160831_01_T1.tar.gz
+-rw-r--r-- 1 urihpc25 uri_fall2021    261826 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_VER.jpg
+-rw-r--r-- 1 urihpc25 uri_fall2021    119248 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_VER.txt</code></pre>
+<p>These are a few simple exeamples of what are referred to as filename substitutions.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Key-Points">Key Points<a class="anchor-link" href="#Key-Points">¶</a></h2><ul>
 <li><code>cp old new</code> copies a file.</li>
 <li><code>mkdir path</code> creates a new directory.</li>
