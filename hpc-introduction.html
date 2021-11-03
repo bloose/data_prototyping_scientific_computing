@@ -195,7 +195,8 @@ $ source /gpfs/runtime/opt/anaconda/2020.02/etc/profile.d/conda.sh</code></pre>
 </li>
 <li><p>[Do this only once] Once you have loaded Python 3.7 and Anaconda modules, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</p>
 <pre><code>$ conda create -n <your_env_here> -c conda-forge python=3.7.4 dask mpi4py cartopy scikit-image
-$ source activate your_env_here</code></pre>
+$ source activate your_env_here
+$ pip install landsatexplore  #This is a github package that lets us query the USGS EarthExplorer.</code></pre>
 </li>
 <li><p>[Do this every time you log in] Activate the Anaconda environment you created:
 ~~~</p>
