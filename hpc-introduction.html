@@ -12,13 +12,13 @@
 <link rel="canonical" href="./hpc-introduction.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. https://docs.ccv.brown.edu/oscar/software/python-on-oscar Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line." />
+        <meta name="description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started https://docs.ccv.brown.edu/oscar/software/python-on-oscar https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line." />
 
         <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
-        <meta property="og:description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. https://docs.ccv.brown.edu/oscar/software/python-on-oscar Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line."/>
+        <meta property="og:description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started https://docs.ccv.brown.edu/oscar/software/python-on-oscar https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line."/>
         <meta property="article:published_time" content="2021-10-27" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -153,8 +153,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Remote-computing-at-the-Brown-University-cluster-(Oscar).">Remote computing at the Brown University cluster (Oscar).<a class="anchor-link" href="#Remote-computing-at-the-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide</p>
-<p><a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.
-<a href="https://docs.ccv.brown.edu/oscar/software/python-on-oscar">https://docs.ccv.brown.edu/oscar/software/python-on-oscar</a></p>
+<ul>
+<li><a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a></li>
+<li><a href="https://docs.ccv.brown.edu/oscar/software/python-on-oscar">https://docs.ccv.brown.edu/oscar/software/python-on-oscar</a></li>
+<li><a href="https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc">https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc</a></li>
+</ul>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
 <li>Learn basic unix shell navigation and commands.</li>
 <li>Set up computing environment for Python on the Oscar cluster.</li>
@@ -172,16 +175,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <pre><code>Name: URI HPC 25
 Login: urihpc25 
 Password: Mistreat25!</code></pre>
-<p>To access the HPC, we will use Secure Shell to make an encrypted Telnet connection.</p>
-<ul>
-<li>On MAC Open a terminal window</li>
-</ul>
-<pre><code>$ ssh urihpc##@ssh.ccv.brown.edu</code></pre>
-<ul>
-<li>On Windows download Putty:  <a href="https://www.putty.org/">https://www.putty.org/</a>.  Once downloaded, open the PuTTY application.  You can type <code>urihpc##@ssh.ccv.brown.edu</code> directly into the hostname box and click Open. </li>
-</ul>
-<p>If this connection is successful, then you can proceed to setting up you Python environment in the next step.</p>
-<p><strong>Two-factor authentication:</strong> In 2021, Brown implemented two-factor authentication (something you know, and something you have) to log in to all Brown accounts.  This includes the HPC accounts.  When you try to ssh into the Brown HPC, you will be prompted with a link to sign up for two-factor authentication.  The easiest solution is enter your mobile # and receive SMS or Push notifications to the Duo app (you have to install Duo from the app store).</p>
+<p>To access the HPC, try use the VNC (virtual desktop) environment.  You will need to download and install the Java binary <a href="https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc">here</a>.  This avoids two-step authentication for the moment.</p>
+<ol>
+<li>Download and open the <a href="https://brownbox.brown.edu/download.php?hash=b00a6c89">CCV VNC Client</a>.  This should be executable.  If you get a message that you need a Java SDK, go to  2, otherwise go to 3.</li>
+<li>Navigate to the Oracle Java Downloads page, choose your OS (Windows, Mac, Linux).  Download the binary (.dmg, .bin, or .exe) and install. </li>
+<li>Open the CCV_VNC_2.0.3.jar.  This should bring you a login window.  Enter your urihpc login and password. You should see a virtual desktop.  You can open a terminal emulator inside the desktop like below.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/vnc_window.png" width="600" /></p>
+<ol>
+<li>If this is successful, then proceed to <strong> Step 2: Set up the working environment </strong>.</li>
+</ol>
 <p><strong>NOTE:</strong> The Oscar CCV environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module list</code> to see what's available.</p>
 </div>
 </div>
@@ -196,7 +199,9 @@ $ source /gpfs/runtime/opt/anaconda/2020.02/etc/profile.d/conda.sh</code></pre>
 <li><p>[Do this only once] Once you have loaded Python 3.7 and Anaconda modules, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</p>
 <pre><code>$ conda create -n <your_env_here> -c conda-forge python=3.7.4 dask mpi4py cartopy scikit-image
 $ source activate your_env_here
-$ pip install landsatexplore  #This is a github package that lets us query the USGS EarthExplorer.</code></pre>
+$ pip install landsatxplore    # Note there is no 'e' between 't' and 'x' in the name 'landsatxplore'</code></pre>
+</li>
+<li><p><strong>NOTE:</strong> You need to substitute an environment name of your choosing in place of <your_env_here>.  Don't include the '<' in your name.</your_env_here></p>
 </li>
 <li><p>[Do this every time you log in] Activate the Anaconda environment you created:
 ~~~</p>
@@ -213,14 +218,14 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/Intro_Unix_Navigating.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
+<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
 <p>Try using the <code>myquota</code> command to see how much space you were allocated.</p>
 <pre><code>$ myquota</code></pre>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:--Transfer-your-.py-file-by-sftp">Step 4:  Transfer your .py file by sftp<a class="anchor-link" href="#Step-4:--Transfer-your-.py-file-by-sftp">¶</a></h3><p>Secure File Transfer Protocol or sftp allows you to move files between your computer and your user directory on Oscar.</p>
+<h3 id="Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">Step 4:  Transfer your .py file by sftp (4a) or by Google Drive (4b).<a class="anchor-link" href="#Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">¶</a></h3><h3 id="Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">Step 4a: sftp (this only works if you enabled two-step authentication).<a class="anchor-link" href="#Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">¶</a></h3><p>Secure File Transfer Protocol or sftp allows you to move files between your computer and your user directory on Oscar.</p>
 <p>If you haven't already, make a directory on Oscar entitled <code>ocg404</code>.  This directory should be inside your urihpc## folder.</p>
 <pre><code>]$ mkdir ocg404</code></pre>
 <p>To begin an sftp session * On MAC Open a terminal window</p>
@@ -236,36 +241,34 @@ $ source activate your_env_here</code></pre>
 <p>Compare that with:</p>
 <pre><code>]$ pwd</code></pre>
 <p>Can you recognize which is the local and which is the remote directory?  The same applies to the commands <code>cd</code> and <code>ls</code>, among others.  They are <code>lcd</code> and <code>lls</code> if you want to make a move in the local directory.</p>
-<p>Use <code>lcd</code> to navigate to the folder where your satsearch.py file is currently stored.</p>
+<p>Use <code>lcd</code> to navigate to the folder where your landsatexplore.py file is currently stored.</p>
 <p>Now transfer that file to Oscar, but make sure you have used <code>cd</code> inside sftp so that it transfers to the directory you want.</p>
 <p>To upload the file you use the <code>put</code> command.</p>
 <pre><code>]$ put landsatexplore.py</code></pre>
 <p>To download a file you use the <code>get</code> command.</p>
 <pre><code>]$ get test.png</code></pre>
+<h3 id="Step-4b:-Mozilla-Firefox.">Step 4b: Mozilla Firefox.<a class="anchor-link" href="#Step-4b:-Mozilla-Firefox.">¶</a></h3><ol>
+<li><p>Inside the Virtual Desktop, open the Mozilla Firefox web browser.  Log into your URI Google Drive account or a dropbox account if you have one.</p>
+</li>
+<li><p>Download your copy of landsatexplore.py from Google Drive onto the Oscar VNC desktop to complete the assignment.</p>
+</li>
+<li><p>Upload a copy of your landsat.png or .jpeg made with landsatexplore.py to Google Drive, so you can submit for the assignment.</p>
+</li>
+<li><p>Proceed to Step 5.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Use-a-text-editor-to-modify-satsearch.py-the-upload-via-sftp">Step 5: Use a text editor to modify satsearch.py the upload via sftp<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-satsearch.py-the-upload-via-sftp">¶</a></h3><ul>
-<li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsate image.</li>
-<li>Note, that because we don't have a graphics connection to Oscar, you will need to save the file as a .png or .jpeg for downloading by ftp. </li>
-<li>sftp will overwrite the previous version of satsearch.py that you uploaded.  It doesn't check for newer/older versions.</li>
-<li>Run landsatexplore.py on Oscar:</li>
+<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">Step 5: Use a text editor to modify landsatexplore.py the upload via sftp<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">¶</a></h3><ul>
+<li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsat image.</li>
+<li>Note, that because we don't have a graphics connection to Oscar, you will need to save the file as a .png or .jpeg for downloading by ftp or Google Drive. </li>
+<li>sftp will overwrite the previous version of landsatexplore.py that you uploaded.  It doesn't check for newer/older versions.</li>
+<li>Run landsatexplore.py on Oscar; download the image you produce and your modified code.</li>
 </ul>
 <pre><code>]$ python landsatexplore.py</code></pre>
 <h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Use sftp to download the image you created and submit that as this week's in_class assignment, along with your modified version of landsatexplore.py and your basic_stats.py module.</p>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
