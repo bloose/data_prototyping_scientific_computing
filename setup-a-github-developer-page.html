@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Setup a Github developer page - 2021 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./setup-a-github-developer-page.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Using Git and Github for version control and collaboration.¶Objectives Set up Git to keep track of changes to code for collaboration purposes. Create a Github pages repository and use Markdown to create a simple templated professional website. Use Git to publish your work on Github to share in the Public Domain. Glossary of terms:¶" />
+
+        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Setup a Github developer page"/>
+        <meta property="og:url" content="./setup-a-github-developer-page.html"/>
+        <meta property="og:description" content="Using Git and Github for version control and collaboration.¶Objectives Set up Git to keep track of changes to code for collaboration purposes. Create a Github pages repository and use Markdown to create a simple templated professional website. Use Git to publish your work on Github to share in the Public Domain. Glossary of terms:¶"/>
+        <meta property="article:published_time" content="2021-11-24" />
+            <meta property="article:section" content="Notes" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2021 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2021.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li >
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./setup-a-github-developer-page.html"
+                       rel="bookmark"
+                       title="Permalink to Setup a Github developer page">
+                        Setup a Github developer page
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-11-24T00:00:00-05:00"> Wed 24 November 2021</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Using-Git-and-Github-for-version-control-and-collaboration.">Using Git and Github for version control and collaboration.<a class="anchor-link" href="#Using-Git-and-Github-for-version-control-and-collaboration.">¶</a></h2><p><strong>Objectives</strong></p>
+<ul>
+<li>Set up Git to keep track of changes to code for collaboration purposes.</li>
+<li>Create a Github pages repository and use Markdown to create a simple templated professional website.</li>
+<li>Use Git to publish your work on Github to share in the Public Domain.</li>
+</ul>
+<h3 id="Glossary-of-terms:">Glossary of terms:<a class="anchor-link" href="#Glossary-of-terms:">¶</a></h3><ol>
+<li>init - Initialize a directory with git version control, so that all changes will be recorded and backed up.</li>
+<li>add  - The git add command adds files or folders to a git repository.</li>
+<li>commit - Stage all files in the local repository with appropriate version information stored.</li>
+<li>push - The git push command is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.</li>
+<li>pull  - The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content. </li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1-:Installing-Git">Step 1 :Installing Git<a class="anchor-link" href="#Step-1-:Installing-Git">¶</a></h3><ol>
+<li>Navigate to github.com and create a user account.</li>
+<li>Install git as follows:</li>
+</ol>
+<p><strong>On MAC:</strong>   First, check whether git may already be installed</p>
+<pre><code>~~~
+git --version
+~~~
+
+</code></pre>
+<p><strong>On Windows:</strong>  Git is available as a stand-alone binary, including a unix-like Bash shell.  Go to <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> and download the install binary.</p>
+<p><strong>NOTE:</strong>  Use all the default choices.</p>
+<ol>
+<li>Update the global config with your username and email.  This is necessary to complete the git commit and git push commands.</li>
+</ol>
+<pre><code>$ git config --global user.name <your_username>
+$ git config --global user.email <your_email></code></pre>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-2:--Set-up-your-github-account-and-github-pages-repository.">Step 2:  Set up your github account and github pages repository.<a class="anchor-link" href="#Step-2:--Set-up-your-github-account-and-github-pages-repository.">¶</a></h3><ol>
+<li>Navigate to <a href="https://github.com/OCG404-CSC593/ghpages_template">this repository template</a> and <strong>fork</strong> it.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/fork.png" width="600px" /></p>
+<ol>
+<li>Click on the repository settings and change the name of the repository to <code><your_username>.github.io</code>.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/rename.png" width="600px" /></p>
+<ol>
+<li>Scroll down to the Github pages section and select the <code>master</code> branch as the site where your gh_pages will be built from.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/gh_pages.png" width="600px" /></p>
+<ol>
+<li>Copy the <a href="https://github.com/[your_username]/[your_username].github.io.git">https://github.com/[your_username]/[your_username].github.io.git</a> URL to your clipboard in preparation to clone the repository to your local computer.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3:--Clone-your-repository-to-work-locally.">Step 3:  Clone your repository to work locally.<a class="anchor-link" href="#Step-3:--Clone-your-repository-to-work-locally.">¶</a></h3><p>Use the <code>git clone</code> command to make a local copy of your repository that you can modify and push. First, create a directory in your users folder where you will store your repositories.</p>
+<pre><code>]$ cd ~                 # Change to your home directory
+]$ mkdir git_repos/     # Make folder to organize all your repositories
+]$ cd git_repos/
+]$ git clone https://github.com/<your_username>/<your_username>.github.io.git   #this should be copied from the code dropdown.
+]$ cd <your_username>.github.io     # Change into the directory you created.</code></pre>
+<p>If you navigate your browser to <a href="https://[your_username].github.io">https://[your_username].github.io</a> you should be served up a copy of the templates with the Joker head shot.  Now you need to modify with your info.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-4:--Modify-files-to-make-the-templates-your-own.">Step 4:  Modify files to make the templates your own.<a class="anchor-link" href="#Step-4:--Modify-files-to-make-the-templates-your-own.">¶</a></h3><p>Use nano or a text editor to open and modify the left sidebar contents contained in <code>_config.yml</code>.  Note, you must use html code in <code>_config.yml</code>, it does not recognize markdown.</p>
+<ol>
+<li>Add your name.</li>
+<li>Change the title information</li>
+<li>Add a headshot image to the /images folder and copy the name into _config.yml in place of joker_logo.png.</li>
+</ol>
+<p>Use nano or a text editor to open and modify the body contents contained in index.md.  Here, you can edit in Markdown.</p>
+<ol>
+<li>Use markdown to add some Bio information.</li>
+<li>Add details to Education, Work Experience, and Projects, or change these categories as you choose.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-5:--Add,-commit,-and-push-your-changes-to-the-git-version-controller-and-to-Github.">Step 5:  Add, commit, and push your changes to the git version controller and to Github.<a class="anchor-link" href="#Step-5:--Add,-commit,-and-push-your-changes-to-the-git-version-controller-and-to-Github.">¶</a></h3><p>First, let's create a directory in your users home folder for our work and then move into that directory:</p>
+<pre><code>$git add --all                  # Add all the modified files to the staging for commit.
+$git commit -m "some updates"   # Commit the changes to version control; include a short description of the changes.
+$git push -u origin master      # Push the changes to the remote repository on github.  You will be prompted to login.</code></pre>
+<p><strong>NOTE:</strong> You should be prompted to authenticate or enter your git username and password when you use the <code>git push</code> command.  These credentials can be stored so you don't have to log in every time.</p>
+<p><strong>ALSO:</strong> <code>git init</code> will create the local repository inside the folder titled <code>.git/</code></p>
+<p>Check to see if it's there:</p>
+<pre><code>$ ls -a</code></pre>
+<p>Git uses this hidden folder to store all the info and versions of this folder.
+If <code>.git</code> subdirectory is deleted, we will lose the project's history.  Check the contents:</p>
+<pre><code>$ ls -a .git/</code></pre>
+<pre><code>.       COMMIT_EDITMSG  HEAD        branches    description index       logs        packed-refs
+..      FETCH_HEAD  ORIG_HEAD   config      hooks       info        objects     refs</code></pre>
+<pre><code>$ git status</code></pre>
+<pre><code>On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)</code></pre>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-6:-What-to-turn-in.">Step 6: What to turn in.<a class="anchor-link" href="#Step-6:-What-to-turn-in.">¶</a></h3><p>Make a nicely formatted and accurate version of your Github developer page.  Paste the link into the in-class assignment box and upload it, so I can have a look.</p>
+<p>If you already have a Github pages site, you can still clone the site onto your local computer.  You don't need to change your gh-pages template if you already had one.  Just send me the URL to your developer page on Github.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>
