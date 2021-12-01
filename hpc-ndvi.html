@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Parallel Processing - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>HPC NDVI - 2021 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,16 @@
 
 
 
-<link rel="canonical" href="./hpc-parallel-processing.html">
+<link rel="canonical" href="./hpc-ndvi.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Python parallel processing on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment." />
+        <meta name="description" content="NDVI computation on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Create a parallel processor &#39;job&#39;and Python environment . Modify landsatexplore.py from Week09 and implement a computation of NDVI using . Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list." />
 
         <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="HPC Parallel Processing"/>
-        <meta property="og:url" content="./hpc-parallel-processing.html"/>
-        <meta property="og:description" content="Python parallel processing on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment."/>
+        <meta property="og:title" content="HPC NDVI"/>
+        <meta property="og:url" content="./hpc-ndvi.html"/>
+        <meta property="og:description" content="NDVI computation on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Create a parallel processor &#39;job&#39;and Python environment . Modify landsatexplore.py from Week09 and implement a computation of NDVI using . Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list."/>
         <meta property="article:published_time" content="2021-12-01" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -81,10 +81,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./hpc-parallel-processing.html"
+                    <a href="./hpc-ndvi.html"
                        rel="bookmark"
-                       title="Permalink to HPC Parallel Processing">
-                        HPC Parallel Processing
+                       title="Permalink to HPC NDVI">
+                        HPC NDVI
                     </a>
                 </h1>
             </header>
@@ -152,124 +152,116 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
 .highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Python-parallel-processing-on-Brown-University-cluster-(Oscar).">Python parallel processing on Brown University cluster (Oscar).<a class="anchor-link" href="#Python-parallel-processing-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
+<h2 id="NDVI-computation-on-Brown-University-cluster-(Oscar).">NDVI computation on Brown University cluster (Oscar).<a class="anchor-link" href="#NDVI-computation-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
-<li>Learn how to request a parallel processor 'job'and set up a Python environment that will use that job.</li>
-<li>Write a short function to test and confirm that parallel processing is taking place.</li>
-<li>Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment.</li>
+<li>Create a parallel processor 'job'and Python environment .</li>
+<li>Modify landsatexplore.py from Week09 and implement a computation of NDVI using .</li>
+<li>Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list.</li>
+<li>Observe whether there is a seasonal difference in the NDVI for the RI/New England region.</li>
 </ol>
-<h3 id="Glossary-of-terms:">Glossary of terms:<a class="anchor-link" href="#Glossary-of-terms:">¶</a></h3><ol>
-<li>Parallel processing:  Division of a calculation into pieces that can be computed at the same time or in parallel.</li>
-<li>Processor or worker: The CPU, GPU or TPU chip that performs the actual computations.</li>
-<li>Cluster:  A collection of processors or workers that are networked and orchestrated to carry out a parallel computation.</li>
-<li>Array: A 1, 2, 3, or N-dimensional data structure that can hold floats,or ints.</li>
-<li>Chunks:  The blocks or subsets of an array that Dask uses to break up large arrays for parallel processing.</li>
+<p><strong>NOTE:</strong> This exercise uses cumulative concepts from throughout the course, including use of list and numpy arrays, creation of modules, reading and writing files, using Pandas dataframes, and unix commands. Refer to your code from previous weeks and to the online library documentation as needed.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">Step 1:  Add NDVI computation to your previous <code>landsatexplore.py</code> code from Week09.<a class="anchor-link" href="#Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">¶</a></h3><p>The <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> can be computed directly from two frequency bands in the Landsat satellite data - the Near Infrared band (NIR) and the visible red (Red) spectral reflectance:</p>
+$$ NDVI = \frac{NIR - Red}{NIR + Red} $$<p>Below is a list of modifications you should make to your <code>landsatexplore.py</code> script.  Give it a new name, like <code>lsexplore_NDVI.py</code> or similar.</p>
+<p><strong>NOTE</strong>: The landsatxplore API that we used in Week09 was very slow for downloading the Landsat files.  I have downloaded approximately 50 files and stored them in a location where you can load them.  The files are stored in <code>/users/urihpc25/LT05gz/</code>.  You can use this path and shell scripting wildcards to capture a list of e.g. all the files that end in <code>_B4.TIF</code> or <code>.tar.gz</code> and then feed that list to the dask client.map() function.</p>
+<ol>
+<li>Delete, or comment out all usage of landsatexplore from Week09. This script will do the NDVI computation using the cluster job and save the results in a Pandas dataframe, nothing more.</li>
+<li>Put all the code of the script inside this <code>if</code> statement. This ensures that the cluster resource request will be compiled at runtime before the computations begin:
+<pre><code>if __name__ == '__main__':</code></pre>
+Don't forget to indent</li>
+<li>Add the codeblock from coreclock.py that requests and uses the requested Cluster resources.</li>
+<li>Define a module to compute the NDVI with the following operations.  Your module should take a single file name from the landsat <code>scenes</code> list and it should return the average NDVI value from that item.</li>
+</ol>
+<pre><code># Use skimage.imread() to load the NIR band (Band 4 on Landsat 5 images).  
+# Do the same for the Red band (Band 3).
+# Remember you can subindex the filename because it is a string and use it to load e.g. the 
+# _B4.TIF and _B3.TIF files.
+B4 = skimage.imread(<filepath>+...)
+# Compute the NDVI as (nir-red)/(nir+red).  Note that in some cases, the denominator in this equation can be zero,
+# leading to infinite or undefined values. Use e.g. np.where(), in order to identify the undefined values.
+denom = np.add(B4,B3)
+# Replace all undefined values with NaNs.
+denom = np.where(...)
+
+# Convert the .TIF arrays into dask arrays using dask.array.from_array().  Here you will specify a chunksize.
+
+# Use dask.array functions to compute and return the average NDVI value from each satellite scene.
+
+av_ndvi = ....
+
+# Your function should return the average ndvi value for this Landsat image.
+return av_ndvi</code></pre>
+<ol>
+<li><p>Add the code block from coreclock.py that uses f = client.map() to distribute the computation amongst the cores and displays the progress.  f = client.map() will take your module name and the satellite items list as inputs.</p>
+</li>
+<li><p>Write a <code>for</code> loop to extract the date stamp from the scenes list of images, and put it into a separate list array, called 'NDVI_time' or similar.  Refer to <a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products">this page on Landsat naming conventions</a> to determine which subset of the name contains the image date.</p>
+</li>
+<li><p>Extract the list of Average NVDI computations from your module using client.gather().</p>
+<pre><code>AvNDVI_list = client.gather(f)</code></pre>
+</li>
+<li><p>Make a Pandas dataframe with a 'time' column and an 'NDVI' column.  Put NDVI_time and AvNDVI_list into the Pandas dataframe (they should be the same length).</p>
+</li>
+<li><p>Save the Pandas dataframe for download. I recommend using df.to_csv('file.csv');  Depending on which you choose, you then you can read the file with df = pd.read_pickle() or df = read_csv();</p>
+</li>
 </ol>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Using-Dask-for-Parallel-Processing.">Using Dask for Parallel Processing.<a class="anchor-link" href="#Using-Dask-for-Parallel-Processing.">¶</a></h2><p>Dask is a flexible library for parallel computing in Python.</p>
-<p>We use Dask to <strong>(1)</strong> manage the cores in our cluster job, and <strong>(2)</strong> break up large arrays into chunks for parallel processing.</p>
+<h3 id="Step-2:--Download-and-post-process-your-results.">Step 2:  Download and post-process your results.<a class="anchor-link" href="#Step-2:--Download-and-post-process-your-results.">¶</a></h3><ol>
+<li>Connect to Oscar with sftp as you have before.   Use sftp to transfer your Pandas dataframe</li>
+</ol>
+<pre><code>$ sftp guest###@ssh.ccv.brown.edu
+$ lcd path/to/home/dir
+$ cd path/to/results/file
+$ get file.csv</code></pre>
 <ol>
-<li>To manage the processors or workers in the cluster. 
-<a href="http://distributed.dask.org/en/stable/quickstart.html">http://distributed.dask.org/en/stable/quickstart.html</a></li>
+<li>Write a short script as .py or .ipynb to load and graph the NDVI mean value as a function of time.</li>
+<li>Make a plot of the NDVI index with time, similar to the one below.</li>
+<li>You can improve the rendering of dates on the y-axis using the mdates formatter:
+<pre><code>import matplotlib.dates as mdates
+# read in .csv...
+# 
+# Set index to datetime for rolling mean computation
+ndv.set_index('time',inplace=True)
+# Compute rolling mean. This gives a 60D running average.
+ndv_rm = ndv.rolling('360D').mean();
+# Plot....
+# f, ax = plt.subplots(figsize=(10,5))
+# 
+#Display only year and month on x-axis.
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
+</li>
 </ol>
-<p>The Dask Distributed Library creates a client() instance that contains access to the existing cluster workers that have been allocated by the <code>interact</code> statement, listed below in Step 1.  Two functions .map() and .submit() tell Dask to parallelize the computation</p>
-<ol>
-<li>To divide up the LandSat array images into chunks that can be dealt to the parallel processor.</li>
-</ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-array-black-text.svg" width="600" /> (c) Dask Core Developers
-<img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-dataframe.svg" width="600" /> (c) Dask Core Developers</p>
-<h3 id="Arrays-implement-the-NumPy-API">Arrays implement the NumPy API<a class="anchor-link" href="#Arrays-implement-the-NumPy-API">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
-                     <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-<p>Watch this video for a brief introduction to Dask Array computations.
-<a href="https://youtu.be/9h_61hXCDuI">https://youtu.be/9h_61hXCDuI</a></p>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">Step 1:  Log in to Oscar vis ssh. Request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.ccv.brown.edu/oscar/submitting-jobs/slurm">Oscar documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Oscar uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
-<p>The <code>interact</code> and <code>batch</code> commands allows us to request cluster jobs on Oscar.  Documentation for both is found here.  I think you can run all of your work using the <code>interact</code> command, as this will simlify the feedback and comprehension loop as you execute your code.  For interact, you need to request the number of nodes <code>-n</code>, the amount of time you want the job to last <code>-t</code>, and the RAM or memory <code>-m</code>.</p>
-<p>The command below requests 5 processors and 150 GB of RAM for 60 minutes.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
-<pre><code>]$ interact -n 5 -t 00:60:00 -m 150g</code></pre>
-<pre><code>Cores:    5
-Walltime: 0:60:00
-Memory:   150g
-Queue:    batch
-salloc -J interact -N 1-1 -n 5 --time=0:60:00 --mem=150g -p batch srun --pty bash
-salloc: Pending job allocation 15699369
-salloc: job 15699369 queued and waiting for resources
-salloc: job 15699369 has been allocated resources
-salloc: Granted job allocation 15699369
-srun: Step created for job 15699369
-module: unloading 'java/8u111'
-module: loading 'java/8u111'
-module: unloading 'matlab/R2017b'
-module: loading 'matlab/R2017b'
-module: unloading 'python/3.7.4'
-module: loading 'python/2.7.12'
-module: unloading 'intel/2017.0'
-module: loading 'intel/2017.0'</code></pre>
-<p><strong>Note</strong> that the modules we loaded (python 3.7 and anacond 3.5) get unloaded when the job is allocated. This is because, Oscar has assigned us a new compute <code>node</code> with the processing resources on the computer. Because we are occupying a different physical space in the cluster, our computing environment has been reset to the default.  Before we can do our work, we must reload those as below.</p>
-<pre><code>$ module load python/3.7.4
-$ module load anaconda/2020.02
-$ source /gpfs/runtime/opt/anaconda/2020.02/etc/profile.d/conda.sh
-$ source activate <your_env_here></code></pre>
-<p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
-<pre><code>$ chmod a+x start.sh</code></pre>
-<p>The script can be run at the command line using</p>
-<pre><code>$ source start.sh</code></pre>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 2: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
-<li>Download the script coreclock.py and examine the comments and contents.</li>
-<li>Add a module called coreclock() to the script, following the comments in the script.</li>
-<li>Upload the script to Oscar using sftp.</li>
-<li>Log in to oscar via ssh.</li>
-<li>Request compute resources for your job following step 2.</li>
-<li>Load modules, activate your conda environment.</li>
-</ol>
-<h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4>
-<pre><code>    # Client() and LocalCluster() will be used to connect to the job resources that
-    # were requested. 
-    from dask.distributed import Client, LocalCluster
-    # Progress function reports the computation status to the screen
-    from dask.distributed import progress
-    # Use time library for sleep
-    import time
-    # Connect to resources.
-    cluster = LocalCluster()
-    job = Client(cluster)
-    print(job)</code></pre>
-<p>The code block above creates a connection to the <code>interact</code> job.  The resources can be viewed with <code>print(job)</code></p>
-<ol>
-<li>Use client.map() to execute coreclock() on 500 instances of x.</li>
-<li>Run coreclock.py at the command line:</li>
-</ol>
-<pre><code>$ python coreclock.py
-<client: &#x27;tcp: 127.0.0.1:37750&#x27; processes="5" threads="5," memory="161.06" gb>
-[####                                    ] | 10% Completed | 11.6s</code></pre>
-<ol>
-<li>How long does it take for the code to complete execution?</li>
-<li>Based on 500 instances of coreclock() and the 1 second delay, how long would it take for a single processor to complete the same task?</li>
-<li>Does processing time scale proportionately with the number of cores? Consider rerunning coreclock with a different number of processors in your interact request, to see if the trend holds.</li>
-<li>Is parellel computation working as expected?</li>
-</ol>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ul>
-<li>Answer the questions from Step 3 in this .ipynb.</li>
-<li>Upload this .ipynb</li>
-<li>Upload your modified version of coreclock.py </li>
+<h4 id="Summary-of-results:">Summary of results:<a class="anchor-link" href="#Summary-of-results:">¶</a></h4><p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/NDVI.png" width="800" /></p>
+<p><strong>Results</strong></p>
+<ul>
+<li>I found 61 individual satellite items during a 10 year period from 2002 to 2012.</li>
+<li>The analysis took approximately 37 seconds to complete with 5 cores and 150 GB requested. This may vary, depending on how many users have jobs running at the same time and what priority those have.</li>
+<li>The NDVI index appears to vary a lot - possibly decreasing in winter months; lower NDVI suggests lower vegetation cover.</li>
+<li>Many factors can cause a change of NDVI including cloud cover or other details that we have not examined in the imagery.</li>
+<li>This exercise was mostly intended to lead us through the usage of computing on a remote cluster.</li>
 </ul>
+<p><strong>Caveats</strong></p>
+<ol>
+<li>Normal NDVI is supposed to scale between -1 and 1.  The raw values range from 0 to 255 digital numbers. We did not scale them, but I don't think this will skew the results as we are looking at relative changes.</li>
+<li>Each image does not cover the same area. Before comparing regions, we should crop each image to the same area, but we leave this task for another iteration.</li>
+<li>We did not consider how to account for cloud cover.</li>
+<li>We did no benchmarking or cross-checking of these results, so they may be completely bogus.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ol>
+<li>How long did your code take to process? </li>
+<li>Your modified version of landsatexplore.py from Week09, reflecting all the new code.</li>
+<li>Modify this .ipynb to include your results from the NDVI calculation and summary figure.</li>
+<li>Include the figure of NDVI over time, similar to the one above.</li>
+</ol>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
