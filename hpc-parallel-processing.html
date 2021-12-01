@@ -179,8 +179,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <ol>
 <li>To divide up the LandSat array images into chunks that can be dealt to the parallel processor.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-array-black-text.svg" width="600" /> (c) Dask Core Developers
-<img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-dataframe.svg" width="600" /> (c) Dask Core Developers</p>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-array-black-text.svg" width="600" /> (c) Dask Core Developers <br /><br />
+<img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-dataframe.svg" width="400" /> (c) Dask Core Developers</p>
 <h3 id="Arrays-implement-the-NumPy-API">Arrays implement the NumPy API<a class="anchor-link" href="#Arrays-implement-the-NumPy-API">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
                      <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
