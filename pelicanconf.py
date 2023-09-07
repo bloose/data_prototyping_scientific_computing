@@ -3,8 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'Brice Loose'
-SITENAME = u'2021 | Data Prototyping and Scientific Computing'
-SUBTITLE = 'Fall 2021'
+SITENAME = u'2023 | Data Prototyping and Scientific Computing'
+SUBTITLE = 'Fall 2023'
 SITEURL = 'https://bloose.github.io/data_prototyping_scientific_computing'
 
 RELATIVE_URLS = True
