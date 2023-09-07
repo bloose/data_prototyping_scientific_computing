@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Measuring Temperature Part 2 - 2021 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./measuring-temperature-part-2.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial" />
+
+        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Measuring Temperature Part 2"/>
+        <meta property="og:url" content="./measuring-temperature-part-2.html"/>
+        <meta property="og:description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial"/>
+        <meta property="article:published_time" content="2021-10-13" />
+            <meta property="article:section" content="Worksheets" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2021 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2021.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li >
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./measuring-temperature-part-2.html"
+                       rel="bookmark"
+                       title="Permalink to Measuring Temperature Part 2">
+                        Measuring Temperature Part 2
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-10-13T00:00:00-04:00"> Wed 13 October 2021</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Reading-and-decoding-Temperature-Data-from-Arduino">Reading and decoding Temperature Data from Arduino<a class="anchor-link" href="#Reading-and-decoding-Temperature-Data-from-Arduino">¶</a></h3><h4 id="(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">(This is Part 2 of the Measuring Temperature Lab ).<a class="anchor-link" href="#(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">¶</a></h4><p><strong> For this lab you will need pyserial.  This can be installed thru Anaconda the same way we did Basemap. 
+Try either of the following options for installation. </strong></p>
+<ol>
+<li>
+<pre><code>>>> conda install -c anaconda pyserial</code></pre>
+</li>
+<li>Use Anaconda Navigator to install pyserial from the Enivronments tab.</li>
+</ol>
+<p>Check out <a href="https://pythonhosted.org/pyserial/pyserial.html">https://pythonhosted.org/pyserial/pyserial.html</a>  for more information on the Package.</p>
+<p>For parsing the incoming serial data you will want to use Python's string Methods:</p>
+<blockquote><p><a href="http://www.thehelloworldprogram.com/python/python-string-methods/">http://www.thehelloworldprogram.com/python/python-string-methods/</a>
+<a href="https://docs.python.org/2/library/string.html">https://docs.python.org/2/library/string.html</a></p>
+</blockquote>
+<p>Also check out the Regular Expressions (regex) modules. <a href="https://docs.python.org/2/library/re.html#">https://docs.python.org/2/library/re.html#</a>  These are more sophisticated than what we require, but very powerful.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Some-Cliff-Notes-on-Pandas">Some Cliff Notes on Pandas<a class="anchor-link" href="#Some-Cliff-Notes-on-Pandas">¶</a></h3><p>This exercise uses Pandas - a Python dataframe module, which is valuable for handling relational data.  Brice will provide a more thorough intro to Pandas next week, when we talk about time series and regression statistics.  For now, we will use Pandas to create a dataframe and save it to a .csv file.  Pandas dataframes use the dict() or dictionary data type.</p>
+<pre><code>>>> df = pd.DataFrame(columns=('time','Resistence','Temp')) # This command declares a new Pandas dataframe with three columns: time, resistence, and Temp.
+
+>>> df = df.append({'time':t,'Resistence': R,'Temp':T},ignore_index=True)  # This command appends new values to each of the columns.</code></pre>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the libraries</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">serial</span> <span class="k">as</span> <span class="nn">ps</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="k">as</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Open the serial connection using e.g. S = ps.Serial() command.</strong></p>
+<p>You will need to find the exact port name on your computer. Hint: This can be found in the Arduino Tools menu under "port".</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Assign the serial object that you will write to and read from</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Initialize the two variables you will be using to store xdata and ydata (resistance).</strong></p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize Pandas dataframe to capture time, resistence, and Temp, as shown in datetime notes.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Set the coefficients for the Steinhart-Hart equation</strong></p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##1/T = A + B*Ln(R) + C(Ln(R))^3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mf">0.001125308852122</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mf">0.000234711863267</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mf">0.000000085663516</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set a while loop or for loop.  You can make it go indefinitely until you kill the loop with Kernel -> Interrupt.</span>
+<span class="c1">#lp = 0</span>
+<span class="c1">#stop = 'go'</span>
+
+<span class="c1"># Use a for or while loop.  You can make it go indefinitely until you kill the loop with Kernel -> Interrupt.</span>
+<span class="c1">#while stop == 'go':</span>
+
+
+    <span class="c1"># Use the serial .write(b'  ') function to issue your measurement request to the Arduino.</span>
+
+    
+    <span class="c1"># Read a line from the Serial data object stored in 'S'. Note, readline() line returns a byte array. </span>
+    <span class="c1"># You can convert to a string using decode('utf-8').  You may also want to investigate the .strip() function </span>
+    <span class="c1"># that will remove unwanted characters. </span>
+
+    <span class="c1"># Decode and strip to create a string.</span>
+    <span class="c1">#a = a.decode('utf-8').strip()</span>
+
+    
+    <span class="c1"># Parse the string to make sure you have found the right line.  Remember you can index strings the way you index</span>
+    <span class="c1"># other objects.  </span>
+    <span class="c1"># Example:   >>> mystr = "This string is short"   </span>
+    <span class="c1">#            >>> print mystr[12:13]   (this produces 'is')</span>
+    <span class="c1">#b = a.find("This is my resistence line")</span>
+    
+    <span class="c1"># Use an 'if statement' if necessary and append the new resistance value to the array 'R' that was initialized </span>
+    <span class="c1"># above.</span>
+    <span class="c1"># Compute Temperature using A, B, C coefficients and the resistance value.</span>
+    <span class="c1"># Convert Temp in deg Kelvin to deg C.</span>
+    <span class="c1"># Record the date and time using the datetime package.  </span>
+    <span class="c1"># Append the datetime, resistance, and temperature as a new row in your Pandas Dataframe.</span>
+    <span class="c1">#if b != -1:</span>
+    <span class="c1">#    try:</span>
+
+    <span class="c1">#    except:</span>
+    <span class="c1">#        print("incomplete string")</span>
+
+        
+    <span class="c1"># Add a delay to set the measurement frequency with the time.sleep() function.</span>
+
+
+    <span class="c1"># Save the data to a csv using the pandas function df.to_csv() where df is the name of your dataframe.</span>
+    <span class="c1"># You can use a conditional statement to do this every N'th time, e.g. every 100th time.</span>
+  
+        <span class="c1">#df.to_csv()</span>
+
+        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Completing-your-data-collection">Completing your data collection<a class="anchor-link" href="#Completing-your-data-collection">¶</a></h3><ol>
+<li>Close the connection to the Serial data object.  (THIS IS REALLY IMPORTANT)!!!</li>
+<li>Make a plot of Temperature vs. time.</li>
+</ol>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Make a plot of Temperature vs. datetime.   Save that plot using plt.savefig() </strong></p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="What-to-turn-in:">What to turn in:<a class="anchor-link" href="#What-to-turn-in:">¶</a></h3><p>See instructions in Thermistor Lab Part 2.</p>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Intro to Pandas - 2021 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./intro-to-pandas.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Intro to Pandas¶Pandas is a Python library that provides a sophisticated data structure for organization and analysis. It excels at categorizing data and at time series operations. Check out: https://pandas.pydata.org/pandas-docs/stable/10min.html https://www.youtube.com/watch?v=F6kmIpWWEdU Advantages of Pandas Can read many files: .xls, .csv, any delimited text file, as well as JSON and SQL. Very smart with identifying data types, e.g. text, integer, float, or even dates." />
+
+        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Intro to Pandas"/>
+        <meta property="og:url" content="./intro-to-pandas.html"/>
+        <meta property="og:description" content="Intro to Pandas¶Pandas is a Python library that provides a sophisticated data structure for organization and analysis. It excels at categorizing data and at time series operations. Check out: https://pandas.pydata.org/pandas-docs/stable/10min.html https://www.youtube.com/watch?v=F6kmIpWWEdU Advantages of Pandas Can read many files: .xls, .csv, any delimited text file, as well as JSON and SQL. Very smart with identifying data types, e.g. text, integer, float, or even dates."/>
+        <meta property="article:published_time" content="2021-10-20" />
+            <meta property="article:section" content="Notes" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2021 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2021.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li >
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./intro-to-pandas.html"
+                       rel="bookmark"
+                       title="Permalink to Intro to Pandas">
+                        Intro to Pandas
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-10-20T00:00:00-04:00"> Wed 20 October 2021</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Intro-to-Pandas">Intro to Pandas<a class="anchor-link" href="#Intro-to-Pandas">¶</a></h2><p><strong>Pandas is a Python library that provides a sophisticated data structure for organization and analysis. It excels at categorizing data and at time series operations</strong>.</p>
+<p>Check out: 
+<a href="https://pandas.pydata.org/pandas-docs/stable/10min.html">https://pandas.pydata.org/pandas-docs/stable/10min.html</a>
+<a href="https://www.youtube.com/watch?v=F6kmIpWWEdU">https://www.youtube.com/watch?v=F6kmIpWWEdU</a></p>
+<p>Advantages of Pandas</p>
+<ol>
+<li>Can read many files: .xls, .csv, any delimited text file, as well as JSON and SQL.</li>
+<li>Very smart with identifying data types, e.g. text, integer, float, or even dates.</li>
+<li>Allows data indexing along row, column or subrow or subcolumn.</li>
+<li>Contains many built-in analysis functions for operating on DataFrames and Series.</li>
+<li>Handles missing or empty data.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/df_blocks.png" />
+(c)dataquest.io</p>
+<p>The Pandas DataFrame allows us to load a complicated file into Python and perform multiple data manipulations efficiently, and without having to recast the data.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><p>pd.Series() is analogous to a 1D array, pd.DataFrame() is analogous to a 2D array.</p>
+</li>
+<li><p>By using <strong>indexes</strong> to help categorize data and provide a hierarchy of categories.  Index applies to row categories.</p>
+</li>
+<li><p>The column categories are just <strong>columns</strong>.</p>
+</li>
+</ul>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'ScienceInventory_Ioffe.xlsx'</span><span class="p">)</span>
+<span class="c1">#freight = pd.read_excel('ScienceInventory_Ioffe.xlsx',index_col='Institution')</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># Plot the first five rows of the dataframe</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Number</th>
+<th>Name/Description</th>
+<th>Institution</th>
+<th>Weight (lbs)</th>
+<th>LxWxH (in)</th>
+<th>Last Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1.0</td>
+<td>Jelly</td>
+<td>URI Geotracerkitchen</td>
+<td>111.0</td>
+<td>33x27x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2.0</td>
+<td>Narwhal superhero</td>
+<td>URI Geotracerkitchen</td>
+<td>74.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3.0</td>
+<td>Lancaster</td>
+<td>URI Geotracerkitchen</td>
+<td>100.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4.0</td>
+<td>Guante</td>
+<td>URI Geotracerkitchen</td>
+<td>70.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5.0</td>
+<td>Cooler 2</td>
+<td>URI Geotracerkitchen</td>
+<td>42.0</td>
+<td>26x17x12</td>
+<td>Geophysical Lab</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas automatically fills in empty data with NaNs.</span>
+<span class="n">freight</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span> <span class="c1"># Plot the last five rows of the dataframe</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Number</th>
+<th>Name/Description</th>
+<th>Institution</th>
+<th>Weight (lbs)</th>
+<th>LxWxH (in)</th>
+<th>Last Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>61</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>62</th>
+<td>NaN</td>
+<td>Contact:</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>63</th>
+<td>NaN</td>
+<td>Brice Loose, U. of Rhode Island</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>64</th>
+<td>NaN</td>
+<td>Email: bloose@uri.edu</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>65</th>
+<td>NaN</td>
+<td>Tel: +1 401.874.6676</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas is fairly clever about determining the right data type for each column.  </span>
+<span class="c1"># If it can't determine, the default is text and the dtype is "object".</span>
+<span class="n">freight</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre><class &#x27;pandas.core.frame.dataframe&#x27;>
+RangeIndex: 66 entries, 0 to 65
+Data columns (total 6 columns):
+Number              57 non-null float64
+Name/Description    60 non-null object
+Institution         56 non-null object
+Weight (lbs)        53 non-null float64
+LxWxH (in)          53 non-null object
+Last Location       56 non-null object
+dtypes: float64(2), object(4)
+memory usage: 3.2+ KB
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># You can extract a generic array from the Pandas dataframe, using the .values attribute.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[1.0, 'Jelly', 'URI Geotracerkitchen', 111.0, '33x27x16',
+        'Geophysical Lab'],
+       [2.0, 'Narwhal superhero', 'URI Geotracerkitchen', 74.0,
+        '28x19x16', 'Geophysical Lab'],
+       [3.0, 'Lancaster', 'URI Geotracerkitchen', 100.0, '28x19x16',
+        'Geophysical Lab'],
+       [4.0, 'Guante', 'URI Geotracerkitchen', 70.0, '28x19x16',
+        'Geophysical Lab'],
+       [5.0, 'Cooler 2', 'URI Geotracerkitchen', 42.0, '26x17x12',
+        'Geophysical Lab'],
+       [6.0, 'Earl', 'URI Geotracerkitchen', 112.0, '26x17x12',
+        'Geophysical Lab'],
+       [7.0, 'Barton1', 'Florida Intl. U', 80.0, '26x26x24',
+        'Geophysical Lab'],
+       [8.0, 'Barton2', 'Florida Intl. U', 60.0, '26x26x16',
+        'Geophysical Lab'],
+       [9.0, 'Yellow Pellican Case, VIMS WM',
+        'Virginia Inst. Marine Science', 53.0, '32x21x12',
+        'Geophysical Lab'],
+       [10.0,
+        'VIMS- Tan shipping crate containing Slocum electric glider containing lithium batteries and toolbox- FRAGILE',
+        'Virginia Inst. Marine Science', 500.0, '95 x 29 x 35',
+        'Stern Hold'],
+       [11.0, 'Tall cardboard box with Patagonia Gear',
+        'URI Inner Space Center', 25.0, '36x15x15', 'Mud Room'],
+       [12.0, 'Blue Bin Ziptied, Office Supplies label',
+        'URI Inner Space Center', 25.0, '30x18x12', 'Mud Room'],
+       [13.0, 'Blue Bin labeled Brice Loose', 'URI Inner Space Center',
+        25.0, '30x18x12', 'Mud Room'],
+       [14.0, '4 Imprint cardboard box', 'URI Inner Space Center', 25.0,
+        '30x20x15', 'Mud Room'],
+       [15.0, 'Hot hands box from Kobayashi Industries',
+        'URI Inner Space Center', 10.0, '24x12x10', 'Geophysical Lab'],
+       [16.0, 'Box with "Delta Luggage tape" contains Hot Hands',
+        'URI Inner Space Center', 15.0, '8x10x18', 'Geophysical Lab'],
+       [17.0, 'Zarges case, C511, UIC Crary Lab', 'U. Illinois Chicago',
+        80.0, '22x22x16', 'Geophysical Lab'],
+       [18.0, 'Zarges case, C511, UIC Crary Lab', 'U. Illinois Chicago',
+        80.0, '30x22x16', 'Geophysical Lab'],
+       [19.0, 'Picarro H2O case, cardboard', 'U. Illinois Chicago', 53.0,
+        '23.5x25x12', 'Geophysical Lab'],
+       [20.0, 'Picarro Analyzer, cardboard (box in a box in a box)',
+        'U. Illinois Chicago', 78.0, '30x36x17', 'Geophysical Lab'],
+       [21.0,
+        'ISC - Mobile Telepresence Unit Transmission Rack(1/2) (labeled with white X)',
+        'URI Inner Space Center', 60.0, '22x27x24',
+        '06 Deck, Communications Room'],
+       [22.0,
+        'ISC - Mobile Telepresence Unit Production Rack (2/2) (labeled with white X))',
+        'URI Inner Space Center', 40.0, '12x22x19',
+        '06 Deck, Communications Room'],
+       [23.0, 'ISC - Dark Grey Camera Bag (1/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '13x9x25',
+        '06 Deck, Communications Room'],
+       [24.0, 'ISC - Dark Grey Camera Bag (2/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '13x9x25',
+        '06 Deck, Communications Room'],
+       [25.0,
+        'ISC - Black Pelican Case (audio/video cabling) (labeled with white X)',
+        'URI Inner Space Center', 80.0, '25x20x13',
+        '06 Deck, Communications Room'],
+       [26.0,
+        'ISC - Black Pelican Case - Blackmagic video production switcher and router (labeled with white X)',
+        'URI Inner Space Center', 80.0, '25x20x13',
+        '06 Deck, Communications Room'],
+       [27.0,
+        'ISC - Black Pelican Case Production accessories i.e batteries, hard drives, audio accessories, a/v signal converters (labeled with white X)',
+        'URI Inner Space Center', 70.0, '16x26x24',
+        '06 Deck, Communications Room'],
+       [28.0,
+        'ISC - Black Pelican Case (audio/video/telepresence accessories) (labeled with white X)',
+        'URI Inner Space Center', 70.0, '16x26x24',
+        '06 Deck, Communications Room'],
+       [29.0, 'ISC - Tripod Case (labeled with white X)',
+        'URI Inner Space Center', 15.0, '36x8x8',
+        '06 Deck, Communications Room'],
+       [30.0, 'ISC - Black Tote Grey Lid (labeled with white X)',
+        'URI Inner Space Center', 40.0, '15x16x26',
+        '06 Deck, Communications Room'],
+       [31.0,
+        'ISC - Olive Green Pelican - RF Communications gear, iridium sat phone, Electric Tool kit (labeled with white X)',
+        'URI Inner Space Center', 80.0, '16x26x24',
+        '06 Deck, Communications Room'],
+       [32.0,
+        'ISC - Cardboard box with Monitor (1/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '14x24x6',
+        '06 Deck, Communications Room'],
+       [33.0,
+        'ISC - Cardboard box with Monitor (2/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '14x24x6',
+        '06 Deck, Communications Room'],
+       [34.0, 'Behringer audio mixer (1/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '12x20x4',
+        '06 Deck, Communications Room'],
+       [35.0, 'Behringer audio mixer (1/2) (labeled with white X)',
+        'URI Inner Space Center', 10.0, '12x20x4',
+        '06 Deck, Communications Room'],
+       [39.0, 'Dive tank w/ Air', 'U. Illinois Chicago', 30.0,
+        '10dia x 34', 'Expedition Room'],
+       [40.0, 'Green Tank of Compressed Gases', 'URI Geotracerkitchen',
+        40.0, '10dia x 48"', 'Expedition Room'],
+       [41.0, 'Silver Tank of Compressed Gases', 'URI Geotracerkitchen',
+        40.0, '10dia x 48"', 'Expedition Room'],
+       [42.0, 'Green Tank of Compressed Air', 'Airgas', 95.0,
+        '12dia x 60"', 'Expedition Room'],
+       [43.0, 'Green Tank of Compressed Air', 'Airgas', 95.0,
+        '12dia x 60"', 'Expedition Room'],
+       [44.0, 'Greend Tank of Ultra-High Purity N2', 'Airgas', 95.0,
+        '12dia x 60"', 'Back Deck'],
+       [45.0, 'Two ladders in the area of the back deck.',
+        'Virginia Inst. Marine Science', 15.0, '12dia x 60"',
+        'Back Deck'],
+       [46.0, 'Shakleton, Aluminum Case', 'URI Geotracerkitchen', 65.0,
+        '28x19x16', 'Geophysical Lab'],
+       [47.0, 'Franklin,  Aluminum Case', 'URI Geotracerkitchen', 65.0,
+        '28x19x16', 'Geophysical Lab'],
+       [48.0, 'Chaquita,  Gray plastic case', 'URI Geotracerkitchen',
+        50.0, '24x18x15', 'Stern Hold'],
+       [49.0, 'Cradle,  Gray plastic case', 'URI Geotracerkitchen', 50.0,
+        '24x18x15', 'Stern Hold'],
+       [50.0, 'Kovacs,  Gray plastic case', 'URI Geotracerkitchen', 30.0,
+        '40x8x8', 'Stern Hold'],
+       [51.0,
+        'Hose Reel (yellow) on pallet with submersible pump, by smoking area',
+        'URI Geotracerkitchen', 85.0, '20x20x36', 'By Smoking Area'],
+       [52.0,
+        'Aluminum Zarges Case with spare Goulds Bruiser Pump, 4 flow meters, 2 cotends.',
+        'URI Geotracerkitchen', 45.0, '24x18x15',
+        'unknown location, arrived on pallet with Niskin bottles and immersion suits'],
+       [53.0,
+        'Qty 4 General Oceanics 10 L Niskin Water Bottles for water sampling',
+        'URI Geotracerkitchen', 10.0, '40"', 'Stern Hold behind cage.'],
+       [55.0, 'Gray Plastic Box with U. Laval label', 'U. of Laval',
+        40.0, '24x18x15', 'Geophysical Lab'],
+       [56.0, 'Gray Plastic Box with U. Laval label', 'U. of Laval',
+        45.0, '24x18x15', 'Geophysical Lab'],
+       [57.0, 'Cooler with U. Laval label', 'U. of Laval', 45.0,
+        '30x18x15', 'Geophysical Lab'],
+       [58.0,
+        'Qty 20 immersion suits, most of which were in their own dry bags.\xa0',
+        'URI Inner Space Center', nan, nan,
+        'unknown location, arrived on pallet with Niskin bottles and immersion suits'],
+       [59.0, '4 mustang suits,  packed into a cardboard box.',
+        'URI Inner Space Center', nan, nan,
+        'unknown location, arrived on pallet with Niskin bottles and immersion suits'],
+       [60.0, '2 plankton nets in"paper wrapping"',
+        'URI Inner Space Center', nan, nan,
+        'unknown location, arrived on pallet with Niskin bottles and immersion suits'],
+       [61.0, nan, nan, nan, nan, nan],
+       [nan, nan, nan, nan, nan, nan],
+       [nan, nan, nan, nan, nan, nan],
+       [nan, nan, nan, nan, nan, nan],
+       [nan, nan, nan, nan, nan, nan],
+       [nan, nan, nan, nan, nan, nan],
+       [nan, 'Contact:', nan, nan, nan, nan],
+       [nan, 'Brice Loose, U. of Rhode Island', nan, nan, nan, nan],
+       [nan, 'Email: bloose@uri.edu', nan, nan, nan, nan],
+       [nan, 'Tel: +1 401.874.6676', nan, nan, nan, nan]], dtype=object)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Change the row index to the 'Institution', instead of the numeric row number.  </span>
+<span class="c1"># This provides another level of organization and data access, a little bit like an SQL relational database.</span>
+<span class="n">freight</span> <span class="o">=</span> <span class="n">freight</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Institution'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Number</th>
+<th>Name/Description</th>
+<th>Weight (lbs)</th>
+<th>LxWxH (in)</th>
+<th>Last Location</th>
+</tr>
+<tr>
+<th>Institution</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>URI Geotracerkitchen</th>
+<td>1.0</td>
+<td>Jelly</td>
+<td>111.0</td>
+<td>33x27x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>URI Geotracerkitchen</th>
+<td>2.0</td>
+<td>Narwhal superhero</td>
+<td>74.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>URI Geotracerkitchen</th>
+<td>3.0</td>
+<td>Lancaster</td>
+<td>100.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>URI Geotracerkitchen</th>
+<td>4.0</td>
+<td>Guante</td>
+<td>70.0</td>
+<td>28x19x16</td>
+<td>Geophysical Lab</td>
+</tr>
+<tr>
+<th>URI Geotracerkitchen</th>
+<td>5.0</td>
+<td>Cooler 2</td>
+<td>42.0</td>
+<td>26x17x12</td>
+<td>Geophysical Lab</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="p">[</span><span class="s1">'Weight (lbs)'</span><span class="p">][</span><span class="s1">'U. Illinois Chicago'</span><span class="p">]</span>  <span class="c1"># Report the weights column for UIC freight.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>U. Illinois Chicago    80.0
+U. Illinois Chicago    80.0
+U. Illinois Chicago    53.0
+U. Illinois Chicago    78.0
+U. Illinois Chicago    30.0
+Name: Weight (lbs), dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="p">[</span><span class="s1">'Weight (lbs)'</span><span class="p">][</span><span class="s1">'U. Illinois Chicago'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Do arithmetic on on the UIC freight.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>321.0</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read in a text file that is delimited by whitespace.  '\s+' allows multiple whitespace characters to exist </span>
+<span class="c1"># between each entry.</span>
+
+<span class="c1"># If file has a header, you need to tell read_csv() how many rows to skip, or it will misinterpret the shape of the</span>
+<span class="c1"># dataframe.</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'20151028 blank test.asc'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre><class &#x27;pandas.core.frame.dataframe&#x27;>
+RangeIndex: 167 entries, 0 to 166
+Data columns (total 10 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   Time                 167 non-null    object 
+ 1   Time Relative [s]    167 non-null    float64
+ 2   Ion Current [A]      167 non-null    float64
+ 3   Time.1               166 non-null    object 
+ 4   Time Relative [s].1  166 non-null    float64
+ 5   Ion Current [A].1    166 non-null    float64
+ 6   Time.2               166 non-null    object 
+ 7   Time Relative [s].2  166 non-null    float64
+ 8   Ion Current [A].2    166 non-null    float64
+ 9   Unnamed: 9           0 non-null      float64
+dtypes: float64(7), object(3)
+memory usage: 13.2+ KB
+None
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Time</th>
+<th>Time Relative [s]</th>
+<th>Ion Current [A]</th>
+<th>Time.1</th>
+<th>Time Relative [s].1</th>
+<th>Ion Current [A].1</th>
+<th>Time.2</th>
+<th>Time Relative [s].2</th>
+<th>Ion Current [A].2</th>
+<th>Unnamed: 9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>10/28/2015 5:19:52 PM</td>
+<td>1.163</td>
+<td>1.168035e-11</td>
+<td>10/28/2015 5:19:52 PM</td>
+<td>1.754</td>
+<td>5.023514e-12</td>
+<td>10/28/2015 5:19:53 PM</td>
+<td>2.348</td>
+<td>2.577793e-13</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>1</th>
+<td>10/28/2015 5:19:56 PM</td>
+<td>5.148</td>
+<td>1.072952e-11</td>
+<td>10/28/2015 5:19:56 PM</td>
+<td>5.687</td>
+<td>4.438980e-12</td>
+<td>10/28/2015 5:19:57 PM</td>
+<td>6.227</td>
+<td>2.177833e-13</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2</th>
+<td>10/28/2015 5:19:59 PM</td>
+<td>8.924</td>
+<td>1.005405e-11</td>
+<td>10/28/2015 5:20:00 PM</td>
+<td>9.463</td>
+<td>4.030143e-12</td>
+<td>10/28/2015 5:20:01 PM</td>
+<td>10.001</td>
+<td>2.158301e-13</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>3</th>
+<td>10/28/2015 5:20:03 PM</td>
+<td>12.697</td>
+<td>9.548497e-12</td>
+<td>10/28/2015 5:20:04 PM</td>
+<td>13.235</td>
+<td>3.707905e-12</td>
+<td>10/28/2015 5:20:04 PM</td>
+<td>13.775</td>
+<td>2.172714e-13</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>4</th>
+<td>10/28/2015 5:20:07 PM</td>
+<td>16.470</td>
+<td>9.157520e-12</td>
+<td>10/28/2015 5:20:08 PM</td>
+<td>17.008</td>
+<td>3.443559e-12</td>
+<td>10/28/2015 5:20:08 PM</td>
+<td>17.548</td>
+<td>2.248096e-13</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is timeseries data, so we should utilize a datetime data type as the row index.   </span>
+<span class="c1"># First, we have to create datetime. </span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="s1">'timeseries2.txt'</span>
+<span class="c1"># Read in the data and specify columns 3 and 4 - date and time as string data type.</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="mi">4</span><span class="p">:</span><span class="s1">'str'</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">'str'</span><span class="p">})</span>
+<span class="c1"># Add the strings together, convert them to a datetime and save the result in column 3.</span>
+<span class="n">ts</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="s1">' '</span><span class="o">+</span><span class="n">ts</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set the index to be the datetime column.</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>...</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+<th>17</th>
+<th>18</th>
+<th>19</th>
+<th>20</th>
+<th>21</th>
+<th>22</th>
+<th>23</th>
+</tr>
+<tr>
+<th>4</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2019-12-31 19:05:00</th>
+<td>0</td>
+<td>54796</td>
+<td>20200101</td>
+<td>5</td>
+<td>2019-12-31 19:05:00</td>
+<td>1905</td>
+<td>3</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.4</td>
+<td>...</td>
+<td>C</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1257</td>
+<td>0</td>
+<td>1.21</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:10:00</th>
+<td>1</td>
+<td>54796</td>
+<td>20200101</td>
+<td>10</td>
+<td>2019-12-31 19:10:00</td>
+<td>1910</td>
+<td>3</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.3</td>
+<td>...</td>
+<td>C</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1260</td>
+<td>0</td>
+<td>0.85</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:15:00</th>
+<td>2</td>
+<td>54796</td>
+<td>20200101</td>
+<td>15</td>
+<td>2019-12-31 19:15:00</td>
+<td>1915</td>
+<td>3</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.2</td>
+<td>...</td>
+<td>C</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1261</td>
+<td>0</td>
+<td>0.92</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:20:00</th>
+<td>3</td>
+<td>54796</td>
+<td>20200101</td>
+<td>20</td>
+<td>2019-12-31 19:20:00</td>
+<td>1920</td>
+<td>3</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.0</td>
+<td>...</td>
+<td>C</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1261</td>
+<td>0</td>
+<td>0.60</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:25:00</th>
+<td>4</td>
+<td>54796</td>
+<td>20200101</td>
+<td>25</td>
+<td>2019-12-31 19:25:00</td>
+<td>1925</td>
+<td>3</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>1.9</td>
+<td>...</td>
+<td>C</td>
+<td>0</td>
+<td>90</td>
+<td>0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1261</td>
+<td>0</td>
+<td>0.60</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas provides capabilities to manipulate the time base in your timeseries dataframe.  These are possible, once</span>
+<span class="c1"># you specify a datetime or time column as the row index, as we did above.</span>
+
+<span class="c1"># Upsample, but don't replace the values by any interpolation method.</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'1min'</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span>
+
+<span class="c1"># Upsample, but replace the values by the constant forward fill method.</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'1min'</span><span class="p">)</span><span class="o">.</span><span class="n">pad</span><span class="p">()</span>
+
+<span class="c1"># Upsample, but replace the values by a linear interpolation.</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'1min'</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>...</th>
+<th>14</th>
+<th>15</th>
+<th>16</th>
+<th>17</th>
+<th>18</th>
+<th>19</th>
+<th>20</th>
+<th>21</th>
+<th>22</th>
+<th>23</th>
+</tr>
+<tr>
+<th>4</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2019-12-31 19:05:00</th>
+<td>0.0</td>
+<td>54796.0</td>
+<td>20200101.0</td>
+<td>5.0</td>
+<td>2019-12-31 19:05:00</td>
+<td>1905</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.40</td>
+<td>...</td>
+<td>C</td>
+<td>0.0</td>
+<td>90.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1257.0</td>
+<td>0.0</td>
+<td>1.210</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:06:00</th>
+<td>0.2</td>
+<td>54796.0</td>
+<td>20200101.0</td>
+<td>6.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.38</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>90.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1257.6</td>
+<td>0.0</td>
+<td>1.138</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:07:00</th>
+<td>0.4</td>
+<td>54796.0</td>
+<td>20200101.0</td>
+<td>7.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.36</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>90.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1258.2</td>
+<td>0.0</td>
+<td>1.066</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:08:00</th>
+<td>0.6</td>
+<td>54796.0</td>
+<td>20200101.0</td>
+<td>8.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.34</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>90.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1258.8</td>
+<td>0.0</td>
+<td>0.994</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2019-12-31 19:09:00</th>
+<td>0.8</td>
+<td>54796.0</td>
+<td>20200101.0</td>
+<td>9.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>2.32</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>90.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>1259.4</td>
+<td>0.0</td>
+<td>0.922</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>2020-01-04 06:16:00</th>
+<td>998.2</td>
+<td>54796.0</td>
+<td>20200104.0</td>
+<td>1116.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>6.30</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>97.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>16.0</td>
+<td>0.0</td>
+<td>0.274</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2020-01-04 06:17:00</th>
+<td>998.4</td>
+<td>54796.0</td>
+<td>20200104.0</td>
+<td>1117.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>6.30</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>97.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>16.0</td>
+<td>0.0</td>
+<td>0.318</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2020-01-04 06:18:00</th>
+<td>998.6</td>
+<td>54796.0</td>
+<td>20200104.0</td>
+<td>1118.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>6.30</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>97.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>16.0</td>
+<td>0.0</td>
+<td>0.362</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2020-01-04 06:19:00</th>
+<td>998.8</td>
+<td>54796.0</td>
+<td>20200104.0</td>
+<td>1119.0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>6.30</td>
+<td>...</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>97.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>16.0</td>
+<td>0.0</td>
+<td>0.406</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>2020-01-04 06:20:00</th>
+<td>999.0</td>
+<td>54796.0</td>
+<td>20200104.0</td>
+<td>1120.0</td>
+<td>2020-01-04 06:20:00</td>
+<td>0620</td>
+<td>3.0</td>
+<td>-71.54</td>
+<td>41.49</td>
+<td>6.30</td>
+<td>...</td>
+<td>C</td>
+<td>0.0</td>
+<td>97.0</td>
+<td>0.0</td>
+<td>-99.0</td>
+<td>-9999.0</td>
+<td>16.0</td>
+<td>0.0</td>
+<td>0.450</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<p>4996 rows × 24 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>

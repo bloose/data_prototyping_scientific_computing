@@ -2,15 +2,19 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Brice Loose'
-SITENAME = 'Prototyping and Scientific Computing'
-SITEURL = ''
+AUTHOR = u'Brice Loose'
+SITENAME = u'2021 | Data Prototyping and Scientific Computing'
+SUBTITLE = 'Fall 2021'
+SITEURL = 'https://bloose.github.io/data_prototyping_scientific_computing'
 
+RELATIVE_URLS = True
 PATH = 'content'
 
 TIMEZONE = 'America/New_York'
 
-DEFAULT_LANG = 'en'
+USE_FOLDER_AS_CATEGORY = False # false is better for organzing lectures into subfolders
+PYGMENTS_STYLE = 'colorful'  # without this it was using black background and light font
+DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -19,43 +23,49 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-USE_FOLDER_AS_CATEGORY = True # false is better for organzing lectures into subfolders
+#USE_FOLDER_AS_CATEGORY = True # false is better for organzing lectures into subfolders
+Links = None
 
-#THEME = 'simplfy-theme'
-THEME = './themes/nest'
-SITESUBTITLE = u'My Awesome Blog'
-# Minified CSS
-NEST_CSS_MINIFY = True
-# Add items to top menu before pages
-
-MENUITEMS = [('Home', '/'),('Assignments','/Assignments')]
-
-STATIC_PATHS = ['static','images']
-NEST_HEADER_IMAGES = 'banner.jpg'
-#NEST_HEADER_LOGO = 'static/banner.jpg'
-
-
-# Blogroll
-LINKS = None
-#LINKS = (('Pelican', 'http://getpelican.com/'),
-#         ('Python.org', 'http://python.org/'),
-#         ('Jinja2', 'http://jinja.pocoo.org/'),
-#         ('You can modify those links in your config file', '#'),)
+# https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3
+#DISPLAY_TAGS_ON_SIDEBAR=True
+#DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
+#RECENT_POST_COUNT=10
 
 # Social widget
 SOCIAL = None
-#SOCIAL = (('You can add links in your config file', '#'),
-#          ('Another social link', '#'),)
 
-DEFAULT_PAGINATION = 10
-DISPLAY_PAGES_ON_MENU = True
+DEFAULT_PAGINATION = False
 
-MARKUP = ("md", "ipynb")
 
-from pelican_jupyter import markup as nb_markup
-PLUGINS = [nb_markup]
+I18N_TEMPLATES_LANG = 'en'
+
+
+THEME = 'pelican-themes/pelican-bootstrap3'
+BOOTSTRAP_THEME = 'lumen'
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+
+PLUGIN_PATHS = ['./plugins','./pelican-plugins']
+MARKUP = ('md', 'ipynb')
+PLUGINS = ['i18n_subsites','ipynb.markup']
 
 IGNORE_FILES = [".ipynb_checkpoints"]
 
-#Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+
+MENUITEMS = [('Syllabus', 'pages/OCG404_CSC593_Syllabus_2021.pdf')]
+
+STATIC_PATHS = ['Assignments','images']
+
+CUSTOM_CSS = 'static/css/custom.css'
+CUSTOM_JS = 'static/js/custom.js'
+
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'static/css/custom.css'},
+    'extra/custom.js': {'path': 'static/js/custom.js'}
+}
+
+
+NEST_HEADER_IMAGES = 'banner.jpg'
+#NEST_HEADER_LOGO = 'static/banner.jpg'
+BANNER = 'images/banner2.jpg'
+
+IPYNB_COLORSCHEME = 'colorful'

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Publish a Python Package - 2021 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./publish-a-python-package.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Making Modules and Packages for upload to Github¶NOTE: Much of this material was copied from the excellent packaging tutorial of Ryan Abernathy. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package the basic_stats module you wrote earlier in the class. (If you want to go through this process with a different module you wrote, that is also good, even excellent" />
+
+        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Publish a Python Package"/>
+        <meta property="og:url" content="./publish-a-python-package.html"/>
+        <meta property="og:description" content="Making Modules and Packages for upload to Github¶NOTE: Much of this material was copied from the excellent packaging tutorial of Ryan Abernathy. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package the basic_stats module you wrote earlier in the class. (If you want to go through this process with a different module you wrote, that is also good, even excellent"/>
+        <meta property="article:published_time" content="2021-11-24" />
+            <meta property="article:section" content="Worksheets" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2021 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2021.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li >
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./publish-a-python-package.html"
+                       rel="bookmark"
+                       title="Permalink to Publish a Python Package">
+                        Publish a Python Package
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-11-24T00:00:00-05:00"> Wed 24 November 2021</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Making-Modules-and-Packages-for-upload-to-Github">Making Modules and Packages for upload to Github<a class="anchor-link" href="#Making-Modules-and-Packages-for-upload-to-Github">¶</a></h2><p><strong>NOTE:</strong> Much of this material was copied from the excellent packaging tutorial of <a href="https://rabernat.github.io">Ryan Abernathy</a>.</p>
+<p><strong>MOTIVATION:</strong></p>
+<ul>
+<li><p>To maintain the integrity and reproduce scientific results, it is important that both data <strong>and</strong> <em>code</em> are preserved in a repository.</p>
+</li>
+<li><p>Document and package the <code>basic_stats</code> module you wrote earlier in the class. (<strong>If you want to go through this process with a different module you wrote, that is also good, even excellent</strong>).</p>
+</li>
+<li><p>Use git to upload and maintain the basic_stats module.</p>
+</li>
+</ul>
+<h3 id="Types-of-Projects">Types of Projects<a class="anchor-link" href="#Types-of-Projects">¶</a></h3><p><a href="https://rabernat.github.io">Ryan Abernathy</a> recommends categorizing your intellectual output into one of three types:</p>
+<ol>
+<li><strong>Exploratory analyses</strong>: When exploring a new idea, a single notebook or script is often all we need.</li>
+<li><strong>Single Paper or Research Report</strong>: The "paper" is a standard unit of scientific output. The code related to a single paper usually belongs together. </li>
+<li><strong>Reusable software elements</strong>: In the course of our research computing, we often identify specialized routines that we want to package for reuse in other projects, or by other scientists. This is where "scripts" become "software."</li>
+</ol>
+<p>We will focus on the Reusable software element.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Reuseable-Software-Elements">Reuseable Software Elements<a class="anchor-link" href="#Reuseable-Software-Elements">¶</a></h2><p>Scientific software can perhaps be grouped into two categories: single-use "scripts" that are used in a very specific context to do a very specific thing (e.g.~to generate a specific figure for a paper), and reuseable components which encapsulate a more generic workflow. Once you find yourself repeating the same chunks of code in many different scripts or projects, it's time to start composing reusable software elements.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Modules:">Modules:<a class="anchor-link" href="#Modules:">¶</a></h3><p>Earlier in the class you bundled your <code>basic_stats</code> code into a module.  Here, that code will get copied into a stand-alone Python .py file, so that it can be imported and executed by any other script or in the Python IDE. More info about <a href="https://docs.python.org/3/tutorial/modules.html">modules</a>.</p>
+<p>Below is some code to compute the <a href="">Saturation vapor pressure</a> for some common gases in the atmosphere.  I use this code as part of a toolbox on air-sea exchange.</p>
+<p>Included with this assignment is a file called<code>air_sea.py</code>, which contains the module definition for the satureation vapor pressure:</p>
+<div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Saturation Vapor Pressure in mb</span>
+<span class="sd">"""</span>
+
+<span class="k">def</span> <span class="nf">sat_vp</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+
+    <span class="sd">"""</span>
+<span class="sd">    Saturation Vapor Pressure in mb</span>
+<span class="sd">    % function es = sat_vp(T),</span>
+<span class="sd">    %- INPUT:</span>
+<span class="sd">    %-  1) Temperature in Deg. C</span>
+<span class="sd">    %- OUTPUT:</span>
+<span class="sd">    %-  1) vapor pressure in mb calculate the saturation vapor pressure in mb.  </span>
+<span class="sd">    %- </span>
+<span class="sd">    """</span>
+
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+    <span class="n">Lf</span> <span class="o">=</span> <span class="mf">2.453e6</span> <span class="c1"># (J/kg)</span>
+    <span class="n">Rv</span> <span class="o">=</span> <span class="mf">461.</span>     <span class="c1"># (J/kg)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o"><=</span> <span class="mi">0</span><span class="p">):</span>
+
+        <span class="n">Tk</span> <span class="o">=</span> <span class="mf">273.15</span><span class="o">+</span><span class="n">T</span>
+
+        <span class="c1"># es in hPa</span>
+        <span class="n">loges</span> <span class="o">=</span>  <span class="o">-</span><span class="mf">7.90298</span><span class="o">*</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">5.02808</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="p">)</span> \
+        <span class="o">-</span> <span class="mf">1.3816e-7</span><span class="o">*</span><span class="p">(</span><span class="mf">1011.344</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Tk</span><span class="o">/</span><span class="mf">373.16</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">8.1328e-3</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mf">3.49149</span><span class="o">*</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> \
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1013.246</span><span class="p">)</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">loges</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Tk</span> <span class="o">=</span> <span class="mf">273.15</span><span class="o">+</span><span class="n">T</span>
+        <span class="n">loges</span> <span class="o">=</span> <span class="n">Lf</span><span class="o">/</span><span class="n">Rv</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">273.15</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">Tk</span><span class="p">)</span>
+        <span class="n">es</span> <span class="o">=</span> <span class="mf">6.11</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">loges</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">es</span>
+</pre></div>
+<p>We can import this module if it is in the same folder as this Jupyter notebook.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">air_sea</span>
+<span class="n">help</span><span class="p">(</span><span class="n">air_sea</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Help on package air_sea:
+
+NAME
+    air_sea
+
+DESCRIPTION
+    Air-sea Package for Python
+        Version 1.0 Oct. 8, 2020
+        Author:  Brice Loose, Graduate School of Oceanography, URI.
+        Email: bloose@uri.edu
+        # 
+        # DISCLAIMER:
+        #    This software is provided "as is" without warranty of any kind. 
+        #=========================================================================
+
+PACKAGE CONTENTS
+    air_sea
+
+FUNCTIONS
+    sat_vp(T)
+        Saturation Vapor Pressure in mb
+        % function es = sat_vp(T),
+        %- INPUT:
+        %-  1) Temperature in Deg. C
+        %- OUTPUT:
+        %-  1) vapor pressure in mb calculate the saturation vapor pressure in mb.  
+        %-
+
+DATA
+    __all__ = ['sat_vp']
+
+FILE
+    /Users/huero/GDrive/teaching/OCG404/2021/Lectures+Notes/Week12_github/_Lab/air_sea/__init__.py
+
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>And let's try using it to make a calculation</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">air_sea</span><span class="o">.</span><span class="n">sat_vp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>5.670131452875462</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>If the module is modified, you must restart the kernel or reload the module.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+<span class="n">reload</span><span class="p">(</span><span class="n">air_sea</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre><module &#x27;air_sea&#x27; from &#x27; users huero gdrive teaching ocg404 2021 lectures+notes week12_github _lab air_sea __init__.py&#x27;></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Modules are a simple way to share code between different scripts or notebooks in the same project. <em>Module files must reside in the same directory as any script which imports them!</em> This is a big limitation; it means you can't share modules between different projects.</p>
+<p>Once you have a piece of code that is general-purpose enough to share between projects, you need to create a package.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Packages">Packages<a class="anchor-link" href="#Packages">¶</a></h3><p><a href="https://docs.python.org/3/tutorial/modules.html#packages">Packages</a> are python's way of encapsulating reusable code elements for sharing with others. Packaging is a huge and complicated topic. We will just scratch the surface.</p>
+<p>We have already interacted with many packages already. Browse some of their github repositories to explore the structure of a large python package:</p>
+<ul>
+<li>NumPy: <a href="https://github.com/numpy/numpy">https://github.com/numpy/numpy</a></li>
+<li>Pandas: <a href="https://github.com/pandas-dev/pandas">https://github.com/pandas-dev/pandas</a></li>
+</ul>
+<p>These packages all have a common basic structure. Imagine we wanted to turn the sat_vp module into a package called air-sea. It would look like this.</p>
+<pre><code>README.md
+LICENSE
+setup.py
+air_sea/__init__.py
+air_sea/sat_vp.py
+
+</code></pre>
+<p>The actual package is contained in the <code>air_sea</code> subdirectory. The other files are auxilliary files which help others understand and install your package. Here is an overview of what they do</p>
+<table>
+<thead><tr>
+<th>File Name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>README.md</code></td>
+<td>Explain what the package is for</td>
+</tr>
+<tr>
+<td><code>LICENSE</code></td>
+<td>Defines the legal terms under which other can use the package. <a href="https://opensource.org/licenses/category">Open source</a> is encouraged!</td>
+</tr>
+<tr>
+<td><code>setup.py</code></td>
+<td>A special python script which installs your package. (<a href="https://pythonhosted.org/an_example_pypi_project/setuptools.html">more info</a>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="The-actual-package">The actual package<a class="anchor-link" href="#The-actual-package">¶</a></h3><p>The directory <code>air_sea</code> is the actual package. Any directory that contains an <code>__init__.py</code> file is recognized by python as a package. This file can be blank, but it needs to be present.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><code>setup.py</code> is the magic file that makes your package installable and accessible anywhere. Here is a basic <code>setup.py</code></p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"air_sea"</span><span class="p">,</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="s2">"0.0.1"</span><span class="p">,</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="s2">"Brice Loose"</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">'sat_vp'</span><span class="p">],</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">'numpy'</span><span class="p">,</span><span class="s1">'scipy.io'</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+<p>To run the setup script, we call the following from the command line</p>
+<pre><code>python setup.py install
+
+</code></pre>
+<p>The package files are copied to our python library directory.
+If we plan to keep developing the package, we can install it in "developer mode" as</p>
+<pre><code>python setup.py develop
+
+</code></pre>
+<p>In this case, the files are symlinked rather than copied.</p>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Follow-similar-steps-to-the-github-pages-in-class-activity.">Follow similar steps to the github pages in-class activity.<a class="anchor-link" href="#Follow-similar-steps-to-the-github-pages-in-class-activity.">¶</a></h3><ol>
+<li>Back in a web browser, open your github.com account and make a new empty repository called <code>basic_stats</code>. Edit the repository name and description.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_clone.png" width="600px" /></p>
+<ol>
+<li>Include a LICENSE and README.md.</li>
+</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_repo.png" width="600px" /></p>
+<ol>
+<li>Copy the .git URL to your clipboard in preparation to clone the repository to your local computer.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Clone-the-empty-basic_stats-repository-and-copy-in-your-python-files.">Clone the empty basic_stats repository and copy in your python files.<a class="anchor-link" href="#Clone-the-empty-basic_stats-repository-and-copy-in-your-python-files.">¶</a></h3><p>Use the <code>git clone</code> command to make a local copy of your repository that you can modify and push.</p>
+<pre><code>]$ cd ~                 # Change to your home directory
+]$ cd git_repos/
+]$ git clone [repository_url].git   #this should be copied from the code dropdown.
+]$ cd [repository_name]     # Change into the directory you created.</code></pre>
+<ol>
+<li>Add setup.py to the repository folder.</li>
+<li>Make a folder called basic_stats.py</li>
+<li>Add <strong>init</strong>.py to this folder.  Modify according to the air_sea example.</li>
+<li>Add basic_stats.py to this folder.</li>
+<li>Synchronize your changes using the add, commit, push sequence that we have used.</li>
+</ol>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-6:-What-to-turn-in.">Step 6: What to turn in.<a class="anchor-link" href="#Step-6:-What-to-turn-in.">¶</a></h3><p>Upload the contents of your new github repository for basic_stats to the assignment upload.  Paste the URL for your repository into the assignment submission text box, so I can have a look at your repo.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>

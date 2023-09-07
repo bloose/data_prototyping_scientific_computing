@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Geoplotting with cartopy - 2021 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./geoplotting-with-cartopy.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy At the end of this exercise, you will know how to add data points (x/y pairs) to a map. This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps. It is easy to use and builds maps rapidly with a few short commands. More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map. This can be image data, NASA satellite data, earthquake data - the possibilities are many." />
+
+        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Geoplotting with cartopy"/>
+        <meta property="og:url" content="./geoplotting-with-cartopy.html"/>
+        <meta property="og:description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy At the end of this exercise, you will know how to add data points (x/y pairs) to a map. This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps. It is easy to use and builds maps rapidly with a few short commands. More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map. This can be image data, NASA satellite data, earthquake data - the possibilities are many."/>
+        <meta property="article:published_time" content="2021-09-22" />
+            <meta property="article:section" content="Worksheets" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2021 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2021.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li >
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./geoplotting-with-cartopy.html"
+                       rel="bookmark"
+                       title="Permalink to Geoplotting with cartopy">
+                        Geoplotting with cartopy
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-09-22T00:00:00-04:00"> Wed 22 September 2021</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Make-a-geographic-map-in-Cartopy.-Add-locations-or-'stations'-as-x/y-pairs.">Make a geographic map in Cartopy. Add locations or 'stations' as x/y pairs.<a class="anchor-link" href="#Make-a-geographic-map-in-Cartopy.-Add-locations-or-'stations'-as-x/y-pairs.">¶</a></h3><p>More tutorial info: <a href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a></p>
+<p><strong>INSTRUCTIONS:  You will need to complete the code below </strong></p>
+<blockquote><p>Note: Cartopy has to be installed separately.<br />
+At the command line, this should work as >> conda install -c conda-forge cartopy</p>
+<p>At the end of this exercise, you will know how to add data points (x/y pairs) to a map.  This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps.  It is easy to use and builds maps rapidly with a few short commands.  More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map.  This can be image data, NASA satellite data, earthquake data - the possibilities are many.</p>
+</blockquote>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import numpy and pyplot as well as cartopy.  </span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">cartopy</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [189]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a figure object and specify its size</span>
+<span class="c1"># plt.figure(figsize=(8,8))</span>
+
+<span class="c1"># Add a plot axis using the axis command.  Here, Matplotlib is told this will be a map axis with the projection= command.</span>
+<span class="c1"># ax = plt.axes(projection=ccrs.Robinson())</span>
+
+<span class="c1"># Draw the outline of the coastlines.</span>
+<span class="c1"># ax.coastlines()  #Note </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Let's visualize a few of the many projections that cartopy permits</span>
+<span class="c1"># Uncomment the lines below to generate the figure.</span>
+
+
+<span class="c1">### NOTE:  You can uncomment/comment a block of code by highlighting it and typing CTRL + /, that's "Control Slash".</span>
+<span class="c1"># projections = [ccrs.PlateCarree(),</span>
+<span class="c1">#                ccrs.Robinson(),</span>
+<span class="c1">#                ccrs.Mercator(),</span>
+<span class="c1">#                ccrs.Orthographic(),</span>
+<span class="c1">#                ccrs.InterruptedGoodeHomolosine(),</span>
+<span class="c1">#                ccrs.Mollweide()</span>
+<span class="c1">#               ]</span>
+
+<span class="c1"># i = 1</span>
+<span class="c1"># plt.figure(figsize=(10,5))</span>
+<span class="c1"># for proj in projections:</span>
+<span class="c1">#     #plt.figure()</span>
+<span class="c1">#     geoax = plt.subplot(3,3,i,projection=proj)</span>
+<span class="c1">#     geoax.stock_img()</span>
+<span class="c1">#     geoax.coastlines()</span>
+<span class="c1">#     geoax.set_title(f'{type(proj)}')</span>
+<span class="c1">#     i+=1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We set the bounds of the map using the set_extent() input.</span>
+
+<span class="c1">#extent = [-150, -50, 20, 50]</span>
+
+<span class="c1">#ax = plt.axes(projection=ccrs.Mollweide())</span>
+<span class="c1">#ax.set_extent(extent)</span>
+<span class="c1">#ax.coastlines(resolution='50m')</span>
+<span class="c1">#ax.stock_img()</span>
+<span class="c1">#plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Using the feature library, we can add geographic features, such as land masks, coastline boundaries, and rivers.</span>
+
+
+<span class="c1"># import cartopy.feature as cfeature</span>
+
+<span class="c1"># ax = plt.axes(projection=ccrs.Mollweide())</span>
+<span class="c1"># ax.set_extent(extent)</span>
+<span class="c1"># ax.coastlines(resolution='50m')</span>
+<span class="c1"># ax.stock_img()</span>
+
+<span class="c1"># ax.add_feature(cfeature.LAND,zorder=1)</span>
+<span class="c1"># ax.add_feature(cfeature.COASTLINE,zorder=1)</span>
+<span class="c1"># ax.add_feature(cfeature.RIVERS,zorder=1)</span>
+<span class="c1"># ax.gridlines()</span>
+
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Complete-the-rest-of-the-assignment-on-your-own-or-with-your-teammate">Complete the rest of the assignment on your own or with your teammate<a class="anchor-link" href="#Complete-the-rest-of-the-assignment-on-your-own-or-with-your-teammate">¶</a></h2>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [122]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the data file</span>
+<span class="c1"># Go to http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</span>
+<span class="c1"># On the right hand side, downloade the link for the .csv file of All Earthquakes in the past 30 days.</span>
+<span class="c1"># Move that file into the directory where you are working and load it using the loadtxt command.</span>
+<span class="n">stations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'all_month.csv'</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># First just use a standard x-y plot to examine the stations. </span>
+<span class="c1"># Graph using symbols, e.g. '.' dots or 'o' circles or 's' squares.  </span>
+<span class="c1"># Label the axes Lat and Lon - make sure you know which is which.  Remember Lat is restricted between -90 and 90.</span>
+<span class="c1"># plt.figure()....</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The map you just made using Matplotlib gives you a vague idea of the distribution of earthquakes, it even roughly draws out the continental shapes that may be familiar to you, but it <strong>does not succeed in conveying the full geographic information we need</strong>.  Therefore, we need to make a map using geographic projections.   This is where cartopy becomes useful.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define a bounding box in polar coordinates (Lat, Lon) that tells cartopy how to set the </span>
+<span class="c1"># map limits.  This is so the map scale will match the scale of the points being plotted. Ie, you don't want a map</span>
+<span class="c1"># of the world, if all the points are in Narragansett Bay.</span>
+<span class="c1"># Your box should have four sides - North, East, West, South.  The north and south limits are defined by the range of </span>
+<span class="c1"># your latitudes.  Similarly, the east and west limits are defined by the range of your longitudes.</span>
+<span class="c1"># lat = stations[:,0].copy()</span>
+
+
+<span class="c1"># Determine the limits of your bounding box.</span>
+<span class="c1"># Go in order of BBox = [E,W,S,N] or [Left, Right, Bottom, Top]</span>
+<span class="c1"># NOTE:  Try to use coding to introduce flexibility to the Bounding Box limits, rather than hardwire them.  </span>
+<span class="c1"># This is important, because your data may change.  Here, it is helpful to use the lat/lon data to establish the </span>
+<span class="c1"># map limits.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Now that you have your bounding box, you are ready to create a Map object.</strong></p>
+<p>You will need to feed Cartopy the following details:</p>
+<pre><code>+ The sides of the bounding box, using the set_extent() command
++ The projection to use (I recomend using PlateCarree())
++ The resolution for drawing the coastlines</code></pre>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Coordinate transformation</strong></p>
+<p>NOTE:  There are may be at least 2 coordinate systems used when making maps with geographic data.  The first (1) is the geographic coordinates, which can be Lat/Lon or UTM or spherical (Phi,Theta,r). Usually they are Lat/Lon in degrees.  The second (2) is the coordinate system on map axis, which demarcates the space on the figure. The transformation from geographic to figure coordinates happens inside the Matplotlib functions, such as e.g. plot().</p>
+<p>It is necessary to specify the coordinate system for use in the coordinate transformation.  That is >> transform=ccrs.Geodetic() or similar.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the bounding box extent and use that with the results from the cells above to make </span>
+<span class="c1"># a plot of all earthquakes in the past 30 days.</span>
+
+<span class="c1"># BBox = [x0,x1,y0,y1], so [Lon_e, Lon_w,Lat_s,Lat_n]</span>
+
+
+
+<span class="c1"># Create a figure object</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+
+<span class="c1"># Add axes and define a projection</span>
+
+
+
+<span class="c1"># Add some features to make it pretty</span>
+
+
+<span class="c1"># plot the earthquake locations on the map.  Specify the correct coordinate transform.</span>
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Now-do-the-same-thing-for-All-Earthquakes-in-the-past-hour.">Now do the same thing for All Earthquakes in the past hour.<a class="anchor-link" href="#Now-do-the-same-thing-for-All-Earthquakes-in-the-past-hour.">¶</a></h3><blockquote><p>Note:  Your bounding box should be a lot smaller (focused in on the fewer points of the past hour).</p>
+</blockquote>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">stations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'all_hour.csv'</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Define a bounding box in polar coordinates (Lat, Lon) </span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+
+<span class="c1"># Go in order of BBox = [E,W,S,N] or [Left, Right, Bottom, Top]</span>
+
+
+
+<span class="c1"># Add axes and define a projection</span>
+
+
+
+<span class="c1"># Add some features to make it pretty</span>
+
+
+<span class="c1"># plot the earthquake locations on the map.  Specify the correct coordinate transform.</span>
+
+
+<span class="c1">#  Change the fill color of the continents</span>
+
+<span class="c1">#  Add the location of a nearby city and mark it with a symbol and label.</span>
+
+<span class="c1"># Note that zorder controls the layers. If you want something on top to show, it needs a higher zorder.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">CSC 593:  Download a  satellite image of a recent natural disaster (e.g. wildfire, tropical storm) and overlay that on a map coordinate system.  (Extra credit for OCG 404).<a class="anchor-link" href="#CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">¶</a></h4><blockquote><p>Check out this example <a href="https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html">https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html</a></p>
+</blockquote>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="What-to-turn-in:">What to turn in:<a class="anchor-link" href="#What-to-turn-in:">¶</a></h3><p>Upload this .ipynb with the completed code for generating map limits and any other supporting docs, like the .csv files you downloaded.   Add comments to your code as you see fit.</p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>
