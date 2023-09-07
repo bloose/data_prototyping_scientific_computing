@@ -51,7 +51,7 @@ PLUGINS = ['i18n_subsites','ipynb.markup']
 IGNORE_FILES = [".ipynb_checkpoints"]
 
 
-MENUITEMS = [('Syllabus', 'pages/OCG404_CSC593_Syllabus_2021.pdf')]
+MENUITEMS = [('Syllabus', 'pages/OCG404_CSC593_Syllabus_2023.pdf')]
 
 STATIC_PATHS = ['Assignments','images']
 

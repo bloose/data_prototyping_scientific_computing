@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Measuring Temperature Part 2 - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>Measuring Temperature Part 2 - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial" />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Measuring Temperature Part 2"/>
         <meta property="og:url" content="./measuring-temperature-part-2.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,7 +151,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Reading-and-decoding-Temperature-Data-from-Arduino">Reading and decoding Temperature Data from Arduino<a class="anchor-link" href="#Reading-and-decoding-Temperature-Data-from-Arduino">¶</a></h3><h4 id="(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">(This is Part 2 of the Measuring Temperature Lab ).<a class="anchor-link" href="#(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">¶</a></h4><p><strong> For this lab you will need pyserial.  This can be installed thru Anaconda the same way we did Basemap. 
 Try either of the following options for installation. </strong></p>
@@ -168,15 +173,25 @@ Try either of the following options for installation. </strong></p>
 <p>Also check out the Regular Expressions (regex) modules. <a href="https://docs.python.org/2/library/re.html#">https://docs.python.org/2/library/re.html#</a>  These are more sophisticated than what we require, but very powerful.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Some-Cliff-Notes-on-Pandas">Some Cliff Notes on Pandas<a class="anchor-link" href="#Some-Cliff-Notes-on-Pandas">¶</a></h3><p>This exercise uses Pandas - a Python dataframe module, which is valuable for handling relational data.  Brice will provide a more thorough intro to Pandas next week, when we talk about time series and regression statistics.  For now, we will use Pandas to create a dataframe and save it to a .csv file.  Pandas dataframes use the dict() or dictionary data type.</p>
 <pre><code>>>> df = pd.DataFrame(columns=('time','Resistence','Temp')) # This command declares a new Pandas dataframe with three columns: time, resistence, and Temp.
 
 >>> df = df.append({'time':t,'Resistence': R,'Temp':T},ignore_index=True)  # This command appends new values to each of the columns.</code></pre>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -193,13 +208,21 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Open the serial connection using e.g. S = ps.Serial() command.</strong></p>
 <p>You will need to find the exact port name on your computer. Hint: This can be found in the Arduino Tools menu under "port".</p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -211,12 +234,20 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Initialize the two variables you will be using to store xdata and ydata (resistance).</strong></p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -228,12 +259,20 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Set the coefficients for the Steinhart-Hart equation</strong></p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -249,6 +288,8 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -306,15 +347,23 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Completing-your-data-collection">Completing your data collection<a class="anchor-link" href="#Completing-your-data-collection">¶</a></h3><ol>
 <li>Close the connection to the Serial data object.  (THIS IS REALLY IMPORTANT)!!!</li>
 <li>Make a plot of Temperature vs. time.</li>
 </ol>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -326,12 +375,20 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Make a plot of Temperature vs. datetime.   Save that plot using plt.savefig() </strong></p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -343,9 +400,15 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="What-to-turn-in:">What to turn in:<a class="anchor-link" href="#What-to-turn-in:">¶</a></h3><p>See instructions in Thermistor Lab Part 2.</p>
+</div>
+</div>
 </div>
 </div>
 

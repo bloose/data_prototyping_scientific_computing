@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Parallel Processing - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>HPC Parallel Processing - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Python parallel processing on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment." />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Parallel Processing"/>
         <meta property="og:url" content="./hpc-parallel-processing.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,7 +151,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Python-parallel-processing-on-Brown-University-cluster-(Oscar).">Python parallel processing on Brown University cluster (Oscar).<a class="anchor-link" href="#Python-parallel-processing-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
@@ -167,7 +172,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </ol>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Using-Dask-for-Parallel-Processing.">Using Dask for Parallel Processing.<a class="anchor-link" href="#Using-Dask-for-Parallel-Processing.">¶</a></h2><p>Dask is a flexible library for parallel computing in Python.</p>
 <p>We use Dask to <strong>(1)</strong> manage the cores in our cluster job, and <strong>(2)</strong> break up large arrays into chunks for parallel processing.</p>
@@ -190,7 +201,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <a href="https://youtu.be/9h_61hXCDuI">https://youtu.be/9h_61hXCDuI</a></p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">Step 1:  Log in to Oscar vis ssh. Request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.ccv.brown.edu/oscar/submitting-jobs/slurm">Oscar documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Oscar uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
 <p>The <code>interact</code> and <code>batch</code> commands allows us to request cluster jobs on Oscar.  Documentation for both is found here.  I think you can run all of your work using the <code>interact</code> command, as this will simlify the feedback and comprehension loop as you execute your code.  For interact, you need to request the number of nodes <code>-n</code>, the amount of time you want the job to last <code>-t</code>, and the RAM or memory <code>-m</code>.</p>
@@ -225,7 +242,13 @@ $ source activate <your_env_here></code></pre>
 <pre><code>$ source start.sh</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 2: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
 <li>Download the script coreclock.py and examine the comments and contents.</li>
@@ -263,7 +286,13 @@ $ source activate <your_env_here></code></pre>
 </ol>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ul>
 <li>Answer the questions from Step 3 in this .ipynb.</li>
@@ -271,8 +300,12 @@ $ source activate <your_env_here></code></pre>
 <li>Upload your modified version of coreclock.py </li>
 </ul>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Introduction to Unix - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>Introduction to Unix - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands inside the Brown CCV High-Performance Computing environment. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial" />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Introduction to Unix"/>
         <meta property="og:url" content="./introduction-to-unix.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,13 +151,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Navigating-Files-and-Directories">Navigating Files and Directories<a class="anchor-link" href="#Navigating-Files-and-Directories">¶</a></h2><p>This tutorial assumes you have already opened or logged into a Unix Shell Environment.  This year, we will be practicing these commands inside the Brown CCV High-Performance Computing environment.</p>
 <p><em>The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the <a href="http://swcarpentry.github.io/shell-novice/">Unix Shell tutorial </a> that is freely available on the Software Carpentry website. I highly recommend checking out the full version for further reading. The material is being used here under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution license</a>.</em></p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <pre><code>]$</code></pre>
 <p>The dollar sign is a <strong>prompt</strong>, which shows us that the shell is waiting for input;
@@ -170,7 +181,13 @@ let's find out where we are by running a command called <code>pwd</code>
 <pre><code>]$ /users/urihpc25</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">The path specifies the location of a file in the directory strucure.<a class="anchor-link" href="#The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">¶</a></h3><ul>
 <li>The <strong>path</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
@@ -180,8 +197,12 @@ let's find out where we are by running a command called <code>pwd</code>
 <p>Paths are used to help executable files find the other files they need.</p>
 <p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.004.jpeg" width="600" /></p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -193,7 +214,11 @@ let's find out where we are by running a command called <code>pwd</code>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Listing-contents">Listing contents<a class="anchor-link" href="#Listing-contents">¶</a></h3><p>The contents of the current directory. The command <code>ls</code> is short for "list":</p>
 <pre><code>]$ ls</code></pre>
@@ -218,7 +243,13 @@ lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/
 <pre><code>]$ man ls</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Navigating-around">Navigating around<a class="anchor-link" href="#Navigating-around">¶</a></h3><p>If we want to change locations, we can use the 'cd' command, which stands for 'change directory'</p>
 <p>These commands result in the same thing. They use the relative and absolute path respectively to change into the data directory.</p>
@@ -241,7 +272,13 @@ lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/
 which is great if you've gotten lost in your own filesystem.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Tab-Completion">Tab Completion<a class="anchor-link" href="#Tab-Completion">¶</a></h3><p>Some names can be long and cumbersome to type</p>
 <pre><code>]$ ls dask-worker-space</code></pre>
@@ -267,7 +304,13 @@ which is great if you've gotten lost in your own filesystem.</p>
 </ul>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Make,-Copy,-Delete">Make, Copy, Delete<a class="anchor-link" href="#Make,-Copy,-Delete">¶</a></h2><p>We're about to generate some new Python code and files; to keep things organized, make a new directory</p>
 <pre><code>]$ mkdir ocg404</code></pre>
@@ -308,7 +351,13 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <pre><code>]$ rm -rf ocg404</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Wild-cards">Wild cards<a class="anchor-link" href="#Wild-cards">¶</a></h2><p>Shell commands have lots of shortcuts for handling many files.  This is necessary, because without a mouse, you can't do things like SHIFT + Click to select multiple files.  The wildcards are two great examples of this.</p>
 <pre><code>]$ ls *.*   # List all of the files and all of the extensions (e.g. .csv, .txt. doc)</code></pre>
@@ -335,7 +384,13 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <p>These are a few simple exeamples of what are referred to as filename substitutions.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Key-Points">Key Points<a class="anchor-link" href="#Key-Points">¶</a></h2><ul>
 <li><code>cp old new</code> copies a file.</li>
@@ -348,7 +403,13 @@ holding it down, press the X key), you will be asked if you want to save the fil
 </ul>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Additional-notes:">Additional notes:<a class="anchor-link" href="#Additional-notes:">¶</a></h2><h3 id="Good-names-for-files-and-directories">Good names for files and directories<a class="anchor-link" href="#Good-names-for-files-and-directories">¶</a></h3><p>Complicated names of files and directories can make your life painful
  when working on the command line. Here we provide a few useful
@@ -389,8 +450,12 @@ You can use <code>-</code> or <code>_</code> instead of whitespace.</p>
  documents directory instead. You can change this by navigating to
  another directory the first time you "Save As..."</p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Introduction - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>HPC Introduction - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started https://docs.ccv.brown.edu/oscar/software/python-on-oscar https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line." />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,7 +151,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Remote-computing-at-the-Brown-University-cluster-(Oscar).">Remote computing at the Brown University cluster (Oscar).<a class="anchor-link" href="#Remote-computing-at-the-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide</p>
 <ul>
@@ -168,7 +173,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>+We will compute the <a href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-normalized-difference-vegetation-index?qt-science_support_page_related_con=0#qt-science_support_page_related_con">NDVI</a> Normalized Distributed Vegetation Index using LANDSAT satellite imagery  from the bands. Check out the details at the above link.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-1:--Log-in-to-Oscar-vis-ssh">Step 1:  Log in to Oscar vis ssh<a class="anchor-link" href="#Step-1:--Log-in-to-Oscar-vis-ssh">¶</a></h3><p>Your user account and password have been provided to you as a grade item in Brightspace. You will need those to log in.</p>
 <p>These should be something link:</p>
@@ -188,7 +199,13 @@ Password: Mistreat25!</code></pre>
 <p><strong>NOTE:</strong> The Oscar CCV environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module list</code> to see what's available.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
 <li><p>[Do this every time you log in] Oscar uses modules; modules can be loaded with the load command.  You will load them every time you log in.</p>
@@ -216,14 +233,26 @@ $ module load anaconda/2020.02
 $ source activate your_env_here</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
 <p>Try using the <code>myquota</code> command to see how much space you were allocated.</p>
 <pre><code>$ myquota</code></pre>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">Step 4:  Transfer your .py file by sftp (4a) or by Google Drive (4b).<a class="anchor-link" href="#Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">¶</a></h3><h3 id="Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">Step 4a: sftp (this only works if you enabled two-step authentication).<a class="anchor-link" href="#Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">¶</a></h3><p>Secure File Transfer Protocol or sftp allows you to move files between your computer and your user directory on Oscar.</p>
 <p>If you haven't already, make a directory on Oscar entitled <code>ocg404</code>.  This directory should be inside your urihpc## folder.</p>
@@ -259,7 +288,13 @@ $ source activate your_env_here</code></pre>
 </ol>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">Step 5: Use a text editor to modify landsatexplore.py the upload via sftp<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">¶</a></h3><ul>
 <li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsat image.</li>
@@ -269,6 +304,8 @@ $ source activate your_env_here</code></pre>
 </ul>
 <pre><code>]$ python landsatexplore.py</code></pre>
 <h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Use sftp to download the image you created and submit that as this week's in_class assignment, along with your modified version of landsatexplore.py and your basic_stats.py module.</p>
+</div>
+</div>
 </div>
 </div>
 

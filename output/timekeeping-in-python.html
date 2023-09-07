@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Timekeeping in Python - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>Timekeeping in Python - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Timekeeping in Python¶ Clocks and timekeeping on computers are not trivial.¶ Remember Y2k? All of that was caused by the representation of 2-digit years in computer systems. For many years, all timekeeping on computer systems was referenced to January 1, 1970 because no computer data pre-existed that. This is known as the POSIX time." />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Timekeeping in Python"/>
         <meta property="og:url" content="./timekeeping-in-python.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,12 +151,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Timekeeping-in-Python">Timekeeping in Python<a class="anchor-link" href="#Timekeeping-in-Python">¶</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Clocks-and-timekeeping-on-computers-are-not-trivial.">Clocks and timekeeping on computers are not trivial.<a class="anchor-link" href="#Clocks-and-timekeeping-on-computers-are-not-trivial.">¶</a></h3><ul>
 <li><p>Remember Y2k?  All of that was caused by the representation of 2-digit years in computer systems.</p>
@@ -166,8 +177,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Python has multiple timekeeping modules including base python modules <strong>date</strong>, <strong>time</strong>, <strong>datetime</strong>.  We'll focus on <strong>datetime</strong>.</p>
 <p>Note:  Numpy and Pandas also have their own timekeeping, but both are compatible with the base python package of datetime.</p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -184,6 +199,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -214,6 +231,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -241,12 +260,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Datetime objects support basic arithmetic:</p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -274,6 +301,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -304,6 +333,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -317,6 +348,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -328,7 +361,11 @@ Df<span class="o">?</span>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Time-references:">Time references:<a class="anchor-link" href="#Time-references:">¶</a></h3><ul>
 <li>Datetime uses the <strong>proleptic Gregorian</strong> calendar as a reference.  Year 1, is the reference year.  Year 2020 is Year 2020.</li>
@@ -336,8 +373,12 @@ Df<span class="o">?</span>
 <li>Unless specified, the datetime object is <strong>naive</strong>, meaning it doesn't know its time relative to geography.</li>
 </ul>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -355,6 +396,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -368,6 +411,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -380,6 +425,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
@@ -391,6 +438,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -403,6 +452,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
@@ -414,6 +465,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -428,6 +481,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
@@ -439,6 +494,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -457,6 +514,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -470,6 +529,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -484,6 +545,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -496,12 +559,20 @@ Df<span class="o">?</span>
 </div>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Recording-datetime-to-make-a-timeseries">Recording datetime to make a timeseries<a class="anchor-link" href="#Recording-datetime-to-make-a-timeseries">¶</a></h3><p>Pandas can incorporate the datetime object directly into its dataframe. Numpy datetime handling is more complicated.</p>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -522,6 +593,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -600,6 +673,8 @@ Df<span class="o">?</span>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -615,6 +690,8 @@ Df<span class="o">?</span>
 </div>
 </div>
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -631,7 +708,7 @@ To register the converters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output">
-<img src="data:image/png;base64,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
+<img class="jp-needs-light-background" src="data:image/png;base64,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
 " />
 </div>
 </div>
@@ -639,6 +716,8 @@ To register the converters:
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">

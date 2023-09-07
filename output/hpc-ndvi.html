@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC NDVI - 2021 | Data Prototyping and Scientific Computing</title>
+    <title>HPC NDVI - 2023 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="NDVI computation on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Create a parallel processor &#39;job&#39;and Python environment . Modify landsatexplore.py from Week09 and implement a computation of NDVI using . Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list." />
 
-        <meta property="og:site_name" content="2021 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC NDVI"/>
         <meta property="og:url" content="./hpc-ndvi.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2021 | Data Prototyping and Scientific Computing            </a>
+2023 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -131,6 +131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -150,7 +151,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="NDVI-computation-on-Brown-University-cluster-(Oscar).">NDVI computation on Brown University cluster (Oscar).<a class="anchor-link" href="#NDVI-computation-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
@@ -162,7 +167,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>NOTE:</strong> This exercise uses cumulative concepts from throughout the course, including use of list and numpy arrays, creation of modules, reading and writing files, using Pandas dataframes, and unix commands. Refer to your code from previous weeks and to the online library documentation as needed.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">Step 1:  Add NDVI computation to your previous <code>landsatexplore.py</code> code from Week09.<a class="anchor-link" href="#Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">¶</a></h3><p>The <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> can be computed directly from two frequency bands in the Landsat satellite data - the Near Infrared band (NIR) and the visible red (Red) spectral reflectance:</p>
 $$ NDVI = \frac{NIR - Red}{NIR + Red} $$<p>Below is a list of modifications you should make to your <code>landsatexplore.py</code> script.  Give it a new name, like <code>lsexplore_NDVI.py</code> or similar.</p>
@@ -209,7 +220,13 @@ return av_ndvi</code></pre>
 </ol>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:--Download-and-post-process-your-results.">Step 2:  Download and post-process your results.<a class="anchor-link" href="#Step-2:--Download-and-post-process-your-results.">¶</a></h3><ol>
 <li>Connect to Oscar with sftp as you have before.   Use sftp to transfer your Pandas dataframe</li>
@@ -254,7 +271,13 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
 </ol>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ol>
 <li>How long did your code take to process? </li>
@@ -263,8 +286,12 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
 <li>Include the figure of NDVI over time, similar to the one above.</li>
 </ol>
 </div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
