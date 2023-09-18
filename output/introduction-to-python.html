@@ -19,7 +19,7 @@
         <meta property="og:title" content="Introduction to Python"/>
         <meta property="og:url" content="./introduction-to-python.html"/>
         <meta property="og:description" content="Intro to Python Programming Language¶(With a short intro to Jupyter along the way)¶Some content copied from the official python tutorial. See the tutorial for much more in-depth coverage. Follows reading in &#39;Real World Instrumentation&#39;, Chapter 3 (pgs. 61 to 121). Other Resources: https://www.youtube.com/watch?v=rkx5_MRAV3A Instructions: First spend some time navigating the Jupyter workspace. Also try out the IPy workspace and the Spyder workspace. These are all called Integrated Development Environments (IDEs). They give you a command line to execute your scripts. They often have a text editor for writing code. They can help you display your variables to look at what is in the workspace."/>
-        <meta property="article:published_time" content="2021-09-15" />
+        <meta property="article:published_time" content="2023-09-17" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-09-15T00:00:00-04:00"> Wed 15 September 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-09-17T00:00:00-04:00"> Sun 17 September 2023</time>
     </span>
 
 
@@ -182,14 +182,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import Numpy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># Import plotting library</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1">#import.... </span>
+<span class="c1"># import.... </span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
@@ -212,11 +212,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># comments are anything that comes after the "#" symbol</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0001</span>       <span class="c1"># assign 1.001 to variable a</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Comments are anything that comes after the "#" symbol</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">1.57</span>       <span class="c1"># assign 1.57 to variable a</span>
 <span class="n">b</span> <span class="o">=</span> <span class="s1">'hello'</span> <span class="c1"># assign "hello" to variable b</span>
 </pre></div>
 </div>
@@ -228,10 +228,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#type(a)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -242,11 +242,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># query the data type</span>
-<span class="c1">#b?</span>
+b<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -257,11 +257,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># can recast some data types as others:</span>
-<span class="c1">#print(int(a))</span>
+<span class="c1"># Note that i</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -284,13 +285,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="c1"># Divide</span>
-<span class="c1">#c = a/b; print(c)</span>
+<span class="n">a</span><span class="o">/</span><span class="n">b</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -312,12 +314,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Answer:</span>
-<span class="c1">#print(a*b)</span>
-<span class="c1">#print(b*a)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -339,11 +341,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Answer:</span>
-<span class="c1">#a**b</span>
+<span class="n">a</span><span class="o">**</span><span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -354,12 +356,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># but not all types can be converted:</span>
 <span class="n">bnbr2</span> <span class="o">=</span><span class="s1">'hello'</span>
-<span class="c1">#int(bnbr2)</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">bnbr2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -381,11 +383,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#plt?</span>
-<span class="c1">#help(plt.plot)</span>
+<div class="highlight hl-ipython3"><pre><span></span>plt<span class="o">?</span>
+<span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -407,18 +409,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is a list. It has multiple elements and can be of mixed data types.</span>
 <span class="n">barnyard</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s1">'chicken'</span><span class="p">,</span><span class="s1">'4'</span><span class="p">,</span><span class="s1">'pig'</span><span class="p">,</span><span class="mf">2.2</span><span class="p">,</span><span class="s1">'goat'</span><span class="p">]</span>
 
 <span class="c1"># The list can be sub-indexed to access one element at a time:</span>
-<span class="c1">#print(barnyard[1])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">barnyard</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># The list is mutable, meaning it can be changed</span>
 <span class="n">barnyard</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'horse'</span><span class="p">)</span>
-<span class="c1">#print(barnyard)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">barnyard</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -429,19 +431,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is a tuple. It has multiple elements and can be of mixed data types, but it is immutable.</span>
 <span class="n">junkyard</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Ford'</span><span class="p">,</span><span class="s1">'Chevy'</span><span class="p">,</span><span class="s1">'John Deere'</span><span class="p">)</span>
 
 <span class="c1"># The tuple can be sub-indexed :</span>
-<span class="c1">#print(junkyard[2])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">junkyard</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="c1"># The tuple is immutable, it can not be increased or decreased.  This is another example of an operation that is </span>
 <span class="c1"># prohibited by data type.</span>
-<span class="c1">#junkyard.append('Tesla')</span>
-<span class="c1">#print(junkyard)</span>
+<span class="n">junkyard</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Tesla'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">junkyard</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -458,12 +460,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
@@ -474,19 +476,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s1">'Zero!'</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Positive Number
-</pre>
 </div>
 </div>
 </div>
@@ -521,10 +510,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Answer: What data types? #</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Answer: What data types? </span>
 </pre></div>
 </div>
 </div>
@@ -562,12 +551,12 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Which element is returned?</span>
 <span class="n">barnyard2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.14</span><span class="p">,</span><span class="s1">'chicken'</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="s1">'pig'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">'goat'</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="s1">'cows'</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="s1">'guinea foul'</span><span class="p">]</span>
-<span class="c1"># barnyard2[-1]</span>
+<span class="n">barnyard2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -578,11 +567,14 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
 <span class="c1">#newobj = barnyard2[::3]</span>
+<span class="c1">#print(newobj)</span>
+
+<span class="c1">#newobj = barnyard2[2::2]</span>
 <span class="c1">#print(newobj)</span>
 </pre></div>
 </div>
@@ -594,7 +586,7 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
@@ -609,7 +601,7 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Note that Python does not make a separate copy unless it is forced to do so.</span>
@@ -619,19 +611,19 @@ barnyard1[start:stop:step]</p>
 <span class="n">b</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'gorillaz'</span>
 
 <span class="c1"># Barnyard got modified as well. Woops.</span>
-<span class="c1">#print(barnyard2)</span>
-<span class="c1">#print(b)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">barnyard2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make an explicit copy</span>
@@ -644,30 +636,16 @@ barnyard1[start:stop:step]</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[3.14, 'chicken', 4.5, 'pig', 'goat', 'goat', 33, 'cows', 12, 'guinea foul']
-[3.14, 'chicken', 4.5, 'pig', 'gorillaz', 'goat', 33, 'cows', 12, 'guinea foul']
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Subindex the text element in list position 1 - what is the result?</span>
-<span class="c1">#barnyard2[1][3]</span>
+<span class="n">barnyard2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -678,7 +656,7 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Make a new list that is 6 elements long, insert the value 6 into each element. </span>
@@ -689,7 +667,7 @@ barnyard1[start:stop:step]</p>
 <span class="n">alist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">83.08</span><span class="p">)</span>
 
 <span class="c1">#Why does this fail?</span>
-<span class="c1">#alist[8] = 'more text'</span>
+<span class="n">alist</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'more text'</span>
 </pre></div>
 </div>
 </div>
@@ -700,7 +678,7 @@ barnyard1[start:stop:step]</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#print(alist)</span>
