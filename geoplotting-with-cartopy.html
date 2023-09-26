@@ -12,14 +12,14 @@
 <link rel="canonical" href="./geoplotting-with-cartopy.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy At the end of this exercise, you will know how to add data points (x/y pairs) to a map. This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps. It is easy to use and builds maps rapidly with a few short commands. More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map. This can be image data, NASA satellite data, earthquake data - the possibilities are many." />
+        <meta name="description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy If the conda install takes too long, then try installing via the pip package manager." />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Geoplotting with cartopy"/>
         <meta property="og:url" content="./geoplotting-with-cartopy.html"/>
-        <meta property="og:description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy At the end of this exercise, you will know how to add data points (x/y pairs) to a map. This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps. It is easy to use and builds maps rapidly with a few short commands. More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map. This can be image data, NASA satellite data, earthquake data - the possibilities are many."/>
-        <meta property="article:published_time" content="2021-09-22" />
+        <meta property="og:description" content="Make a geographic map in Cartopy. Add locations or &#39;stations&#39; as x/y pairs.¶More tutorial info: https://scitools.org.uk/cartopy/docs/latest/ INSTRUCTIONS: You will need to complete the code below Note: Cartopy has to be installed separately. At the command line, this should work as &gt;&gt; conda install -c conda-forge cartopy If the conda install takes too long, then try installing via the pip package manager."/>
+        <meta property="article:published_time" content="2023-09-22" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-09-22T00:00:00-04:00"> Wed 22 September 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-09-22T00:00:00-04:00"> Fri 22 September 2023</time>
     </span>
 
 
@@ -161,7 +161,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>INSTRUCTIONS:  You will need to complete the code below </strong></p>
 <blockquote><p>Note: Cartopy has to be installed separately.<br />
 At the command line, this should work as >> conda install -c conda-forge cartopy</p>
-<p>At the end of this exercise, you will know how to add data points (x/y pairs) to a map.  This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps.  It is easy to use and builds maps rapidly with a few short commands.  More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map.  This can be image data, NASA satellite data, earthquake data - the possibilities are many.</p>
+<p>If the conda install takes too long, then try installing via the pip package manager.</p>
+</blockquote>
+<p><code>$ pip --version  #this should return some version info.
+$ pip install cartopy # This should download and install Cartopy - hopefully version 0.22.</code></p>
+<blockquote><p>At the end of this exercise, you will know how to add data points (x/y pairs) to a map.  This is a way to graph the position of GPS points collected using your smartphone or other GPS device. The module Cartopy extends the basic capabilities of Matplotlib for making geographic maps.  It is easy to use and builds maps rapidly with a few short commands.  More complicated tasks are also possible, including adding topography, bathymetry or contouring other info on top of a map.  This can be image data, NASA satellite data, earthquake data - the possibilities are many.</p>
 </blockquote>
 </div>
 </div>
@@ -171,7 +175,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import numpy and pyplot as well as cartopy.  </span>
@@ -191,7 +195,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [189]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a figure object and specify its size</span>
@@ -212,7 +216,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Let's visualize a few of the many projections that cartopy permits</span>
@@ -269,7 +273,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Using the feature library, we can add geographic features, such as land masks, coastline boundaries, and rivers.</span>
@@ -300,7 +304,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Complete-the-rest-of-the-assignment-on-your-own-or-with-your-teammate">Complete the rest of the assignment on your own or with your teammate<a class="anchor-link" href="#Complete-the-rest-of-the-assignment-on-your-own-or-with-your-teammate">¶</a></h2>
+<h2 id="Complete-the-rest-of-the-assignment-on-your-own-or-with-your-team">Complete the rest of the assignment on your own or with your team<a class="anchor-link" href="#Complete-the-rest-of-the-assignment-on-your-own-or-with-your-team">¶</a></h2>
 </div>
 </div>
 </div>
@@ -309,14 +313,14 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [122]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the data file</span>
-<span class="c1"># Go to http://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</span>
-<span class="c1"># On the right hand side, downloade the link for the .csv file of All Earthquakes in the past 30 days.</span>
+<span class="c1"># Go to https://earthquake.usgs.gov/earthquakes/search/</span>
+<span class="c1"># Download all earthquakes in the past 30 days. Choose .csv under Other Options.</span>
 <span class="c1"># Move that file into the directory where you are working and load it using the loadtxt command.</span>
-<span class="n">stations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'all_month.csv'</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">stations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'query.csv'</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -461,7 +465,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Now-do-the-same-thing-for-All-Earthquakes-in-the-past-hour.">Now do the same thing for All Earthquakes in the past hour.<a class="anchor-link" href="#Now-do-the-same-thing-for-All-Earthquakes-in-the-past-hour.">¶</a></h3><blockquote><p>Note:  Your bounding box should be a lot smaller (focused in on the fewer points of the past hour).</p>
+<h3 id="Now-do-the-same-thing-for-All-Earthquakes-in-the-past-6-hours.">Now do the same thing for All Earthquakes in the past 6 hours.<a class="anchor-link" href="#Now-do-the-same-thing-for-All-Earthquakes-in-the-past-6-hours.">¶</a></h3><blockquote><p>Note:  Your bounding box should be a lot smaller (focused in on the fewer points of the past hour).</p>
 </blockquote>
 </div>
 </div>
@@ -511,7 +515,7 @@ At the command line, this should work as >> conda install -c conda-forge cartopy
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">CSC 593:  Download a  satellite image of a recent natural disaster (e.g. wildfire, tropical storm) and overlay that on a map coordinate system.  (Extra credit for OCG 404).<a class="anchor-link" href="#CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">¶</a></h4><blockquote><p>Check out this example <a href="https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html">https://scitools.org.uk/cartopy/docs/v0.13/matplotlib/advanced_plotting.html</a></p>
+<h4 id="CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">CSC 593:  Download a  satellite image of a recent natural disaster (e.g. wildfire, tropical storm) and overlay that on a map coordinate system.  (Extra credit for OCG 404).<a class="anchor-link" href="#CSC-593:--Download-a--satellite-image-of-a-recent-natural-disaster-(e.g.-wildfire,-tropical-storm)-and-overlay-that-on-a-map-coordinate-system.--(Extra-credit-for-OCG-404).">¶</a></h4><blockquote><p>Check out this example <a href="https://scitools.org.uk/cartopy/docs/latest/matplotlib/advanced_plotting.html#images">https://scitools.org.uk/cartopy/docs/latest/matplotlib/advanced_plotting.html#images</a></p>
 </blockquote>
 </div>
 </div>

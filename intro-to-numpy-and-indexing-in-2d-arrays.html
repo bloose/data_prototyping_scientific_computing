@@ -12,14 +12,14 @@
 <link rel="canonical" href="./intro-to-numpy-and-indexing-in-2d-arrays.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [1]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with arange() and linspace()¶ In [2]: # Linspace inputs are start, stop, # of elements xls = np.linspace(0,100,100) # arange inputs are start,stop,interval xar = np.arange(0,100,0.9999) #print(xar.shape) #xls.shape # This term tells you to pull the last value of the array out" />
+        <meta name="description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [2]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [3]: # Use array() to create arrays of any dimension if you already know or have the values to put into the array." />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Intro to Numpy and indexing in 2D arrays"/>
         <meta property="og:url" content="./intro-to-numpy-and-indexing-in-2d-arrays.html"/>
-        <meta property="og:description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [1]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with arange() and linspace()¶ In [2]: # Linspace inputs are start, stop, # of elements xls = np.linspace(0,100,100) # arange inputs are start,stop,interval xar = np.arange(0,100,0.9999) #print(xar.shape) #xls.shape # This term tells you to pull the last value of the array out"/>
-        <meta property="article:published_time" content="2021-09-22" />
+        <meta property="og:description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [2]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [3]: # Use array() to create arrays of any dimension if you already know or have the values to put into the array."/>
+        <meta property="article:published_time" content="2023-09-22" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-09-22T00:00:00-04:00"> Wed 22 September 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-09-22T00:00:00-04:00"> Fri 22 September 2023</time>
     </span>
 
 
@@ -166,7 +166,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import modules</span>
@@ -184,7 +184,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Creating-1D-arrays-with-arange()-and-linspace()">Creating 1D arrays with arange() and linspace()<a class="anchor-link" href="#Creating-1D-arrays-with-arange()-and-linspace()">¶</a></h2>
+<h2 id="Creating-1D-arrays-with-array()-arange()-and-linspace()">Creating 1D arrays with array() arange() and linspace()<a class="anchor-link" href="#Creating-1D-arrays-with-array()-arange()-and-linspace()">¶</a></h2>
 </div>
 </div>
 </div>
@@ -193,10 +193,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Linspace inputs are start, stop, # of elements</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use array() to create arrays of any dimension if you already know or have the values to put into the array.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Linspace inputs are start, stop, # of elements</span>
 <span class="n">xls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># arange inputs are start,stop,interval</span>
@@ -314,7 +317,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="c1"># Element-wise operation.  P is the same size as R.</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">R</span>
 
-<span class="c1"># Impliclit element-wise operatation.</span>
+<span class="c1"># Impliclit element-wise operation.</span>
 
 <span class="n">Q</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">-</span> <span class="mi">3</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">R</span>
@@ -542,7 +545,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Algorithm 1:</p>
 <ol>
 <li>Create a</li>
-<li>Divide all elements in a by 3. </li>
+<li>Divide all elements by 3. </li>
 <li>Look for values with a remainder of zero.</li>
 <li>Create boolean array to subindex.</li>
 </ol>
