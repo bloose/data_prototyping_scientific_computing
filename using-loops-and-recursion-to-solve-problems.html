@@ -176,26 +176,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="A-note-about-functions-(modules)">A note about functions (modules)<a class="anchor-link" href="#A-note-about-functions-(modules)">¶</a></h3><ol>
-<li>You can pass more than one variable into a function - all these values go inside the parentheses on the 'def' line:<blockquote><p><code>def calcsomething(input1,input2,input3):</code></p>
-</blockquote>
+<li><p>You can pass more than one variable into a function - all these values go inside the parentheses on the 'def' line:</p>
+<pre><code>def calcsomething(input1,input2,input3):</code></pre>
 </li>
-<li>You can also specify the default values for an input variable. This is called overloading and it allows the user of the function to specify the input, or not.<blockquote><p><code>def calcsomething(input1,input2,input3='yesplot')</code></p>
-</blockquote>
+<li><p>You can also specify the default values for an input variable. This is called overloading and it allows the user of the function to specify the input, or not.</p>
+<pre><code>def calcsomething(input1,input2,input3='yesplot')</code></pre>
 </li>
 </ol>
 <p>When calcsomething is evaluated, it can be called several ways</p>
-<blockquote><p><code>I1 = 1.;  I2 = 2.; I3 = 'noplot'
-calcsomething(I1,I2,I3);</code></p>
-</blockquote>
+<pre><code>I1 = 1.;  I2 = 2.; I3 = 'noplot';
+calcsomething(I1,I2,I3);</code></pre>
 <p>or</p>
-<blockquote><p><code>calcsomething(I1,I2); #In this case, I3 will default to 'yesplot'</code></p>
-</blockquote>
-<h3 id="A-function-can-also-pass-a-number-of-variables-out-at-the-return">A function can also pass a number of variables out at the return<a class="anchor-link" href="#A-function-can-also-pass-a-number-of-variables-out-at-the-return">¶</a></h3><blockquote>
+<pre><code>calcsomething(I1,I2); #In this case, I3 will default to 'yesplot'</code></pre>
+<h3 id="A-function-can-also-pass-a-number-of-variables-out-at-the-return">A function can also pass a number of variables out at the return<a class="anchor-link" href="#A-function-can-also-pass-a-number-of-variables-out-at-the-return">¶</a></h3>
 <pre><code>def calcsomething(input1,input,input3);
     output1 = input1+input2;
     output2 = output2/output3;
     return output1, output2</code></pre>
-</blockquote>
 </div>
 </div>
 </div>
