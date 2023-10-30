@@ -19,7 +19,7 @@
         <meta property="og:title" content="Temperature analysis"/>
         <meta property="og:url" content="./temperature-analysis.html"/>
         <meta property="og:description" content="Using Pandas to process and analyze temperature time series data.¶ NOTES: This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation."/>
-        <meta property="article:published_time" content="2021-10-20" />
+        <meta property="article:published_time" content="2023-10-31" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-10-20T00:00:00-04:00"> Wed 20 October 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-10-31T00:00:00-04:00"> Tue 31 October 2023</time>
     </span>
 
 
@@ -170,8 +170,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>NOTES:</strong>  This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation.</p>
 <ol>
-<li>First, download a record of NOAA 5-min weather station temperature from Kingston, RI (ftp://ftp.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2021/). </li>
-<li>Put both your temperature data and the NOAA data onto the same time base.  </li>
+<li>First, download a record of NOAA 5-min weather station temperature from Kingston, RI (<a href="https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/">https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/</a>). </li>
+<li>Put both your temperature data and the NOAA data onto the same time base by using datetime as the row index for both data sets and merging them.  </li>
 <li>Merge the two data sets into one data frame, so you can use them for time series analysis.</li>
 <li>Last, compute the serial covariance to observe how well the two temperatures are correlated and if there is any lag between the outdoor temperature and your indoor temperature. </li>
 </ol>
@@ -216,7 +216,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Download 5-min temperature data, for a nearby weather station. Look for the neareest 5-min weather stations in RI.</span>
 <span class="c1"># These archives are available at:</span>
-<span class="c1"># https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2021/</span>
+<span class="c1"># https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/</span>
 
 
 
