@@ -12,14 +12,14 @@
 <link rel="canonical" href="./hpc-introduction.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started https://docs.ccv.brown.edu/oscar/software/python-on-oscar https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line." />
+        <meta name="description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line." />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
-        <meta property="og:description" content="Remote computing at the Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started https://docs.ccv.brown.edu/oscar/software/python-on-oscar https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Oscar cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif). Practice basic tasks at the Unix command line."/>
-        <meta property="article:published_time" content="2021-10-27" />
+        <meta property="og:description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line."/>
+        <meta property="article:published_time" content="2023-11-06" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-10-27T00:00:00-04:00"> Wed 27 October 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-06T00:00:00-05:00"> Mon 06 November 2023</time>
     </span>
 
 
@@ -157,18 +157,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Remote-computing-at-the-Brown-University-cluster-(Oscar).">Remote computing at the Brown University cluster (Oscar).<a class="anchor-link" href="#Remote-computing-at-the-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide</p>
-<ul>
-<li><a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a></li>
-<li><a href="https://docs.ccv.brown.edu/oscar/software/python-on-oscar">https://docs.ccv.brown.edu/oscar/software/python-on-oscar</a></li>
-<li><a href="https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc">https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc</a></li>
-</ul>
+<h2 id="Remote-computing-at-the-Unity-cluster.">Remote computing at the Unity cluster.<a class="anchor-link" href="#Remote-computing-at-the-Unity-cluster.">¶</a></h2><p>Use the documentation to supplement this guide</p>
+<p><a href="https://docs.unity.uri.edu/">https://docs.unity.uri.edu/</a></p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
 <li>Learn basic unix shell navigation and commands.</li>
-<li>Set up computing environment for Python on the Oscar cluster.</li>
-<li>Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .tif).</li>
+<li>Set up computing environment for Python on the Unity cluster.</li>
+<li>Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif).</li>
 <li>Practice basic tasks at the Unix command line.</li>
-<li>Set up the environment for cloud computing exercise</li>
+<li>Set up the environment for a parallel computing exercise</li>
 </ol>
 <p>+We will compute the <a href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-normalized-difference-vegetation-index?qt-science_support_page_related_con=0#qt-science_support_page_related_con">NDVI</a> Normalized Distributed Vegetation Index using LANDSAT satellite imagery  from the bands. Check out the details at the above link.</p>
 </div>
@@ -181,22 +177,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Log-in-to-Oscar-vis-ssh">Step 1:  Log in to Oscar vis ssh<a class="anchor-link" href="#Step-1:--Log-in-to-Oscar-vis-ssh">¶</a></h3><p>Your user account and password have been provided to you as a grade item in Brightspace. You will need those to log in.</p>
-<p>These should be something link:</p>
-<pre><code>Name: URI HPC 25
-Login: urihpc25 
-Password: Mistreat25!</code></pre>
-<p>To access the HPC, try use the VNC (virtual desktop) environment.  You will need to download and install the Java binary <a href="https://docs.ccv.brown.edu/oscar/connecting-to-oscar/vnc">here</a>.  This avoids two-step authentication for the moment.</p>
-<ol>
-<li>Download and open the <a href="https://brownbox.brown.edu/download.php?hash=b00a6c89">CCV VNC Client</a>.  This should be executable.  If you get a message that you need a Java SDK, go to  2, otherwise go to 3.</li>
-<li>Navigate to the Oracle Java Downloads page, choose your OS (Windows, Mac, Linux).  Download the binary (.dmg, .bin, or .exe) and install. </li>
-<li>Open the CCV_VNC_2.0.3.jar.  This should bring you a login window.  Enter your urihpc login and password. You should see a virtual desktop.  You can open a terminal emulator inside the desktop like below.</li>
-</ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/vnc_window.png" width="600" /></p>
-<ol>
-<li>If this is successful, then proceed to <strong> Step 2: Set up the working environment </strong>.</li>
-</ol>
-<p><strong>NOTE:</strong> The Oscar CCV environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module list</code> to see what's available.</p>
+<h3 id="Step-1:--Log-in-to-Unity.">Step 1:  Log in to Unity.<a class="anchor-link" href="#Step-1:--Log-in-to-Unity.">¶</a></h3><p>Your user account and password was created when you requested an account at unity.uri.edu.</p>
+<p>These should be something like:</p>
+<pre><code>Name: first last name
+Login: firstinitiallastname_uri
+Password: whatever_you_specified</code></pre>
+<p>To access the HPC, we will use the Unity On Demand service via web browser.</p>
+<ul>
+<li><p>In your browser type in:</p>
+<pre><code>$ https://ood.unity.rc.umass.edu/</code></pre>
+</li>
+<li><p>Choose your institution and follow the steps to log in.</p>
+</li>
+</ul>
+<p>If this connection is successful, then you can proceed to setting up you Python environment in the next step.</p>
+<p><strong>NOTE:</strong> The Oscar Unity environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module available</code> to see what's available.</p>
 </div>
 </div>
 </div>
@@ -208,28 +203,21 @@ Password: Mistreat25!</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
-<li><p>[Do this every time you log in] Oscar uses modules; modules can be loaded with the load command.  You will load them every time you log in.</p>
-<pre><code>$ module load python/3.7.4
-$ module load anaconda/2020.02
-$ source /gpfs/runtime/opt/anaconda/2020.02/etc/profile.d/conda.sh</code></pre>
-</li>
-<li><p>[Do this only once] Once you have loaded Python 3.7 and Anaconda modules, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</p>
-<pre><code>$ conda create -n <your_env_here> -c conda-forge python=3.7.4 dask mpi4py cartopy scikit-image
-$ source activate your_env_here
-$ pip install landsatxplore    # Note there is no 'e' between 't' and 'x' in the name 'landsatxplore'</code></pre>
-</li>
-<li><p><strong>NOTE:</strong> You need to substitute an environment name of your choosing in place of <your_env_here>.  Don't include the '<' in your name.</your_env_here></p>
-</li>
-<li><p>[Do this every time you log in] Activate the Anaconda environment you created:
-~~~</p>
+<li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.
+<pre><code>$ module load anaconda/2022.10
+$ conda create -n <your_env_here> python=3.9 dask mpi4py scikit-image
+$ pip install landsatxplore</code></pre>
 </li>
 </ul>
-<p>~~~
-At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</p>
+<ul>
+<li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.
+<pre><code>$ module load anaconda/2022.10
+$ source activate your_env_here</code></pre>
+At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</li>
+</ul>
 <p><strong>RECAP:</strong></p>
 <p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
-<pre><code>$ module load python/3.7.4
-$ module load anaconda/2020.02
+<pre><code>$ module load anaconda/2022.10
 $ source activate your_env_here</code></pre>
 </div>
 </div>
@@ -241,9 +229,7 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
-<p>Try using the <code>myquota</code> command to see how much space you were allocated.</p>
-<pre><code>$ myquota</code></pre>
+<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/Intro_Unix_Navigating.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
 </div>
 </div>
 </div>
@@ -254,38 +240,18 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">Step 4:  Transfer your .py file by sftp (4a) or by Google Drive (4b).<a class="anchor-link" href="#Step-4:--Transfer-your-.py-file-by-sftp-(4a)-or-by-Google-Drive-(4b).">¶</a></h3><h3 id="Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">Step 4a: sftp (this only works if you enabled two-step authentication).<a class="anchor-link" href="#Step-4a:-sftp-(this-only-works-if-you-enabled-two-step-authentication).">¶</a></h3><p>Secure File Transfer Protocol or sftp allows you to move files between your computer and your user directory on Oscar.</p>
-<p>If you haven't already, make a directory on Oscar entitled <code>ocg404</code>.  This directory should be inside your urihpc## folder.</p>
-<pre><code>]$ mkdir ocg404</code></pre>
-<p>To begin an sftp session * On MAC Open a terminal window</p>
-<pre><code>]$ sftp urihpc##@ssh.ccv.brown.edu</code></pre>
-<ul>
-<li>On Windows, go to the Start Menu and find PSFTP inside the PuTTY foler. Open PSFTP and then type:</li>
+<h3 id="Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">Step 4:  Transfer your .py files by OODs web-based file manager.<a class="anchor-link" href="#Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">¶</a></h3><ul>
+<li>Choose Files-->Home Directory from the top menu in Unity Open On Demand.</li>
 </ul>
-<pre><code>]$ open urihpc##@ssh.ccv.brown.edu</code></pre>
-<p>Enter your password when requested.</p>
-<p>sftp distinguishes between the local file system and the remote file system.  <strong>Many of the unix commands are the same, but if you want to do them locally, you must add 'l' for 'local' to the front of the command.</strong></p>
-<p>Try:</p>
-<pre><code>]$ lpwd</code></pre>
-<p>Compare that with:</p>
-<pre><code>]$ pwd</code></pre>
-<p>Can you recognize which is the local and which is the remote directory?  The same applies to the commands <code>cd</code> and <code>ls</code>, among others.  They are <code>lcd</code> and <code>lls</code> if you want to make a move in the local directory.</p>
-<p>Use <code>lcd</code> to navigate to the folder where your landsatexplore.py file is currently stored.</p>
-<p>Now transfer that file to Oscar, but make sure you have used <code>cd</code> inside sftp so that it transfers to the directory you want.</p>
-<p>To upload the file you use the <code>put</code> command.</p>
-<pre><code>]$ put landsatexplore.py</code></pre>
-<p>To download a file you use the <code>get</code> command.</p>
-<pre><code>]$ get test.png</code></pre>
-<h3 id="Step-4b:-Mozilla-Firefox.">Step 4b: Mozilla Firefox.<a class="anchor-link" href="#Step-4b:-Mozilla-Firefox.">¶</a></h3><ol>
-<li><p>Inside the Virtual Desktop, open the Mozilla Firefox web browser.  Log into your URI Google Drive account or a dropbox account if you have one.</p>
-</li>
-<li><p>Download your copy of landsatexplore.py from Google Drive onto the Oscar VNC desktop to complete the assignment.</p>
-</li>
-<li><p>Upload a copy of your landsat.png or .jpeg made with landsatexplore.py to Google Drive, so you can submit for the assignment.</p>
-</li>
-<li><p>Proceed to Step 5.</p>
-</li>
-</ol>
+<p>If you haven't already, make a directory in your Unity home folder entitled <code>ocg404</code>.  This directory should be inside your <code>/home/your_username</code>.</p>
+<p>You can do this at the Shell:</p>
+<pre><code>]$ mkdir ocg404</code></pre>
+<p>Or you can create the folder from within the OOD file manager that you opened above with Files-->Home Directory.</p>
+<p>src="<a href="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_FileManager.png">https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_FileManager.png</a>" width="700"/</img></p>
+<p>Now transfer your files to the ocg404 directory on Unity OOD.</p>
+<ul>
+<li>Upload landsatexplore.py</li>
+</ul>
 </div>
 </div>
 </div>
@@ -296,14 +262,13 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">Step 5: Use a text editor to modify landsatexplore.py the upload via sftp<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-the-upload-via-sftp">¶</a></h3><ul>
-<li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsat image.</li>
-<li>Note, that because we don't have a graphics connection to Oscar, you will need to save the file as a .png or .jpeg for downloading by ftp or Google Drive. </li>
-<li>sftp will overwrite the previous version of landsatexplore.py that you uploaded.  It doesn't check for newer/older versions.</li>
-<li>Run landsatexplore.py on Oscar; download the image you produce and your modified code.</li>
+<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ul>
+<li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsate image.</li>
+<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp. </li>
+<li>Run landsatexplore.py on Oscar:</li>
 </ul>
 <pre><code>]$ python landsatexplore.py</code></pre>
-<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Use sftp to download the image you created and submit that as this week's in_class assignment, along with your modified version of landsatexplore.py and your basic_stats.py module.</p>
+<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsatexplore.py.</p>
 </div>
 </div>
 </div>

@@ -12,14 +12,14 @@
 <link rel="canonical" href="./introduction-to-unix.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands inside the Brown CCV High-Performance Computing environment. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial" />
+        <meta name="description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands within the URI/UMASSD Unity Cluster. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial" />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Introduction to Unix"/>
         <meta property="og:url" content="./introduction-to-unix.html"/>
-        <meta property="og:description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands inside the Brown CCV High-Performance Computing environment. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial"/>
-        <meta property="article:published_time" content="2021-10-27" />
+        <meta property="og:description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands within the URI/UMASSD Unity Cluster. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial"/>
+        <meta property="article:published_time" content="2023-11-06" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-10-27T00:00:00-04:00"> Wed 27 October 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-06T00:00:00-05:00"> Mon 06 November 2023</time>
     </span>
 
 
@@ -157,7 +157,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Navigating-Files-and-Directories">Navigating Files and Directories<a class="anchor-link" href="#Navigating-Files-and-Directories">¶</a></h2><p>This tutorial assumes you have already opened or logged into a Unix Shell Environment.  This year, we will be practicing these commands inside the Brown CCV High-Performance Computing environment.</p>
+<h2 id="Navigating-Files-and-Directories">Navigating Files and Directories<a class="anchor-link" href="#Navigating-Files-and-Directories">¶</a></h2><p>This tutorial assumes you have already opened or logged into a Unix Shell Environment.  This year, we will be practicing these commands within the URI/UMASSD Unity Cluster.</p>
 <p><em>The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the <a href="http://swcarpentry.github.io/shell-novice/">Unix Shell tutorial </a> that is freely available on the Software Carpentry website. I highly recommend checking out the full version for further reading. The material is being used here under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution license</a>.</em></p>
 </div>
 </div>
@@ -189,6 +189,21 @@ let's find out where we are by running a command called <code>pwd</code>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Directory-structure-is-the-organization-of-files,-and-other-data-objects-into-drives-and-folders.">Directory structure is the organization of files, and other data objects into drives and folders.<a class="anchor-link" href="#Directory-structure-is-the-organization-of-files,-and-other-data-objects-into-drives-and-folders.">¶</a></h3><ul>
+<li>The <strong>document root</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
+<li>The <strong>subfolders</strong> sit within the document root.</li>
+</ul>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.002.jpeg" width="600" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">The path specifies the location of a file in the directory strucure.<a class="anchor-link" href="#The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">¶</a></h3><ul>
 <li>The <strong>path</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
 <li>A path can be absolute.  Absolute paths are specified w.r.t. the document root. </li>
@@ -199,17 +214,31 @@ let's find out where we are by running a command called <code>pwd</code>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Example:</strong> If I have an .ipynb in /pylibrary/spongebob and I want to use it to load an image in /Users/Downloads, I can specify the location as:</p>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<pre><code>]$ imread('/Users/Downloads/myimage.png')
+# or
+]$ imread('../../Users/Downloads/myimage.png')</code></pre>
+<pre><code>]$ cd ../brice # relative path, when I'm in spongebob
+]$ cd /Users/pylibrary/brice. # absolute path
+
+# The ../ sequence means "go up one level" in the directory structure.</code></pre>
 </div>
 </div>
 </div>
@@ -251,7 +280,7 @@ lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Navigating-around">Navigating around<a class="anchor-link" href="#Navigating-around">¶</a></h3><p>If we want to change locations, we can use the 'cd' command, which stands for 'change directory'</p>
+<h3 id="Navigating-around">Navigating around<a class="anchor-link" href="#Navigating-around">¶</a></h3><p>To change locations within the directories, use the 'cd' command, which stands for 'change directory'</p>
 <p>These commands result in the same thing. They use the relative and absolute path respectively to change into the data directory.</p>
 <pre><code>]$ cd data
 ]$ cd /users/urihpc25/data
@@ -326,7 +355,7 @@ which is great if you've gotten lost in your own filesystem.</p>
 <p>Once done, press <code>Ctrl-X</code> (press the Ctrl or Control key and, while
 holding it down, press the X key), you will be asked if you want to save the file.  Choose yes, and then the file is saved and closed.</p>
 <p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/nano.png" width="700" /></p>
-<p>At some point, we may want to make a new version of <code>script1.py</code>, but not lose the original version, so we can make a copy:</p>
+<p>If you want to make a new version of <code>script1.py</code>, but not lose the original version, then you can make a copy:</p>
 <pre><code>]$ cd ocg404/
 ]$ cp script1.py script2.py</code></pre>
 <p>To rename the file instead of copy it, use the <code>mv</code> or move command:</p>
@@ -393,7 +422,7 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Key-Points">Key Points<a class="anchor-link" href="#Key-Points">¶</a></h2><ul>
-<li><code>cp old new</code> copies a file.</li>
+<li><code>cp old new</code> copies existing file titled old into new file title new.</li>
 <li><code>mkdir path</code> creates a new directory.</li>
 <li><code>mv old new</code> moves (renames) a file or directory.</li>
 <li><code>rm path</code> removes (deletes) a file.</li>
@@ -449,20 +478,6 @@ You can use <code>-</code> or <code>_</code> instead of whitespace.</p>
  your computer's start menu, it may want to save files in your desktop or
  documents directory instead. You can change this by navigating to
  another directory the first time you "Save As..."</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
