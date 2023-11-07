@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct 25, 2021
+Created on Nov, 2023
 
 @author: 
 
@@ -31,7 +31,7 @@ ee = EarthExplorer(username, password)
 
 # Search for Landsat TM scenes
 scenes = api.search(
-    dataset='landsat_tm_c1',
+    dataset='landsat_tm_c2_l1',
     latitude=41,
     #Specify the longitude of RI 
     #longitude=,
@@ -53,9 +53,9 @@ ee.download(S['display_id'],'./')
 
 
 # Use the OS library to execute a command in the terminal.  You will unzip all the files
-# ending in .gz
+# ending in .tar
 import os
-os.system("tar -xvf *.gz")
+os.system("tar -cf *.tar")
 img = io.imread(S['display_id']+'_B4.TIF')
 
 
@@ -70,8 +70,8 @@ plt.show()
 
 # Verify that you captured Rhode Island and Narragansett Bay in the image.
 
-# Because we can't display figure objects on Oscar, save the figure to a file so you 
-# can download with sftp.
+# Because we can't display figure objects on Unity, save the figure to a file so you 
+# can download with the file explorer.
 
 print('Image save complete')
 
