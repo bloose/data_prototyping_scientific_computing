@@ -1,12 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-serialpie.py - a script to capture, print, and record the thermistor output from the
-Arduino.  This code can heavily rely on the code you already developed for the thermistor
-assignment.  Refer back to your therm_plotters.ipynb 
-
-"""
-
 # Import the modules you require
 
 
