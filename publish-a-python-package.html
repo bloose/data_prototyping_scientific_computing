@@ -12,14 +12,14 @@
 <link rel="canonical" href="./publish-a-python-package.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Making Modules and Packages for upload to Github¶NOTE: Much of this material was copied from the excellent packaging tutorial of Ryan Abernathy. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package the basic_stats module you wrote earlier in the class. (If you want to go through this process with a different module you wrote, that is also good, even excellent" />
+        <meta name="description" content="Making Packages for upload to Github¶TASK: Create a github public repository to share a module or other function as Open Source. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package a module you have written. For example, you can complete this exercise with your fibonacci modules" />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Publish a Python Package"/>
         <meta property="og:url" content="./publish-a-python-package.html"/>
-        <meta property="og:description" content="Making Modules and Packages for upload to Github¶NOTE: Much of this material was copied from the excellent packaging tutorial of Ryan Abernathy. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package the basic_stats module you wrote earlier in the class. (If you want to go through this process with a different module you wrote, that is also good, even excellent"/>
-        <meta property="article:published_time" content="2021-11-24" />
+        <meta property="og:description" content="Making Packages for upload to Github¶TASK: Create a github public repository to share a module or other function as Open Source. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package a module you have written. For example, you can complete this exercise with your fibonacci modules"/>
+        <meta property="article:published_time" content="2023-11-21" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-11-24T00:00:00-05:00"> Wed 24 November 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-21T00:00:00-05:00"> Tue 21 November 2023</time>
     </span>
 
 
@@ -157,12 +157,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Making-Modules-and-Packages-for-upload-to-Github">Making Modules and Packages for upload to Github<a class="anchor-link" href="#Making-Modules-and-Packages-for-upload-to-Github">¶</a></h2><p><strong>NOTE:</strong> Much of this material was copied from the excellent packaging tutorial of <a href="https://rabernat.github.io">Ryan Abernathy</a>.</p>
+<h2 id="Making-Packages-for-upload-to-Github">Making Packages for upload to Github<a class="anchor-link" href="#Making-Packages-for-upload-to-Github">¶</a></h2><p><strong>TASK:</strong> Create a github public repository to share a module or other function as Open Source.</p>
 <p><strong>MOTIVATION:</strong></p>
 <ul>
 <li><p>To maintain the integrity and reproduce scientific results, it is important that both data <strong>and</strong> <em>code</em> are preserved in a repository.</p>
 </li>
-<li><p>Document and package the <code>basic_stats</code> module you wrote earlier in the class. (<strong>If you want to go through this process with a different module you wrote, that is also good, even excellent</strong>).</p>
+<li><p>Document and package a module you have written. For example, you can complete this exercise with your <code>fibonacci modules</code>, you can put your <code>basic_stats</code> code into a module you wrote earlier in the class. (<strong>If you want to go through this process with a different module you wrote, that is also good, even excellent</strong>).</p>
 </li>
 <li><p>Use git to upload and maintain the basic_stats module.</p>
 </li>
@@ -195,8 +195,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Modules:">Modules:<a class="anchor-link" href="#Modules:">¶</a></h3><p>Earlier in the class you bundled your <code>basic_stats</code> code into a module.  Here, that code will get copied into a stand-alone Python .py file, so that it can be imported and executed by any other script or in the Python IDE. More info about <a href="https://docs.python.org/3/tutorial/modules.html">modules</a>.</p>
-<p>Below is some code to compute the <a href="">Saturation vapor pressure</a> for some common gases in the atmosphere.  I use this code as part of a toolbox on air-sea exchange.</p>
+<h3 id="Modules:">Modules:<a class="anchor-link" href="#Modules:">¶</a></h3><p>Earlier in the class you have created a module.  Here, that code will get copied into a stand-alone Python .py file, so that it can be imported and executed by any other script or in the Python IDE. More info about <a href="https://docs.python.org/3/tutorial/modules.html">modules</a>.</p>
+<p>Below is an example module to compute the <a href="">Saturation vapor pressure</a> for some common gases in the atmosphere.  I use this code as part of a toolbox on air-sea exchange.</p>
 <p>Included with this assignment is a file called<code>air_sea.py</code>, which contains the module definition for the satureation vapor pressure:</p>
 <div class="highlight"><pre><span></span><span class="sd">"""</span>
 <span class="sd">Saturation Vapor Pressure in mb</span>
@@ -235,7 +235,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <span class="n">es</span> <span class="o">=</span> <span class="mf">6.11</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">loges</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">es</span>
 </pre></div>
-<p>We can import this module if it is in the same folder as this Jupyter notebook.</p>
+<p>This module can be imported if it is in the same folder as this Jupyter notebook.</p>
 </div>
 </div>
 </div>
@@ -293,7 +293,7 @@ DATA
     __all__ = ['sat_vp']
 
 FILE
-    /Users/huero/GDrive/teaching/OCG404/2021/Lectures+Notes/Week12_github/_Lab/air_sea/__init__.py
+    /Users/huero/GDrive/teaching/OCG404/2023/Lab/Github_Lab/air_sea/__init__.py
 
 
 </pre>
@@ -484,7 +484,7 @@ If we plan to keep developing the package, we can install it in "developer mode"
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Follow-similar-steps-to-the-github-pages-in-class-activity.">Follow similar steps to the github pages in-class activity.<a class="anchor-link" href="#Follow-similar-steps-to-the-github-pages-in-class-activity.">¶</a></h3><ol>
-<li>Back in a web browser, open your github.com account and make a new empty repository called <code>basic_stats</code>. Edit the repository name and description.</li>
+<li>Back in a web browser, open your github.com account and make a new empty repository called <code>basic_stats</code> or some other name that describes what the code does. Edit the repository name and description.</li>
 </ol>
 <p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_clone.png" width="600px" /></p>
 <ol>

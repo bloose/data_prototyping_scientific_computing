@@ -19,7 +19,7 @@
         <meta property="og:title" content="Setup a Github developer page"/>
         <meta property="og:url" content="./setup-a-github-developer-page.html"/>
         <meta property="og:description" content="Using Git and Github for version control and collaboration.¶Objectives Set up Git to keep track of changes to code for collaboration purposes. Create a Github pages repository and use Markdown to create a simple templated professional website. Use Git to publish your work on Github to share in the Public Domain. Glossary of terms:¶"/>
-        <meta property="article:published_time" content="2021-11-24" />
+        <meta property="article:published_time" content="2023-11-21" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-11-24T00:00:00-05:00"> Wed 24 November 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-21T00:00:00-05:00"> Tue 21 November 2023</time>
     </span>
 
 
@@ -197,6 +197,7 @@ git --version
 </ol>
 <pre><code>$ git config --global user.name <your_username>
 $ git config --global user.email <your_email></code></pre>
+<p><strong>NOTE:</strong> When you push content to github for the first time, you will be prompted for your password or access token (see below).</p>
 </div>
 </div>
 </div>
@@ -274,7 +275,9 @@ $ git config --global user.email <your_email></code></pre>
 <pre><code>$git add --all                  # Add all the modified files to the staging for commit.
 $git commit -m "some updates"   # Commit the changes to version control; include a short description of the changes.
 $git push -u origin master      # Push the changes to the remote repository on github.  You will be prompted to login.</code></pre>
-<p><strong>NOTE:</strong> You should be prompted to authenticate or enter your git username and password when you use the <code>git push</code> command.  These credentials can be stored so you don't have to log in every time.</p>
+<p><strong>NOTE:</strong> You should be prompted to authenticate or enter your git username and password when you use the <code>git push</code> command.  These credentials will be stored the first time that you do it so you don't have to log in every time.  However, you must enter them the first time.  <strong>NOTE</strong>: Github no longer uses your password for authentication; instead you have to download an authentication token.  <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Instructions for that are here:</a></p>
+<p>Username: your_username</p>
+<p>Password: your_token</p>
 <p><strong>ALSO:</strong> <code>git init</code> will create the local repository inside the folder titled <code>.git/</code></p>
 <p>Check to see if it's there:</p>
 <pre><code>$ ls -a</code></pre>
