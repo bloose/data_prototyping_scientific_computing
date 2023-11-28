@@ -12,14 +12,14 @@
 <link rel="canonical" href="./hpc-parallel-processing.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Python parallel processing on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment." />
+        <meta name="description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)." />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Parallel Processing"/>
         <meta property="og:url" content="./hpc-parallel-processing.html"/>
-        <meta property="og:description" content="Python parallel processing on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment."/>
-        <meta property="article:published_time" content="2021-12-01" />
+        <meta property="og:description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)."/>
+        <meta property="article:published_time" content="2023-11-27" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-12-01T00:00:00-05:00"> Wed 01 December 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-27T00:00:00-05:00"> Mon 27 November 2023</time>
     </span>
 
 
@@ -157,19 +157,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Python-parallel-processing-on-Brown-University-cluster-(Oscar).">Python parallel processing on Brown University cluster (Oscar).<a class="anchor-link" href="#Python-parallel-processing-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
-<h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
+<h2 id="Python-parallel-processing-on-Unity-HPC.">Python parallel processing on Unity HPC.<a class="anchor-link" href="#Python-parallel-processing-on-Unity-HPC.">¶</a></h2><h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
 <li>Learn how to request a parallel processor 'job'and set up a Python environment that will use that job.</li>
-<li>Write a short function to test and confirm that parallel processing is taking place.</li>
-<li>Use these concepts to modify landsatxplore.py from Week09 and implement the NDVI calculation in the take home assignment.</li>
+<li>Write a short function to test and confirm that parallel processing is taking place (in-class).</li>
+<li>Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home).</li>
+<li>Use the python library Dask to extend Numpy array and Pandas dataframe calculations over multiple p</li>
 </ol>
-<h3 id="Glossary-of-terms:">Glossary of terms:<a class="anchor-link" href="#Glossary-of-terms:">¶</a></h3><ol>
-<li>Parallel processing:  Division of a calculation into pieces that can be computed at the same time or in parallel.</li>
-<li>Processor or worker: The CPU, GPU or TPU chip that performs the actual computations.</li>
-<li>Cluster:  A collection of processors or workers that are networked and orchestrated to carry out a parallel computation.</li>
-<li>Array: A 1, 2, 3, or N-dimensional data structure that can hold floats,or ints.</li>
-<li>Chunks:  The blocks or subsets of an array that Dask uses to break up large arrays for parallel processing.</li>
-</ol>
+<p>Dask documentation explains how Dask works with parallel computing: <a href="https://tutorial.dask.org/02_array.html">https://tutorial.dask.org/02_array.html</a></p>
+<p>Use Unity documentation to understand more using HPC resources:<a href="https://docs.unity.uri.edu/documentation/">https://docs.unity.uri.edu/documentation/</a></p>
 </div>
 </div>
 </div>
@@ -180,25 +175,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Using-Dask-for-Parallel-Processing.">Using Dask for Parallel Processing.<a class="anchor-link" href="#Using-Dask-for-Parallel-Processing.">¶</a></h2><p>Dask is a flexible library for parallel computing in Python.</p>
-<p>We use Dask to <strong>(1)</strong> manage the cores in our cluster job, and <strong>(2)</strong> break up large arrays into chunks for parallel processing.</p>
-<ol>
-<li>To manage the processors or workers in the cluster. 
-<a href="http://distributed.dask.org/en/stable/quickstart.html">http://distributed.dask.org/en/stable/quickstart.html</a></li>
-</ol>
-<p>The Dask Distributed Library creates a client() instance that contains access to the existing cluster workers that have been allocated by the <code>interact</code> statement, listed below in Step 1.  Two functions .map() and .submit() tell Dask to parallelize the computation</p>
-<ol>
-<li>To divide up the LandSat array images into chunks that can be dealt to the parallel processor.</li>
-</ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-array-black-text.svg" width="600" /> (c) Dask Core Developers <br /><br />
-<img src="https://bloose.github.io/data_prototyping_scientific_computing/images/dask-dataframe.svg" width="400" /> (c) Dask Core Developers</p>
-<h3 id="Arrays-implement-the-NumPy-API">Arrays implement the NumPy API<a class="anchor-link" href="#Arrays-implement-the-NumPy-API">¶</a></h3><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
-                     <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-<p>Watch this video for a brief introduction to Dask Array computations.
-<a href="https://youtu.be/9h_61hXCDuI">https://youtu.be/9h_61hXCDuI</a></p>
+<h3 id="Step-1:--Log-in-to-Unity-via-OOD.">Step 1:  Log in to Unity via OOD.<a class="anchor-link" href="#Step-1:--Log-in-to-Unity-via-OOD.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
+<p><strong>First</strong>, load your conda environment, following the same steps as in Week09.</p>
+<pre><code>$ module load anaconda/2022.10
+$ source activate your_env_here</code></pre>
+<p>Remember to type  <code>$ source deactivate</code> to close your Anaconda environment.</p>
 </div>
 </div>
 </div>
@@ -209,33 +190,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">Step 1:  Log in to Oscar vis ssh. Request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-to-Oscar-vis-ssh.-Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.ccv.brown.edu/oscar/submitting-jobs/slurm">Oscar documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Oscar uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
-<p>The <code>interact</code> and <code>batch</code> commands allows us to request cluster jobs on Oscar.  Documentation for both is found here.  I think you can run all of your work using the <code>interact</code> command, as this will simlify the feedback and comprehension loop as you execute your code.  For interact, you need to request the number of nodes <code>-n</code>, the amount of time you want the job to last <code>-t</code>, and the RAM or memory <code>-m</code>.</p>
-<p>The command below requests 5 processors and 150 GB of RAM for 60 minutes.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
-<pre><code>]$ interact -n 5 -t 00:60:00 -m 150g</code></pre>
-<pre><code>Cores:    5
-Walltime: 0:60:00
-Memory:   150g
-Queue:    batch
-salloc -J interact -N 1-1 -n 5 --time=0:60:00 --mem=150g -p batch srun --pty bash
-salloc: Pending job allocation 15699369
-salloc: job 15699369 queued and waiting for resources
-salloc: job 15699369 has been allocated resources
-salloc: Granted job allocation 15699369
-srun: Step created for job 15699369
-module: unloading 'java/8u111'
-module: loading 'java/8u111'
-module: unloading 'matlab/R2017b'
-module: loading 'matlab/R2017b'
-module: unloading 'python/3.7.4'
-module: loading 'python/2.7.12'
-module: unloading 'intel/2017.0'
-module: loading 'intel/2017.0'</code></pre>
-<p><strong>Note</strong> that the modules we loaded (python 3.7 and anacond 3.5) get unloaded when the job is allocated. This is because, Oscar has assigned us a new compute <code>node</code> with the processing resources on the computer. Because we are occupying a different physical space in the cluster, our computing environment has been reset to the default.  Before we can do our work, we must reload those as below.</p>
-<pre><code>$ module load python/3.7.4
-$ module load anaconda/2020.02
-$ source /gpfs/runtime/opt/anaconda/2020.02/etc/profile.d/conda.sh
-$ source activate <your_env_here></code></pre>
+<h3 id="Step-2:--Request-resources-for-your-compute-node.">Step 2:  Request resources for your compute node.<a class="anchor-link" href="#Step-2:--Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
+<p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
+<pre><code>]$ salloc -c 5     # Request 5 cpu nodes</code></pre>
+<p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
+<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu</code></pre>
+<p><strong>Note</strong> that the module and environemnt we loaded (Anaconda) get unloaded when the job is allocated. This is because, Unity has assigned us a new compute <code>node</code> with the processing resources on the computer. Because we are occupying a different physical space in the cluster, our computing environment has been reset to the default.  Before we can do our work, we must reload those as below.</p>
 <p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
 <pre><code>$ chmod a+x start.sh</code></pre>
 <p>The script can be run at the command line using</p>
@@ -250,12 +210,12 @@ $ source activate <your_env_here></code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 2: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-2:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
+<h3 id="Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 3: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
 <li>Download the script coreclock.py and examine the comments and contents.</li>
 <li>Add a module called coreclock() to the script, following the comments in the script.</li>
-<li>Upload the script to Oscar using sftp.</li>
-<li>Log in to oscar via ssh.</li>
-<li>Request compute resources for your job following step 2.</li>
+<li>Upload the script to Unity.</li>
+<li>Open the Unity OOD Shell.</li>
+<li>Request compute resources for your job following Step 2.</li>
 <li>Load modules, activate your conda environment.</li>
 </ol>
 <h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4>
@@ -270,9 +230,9 @@ $ source activate <your_env_here></code></pre>
     cluster = LocalCluster()
     job = Client(cluster)
     print(job)</code></pre>
-<p>The code block above creates a connection to the <code>interact</code> job.  The resources can be viewed with <code>print(job)</code></p>
+<p>The code block above creates a connection to the <code>salloc</code> resources that were requested before starting python.  The resources can be viewed with <code>print(job)</code></p>
 <ol>
-<li>Use client.map() to execute coreclock() on 500 instances of x.</li>
+<li>Use client.map() to execute coreclock() 500 times and distribute them over the requested cpus.</li>
 <li>Run coreclock.py at the command line:</li>
 </ol>
 <pre><code>$ python coreclock.py
@@ -281,7 +241,6 @@ $ source activate <your_env_here></code></pre>
 <ol>
 <li>How long does it take for the code to complete execution?</li>
 <li>Based on 500 instances of coreclock() and the 1 second delay, how long would it take for a single processor to complete the same task?</li>
-<li>Does processing time scale proportionately with the number of cores? Consider rerunning coreclock with a different number of processors in your interact request, to see if the trend holds.</li>
 <li>Is parellel computation working as expected?</li>
 </ol>
 </div>
@@ -294,25 +253,11 @@ $ source activate <your_env_here></code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ul>
+<h3 id="Step-4:-What-to-turn-in?">Step 4: What to turn in?<a class="anchor-link" href="#Step-4:-What-to-turn-in?">¶</a></h3><ul>
 <li>Answer the questions from Step 3 in this .ipynb.</li>
 <li>Upload this .ipynb</li>
 <li>Upload your modified version of coreclock.py </li>
 </ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>

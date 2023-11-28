@@ -12,14 +12,14 @@
 <link rel="canonical" href="./hpc-ndvi.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="NDVI computation on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Create a parallel processor &#39;job&#39;and Python environment . Modify landsatexplore.py from Week09 and implement a computation of NDVI using . Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list." />
+        <meta name="description" content="NDVI computation on the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/documentation/. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation." />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC NDVI"/>
         <meta property="og:url" content="./hpc-ndvi.html"/>
-        <meta property="og:description" content="NDVI computation on Brown University cluster (Oscar).¶Use the documentation to supplement this guide https://docs.ccv.brown.edu/oscar/getting-started. Objectives¶ Create a parallel processor &#39;job&#39;and Python environment . Modify landsatexplore.py from Week09 and implement a computation of NDVI using . Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list."/>
-        <meta property="article:published_time" content="2021-12-01" />
+        <meta property="og:description" content="NDVI computation on the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/documentation/. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation."/>
+        <meta property="article:published_time" content="2023-11-27" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-12-01T00:00:00-05:00"> Wed 01 December 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2023-11-27T00:00:00-05:00"> Mon 27 November 2023</time>
     </span>
 
 
@@ -157,11 +157,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="NDVI-computation-on-Brown-University-cluster-(Oscar).">NDVI computation on Brown University cluster (Oscar).<a class="anchor-link" href="#NDVI-computation-on-Brown-University-cluster-(Oscar).">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.ccv.brown.edu/oscar/getting-started">https://docs.ccv.brown.edu/oscar/getting-started</a>.</p>
+<h2 id="NDVI-computation-on-the-Unity-cluster.">NDVI computation on the Unity cluster.<a class="anchor-link" href="#NDVI-computation-on-the-Unity-cluster.">¶</a></h2><p>Use the documentation to supplement this guide <a href="https://docs.unity.uri.edu/documentation/">https://docs.unity.uri.edu/documentation/</a>.</p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
-<li>Create a parallel processor 'job'and Python environment .</li>
-<li>Modify landsatexplore.py from Week09 and implement a computation of NDVI using .</li>
-<li>Use the Oscar cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list.</li>
+<li>Learn how to request a parallel processor 'job'and set up a Python environment that will use that job.</li>
+<li>Write a short function to test and confirm that parallel processing is taking place.</li>
+<li>Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation.</li>
+<li>Use the Unity cluster to split this calculation amongst the processors and peform the computation for all the satellite images in your items list.</li>
 <li>Observe whether there is a seasonal difference in the NDVI for the RI/New England region.</li>
 </ol>
 <p><strong>NOTE:</strong> This exercise uses cumulative concepts from throughout the course, including use of list and numpy arrays, creation of modules, reading and writing files, using Pandas dataframes, and unix commands. Refer to your code from previous weeks and to the online library documentation as needed.</p>
@@ -175,47 +176,45 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">Step 1:  Add NDVI computation to your previous <code>landsatexplore.py</code> code from Week09.<a class="anchor-link" href="#Step-1:--Add-NDVI-computation-to-your-previous-landsatexplore.py-code-from-Week09.">¶</a></h3><p>The <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> can be computed directly from two frequency bands in the Landsat satellite data - the Near Infrared band (NIR) and the visible red (Red) spectral reflectance:</p>
-$$ NDVI = \frac{NIR - Red}{NIR + Red} $$<p>Below is a list of modifications you should make to your <code>landsatexplore.py</code> script.  Give it a new name, like <code>lsexplore_NDVI.py</code> or similar.</p>
-<p><strong>NOTE</strong>: The landsatxplore API that we used in Week09 was very slow for downloading the Landsat files.  I have downloaded approximately 50 files and stored them in a location where you can load them.  The files are stored in <code>/users/urihpc25/LT05gz/</code>.  You can use this path and shell scripting wildcards to capture a list of e.g. all the files that end in <code>_B4.TIF</code> or <code>.tar.gz</code> and then feed that list to the dask client.map() function.</p>
+<h3 id="Step-1:--Modify-landsatexplore.py-code-to-carry-out-NDVI-computation.">Step 1:  Modify <code>landsatexplore.py</code> code to carry out NDVI computation.<a class="anchor-link" href="#Step-1:--Modify-landsatexplore.py-code-to-carry-out-NDVI-computation.">¶</a></h3><p>The <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> can be computed directly from two frequency bands in the Landsat satellite data - the Near Infrared band (NIR) and the visible red (Red) spectral reflectance:</p>
+$$ NDVI = \frac{NIR - Red}{NIR + Red} $$<p><strong>NOTE:</strong> The .tif files ending in _B4.tif contain the near-infrared (NIR) spectral wavelengths, and the .tif files ending in _B3.tif contain the Red spectral reflectance.</p>
+<p><strong>NOTE:</strong> A compilation of Landsat ETM files for the Rhode Island region can be found in <code>/work/pi_csc593_uri_edu/Landsat</code> on the Unity HPC.</p>
+<p>Below is a list of modifications you should make to your script.  Give it a new name, like <code>landsatexplore_NDVI.py</code> or similar.</p>
 <ol>
-<li>Delete, or comment out all usage of landsatexplore from Week09. This script will do the NDVI computation using the cluster job and save the results in a Pandas dataframe, nothing more.</li>
-<li>Put all the code of the script inside this <code>if</code> statement. This ensures that the cluster resource request will be compiled at runtime before the computations begin:
+<li>Delete, or comment out all usage of graphing and cartopy from Week09. This script will do the NDVI computation using the cluster job and save the results in a Pandas dataframe, nothing more.</li>
+<li><strong>Put all the code of the script inside the <code>if</code> statement below.</strong> This ensures that the cluster resource request will be compiled at runtime before the computations begin:
 <pre><code>if __name__ == '__main__':</code></pre>
 Don't forget to indent</li>
 <li>Add the codeblock from coreclock.py that requests and uses the requested Cluster resources.</li>
-<li>Define a module to compute the NDVI with the following operations.  Your module should take a single file name from the landsat <code>scenes</code> list and it should return the average NDVI value from that item.</li>
+<li>Create a list of scenes (filenames) from the files ending in _B4.tif. This can be found in the text file called test.out, in the same folder <code>/work/pi_csc593_uri_edu/Landsat</code>.</li>
+<li>Define a module to compute the NDVI with the following operations.  Your module should take a single element of the list of satellite filenames or <code>scenes</code> and it should return the average NDVI value from that item.</li>
+<li>The filenames are found in </li>
 </ol>
-<pre><code># Use skimage.imread() to load the NIR band (Band 4 on Landsat 5 images).  
-# Do the same for the Red band (Band 3).
-# Remember you can subindex the filename because it is a string and use it to load e.g. the 
-# _B4.TIF and _B3.TIF files.
-B4 = skimage.imread(<filepath>+...)
-# Compute the NDVI as (nir-red)/(nir+red).  Note that in some cases, the denominator in this equation can be zero,
-# leading to infinite or undefined values. Use e.g. np.where(), in order to identify the undefined values.
-denom = np.add(B4,B3)
+<pre><code># Get the path+filename for the NIR band.  Do the same for the Red band.
+
+# Use the skimage.io library to open and read the NIR band geotiff image. Do the same for the Red band.
+
+# Compute the NDVI as (nir-red)/(nir+red).  Note that zeros at some cells in the .tif will cause inf 
+# or undefined values.  Use np.divide(), np.subtract(), and np.add() in order to tolerate 
+# the undefined values.
+
+
 # Replace all undefined values with NaNs.
-denom = np.where(...)
 
-# Convert the .TIF arrays into dask arrays using dask.array.from_array().  Here you will specify a chunksize.
+NDVI = np.where(NDVI == np.inf, np.nan, NDVI)
 
-# Use dask.array functions to compute and return the average NDVI value from each satellite scene.
 
-av_ndvi = ....
-
-# Your function should return the average ndvi value for this Landsat image.
-return av_ndvi</code></pre>
+# Use np.nanmean() to compute and return the average NDVI value from this satellite item.</code></pre>
 <ol>
 <li><p>Add the code block from coreclock.py that uses f = client.map() to distribute the computation amongst the cores and displays the progress.  f = client.map() will take your module name and the satellite items list as inputs.</p>
 </li>
-<li><p>Write a <code>for</code> loop to extract the date stamp from the scenes list of images, and put it into a separate list array, called 'NDVI_time' or similar.  Refer to <a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products">this page on Landsat naming conventions</a> to determine which subset of the name contains the image date.</p>
-</li>
-<li><p>Extract the list of Average NVDI computations from your module using client.gather().</p>
+<li><p>Write a <code>for</code> loop to extract the time stamp from the items list, and put it into a separate list array, called 'NDVI_time' or similar.  The datetime is stored in <code>item.datetime</code>.</p>
+<p>Extract the list of Average NVDI computations from your module using client.gather().</p>
 <pre><code>AvNDVI_list = client.gather(f)</code></pre>
 </li>
 <li><p>Make a Pandas dataframe with a 'time' column and an 'NDVI' column.  Put NDVI_time and AvNDVI_list into the Pandas dataframe (they should be the same length).</p>
 </li>
-<li><p>Save the Pandas dataframe for download. I recommend using df.to_csv('file.csv');  Depending on which you choose, you then you can read the file with df = pd.read_pickle() or df = read_csv();</p>
+<li><p>Save the Pandas dataframe for download. I recommend using df.to_pickle('file.pkl'), but you can also use df.to_csv('file.csv');  Depending on which you choose, you then you can read the file with df = pd.read_pickle() or df = read_csv();</p>
 </li>
 </ol>
 </div>
@@ -229,45 +228,30 @@ return av_ndvi</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:--Download-and-post-process-your-results.">Step 2:  Download and post-process your results.<a class="anchor-link" href="#Step-2:--Download-and-post-process-your-results.">¶</a></h3><ol>
-<li>Connect to Oscar with sftp as you have before.   Use sftp to transfer your Pandas dataframe</li>
-</ol>
-<pre><code>$ sftp guest###@ssh.ccv.brown.edu
-$ lcd path/to/home/dir
-$ cd path/to/results/file
-$ get file.csv</code></pre>
-<ol>
 <li>Write a short script as .py or .ipynb to load and graph the NDVI mean value as a function of time.</li>
 <li>Make a plot of the NDVI index with time, similar to the one below.</li>
 <li>You can improve the rendering of dates on the y-axis using the mdates formatter:
 <pre><code>import matplotlib.dates as mdates
-# read in .csv...
+# read in .csv..
 # 
-# Set index to datetime for rolling mean computation
-ndv.set_index('time',inplace=True)
-# Compute rolling mean. This gives a 60D running average.
-ndv_rm = ndv.rolling('360D').mean();
-# Plot....
+# Use pandas to create a running or 'rolling' mean of the timeseries. Note, this is related to the operations we did for the thermistor analysis. Create a running average and include in the graph. Explain the averaging interval you chose.
 # f, ax = plt.subplots(figsize=(10,5))
 # 
 #Display only year and month on x-axis.
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
 </li>
 </ol>
-<h4 id="Summary-of-results:">Summary of results:<a class="anchor-link" href="#Summary-of-results:">¶</a></h4><p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/NDVI.png" width="800" /></p>
-<p><strong>Results</strong></p>
-<ul>
-<li>I found 61 individual satellite items during a 10 year period from 2002 to 2012.</li>
-<li>The analysis took approximately 37 seconds to complete with 5 cores and 150 GB requested. This may vary, depending on how many users have jobs running at the same time and what priority those have.</li>
-<li>The NDVI index appears to vary a lot - possibly decreasing in winter months; lower NDVI suggests lower vegetation cover.</li>
-<li>Many factors can cause a change of NDVI including cloud cover or other details that we have not examined in the imagery.</li>
-<li>This exercise was mostly intended to lead us through the usage of computing on a remote cluster.</li>
-</ul>
-<p><strong>Caveats</strong></p>
+<h4 id="Summary-of-results:">Summary of results:<a class="anchor-link" href="#Summary-of-results:">¶</a></h4><p><img src="NDVii.png" width="800" /></p>
+<p><strong>Results:</strong> Report on your results.</p>
 <ol>
-<li>Normal NDVI is supposed to scale between -1 and 1.  The raw values range from 0 to 255 digital numbers. We did not scale them, but I don't think this will skew the results as we are looking at relative changes.</li>
-<li>Each image does not cover the same area. Before comparing regions, we should crop each image to the same area, but we leave this task for another iteration.</li>
-<li>We did not consider how to account for cloud cover.</li>
-<li>We did no benchmarking or cross-checking of these results, so they may be completely bogus.</li>
+<li>How many satellite scenes did you include?  What span of time do they represent?</li>
+<li>How long did the analysis take to complete?  </li>
+<li>What resources did you request?</li>
+<li>What trends, if any, can you discern in the data and in the running average?</li>
+</ol>
+<p><strong>Caveats:</strong></p>
+<ol>
+<li>What other factors might be influencing the results, which might make it harder to achieve a clear interpretation?  </li>
 </ol>
 </div>
 </div>
@@ -279,26 +263,11 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ol>
-<li>How long did your code take to process? </li>
-<li>Your modified version of landsatexplore.py from Week09, reflecting all the new code.</li>
-<li>Modify this .ipynb to include your results from the NDVI calculation and summary figure.</li>
-<li>Include the figure of NDVI over time, similar to the one above.</li>
-</ol>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
+<h3 id="Step-3:-What-to-turn-in?">Step 3: What to turn in?<a class="anchor-link" href="#Step-3:-What-to-turn-in?">¶</a></h3><ul>
+<li>Modify this .ipynb to include your results from the NDVI calculation and summary comments.</li>
+<li>The python script you used to make the NDVI calculation.</li>
+<li>Answers to the questions above.</li>
+</ul>
 </div>
 </div>
 </div>
