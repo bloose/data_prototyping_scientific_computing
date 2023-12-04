@@ -12,13 +12,13 @@
 <link rel="canonical" href="./writing-efficient-code-vectorization-and-benchmarking.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Writing efficient code, vectorization, and benchmarking.¶Objectives:¶ Understand how to use Pandas and Numpy most efficiently. Relate the notions of efficient programming to [historical benchmarks]. Use vectorized operations to make your code faster. In [ ]: import pandas as pd import numpy as np from math import * import matplotlib.pyplot as plt Here are some append() operations we&#39;ve done many times to list and numpy arrays.¶" />
+        <meta name="description" content="Writing efficient code, vectorization, and benchmarking.¶Objectives:¶ Understand how to use Pandas and Numpy most efficiently. Relate the notions of efficient programming to [historical benchmarks]. Use vectorized operations to make your code faster. In [ ]: import pandas as pd import numpy as np from math import * import matplotlib.pyplot as plt Processing time for array creation.¶Let&#39;s explore different ways of creating an N=1000 element array:" />
 
         <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Writing efficient code, vectorization, and benchmarking."/>
         <meta property="og:url" content="./writing-efficient-code-vectorization-and-benchmarking.html"/>
-        <meta property="og:description" content="Writing efficient code, vectorization, and benchmarking.¶Objectives:¶ Understand how to use Pandas and Numpy most efficiently. Relate the notions of efficient programming to [historical benchmarks]. Use vectorized operations to make your code faster. In [ ]: import pandas as pd import numpy as np from math import * import matplotlib.pyplot as plt Here are some append() operations we&#39;ve done many times to list and numpy arrays.¶"/>
+        <meta property="og:description" content="Writing efficient code, vectorization, and benchmarking.¶Objectives:¶ Understand how to use Pandas and Numpy most efficiently. Relate the notions of efficient programming to [historical benchmarks]. Use vectorized operations to make your code faster. In [ ]: import pandas as pd import numpy as np from math import * import matplotlib.pyplot as plt Processing time for array creation.¶Let&#39;s explore different ways of creating an N=1000 element array:"/>
         <meta property="article:published_time" content="2023-11-28" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -189,7 +189,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Here-are-some-append()-operations-we've-done-many-times-to-list-and-numpy-arrays.">Here are some append() operations we've done many times to list and numpy arrays.<a class="anchor-link" href="#Here-are-some-append()-operations-we've-done-many-times-to-list-and-numpy-arrays.">¶</a></h3><p>We can determine their runtime using the <code>%%timeit</code> magic variable in Jupyter.</p>
+<h3 id="Processing-time-for-array-creation.">Processing time for array creation.<a class="anchor-link" href="#Processing-time-for-array-creation.">¶</a></h3><p><strong>Let's explore different ways of creating an N=1000 element array:</strong></p>
+<p>Below are some append() operations we've done many times to list and numpy arrays.</p>
+<p>We can determine their runtime using the <code>%%timeit</code> magic variable in Jupyter.  <code>%%timeit</code> runs multiple experiments or 'loops' to estimate the mean and standard deviation in the processing time.</p>
 </div>
 </div>
 </div>
@@ -206,20 +208,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="n">N</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">N</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Size:'</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -246,23 +234,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it -n 100
 <span class="c1"># Appending items to a Numpy array</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">]);</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]);</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Size:'</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -312,10 +286,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Let's-examine-how-the-compute-time-scales-with-the-value-of-N.">Let's examine how the compute time scales with the value of N.<a class="anchor-link" href="#Let's-examine-how-the-compute-time-scales-with-the-value-of-N.">¶</a></h3><ol>
-<li>Instead of using <code>%%timeit</code>, we'll use the time module to calculate the compute time.</li>
-<li>We do this for multiple values of N.</li>
-<li>We normalize or divide the compute time by the first value, so the compute time is unitless. This lets us compare with the benchmark curves below.</li>
+<h3 id="How-does-the-time-required-for-computation-scale-with-the-value-of-N?">How does the time required for computation scale with the value of N?<a class="anchor-link" href="#How-does-the-time-required-for-computation-scale-with-the-value-of-N?">¶</a></h3><ol>
+<li>Instead of using <code>%%timeit</code>, use the time() module to calculate the compute time.</li>
+<li>Do this for multiple values of N.</li>
+<li>Normalize or divide the compute time by the first value, so the compute time is unitless. This lets us compare with the benchmark curves below.</li>
 </ol>
 </div>
 </div>
@@ -342,6 +316,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <span class="c1"># Normalize the time by the initial value to get unitless quantity.</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
 <span class="n">t2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Ns</span><span class="p">:</span>
@@ -350,6 +325,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">t2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">ti</span><span class="p">)</span>
 <span class="c1"># Normalize the time by the initial value to get unitless quantity.</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span><span class="o">/</span><span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -411,7 +387,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Results:</strong>  The np.append() loop is scales somewhere between O(log(n)) and O(n) suggesting it is relatively efficient, even though it is much slower than np.arange(), which actually decreases in compute time for larger values of N.  This suggests that np.arange() is actually O(1) or has a constant compute time.</p>
+<p><img href="https://bloose.github.io/data_prototyping_scientific_computing/images/Compute_resources.png" width="600" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Results:</strong>  The np.append() loop scales somewhere between O(log(n)) and O(n) suggesting it is relatively efficient, even though it is much slower than np.arange(), which actually decreases in compute time for larger values of N.  This suggests that np.arange() is actually O(1) or has a constant compute time.</p>
 <p><strong>NOTE</strong>: The rest of this tutorial is copied directly from Sofia Heisler's excellent <a href="https://github.com/s-heisler/pycon2017-optimizing-pandas">Pycon presentation</a> on optimizing Pandas code.</p>
 </div>
 </div>
@@ -659,20 +646,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -707,7 +680,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Vectorized-implementation-of-Haversine-applied-on-NumPy-arrays">5. Vectorized implementation of Haversine applied on NumPy arrays<a class="anchor-link" href="#5.-Vectorized-implementation-of-Haversine-applied-on-NumPy-arrays">¶</a></h2>
+<h2 id="5.-Compute-Haversine-on-rows-in-Numpy-instead-of-Pandas">5. Compute Haversine on rows in <code>Numpy</code> instead of <code>Pandas</code><a class="anchor-link" href="#5.-Compute-Haversine-on-rows-in-Numpy-instead-of-Pandas">¶</a></h2>
 </div>
 </div>
 </div>
@@ -719,15 +692,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>it
-<span class="c1"># See how long it takes to convert pandas arrays to NumPy ndarrays</span>
-<span class="n">np_lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">np_lon</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">DF</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Convert Pandas columns into a Numpy array</span>
+
+<span class="o">%</span><span class="k">timeit</span> [haversine(40.671, -73.985,row[0], row[1]) for row in DF]
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="6.-Vectorized-implementation-of-Haversine-applied-on-NumPy-arrays">6. Vectorized implementation of Haversine applied on NumPy arrays<a class="anchor-link" href="#6.-Vectorized-implementation-of-Haversine-applied-on-NumPy-arrays">¶</a></h2>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -736,7 +719,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Vectorized implementation of Haversine applied on NumPy arrays</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">np_lat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">np_lon</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Vectorized implementation of Haversine applied on NumPy arrays</span>
 <span class="o">%</span><span class="k">timeit</span> df['distance'] = haversine(40.671, -73.985,\
                          <span class="n">df</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
@@ -789,7 +775,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6.-In-class-assignment:--Benchmark-and-graph-haversine-methods-1,-3-and-5.">6. In-class assignment:  Benchmark and graph haversine methods 1, 3 and 5.<a class="anchor-link" href="#6.-In-class-assignment:--Benchmark-and-graph-haversine-methods-1,-3-and-5.">¶</a></h2><ol>
+<h2 id="6.-In-class-assignment:--Benchmark-and-graph-haversine-methods-1,-3-and-6.">6. In-class assignment:  Benchmark and graph haversine methods 1, 3 and 6.<a class="anchor-link" href="#6.-In-class-assignment:--Benchmark-and-graph-haversine-methods-1,-3-and-6.">¶</a></h2><ol>
 <li>Evaluate the haversine functions using N = 10, 100, 500, and 1000 as in the example above. Hint: subindex df to pass only N values, instead of the full array (which is 1600).</li>
 <li>Use the <code>ti = time.time(); t = time.time()-ti;</code> code to capture the compute time for graphing.</li>
 <li>Normalize t as above.</li>
