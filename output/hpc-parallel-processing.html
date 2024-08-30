@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Parallel Processing - 2023 | Data Prototyping and Scientific Computing</title>
+    <title>HPC Parallel Processing - 2024 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)." />
 
-        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Parallel Processing"/>
         <meta property="og:url" content="./hpc-parallel-processing.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2023 | Data Prototyping and Scientific Computing            </a>
+2024 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -178,7 +178,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h3 id="Step-1:--Log-in-to-Unity-via-OOD.">Step 1:  Log in to Unity via OOD.<a class="anchor-link" href="#Step-1:--Log-in-to-Unity-via-OOD.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
 <p><strong>First</strong>, load your conda environment, following the same steps as in Week09.</p>
 <pre><code>$ module load anaconda/2022.10
-$ source activate your_env_here</code></pre>
+$ source activate your_env_here
+</code></pre>
 <p>Remember to type  <code>$ source deactivate</code> to close your Anaconda environment.</p>
 </div>
 </div>
@@ -192,14 +193,18 @@ $ source activate your_env_here</code></pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:--Request-resources-for-your-compute-node.">Step 2:  Request resources for your compute node.<a class="anchor-link" href="#Step-2:--Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
 <p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
-<pre><code>]$ salloc -c 5     # Request 5 cpu nodes</code></pre>
+<pre><code>]$ salloc -c 5     # Request 5 cpu nodes
+</code></pre>
 <p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
-<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu</code></pre>
+<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu  
+</code></pre>
 <p><strong>Note</strong> that the module and environemnt we loaded (Anaconda) get unloaded when the job is allocated. This is because, Unity has assigned us a new compute <code>node</code> with the processing resources on the computer. Because we are occupying a different physical space in the cluster, our computing environment has been reset to the default.  Before we can do our work, we must reload those as below.</p>
 <p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
-<pre><code>$ chmod a+x start.sh</code></pre>
+<pre><code>$ chmod a+x start.sh
+</code></pre>
 <p>The script can be run at the command line using</p>
-<pre><code>$ source start.sh</code></pre>
+<pre><code>$ source start.sh
+</code></pre>
 </div>
 </div>
 </div>
@@ -218,18 +223,18 @@ $ source activate your_env_here</code></pre>
 <li>Request compute resources for your job following Step 2.</li>
 <li>Load modules, activate your conda environment.</li>
 </ol>
-<h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4>
-<pre><code>    # Client() and LocalCluster() will be used to connect to the job resources that
-    # were requested. 
-    from dask.distributed import Client, LocalCluster
-    # Progress function reports the computation status to the screen
-    from dask.distributed import progress
-    # Use time library for sleep
-    import time
-    # Connect to resources.
-    cluster = LocalCluster()
-    job = Client(cluster)
-    print(job)</code></pre>
+<h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4><pre><code>	# Client() and LocalCluster() will be used to connect to the job resources that
+	# were requested. 
+	from dask.distributed import Client, LocalCluster
+	# Progress function reports the computation status to the screen
+	from dask.distributed import progress
+	# Use time library for sleep
+	import time
+	# Connect to resources.
+	cluster = LocalCluster()
+	job = Client(cluster)
+	print(job)
+</code></pre>
 <p>The code block above creates a connection to the <code>salloc</code> resources that were requested before starting python.  The resources can be viewed with <code>print(job)</code></p>
 <ol>
 <li>Use client.map() to execute coreclock() 500 times and distribute them over the requested cpus.</li>
@@ -237,7 +242,8 @@ $ source activate your_env_here</code></pre>
 </ol>
 <pre><code>$ python coreclock.py
 <client: &#x27;tcp: 127.0.0.1:37750&#x27; processes="5" threads="5," memory="161.06" gb>
-[####                                    ] | 10% Completed | 11.6s</code></pre>
+[####                                    ] | 10% Completed | 11.6s
+</code></pre>
 <ol>
 <li>How long does it take for the code to complete execution?</li>
 <li>Based on 500 instances of coreclock() and the 1 second delay, how long would it take for a single processor to complete the same task?</li>
@@ -256,7 +262,7 @@ $ source activate your_env_here</code></pre>
 <h3 id="Step-4:-What-to-turn-in?">Step 4: What to turn in?<a class="anchor-link" href="#Step-4:-What-to-turn-in?">¶</a></h3><ul>
 <li>Answer the questions from Step 3 in this .ipynb.</li>
 <li>Upload this .ipynb</li>
-<li>Upload your modified version of coreclock.py </li>
+<li>Upload your modified version of coreclock.py</li>
 </ul>
 </div>
 </div>

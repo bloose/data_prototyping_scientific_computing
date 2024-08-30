@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Introduction to Unix - 2023 | Data Prototyping and Scientific Computing</title>
+    <title>Introduction to Unix - 2024 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Navigating Files and Directories¶This tutorial assumes you have already opened or logged into a Unix Shell Environment. This year, we will be practicing these commands within the URI/UMASSD Unity Cluster. The notes below are modified from the excellent course notes of Ryan Abernathy who modified them from the Unix Shell tutorial" />
 
-        <meta property="og:site_name" content="2023 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Introduction to Unix"/>
         <meta property="og:url" content="./introduction-to-unix.html"/>
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2023 | Data Prototyping and Scientific Computing            </a>
+2024 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -169,7 +169,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<pre><code>]$</code></pre>
+<pre><code>]$
+</code></pre>
 <p>The dollar sign is a <strong>prompt</strong>, which shows us that the shell is waiting for input;
 your shell may use a different character as a prompt and may add information before
 the prompt.</p>
@@ -177,8 +178,10 @@ the prompt.</p>
 let's find out where we are by running a command called <code>pwd</code>
 (which stands for "print working directory").</p>
 <p>This tells you where you are in the current directory structure.  Recall from earlier in the course that the <strong>path</strong>  reveals a folder's position within the directory structure.   <code>pwd</code> provides the absolute path to your current position.  In my case, it is <code>/users/urihpc25</code>,</p>
-<pre><code>]$ pwd</code></pre>
-<pre><code>]$ /users/urihpc25</code></pre>
+<pre><code>]$ pwd
+</code></pre>
+<pre><code>]$ /users/urihpc25
+</code></pre>
 </div>
 </div>
 </div>
@@ -193,7 +196,7 @@ let's find out where we are by running a command called <code>pwd</code>
 <li>The <strong>document root</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
 <li>The <strong>subfolders</strong> sit within the document root.</li>
 </ul>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.002.jpeg" width="600" /></p>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.002.jpeg" width="600" /></p>
 </div>
 </div>
 </div>
@@ -206,11 +209,11 @@ let's find out where we are by running a command called <code>pwd</code>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">The path specifies the location of a file in the directory strucure.<a class="anchor-link" href="#The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">¶</a></h3><ul>
 <li>The <strong>path</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
-<li>A path can be absolute.  Absolute paths are specified w.r.t. the document root. </li>
+<li>A path can be absolute.  Absolute paths are specified w.r.t. the document root.</li>
 <li>A path can be relative to the current location.</li>
 </ul>
 <p>Paths are used to help executable files find the other files they need.</p>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.004.jpeg" width="600" /></p>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.004.jpeg" width="600" /></p>
 </div>
 </div>
 </div>
@@ -234,11 +237,14 @@ let's find out where we are by running a command called <code>pwd</code>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <pre><code>]$ imread('/Users/Downloads/myimage.png')
 # or
-]$ imread('../../Users/Downloads/myimage.png')</code></pre>
+]$ imread('../../Users/Downloads/myimage.png')
+
+</code></pre>
 <pre><code>]$ cd ../brice # relative path, when I'm in spongebob
 ]$ cd /Users/pylibrary/brice. # absolute path
 
-# The ../ sequence means "go up one level" in the directory structure.</code></pre>
+# The ../ sequence means "go up one level" in the directory structure.
+</code></pre>
 </div>
 </div>
 </div>
@@ -250,11 +256,14 @@ let's find out where we are by running a command called <code>pwd</code>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Listing-contents">Listing contents<a class="anchor-link" href="#Listing-contents">¶</a></h3><p>The contents of the current directory. The command <code>ls</code> is short for "list":</p>
-<pre><code>]$ ls</code></pre>
-<pre><code>anaconda  batch.script  batch_scripts  dask-worker-space  data  pkgs  README  scratch  TERMS  this.png</code></pre>
+<pre><code>]$ ls
+</code></pre>
+<pre><code>anaconda  batch.script  batch_scripts  dask-worker-space  data  pkgs  README  scratch  TERMS  this.png
+</code></pre>
 <p><code>ls</code> prints the names of the files and directories in the current directory in
 alphabetical order.  We can see more detail by typing <code>ls -l</code></p>
-<pre><code>]$ ls -l</code></pre>
+<pre><code>]$ ls -l
+</code></pre>
 <pre><code>drwxr-xr-x  5 urihpc25 uri_fall2021   4096 Oct 25 14:23 anaconda
 lrwxrwxrwx. 1 urihpc25 uri_fall2021     27 Jun 17  2014 batch.script -> /gpfs/home/doc/batch.script
 lrwxrwxrwx. 1 urihpc25 uri_fall2021     28 Jun 17  2014 batch_scripts -> /gpfs/home/doc/batch_scripts
@@ -266,10 +275,12 @@ drwxr-xr-x  2 urihpc25 uri_fall2021   4096 Oct 25 13:02 pkgs
 lrwxrwxrwx. 1 urihpc25 uri_fall2021     21 Jun 17  2014 README -> /gpfs/home/doc/README
 -rw-r--r--  1 urihpc25 uri_fall2021   8686 Feb 19  2018 README.GTF
 lrwxrwxrwx. 1 urihpc25 uri_fall2021     22 Sep 14 09:50 scratch -> /gpfs/scratch/urihpc25
-lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/TERMS</code></pre>
+lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/TERMS
+</code></pre>
 <p>This format gives a whole lot of information. The first column containts the permissions for the system/group/user level.  The 3rd column says the owner (urihpc25),4th column is the group name, 5th column is file size in bytes, and columns 6-8 show modification date.  This is a little like the text version of what you see in Finder on Mac or Explorer on Windows.</p>
 <p>If you want to see all of the options for 'ls', type $ man ls to get the manual.</p>
-<pre><code>]$ man ls</code></pre>
+<pre><code>]$ man ls
+</code></pre>
 </div>
 </div>
 </div>
@@ -285,17 +296,20 @@ lrwxrwxrwx. 1 urihpc25 uri_fall2021     20 Jun 17  2014 TERMS -> /gpfs/home/doc/
 <pre><code>]$ cd data
 ]$ cd /users/urihpc25/data
 ]$ pwd 
-]$ /users/urihpc25/data</code></pre>
+]$ /users/urihpc25/data
+</code></pre>
 <p>This command moves up one level</p>
 <pre><code>]$ cd ../
 ]$ pwd
-]$ /users/urihpc25</code></pre>
+]$ /users/urihpc25
+</code></pre>
 <p>The <code>..</code> is a special directory name meaning, the <strong>parent</strong> of the current directory.</p>
 <p>Now take a guess at what this command will do:</p>
 <pre><code>]$ pwd
 ]$ /users/urihpc25
 ]$ cd ../../users
-]$ pwd</code></pre>
+]$ pwd
+</code></pre>
 <p>Where have we ended up after that?  Take a guess and give it a try.</p>
 <p><strong>NOTE:</strong> <code>cd</code> without an argument will return you to your home directory,
 which is great if you've gotten lost in your own filesystem.</p>
@@ -310,13 +324,16 @@ which is great if you've gotten lost in your own filesystem.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Tab-Completion">Tab Completion<a class="anchor-link" href="#Tab-Completion">¶</a></h3><p>Some names can be long and cumbersome to type</p>
-<pre><code>]$ ls dask-worker-space</code></pre>
+<pre><code>]$ ls dask-worker-space
+</code></pre>
 <p>Using <strong>tab completion</strong>, the Shell will search the directory and offer matches.  Typing</p>
-<pre><code>]$ ls da</code></pre>
+<pre><code>]$ ls da
+</code></pre>
 <p>and then pressing the tab key on the keyboard, the shell provides two options:</p>
 <p><code>dask-worker-space/ data/</code></p>
 <p>Adding one more letter, the 's' will leave only one option, so typing tab again will produce.</p>
-<pre><code>]$ ls dask-worker-space/</code></pre>
+<pre><code>]$ ls dask-worker-space/
+</code></pre>
 <h3 id="Arrow-keys">Arrow keys<a class="anchor-link" href="#Arrow-keys">¶</a></h3><p>By using the Up/Down arrow keys at the command prompt, you can cycle through your command history.  This is useful if you need to repeat some commands or refresh your memory on what you did.</p>
 <h3 id="Key-Points:">Key Points:<a class="anchor-link" href="#Key-Points:">¶</a></h3><ul>
 <li>The file system is responsible for managing information on the disk.</li>
@@ -342,42 +359,53 @@ which is great if you've gotten lost in your own filesystem.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Make,-Copy,-Delete">Make, Copy, Delete<a class="anchor-link" href="#Make,-Copy,-Delete">¶</a></h2><p>We're about to generate some new Python code and files; to keep things organized, make a new directory</p>
-<pre><code>]$ mkdir ocg404</code></pre>
+<pre><code>]$ mkdir ocg404
+</code></pre>
 <p><code>mkdir</code> means "make directory". Since <code>ocg404</code> is a relative path
 (i.e., doesn't have a leading slash), the new directory is created in the current working directory:</p>
-<pre><code>]$ ls</code></pre>
+<pre><code>]$ ls
+</code></pre>
 <p><code>ls</code> reveals its existence</p>
-<pre><code>anaconda  batch.script  batch_scripts  dask-worker-space  data  ocg404  pkgs  README  scratch  TERMS  this.png</code></pre>
+<pre><code>anaconda  batch.script  batch_scripts  dask-worker-space  data  ocg404  pkgs  README  scratch  TERMS  this.png
+</code></pre>
 <p>We can add a <code>.py</code> script to this directory, by using the Nano editor and passing it the name of our new file, which we just made up:</p>
-<pre><code>]$ nano ocg404/script1.py</code></pre>
+<pre><code>]$ nano ocg404/script1.py
+</code></pre>
 <p>Type in a few lines of code:</p>
-<pre><code>]$ print("Hellow,orld");</code></pre>
+<pre><code>]$ print("Hellow,orld");
+</code></pre>
 <p>Once done, press <code>Ctrl-X</code> (press the Ctrl or Control key and, while
 holding it down, press the X key), you will be asked if you want to save the file.  Choose yes, and then the file is saved and closed.</p>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/nano.png" width="700" /></p>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/nano.png" width="700" /></p>
 <p>If you want to make a new version of <code>script1.py</code>, but not lose the original version, then you can make a copy:</p>
 <pre><code>]$ cd ocg404/
-]$ cp script1.py script2.py</code></pre>
+]$ cp script1.py script2.py
+</code></pre>
 <p>To rename the file instead of copy it, use the <code>mv</code> or move command:</p>
-<pre><code>]$ mv script1.py script2.py</code></pre>
+<pre><code>]$ mv script1.py script2.py
+</code></pre>
 <p>After this, script1.py will cease to exist.</p>
 <p>To delete a file use the <code>rm</code> command. Let's change into the ocg404 directory and delete it.  Assuming we are still inside ocg404/</p>
-<pre><code>]$ rm script2.py</code></pre>
+<pre><code>]$ rm script2.py
+</code></pre>
 <p>Likewise, this achieves the same result as above, if our directory location is up one level in <code>/users/urihpc25</code>.</p>
-<pre><code>]$ rm ocg404/script2.py</code></pre>
+<pre><code>]$ rm ocg404/script2.py
+</code></pre>
 <p><strong>NOTE: Deleting Is Forever</strong></p>
 <p>The Unix shell doesn't have a trash bin that we can recover deleted
- files from (though most graphical interfaces to Unix do).  Instead,
- when we delete files, they are unhooked from the file system so that
- their storage space on disk can be recycled. Tools for finding and
- recovering deleted files do exist, but there's no guarantee they'll
- work in any particular situation, since the computer may recycle the
- file's disk space right away.</p>
+files from (though most graphical interfaces to Unix do).  Instead,
+when we delete files, they are unhooked from the file system so that
+their storage space on disk can be recycled. Tools for finding and
+recovering deleted files do exist, but there's no guarantee they'll
+work in any particular situation, since the computer may recycle the
+file's disk space right away.</p>
 <p>Suppose we want to delete the ocg404/ directory and all of its contents:</p>
-<pre><code>]$ rm ocg404/</code></pre>
+<pre><code>]$ rm ocg404/
+</code></pre>
 <p><code>rm: cannot remove ‘ocg404’: Is a directory</code></p>
 <p>To delete the folder and all of its contents, we can force rm to recursively descend into the directory and remove everythng.</p>
-<pre><code>]$ rm -rf ocg404</code></pre>
+<pre><code>]$ rm -rf ocg404
+</code></pre>
 </div>
 </div>
 </div>
@@ -389,10 +417,14 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Wild-cards">Wild cards<a class="anchor-link" href="#Wild-cards">¶</a></h2><p>Shell commands have lots of shortcuts for handling many files.  This is necessary, because without a mouse, you can't do things like SHIFT + Click to select multiple files.  The wildcards are two great examples of this.</p>
-<pre><code>]$ ls *.*   # List all of the files and all of the extensions (e.g. .csv, .txt. doc)</code></pre>
-<pre><code>]$ ls *.csv   # List all files of type .csv</code></pre>
-<pre><code>]$ rm *.png   # Delete all files of type .png.  This is powerful, but also dangerous!</code></pre>
-<pre><code>]$ ls 2021*   # List all the files that begin with 2021, regardless of their extension.</code></pre>
+<pre><code>]$ ls *.*   # List all of the files and all of the extensions (e.g. .csv, .txt. doc)
+</code></pre>
+<pre><code>]$ ls *.csv   # List all files of type .csv 
+</code></pre>
+<pre><code>]$ rm *.png   # Delete all files of type .png.  This is powerful, but also dangerous!
+</code></pre>
+<pre><code>]$ ls 2021*   # List all the files that begin with 2021, regardless of their extension.
+</code></pre>
 <p>In my ocg404 directory, I have a bunch of geotiff files and associated metadata.  I want to get a list of the Landsat 5 files.  These all start with LT05</p>
 <pre><code>[urihpc25@login005 ocg404]$ ls -l LT05*  # List all the files that begin with 2021, regardless of their extension.
 
@@ -409,7 +441,8 @@ holding it down, press the X key), you will be asked if you want to save the fil
 -rw-r--r-- 1 urihpc25 uri_fall2021      7392 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_MTL.txt
 -rw-r--r-- 1 urihpc25 uri_fall2021 132825010 Oct 25 20:16 LT05_L1TP_012031_20110902_20160831_01_T1.tar.gz
 -rw-r--r-- 1 urihpc25 uri_fall2021    261826 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_VER.jpg
--rw-r--r-- 1 urihpc25 uri_fall2021    119248 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_VER.txt</code></pre>
+-rw-r--r-- 1 urihpc25 uri_fall2021    119248 Aug 30  2016 LT05_L1TP_012031_20110902_20160831_01_T1_VER.txt
+</code></pre>
 <p>These are a few simple exeamples of what are referred to as filename substitutions.</p>
 </div>
 </div>
@@ -441,8 +474,8 @@ holding it down, press the X key), you will be asked if you want to save the fil
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Additional-notes:">Additional notes:<a class="anchor-link" href="#Additional-notes:">¶</a></h2><h3 id="Good-names-for-files-and-directories">Good names for files and directories<a class="anchor-link" href="#Good-names-for-files-and-directories">¶</a></h3><p>Complicated names of files and directories can make your life painful
- when working on the command line. Here we provide a few useful
- tips for the names of your files.</p>
+when working on the command line. Here we provide a few useful
+tips for the names of your files.</p>
 <ol>
 <li><p>Don't use whitespaces.</p>
 <p>Whitespaces can make a name more meaningful
@@ -458,26 +491,26 @@ You can use <code>-</code> or <code>_</code> instead of whitespace.</p>
 </li>
 </ol>
 <p>If you need to refer to names of files or directories that have whitespace
- or another non-alphanumeric character, you should surround the name in quotes (<code>""</code>).</p>
+or another non-alphanumeric character, you should surround the name in quotes (<code>""</code>).</p>
 <h2 id="Which-Editor?">Which Editor?<a class="anchor-link" href="#Which-Editor?">¶</a></h2><p>When we say, "<code>nano</code> is a text editor," we really do mean "text": it can
- only work with plain character data, not tables, images, or any other
- human-friendly media. We use it in examples because it is one of the
- least complex text editors. However, because of this trait, it may
- not be powerful enough or flexible enough for the work you need to do
- after this workshop. On Unix systems (such as Linux and Mac OS X),
- many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or
- <a href="http://www.vim.org/">Vim</a> (both of which require more time to learn),
- or a graphical editor such as
- <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to
- use <a href="http://notepad-plus-plus.org/">Notepad++</a>.  Windows also has a built-in
- editor called <code>notepad</code> that can be run from the command line in the same
- way as <code>nano</code> for the purposes of this lesson.</p>
+only work with plain character data, not tables, images, or any other
+human-friendly media. We use it in examples because it is one of the
+least complex text editors. However, because of this trait, it may
+not be powerful enough or flexible enough for the work you need to do
+after this workshop. On Unix systems (such as Linux and Mac OS X),
+many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or
+<a href="http://www.vim.org/">Vim</a> (both of which require more time to learn),
+or a graphical editor such as
+<a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to
+use <a href="http://notepad-plus-plus.org/">Notepad++</a>.  Windows also has a built-in
+editor called <code>notepad</code> that can be run from the command line in the same
+way as <code>nano</code> for the purposes of this lesson.</p>
 <p>No matter what editor you use, you will need to know where it searches
- for and saves files. If you start it from the shell, it will (probably)
- use your current working directory as its default location. If you use
- your computer's start menu, it may want to save files in your desktop or
- documents directory instead. You can change this by navigating to
- another directory the first time you "Save As..."</p>
+for and saves files. If you start it from the shell, it will (probably)
+use your current working directory as its default location. If you use
+your computer's start menu, it may want to save files in your desktop or
+documents directory instead. You can change this by navigating to
+another directory the first time you "Save As..."</p>
 </div>
 </div>
 </div>
