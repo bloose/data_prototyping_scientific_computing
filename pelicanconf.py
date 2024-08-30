@@ -64,8 +64,8 @@ EXTRA_PATH_METADATA = {
 }
 
 
-NEST_HEADER_IMAGES = 'banner3.jpg'
+NEST_HEADER_IMAGES = 'banner4.jpg'
 #NEST_HEADER_LOGO = 'static/banner.jpg'
-BANNER = 'images/banner3.jpg'
+BANNER = 'images/banner4.jpg'
 
 IPYNB_COLORSCHEME = 'colorful'
