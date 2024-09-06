@@ -170,7 +170,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Motivation:</strong></p>
 <ul>
-<li>As you begin to write more mature code, you may want to make it <em>reusable</em>, because it will have multiple use cases.</li>
+<li>As you begin to write more mature code, you may want to make it <em>reusable</em>, because it will have multiple use cases. </li>
 <li>The best way to make code reusable is to make it into a module or function.</li>
 <li>A module/function has clearly defined inputs and outputs.</li>
 <li>The module has its own variable scope that is kept separate from the workspace.</li>
@@ -195,7 +195,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li>The <strong>document root</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
 <li>The <strong>subfolders</strong> sit within the document root.</li>
 </ul>
-<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.002.jpeg" width="600" /></p>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.002.jpeg" width="600" /></p>
 </div>
 </div>
 </div>
@@ -208,11 +208,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">The path specifies the location of a file in the directory strucure.<a class="anchor-link" href="#The-path-specifies-the-location-of-a-file-in-the-directory-strucure.">¶</a></h3><ul>
 <li>The <strong>path</strong> specifies the lowest level in the structure. This is usually equivalent to the harddrive.</li>
-<li>A path can be absolute.  Absolute paths are specified w.r.t. the document root.</li>
+<li>A path can be absolute.  Absolute paths are specified w.r.t. the document root. </li>
 <li>A path can be relative to the current location.</li>
 </ul>
 <p>Paths are used to help executable files find the other files they need.</p>
-<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.004.jpeg" width="600" /></p>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Directory_structure_name.004.jpeg" width="600" /></p>
 </div>
 </div>
 </div>
@@ -236,14 +236,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <pre><code>imread('/Users/Downloads/myimage.png')
 # or
-imread('../../Users/Downloads/myimage.png')
-
-</code></pre>
+imread('../../Users/Downloads/myimage.png')</code></pre>
 <pre><code>cd ../brice # relative path, when I'm in spongebob
 cd /Users/pylibrary/brice. # absolute path
 
-# The ../ sequence means "go up one level" in the directory structure.
-</code></pre>
+# The ../ sequence means "go up one level" in the directory structure.</code></pre>
 </div>
 </div>
 </div>
@@ -265,7 +262,7 @@ cd /Users/pylibrary/brice. # absolute path
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The sys package maintains a list of modules and objects that deal with the operating system</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -314,7 +311,7 @@ cd /Users/pylibrary/brice. # absolute path
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is a module with no inputs</span>
 <span class="k">def</span> <span class="nf">Sayit</span><span class="p">():</span>   <span class="c1"># This is the defintion in the head.</span>
     
@@ -338,7 +335,7 @@ cd /Users/pylibrary/brice. # absolute path
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is an example of overloading modules.  You can specify default values, in case the user does not specify them.</span>
 <span class="k">def</span> <span class="nf">Repeatafterme</span><span class="p">(</span><span class="n">Message</span><span class="o">=</span><span class="s2">"No msg at this time"</span><span class="p">,</span> <span class="n">Ntimes</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>   <span class="c1"># This is the definition in the head.</span>
     
@@ -360,7 +357,7 @@ cd /Users/pylibrary/brice. # absolute path
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Repeatafterme</span><span class="p">(</span><span class="n">Ntimes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -397,7 +394,7 @@ No msg at this time
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Repeatafterme</span><span class="p">(</span><span class="s2">"The word is the message."</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -429,11 +426,11 @@ The word is the message.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Modules-have-a-scope-that-differs-from-the-workspace.">Modules have a scope that differs from the workspace.<a class="anchor-link" href="#Modules-have-a-scope-that-differs-from-the-workspace.">¶</a></h4><pre><code>def addtoa(a):
+<h4 id="Modules-have-a-scope-that-differs-from-the-workspace.">Modules have a scope that differs from the workspace.<a class="anchor-link" href="#Modules-have-a-scope-that-differs-from-the-workspace.">¶</a></h4>
+<pre><code>def addtoa(a):
     b = 10;
     c = a + b;
-    return c
-</code></pre>
+    return c</code></pre>
 <p>This module take the variable a as input, it adds the variable b to a and saves it in c.  Then it returns c as output.   After the module executes b ceases to exist.  The "workspace" or other modules don't know about b or its values.</p>
 </div>
 </div>
@@ -445,7 +442,7 @@ The word is the message.
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We can place the module definition in a separate python folder and then import it.</span>
 
 <span class="c1"># This only works if the file is on the python path.</span>
@@ -464,7 +461,7 @@ The word is the message.
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">Sayit2</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -500,7 +497,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># It is not possible to pass a path to the import command</span>
 
 <span class="n">import</span><span class="p">(</span><span class="s1">'../../Lectures+Notes/Week08/sayitall'</span><span class="p">)</span>
@@ -533,7 +530,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># BUT: If the file is not on the Python path, here is a workaround to directly specify the path to your module</span>
 
 <span class="kn">import</span> <span class="nn">imp</span>
@@ -550,7 +547,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Sayit3</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -575,7 +572,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">addtoa</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
@@ -592,7 +589,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">myC</span><span class="p">,</span> <span class="n">myB</span> <span class="o">=</span> <span class="n">addtoa</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myC</span><span class="p">)</span>
 <span class="n">myCB</span> <span class="o">=</span> <span class="n">addtoa</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -623,7 +620,7 @@ Run for your life!
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>

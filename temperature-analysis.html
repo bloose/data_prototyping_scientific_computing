@@ -170,10 +170,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>NOTES:</strong>  This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation.</p>
 <ol>
-<li>First, download a record of NOAA 5-min weather station temperature from Kingston, RI (<a href="https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/">https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/</a>).</li>
-<li>Put both your temperature data and the NOAA data onto the same time base by using datetime as the row index for both data sets and merging them.</li>
+<li>First, download a record of NOAA 5-min weather station temperature from Kingston, RI (<a href="https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/">https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/</a>). </li>
+<li>Put both your temperature data and the NOAA data onto the same time base by using datetime as the row index for both data sets and merging them.  </li>
 <li>Merge the two data sets into one data frame, so you can use them for time series analysis.</li>
-<li>Last, compute the serial covariance to observe how well the two temperatures are correlated and if there is any lag between the outdoor temperature and your indoor temperature.</li>
+<li>Last, compute the serial covariance to observe how well the two temperatures are correlated and if there is any lag between the outdoor temperature and your indoor temperature. </li>
 </ol>
 </div>
 </div>
@@ -185,7 +185,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -213,7 +213,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [194]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Download 5-min temperature data, for a nearby weather station. Look for the neareest 5-min weather stations in RI.</span>
 <span class="c1"># These archives are available at:</span>
 <span class="c1"># https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2023/</span>
@@ -239,7 +239,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the csv data you saved from your overnight data collection.</span>
 <span class="c1"># This version is data that Taylor Lindsey sent me.</span>
 
@@ -262,7 +262,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [180]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make it so that both time series use the datetime column as their row index.  </span>
 <span class="c1"># Use the Pandas .set_index() function and apply your changes to the same dataframe using the inplace=True option.</span>
 <span class="c1"># Must merge on index, so setting both timeseries to indices.</span>
@@ -295,7 +295,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The Kingston Weather data file covers the entire year up to the present.  We want to cut this down to the time period </span>
 <span class="c1"># that overlaps with your overnight temperature data.  </span>
 <span class="c1"># Use boolean indices or the pandas .truncate() function to truncate the data to a time period that overlaps with</span>
@@ -323,7 +323,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a single panel plot with datetime on the x-axis and temperature on the y-axis.  Use this plot to confirm that</span>
 <span class="c1"># the truncated weather station data overlaps with your overnight time series.</span>
 </pre></div>
@@ -338,7 +338,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Are there any bad data points?  If so, use boolean indices to remove them. </span>
 <span class="c1"># Hint: Don't make them NaNs or they will complicate the time series analysis.</span>
 </pre></div>
@@ -353,7 +353,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The time interval of the overnight temperature data has to match that of the NOAA weather station.  Use the Pandas </span>
 <span class="c1"># resample().mean() function to compute the running mean of your temperature time series at 5 minute intervals, to match the </span>
 <span class="c1"># NOAA data.</span>
@@ -369,7 +369,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Merge the two data sets together using the pandas .join() function.  </span>
 </pre></div>
 </div>
@@ -394,7 +394,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a lag vector, k, that spans from -N to N-1, where N is the number of elements in Therm_5min.</span>
 
 <span class="c1"># Plot the output from np.correlate() as a function of k to see how the correlation changes at negative lag (k < 0),</span>
@@ -416,7 +416,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Subtract the mean from both time series to make both sets of measurements have zero mean.</span>
 
 
@@ -458,7 +458,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
