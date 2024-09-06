@@ -48,6 +48,9 @@ PLUGIN_PATHS = ['./plugins','./pelican-plugins']
 MARKUP = ('md', 'ipynb')
 PLUGINS = ['i18n_subsites','ipynb.markup']
 
+from pelican_jupyter import markup as nb_markup
+PLUGINS = [nb_markup]
+
 IGNORE_FILES = [".ipynb_checkpoints"]
 
 
