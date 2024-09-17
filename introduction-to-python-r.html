@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Introduction to Python, R - 2024 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./introduction-to-python-r.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Intro to the Python Programming Languages¶(With a short intro to Jupyter along the way)¶Some content copied from the official python tutorial. See the tutorial for much more in-depth coverage. Follows reading in &#39;Real World Instrumentation&#39;, Chapter 3 (pgs. 61 to 121). Other Resources: https://www.youtube.com/watch?v=rkx5_MRAV3A Instructions: First spend some time navigating the Jupyter workspace. Also try out the IPy workspace and the Spyder workspace. These are all called Integrated Development Environments (IDEs). They give you a command line to execute your scripts. They often have a text editor for writing code. They can help you display your variables to look at what is in the workspace." />
+
+        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Introduction to Python, R"/>
+        <meta property="og:url" content="./introduction-to-python-r.html"/>
+        <meta property="og:description" content="Intro to the Python Programming Languages¶(With a short intro to Jupyter along the way)¶Some content copied from the official python tutorial. See the tutorial for much more in-depth coverage. Follows reading in &#39;Real World Instrumentation&#39;, Chapter 3 (pgs. 61 to 121). Other Resources: https://www.youtube.com/watch?v=rkx5_MRAV3A Instructions: First spend some time navigating the Jupyter workspace. Also try out the IPy workspace and the Spyder workspace. These are all called Integrated Development Environments (IDEs). They give you a command line to execute your scripts. They often have a text editor for writing code. They can help you display your variables to look at what is in the workspace."/>
+        <meta property="article:published_time" content="2024-09-17" />
+            <meta property="article:section" content="Notes" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2024 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="pages/OCG404_CSC593_Syllabus_2023.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li >
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./introduction-to-python-r.html"
+                       rel="bookmark"
+                       title="Permalink to Introduction to Python, R">
+                        Introduction to Python, R
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2024-09-17T00:00:00-04:00"> Tue 17 September 2024</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Intro-to-the-Python-Programming-Languages">Intro to the Python Programming Languages<a class="anchor-link" href="#Intro-to-the-Python-Programming-Languages">¶</a></h1><h3 id="(With-a-short-intro-to-Jupyter-along-the-way)">(With a short intro to Jupyter along the way)<a class="anchor-link" href="#(With-a-short-intro-to-Jupyter-along-the-way)">¶</a></h3><blockquote><p>Some content copied from the <a href="https://docs.python.org/3/tutorial/">official python tutorial</a>.  See the tutorial for much more in-depth coverage.</p>
+<p>Follows reading in 'Real World Instrumentation', Chapter 3 (pgs. 61 to 121).</p>
+<p>Other Resources: <a href="https://www.youtube.com/watch?v=rkx5_MRAV3A">https://www.youtube.com/watch?v=rkx5_MRAV3A</a></p>
+</blockquote>
+<p>Instructions:  First spend some time navigating the Jupyter workspace.  Also try out the IPy workspace and the Spyder workspace. These are all called Integrated Development Environments (IDEs).  They give you a command line to execute your scripts.  They often have a text editor for writing code.  They can help you display your variables to look at what is in the workspace.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Importing-modules,-packages,-or-libraries">Importing modules, packages, or libraries<a class="anchor-link" href="#Importing-modules,-packages,-or-libraries">¶</a></h3><blockquote><p>Python and R do not explicitly load the libraries of functions (called modules).  This saves on memory and data efficiency, but it means we must load the ones that we need.  There are several different approaches to loading modules.  Here, we will use the object oriented approach and load each module into a variable name that we can call or operate on.</p>
+<p>The most common Python modules that we need are numpy, matplotlib, and os
+The most common R modules are:</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Import Numpy</span>
+<span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">np</span>
+<span class="c1"># Import plotting library</span>
+<span class="n">import</span><span class="w"> </span><span class="n">matplotlib.pyplot</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">plt</span>
+<span class="c1"># import.... </span>
+<span class="n">from</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R packages are installed from the command line</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">"foreign"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w"> </span><span class="c1">#data science package</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">,</span><span class="n">ggvis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Data-types">Data types<a class="anchor-link" href="#Data-types">¶</a></h2><p><strong>Note</strong>:  As you make code, you must pay particular attention to data types.  Each data type has restrictions on what kind of operations can be peformed, e.g. you can't do arithmetic on a text string. Many of the errors and problems that you will encounter arise when you try to use a function or operation that was not meant for a data type.  <strong>File this away for future reference.</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Comments are anything that comes after the "#" symbol</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.57</span><span class="w">       </span><span class="c1"># assign 1.57 to variable a</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'hello'</span><span class="w"> </span><span class="c1"># assign "hello" to variable b</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Check what kind of data object a is</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Check what kind of data object a is</span>
+<span class="nf">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># query details about the data object</span>
+<span class="n">b</span><span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># can recast (change data type) some data types as others:</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Order-of-operations-matters,-just-like-in-Math.">Order of operations matters, just like in Math.<a class="anchor-link" href="#Order-of-operations-matters,-just-like-in-Math.">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R, PYTHON</span>
+<span class="c1">#print(delta)</span>
+<span class="c1">#delta = 12.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Arithmetic-operators:">Arithmetic operators:<a class="anchor-link" href="#Arithmetic-operators:">¶</a></h2>
+<pre><code>    +, -,*, /, **</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R, PYTHON</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>
+<span class="c1"># Divide</span>
+<span class="n">a</span><span class="o">/</span><span class="n">b</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Multiply a and b:</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R, PYTHON</span>
+<span class="c1">#Answer:</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Compute a to the power of b:</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R, PYTHON</span>
+<span class="c1">#Answer:</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">a</span><span class="o">**</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># but not all types can be converted:</span>
+<span class="n">bnbr2</span><span class="w"> </span><span class="o">=</span><span class="s">'hello'</span>
+<span class="nf">int</span><span class="p">(</span><span class="n">bnbr2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Getting-help()">Getting help()<a class="anchor-link" href="#Getting-help()">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="n">plt</span><span class="o">?</span>
+<span class="nf">help</span><span class="p">(</span><span class="n">plt.plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Lists,-tuples,-and-dicts">Lists, tuples, and dicts<a class="anchor-link" href="#Lists,-tuples,-and-dicts">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># This is a list. It has multiple elements and can be of mixed data types.</span>
+<span class="n">barnyard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="s">'chicken'</span><span class="p">,</span><span class="s">'4'</span><span class="p">,</span><span class="s">'pig'</span><span class="p">,</span><span class="m">2.2</span><span class="p">,</span><span class="s">'goat'</span><span class="p">]</span>
+
+<span class="c1"># The list can be sub-indexed to access one element at a time:</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">barnyard</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+
+<span class="c1"># The list is mutable, meaning it can be changed</span>
+<span class="nf">barnyard.append</span><span class="p">(</span><span class="s">'horse'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">barnyard</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># This is a list. It has multiple elements and can be of mixed data types.</span>
+<span class="n">barnyard</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="s">'chicken'</span><span class="p">,</span><span class="s">'4'</span><span class="p">,</span><span class="s">'pig'</span><span class="p">,</span><span class="m">2.2</span><span class="p">,</span><span class="s">'goat'</span><span class="p">)</span>
+
+<span class="c1"># The list can be sub-indexed to access one element at a time:</span>
+<span class="c1">#print(barnyard[1])</span>
+
+<span class="c1"># The list is mutable, meaning it can be changed</span>
+<span class="n">barnyard</span><span class="p">[</span><span class="m">7</span><span class="p">]</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="s">'horse'</span>
+<span class="c1">#print(barnyard)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># This is a tuple. It has multiple elements and can be of mixed data types, but it is immutable.</span>
+<span class="n">junkyard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">'Ford'</span><span class="p">,</span><span class="s">'Chevy'</span><span class="p">,</span><span class="s">'John Deere'</span><span class="p">)</span>
+
+<span class="c1"># The tuple can be sub-indexed :</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">junkyard</span><span class="p">[</span><span class="m">2</span><span class="p">])</span>
+
+<span class="c1"># The tuple is immutable, it can not be increased or decreased.  This is another example of an operation that is </span>
+<span class="c1"># prohibited by data type.</span>
+<span class="nf">junkyard.append</span><span class="p">(</span><span class="s">'Tesla'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">junkyard</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># R tuple is entity containing has multiple elements and can be of mixed data types, but it is mutable, unlike python.</span>
+<span class="n">junkyard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">'Ford'</span><span class="p">,</span><span class="s">'Chevy'</span><span class="p">,</span><span class="s">'John Deere'</span><span class="p">,</span><span class="m">1.2</span><span class="p">)</span>
+
+<span class="c1"># The tuple can be sub-indexed :</span>
+<span class="c1">#print(junkyard[2])</span>
+
+<span class="c1"># The tuple is mutable in R.</span>
+<span class="n">junkyard</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="s">'Tesla'</span>
+<span class="c1">#print(junkyard)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Conditionals:--if,-elif,-else">Conditionals:  if, elif, else<a class="anchor-link" href="#Conditionals:--if,-elif,-else">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+<span class="n">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">></span><span class="w"> </span><span class="m">0</span><span class="o">:</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">'Positive Number'</span><span class="p">)</span>
+<span class="n">elif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o"><</span><span class="w"> </span><span class="m">0</span><span class="o">:</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">'Negative Number'</span><span class="p">)</span>
+<span class="n">else</span><span class="o">:</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">'Zero!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+<span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">></span><span class="w"> </span><span class="m">0</span><span class="p">){</span><span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">'Positive Number'</span><span class="p">)</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o"><</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="s">'Negative Number'</span><span class="p">)</span><span class="w">                  </span>
+<span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print </span><span class="p">(</span><span class="s">'Zero!'</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="------Complete-the-exercises-below,-adding-your-answers-as-notes.-----">----- Complete the exercises below, adding your answers as notes. ----<a class="anchor-link" href="#------Complete-the-exercises-below,-adding-your-answers-as-notes.-----">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="What-data-types-are-barnyard1,-barnyard2,-barnyard3,-and-barnum?">What data types are barnyard1, barnyard2, barnyard3, and barnum?<a class="anchor-link" href="#What-data-types-are-barnyard1,-barnyard2,-barnyard3,-and-barnum?">¶</a></h3><p><code>barnyard1 = ['3','chicken','4','pig','2','goat']</code></p>
+<p><code>barnyard2 = 55</code></p>
+<p><code>barnyard3 = 'horses'</code></p>
+<p><code>barnum = 4.5</code></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Answer: What data types?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Indexing:">Indexing:<a class="anchor-link" href="#Indexing:">¶</a></h3><p>Arrays,lists, and touples can all be indexed. Python uses ':' (colons) to separate the index bounds,e.g. start:stop or from:to.  All indices are encapsulated within a hard bracket [].</p>
+<p><strong>Example 1:</strong> barnyard1[3:5] #This tells python to subindex elements from barnyard1 starting at 3 and ending at, but not including, 5. In practice, elements 3 and 4 will be indexed.</p>
+<p><strong>Example 2:</strong> barnyard1[0] #This tells python to subindex the first element.</p>
+<p>So far we have indexed with a step = 1.  It is also possible to index using steps of e.g. 1, 2, 3.   This looks like:
+barnyard1[start:stop:step]</p>
+<p><strong>Example 3:</strong> barnyard1[1:7:3] #This tells python to subindex from the 2nd element through the 6th element by steps of 3.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Indexing:-What-does-this-code-do?--Answer,-then-uncomment-and-execute-to-check-your-answer.">Indexing: What does this code do?  Answer, then uncomment and execute to check your answer.<a class="anchor-link" href="#Indexing:-What-does-this-code-do?--Answer,-then-uncomment-and-execute-to-check-your-answer.">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="n">barnyard2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">3.14</span><span class="p">,</span><span class="s">'chicken'</span><span class="p">,</span><span class="m">4.5</span><span class="p">,</span><span class="s">'pig'</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="s">'goat'</span><span class="p">,</span><span class="m">33</span><span class="p">,</span><span class="s">'cows'</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="s">'guinea foul'</span><span class="p">]</span>
+<span class="c1"># barnyard2[-1]</span>
+<span class="c1"># Which element is returned?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="n">barnyard2</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">3.14</span><span class="p">,</span><span class="s">'chicken'</span><span class="p">,</span><span class="m">4.5</span><span class="p">,</span><span class="s">'pig'</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="s">'goat'</span><span class="p">,</span><span class="m">33</span><span class="p">,</span><span class="s">'cows'</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="s">'guinea foul'</span><span class="p">)</span>
+<span class="c1"># barnyard2[length(barnyard)]</span>
+<span class="c1"># Which element is returned?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
+<span class="c1">#newobj = barnyard2[::3]</span>
+<span class="c1">#print(newobj)</span>
+
+<span class="c1">#newobj = barnyard2[2::2]</span>
+<span class="c1">#print(newobj)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
+<span class="c1"># newobj <- barnyard[seq(from = 1, to = length(barnyard), by = 3)]</span>
+<span class="c1"># print(newobj)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
+<span class="c1"># print(barnyard2[::-2])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># What does this code do?  Answer and then uncomment to test.</span>
+<span class="c1"># print(barnyard2[seq(from = length(barnyard), to = 1, by = -2)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Note that Python does not make a separate copy unless it is forced to do so.</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">barnyard2</span>
+
+<span class="c1"># b is a pointer to the original list barnyard2</span>
+<span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'gorillaz'</span>
+
+<span class="c1"># Barnyard got modified as well. Woops.</span>
+<span class="c1">#print(barnyard2)</span>
+<span class="c1">#print(b)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># This makes a separate copy in b, unlike in python.</span>
+<span class="n">b</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">barnyard2</span><span class="p">;</span>
+
+<span class="c1"># modify b</span>
+<span class="n">b</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'gorillaz'</span>
+
+<span class="c1"># b is modified, but barnyard is not. This is different behavior from python.</span>
+<span class="c1">#print(barnyard2)</span>
+<span class="c1">#print(b)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Make an explicit copy</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">barnyard2.copy</span><span class="p">()</span>
+
+<span class="n">b</span><span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'goat'</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">barnyard2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Make an explicit copy</span>
+<span class="n">barnyard2</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">barnyard</span>
+
+<span class="n">barnyard2</span><span class="p">[</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'goat'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Subindex the text element in list position 1 - what is the result?</span>
+<span class="n">barnyard2</span><span class="p">[</span><span class="m">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1">#Make a new list that is 6 elements long, insert the value 6 into each element. </span>
+<span class="n">alist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">]</span>
+
+<span class="c1"># Append the term 'text' and the number 83.08 to your list.</span>
+<span class="nf">alist.append</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span>
+<span class="nf">alist.append</span><span class="p">(</span><span class="m">83.08</span><span class="p">)</span>
+
+<span class="c1">#Why does this fail?</span>
+<span class="n">alist</span><span class="p">[</span><span class="m">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'more text'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Make a new list that is 6 elements long, insert the value 6 into each element. </span>
+<span class="n">alist</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
+
+<span class="c1"># Append the term 'text' and the number 83.08 to your list.</span>
+<span class="n">alist</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span><span class="m">+1</span><span class="p">]</span><span class="o"><-</span><span class="s">'text'</span>
+<span class="n">alist</span><span class="p">[</span><span class="nf">length</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span><span class="m">+1</span><span class="p">]</span><span class="o"><-</span><span class="w"> </span><span class="m">83.08</span>
+
+<span class="c1">#Why does this fail?</span>
+<span class="n">alist</span><span class="p">[</span><span class="m">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'more text'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="-------Some-conceptual-programming-distinctions--------">------ Some conceptual programming distinctions -------<a class="anchor-link" href="#-------Some-conceptual-programming-distinctions--------">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Functional-programming.">Functional programming.<a class="anchor-link" href="#Functional-programming.">¶</a></h3><p>Functional programming decomposes a programming task into a set of inputs and outputs.  In <strong>strictly</strong> functional programming, only the outputs are modified.</p>
+<h3 id="Procedural-vs.-declarative-programming.">Procedural vs. declarative programming.<a class="anchor-link" href="#Procedural-vs.-declarative-programming.">¶</a></h3><p><strong> Procedural </strong> programming tells the computer how to complete a set of tasks.</p>
+<p>Example of procedural:</p>
+<pre><code> >> First do...
+ >> Next do ...
+ >> Last print...
+
+</code></pre>
+<p>Example of declarative:</p>
+<pre><code> >> Give me all the values between 'beginning' and 'end'.   # The language decides what is more efficient.
+
+
+</code></pre>
+<h3 id="Additional-data-types-in-Python">Additional data types in Python<a class="anchor-link" href="#Additional-data-types-in-Python">¶</a></h3><p><img alt="drawing" src="https://bloose.github.io/data_prototyping_scientific_computing/images/data_types_Table3.1.png" width="400" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Break-into-your-groups.--Investigate-one-aspect-of-the-programming-environment-and-then-report-back-with-a-simple-lesson-for-the-class.--Team-lists-are-on-Brightspace-inside-the-Week02-in-class-assignment.">Break into your groups.  Investigate one aspect of the programming environment and then report back with a simple lesson for the class.  Team lists are on Brightspace inside the Week02 in-class assignment.<a class="anchor-link" href="#Break-into-your-groups.--Investigate-one-aspect-of-the-programming-environment-and-then-report-back-with-a-simple-lesson-for-the-class.--Team-lists-are-on-Brightspace-inside-the-Week02-in-class-assignment.">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Additional-Notes">Additional Notes<a class="anchor-link" href="#Additional-Notes">¶</a></h1><p><em>NOTE:</em>  You can use the tab to autocomplete.
+<em>NOTE:</em>  You can use the up/down arrow keys to cycle through the command history.</p>
+<p>The following identifiers are used as reserved words, or keywords of the language, and cannot be used as ordinary identifiers. They must be spelled exactly as written here:</p>
+<pre><code>False      class      finally    is         return
+None       continue   for        lambda     try
+True       def        from       nonlocal   while
+and        del        global     not        with
+as         elif       if         or         yield
+assert     else       import     pass
+break      except     in         raise
+
+</code></pre>
+<p>Additionally, the following a built in functions which are always available in your namespace once you open a python interpreter</p>
+<pre><code>abs() dict() help() min() setattr() all() dir() hex() next() slice() any()
+divmod() id() object() sorted() ascii() enumerate() input() oct() staticmethod()
+bin() eval() int() open() str() bool() exec() isinstance() ord() sum() bytearray()
+filter() issubclass() pow() super() bytes() float() iter() print() tuple()
+callable() format() len() property() type() chr() frozenset() list() range()
+vars() classmethod() getattr() locals() repr() zip() compile() globals() map()
+reversed() __import__() complex() hasattr() max() round() delattr() hash()
+memoryview() set()</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2024 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>
