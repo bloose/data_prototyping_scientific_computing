@@ -53,7 +53,7 @@ PLUGINS = ['i18n_subsites','ipynb.markup']
 IGNORE_FILES = [".ipynb_checkpoints"]
 
 
-MENUITEMS = [('Syllabus', 'pages/OCG404_CSC593_Syllabus_2023.pdf')]
+MENUITEMS = [('Syllabus', 'https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf')]
 
 STATIC_PATHS = ['Assignments','images']
 
