@@ -27,7 +27,7 @@ void loop() {
   //Read an integer from analogRead and record
 
 
-  // Make the analog to digital conversion to report the value in Volts.  See Data Measurement notes.
+  // Make the analog to digital conversion to report the value in Volts.  See Data Measurement notes from Week04.
   
   
   // Do the same for Analog Pin 2.
