@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Timekeeping - 2024 | Data Prototyping and Scientific Computing</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./timekeeping.html">
+
+        <meta name="author" content="Brice Loose" />
+        <meta name="description" content="Timekeeping in Python, R¶ Clocks and timekeeping on computers are not trivial.¶ Remember Y2k? All of that was caused by the representation of 2-digit years in computer systems. For many years, all timekeeping on computer systems was referenced to January 1, 1970 because no computer data pre-existed that. This is known as the POSIX time." />
+
+        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Timekeeping"/>
+        <meta property="og:url" content="./timekeeping.html"/>
+        <meta property="og:description" content="Timekeeping in Python, R¶ Clocks and timekeeping on computers are not trivial.¶ Remember Y2k? All of that was caused by the representation of 2-digit years in computer systems. For many years, all timekeeping on computer systems was referenced to January 1, 1970 because no computer data pre-existed that. This is known as the POSIX time."/>
+        <meta property="article:published_time" content="2024-10-22" />
+            <meta property="article:section" content="Notes" />
+            <meta property="article:author" content="Brice Loose" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/colorful.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+        <link href="./static/css/custom.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+2024 | Data Prototyping and Scientific Computing            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                         <li><a href="./pages/calendar.html">
+                             Calendar
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/notes.html">Notes</a>
+                        </li>
+                        <li >
+                            <a href="./category/worksheets.html">Worksheets</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./timekeeping.html"
+                       rel="bookmark"
+                       title="Permalink to Timekeeping">
+                        Timekeeping
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2024-10-22T00:00:00-04:00"> Tue 22 October 2024</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Timekeeping-in-Python,-R">Timekeeping in Python, R<a class="anchor-link" href="#Timekeeping-in-Python,-R">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Clocks-and-timekeeping-on-computers-are-not-trivial.">Clocks and timekeeping on computers are not trivial.<a class="anchor-link" href="#Clocks-and-timekeeping-on-computers-are-not-trivial.">¶</a></h3><ul>
+<li><p>Remember Y2k?  All of that was caused by the representation of 2-digit years in computer systems.</p>
+</li>
+<li><p>For many years, all timekeeping on computer systems was referenced to January 1, 1970 because no computer data pre-existed that.  This is known as the POSIX time.</p>
+</li>
+</ul>
+<p>Python has multiple timekeeping modules including base python modules <strong>date</strong>, <strong>time</strong>, <strong>datetime</strong>.  We'll focus on <strong>datetime</strong>.</p>
+<p>Note:  Numpy and Pandas also have their own timekeeping, but both are compatible with the base python package of datetime.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="n">import</span><span class="w"> </span><span class="n">pandas</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">pd</span>
+<span class="n">import</span><span class="w"> </span><span class="n">matplotlib.pyplot</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">plt</span>
+<span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">np</span>
+<span class="n">import</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">time</span>
+<span class="n">import</span><span class="w"> </span><span class="n">datetime</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">dt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1">#install.packages("lubridate")</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
+
+<span class="n">Da</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ymd</span><span class="p">(</span><span class="s">"2019-12-13"</span><span class="p">)</span>
+<span class="n">Db</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">ymd_hms</span><span class="p">(</span><span class="s">"2000-12-13 13:55:59"</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">Da</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># A Datetime object can incorporate Year, Month, Day, Hour, Minute, Second, Millisecond.</span>
+<span class="c1"># At a minimum, year, month, day must be specified</span>
+
+<span class="n">Da</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime</span><span class="p">(</span>
+<span class="w">    </span><span class="n">year</span><span class="o">=</span><span class="m">2019</span><span class="p">,</span>\
+<span class="w">    </span><span class="n">month</span><span class="o">=</span><span class="m">12</span><span class="p">,</span>\
+<span class="w">    </span><span class="n">day</span><span class="o">=</span><span class="m">13</span><span class="p">,</span>\
+<span class="w">    </span><span class="n">second</span><span class="o">=</span><span class="m">59</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">Da</span><span class="p">)</span>
+
+
+<span class="c1"># Specify everything in order of Year, Month, Day, Hour, Minute, Second</span>
+<span class="n">Db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime</span><span class="p">(</span><span class="m">2000</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">13</span><span class="p">,</span><span class="m">13</span><span class="p">,</span><span class="m">55</span><span class="p">,</span><span class="m">59</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">Db</span><span class="p">)</span>
+
+
+<span class="c1"># Specify less than the minimum</span>
+<span class="n">Dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime</span><span class="p">(</span><span class="m">2020</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">Dc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Datetime objects support basic arithmetic:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON,</span>
+<span class="c1"># Subtracting </span>
+<span class="n">Dg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Da</span><span class="o">-</span><span class="n">Db</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">Dg</span><span class="p">)</span>
+<span class="c1"># Dg is a timedelta object</span>
+<span class="n">Dg</span><span class="o">?</span>
+<span class="nf">Dg.total_seconds</span><span class="p">()</span>
+
+
+<span class="c1"># Datetime and timedelta objects can be added and subtracted</span>
+<span class="nf">print</span><span class="p">(</span><span class="w"> </span><span class="nf">dt.datetime</span><span class="p">(</span><span class="m">1990</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">31</span><span class="p">)</span><span class="o">+</span><span class="nf">dt.timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="m">33</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="w"> </span><span class="nf">dt.datetime</span><span class="p">(</span><span class="m">1990</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">31</span><span class="p">)</span><span class="o">-</span><span class="n">Dg</span><span class="w"> </span><span class="p">)</span>
+
+<span class="c1"># This is not permitted, because Db and Da represent absolute time since a reference.</span>
+<span class="n">Df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Db</span><span class="o">+</span><span class="n">Da</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">Df</span><span class="p">)</span>
+<span class="n">Df</span><span class="o">?</span>
+<span class="nf">Df.total_seconds</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="n">Dg</span><span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Datetime provides the current time stamp using now()</span>
+<span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime.now</span><span class="p">()</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Time-references:">Time references:<a class="anchor-link" href="#Time-references:">¶</a></h3><ul>
+<li>Datetime uses the <strong>proleptic Gregorian</strong> calendar as a reference.  Year 1, is the reference year.  Year 2020 is Year 2020.</li>
+<li>This differs from e.g. the POSIX calendar, which uses 1970 as the reference year.</li>
+<li>Unless specified, the datetime object is <strong>naive</strong>, meaning it doesn't know its time relative to geography.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Datetime provides the current time stamp using now()</span>
+<span class="n">t0</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">Sys.time</span><span class="p">())</span><span class="w"> </span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+<span class="n">t1</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">as.integer</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span><span class="w"> </span><span class="c1"># This creates seconds from the start of the POSIX calendar.</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Express t0 to total number of elapsed days since January 1, of year 1.</span>
+<span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime.now</span><span class="p">()</span>
+<span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">t0.toordinal</span><span class="p">()</span><span class="w"> </span><span class="c1"># This creates days from the proleptic Gregorian calendar.</span>
+<span class="c1"># t1 is an integer.</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+<span class="c1"># Recover timestamp, but note that hrs,mins,seconds have been lost</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dt.datetime.fromordinal</span><span class="p">(</span><span class="n">t1</span><span class="p">))</span>
+
+<span class="c1"># Express t0 as total seconds elapsed since January 1, of year 1 (the reference year).</span>
+<span class="nf">t0.timestamp</span><span class="p">()</span><span class="w">   </span><span class="c1"># This value is a float, and its the number of seconds from the start of the POSIX calendar.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Include notes on tzinfo()</span>
+
+<span class="c1"># Can add and subtract datetime objects.  These are stored as timedelta()</span>
+<span class="nf">dt.datetime.now</span><span class="p">()</span><span class="nf">.timestamp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0.tzinfo</span><span class="o">==</span><span class="n">None</span><span class="p">)</span>
+<span class="c1"># pytz gives the time zone information</span>
+<span class="n">import</span><span class="w"> </span><span class="n">pytz</span>
+<span class="n">timezone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">pytz.timezone</span><span class="p">(</span><span class="s">"America/New_York"</span><span class="p">)</span>
+<span class="n">ttz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">timezone.localize</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">ttz</span><span class="p">)</span><span class="w">  </span><span class="c1">#this prints offset from UTC.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Check if t0 has a time zone</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="nf">attr</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="s">"tzone"</span><span class="p">)))</span>
+
+<span class="c1"># Set time zone to America/New_York</span>
+<span class="n">ttz</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">with_tz</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="s">"America/New_York"</span><span class="p">)</span>
+
+<span class="c1"># Print the datetime with time zone information</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">ttz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Datetime objects can be converted to strings.</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">t0.strftime</span><span class="p">(</span><span class="s">'%m/%d/%y,%H:%M:%S'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="bp">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Format the datetime as a string</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+<span class="bp">T</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="s">"%m/%d/%y,%H:%M:%S"</span><span class="p">)</span>
+
+<span class="c1"># Print the formatted string</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">t0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Recording-datetime-to-make-a-timeseries">Recording datetime to make a timeseries<a class="anchor-link" href="#Recording-datetime-to-make-a-timeseries">¶</a></h3><p>Dataframes can incorporate the datetime object directly into its dataframe. In Python, Pandas is one library that was built for working with dataframes.   In R, base R creates dataframes by default.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Python</span>
+<span class="n">dd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">pd.DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s">'time'</span><span class="p">,</span><span class="s">'iterator'</span><span class="p">))</span><span class="w"> </span><span class="c1"># Create a pandas dataframe with 2 columns.</span>
+
+
+<span class="n">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">10</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dt.datetime.now</span><span class="p">()</span>
+<span class="w">    </span><span class="n">dd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dd.append</span><span class="p">({</span><span class="s">'time'</span><span class="o">:</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="s">'iterator'</span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="p">},</span><span class="w"> </span><span class="n">ignore_index</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">#dd = dd.append({}, ignore_index=True)</span>
+<span class="w">    </span><span class="nf">time.sleep</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="nf">dd.head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Importantly, the datetime vector can be plotted in matplotlib.</span>
+<span class="nf">plt.figure</span><span class="p">()</span>
+<span class="nf">plt.plot</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s">'time'</span><span class="p">],</span><span class="n">dd</span><span class="p">[</span><span class="s">'iterator'</span><span class="p">],</span><span class="s">'.'</span><span class="p">)</span>
+<span class="nf">plt.xlabel</span><span class="p">(</span><span class="s">'time'</span><span class="p">);</span><span class="w"> </span><span class="nf">plt.ylabel</span><span class="p">(</span><span class="s">'iterator'</span><span class="p">)</span>
+<span class="nf">plt.show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># Create an empty data frame with columns 'time' and 'iterator'</span>
+<span class="n">dd</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">character</span><span class="p">(),</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">numeric</span><span class="p">())</span>
+
+<span class="c1"># Loop 10 times</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1"># Get current datetime</span>
+<span class="w">  </span><span class="n">t</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">Sys.time</span><span class="p">())</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Append a new row with current time and iterator value</span>
+<span class="w">  </span><span class="n">dd</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Sleep for 0.5 seconds</span>
+<span class="w">  </span><span class="nf">Sys.sleep</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Print the entire data frame</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+
+<span class="c1"># Print the first 5 rows</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<span class="c1"># NOTE:  R doesn't have datetime as a data type, so it is harder to graph date and time on one axis.  </span>
+<span class="c1"># This example graphs them in numeric seconds</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="c1"># Create a scatter plot</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iterator</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"blue"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># Plot points with blue color</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Time"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Iterator"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="c1"># Set axis labels</span>
+<span class="w">  </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w">  </span><span class="c1"># Apply a clean theme</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2024 Brice Loose
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+    <script src="./static/js/custom.js"></script>
+
+    <script src="./theme/js/bodypadding.js"></script>
+
+
+</body>
+</html>

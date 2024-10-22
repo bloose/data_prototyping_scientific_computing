@@ -193,7 +193,7 @@ Try either of the following options for installation. </strong></p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the libraries</span>
@@ -219,16 +219,379 @@ Try either of the following options for installation. </strong></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Assign the serial object that you will write to and read from</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">'/dev/ttys0'</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Help on class Serial in module serial.serialposix:
+
+class Serial(serial.serialutil.SerialBase, PlatformSpecific)
+ |  Serial(port=None, baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, write_timeout=None, dsrdtr=False, inter_byte_timeout=None, exclusive=None, **kwargs)
+ |  
+ |  Serial port class POSIX implementation. Serial port configuration is
+ |  done with termios and fcntl. Runs on Linux and many other Un*x like
+ |  systems.
+ |  
+ |  Method resolution order:
+ |      Serial
+ |      serial.serialutil.SerialBase
+ |      io.RawIOBase
+ |      _io._RawIOBase
+ |      io.IOBase
+ |      _io._IOBase
+ |      PlatformSpecific
+ |      PlatformSpecificBase
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  cancel_read(self)
+ |  
+ |  cancel_write(self)
+ |  
+ |  close(self)
+ |      Close port
+ |  
+ |  fileno(self)
+ |      For easier use of the serial port instance with select.
+ |      WARNING: this function is not portable to different platforms!
+ |  
+ |  flush(self)
+ |      Flush of file like objects. In this case, wait until all data
+ |      is written.
+ |  
+ |  nonblocking(self)
+ |      DEPRECATED - has no use
+ |  
+ |  open(self)
+ |      Open port with current settings. This may throw a SerialException
+ |      if the port cannot be opened.
+ |  
+ |  read(self, size=1)
+ |      Read size bytes from the serial port. If a timeout is set it may
+ |      return less characters as requested. With no timeout it will block
+ |      until the requested number of bytes is read.
+ |  
+ |  reset_input_buffer(self)
+ |      Clear input buffer, discarding all that is in the buffer.
+ |  
+ |  reset_output_buffer(self)
+ |      Clear output buffer, aborting the current output and discarding all
+ |      that is in the buffer.
+ |  
+ |  send_break(self, duration=0.25)
+ |      Send break condition. Timed, returns to idle state after given
+ |      duration.
+ |  
+ |  set_input_flow_control(self, enable=True)
+ |      Manually control flow - when software flow control is enabled.
+ |      This will send XON (true) or XOFF (false) to the other device.
+ |      WARNING: this function is not portable to different platforms!
+ |  
+ |  set_output_flow_control(self, enable=True)
+ |      Manually control flow of outgoing data - when hardware or software flow
+ |      control is enabled.
+ |      WARNING: this function is not portable to different platforms!
+ |  
+ |  write(self, data)
+ |      Output the given byte string over the serial port.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Readonly properties defined here:
+ |  
+ |  cd
+ |      Read terminal status line: Carrier Detect
+ |  
+ |  cts
+ |      Read terminal status line: Clear To Send
+ |  
+ |  dsr
+ |      Read terminal status line: Data Set Ready
+ |  
+ |  in_waiting
+ |      Return the number of bytes currently in the input buffer.
+ |  
+ |  out_waiting
+ |      Return the number of bytes currently in the output buffer.
+ |  
+ |  ri
+ |      Read terminal status line: Ring Indicator
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __abstractmethods__ = frozenset()
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from serial.serialutil.SerialBase:
+ |  
+ |  __enter__(self)
+ |  
+ |  __exit__(self, *args, **kwargs)
+ |  
+ |  __init__(self, port=None, baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=None, xonxoff=False, rtscts=False, write_timeout=None, dsrdtr=False, inter_byte_timeout=None, exclusive=None, **kwargs)
+ |      Initialize comm port object. If a "port" is given, then the port will be
+ |      opened immediately. Otherwise a Serial port object in closed state
+ |      is returned.
+ |  
+ |  __repr__(self)
+ |      String representation of the current port settings and its state.
+ |  
+ |  applySettingsDict(self, d)
+ |  
+ |  apply_settings(self, d)
+ |      Apply stored settings from a dictionary returned from
+ |      get_settings(). It's allowed to delete keys from the dictionary. These
+ |      values will simply left unchanged.
+ |  
+ |  flushInput(self)
+ |  
+ |  flushOutput(self)
+ |  
+ |  getCD(self)
+ |  
+ |  getCTS(self)
+ |  
+ |  getDSR(self)
+ |  
+ |  getRI(self)
+ |  
+ |  getSettingsDict(self)
+ |  
+ |  get_settings(self)
+ |      Get current port settings as a dictionary. For use with
+ |      apply_settings().
+ |  
+ |  inWaiting(self)
+ |  
+ |  iread_until(self, *args, **kwargs)
+ |      Read lines, implemented as generator. It will raise StopIteration on
+ |      timeout (empty read).
+ |  
+ |  isOpen(self)
+ |  
+ |  read_all(self)
+ |      Read all bytes currently available in the buffer of the OS.
+ |  
+ |  read_until(self, expected=b'\n', size=None)
+ |      Read until an expected sequence is found ('
+ |      ' by default), the size
+ |              is exceeded or until timeout occurs.
+ |  
+ |  readable(self)
+ |      Return whether object was opened for reading.
+ |      
+ |      If False, read() will raise OSError.
+ |  
+ |  readinto(self, b)
+ |  
+ |  seekable(self)
+ |      Return whether object supports random access.
+ |      
+ |      If False, seek(), tell() and truncate() will raise OSError.
+ |      This method may need to do a test seek().
+ |  
+ |  sendBreak(self, duration=0.25)
+ |  
+ |  setDTR(self, value=1)
+ |  
+ |  setPort(self, port)
+ |  
+ |  setRTS(self, value=1)
+ |  
+ |  writable(self)
+ |      Return whether object was opened for writing.
+ |      
+ |      If False, write() will raise OSError.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from serial.serialutil.SerialBase:
+ |  
+ |  baudrate
+ |      Get the current baud rate setting.
+ |  
+ |  break_condition
+ |  
+ |  bytesize
+ |      Get the current byte size setting.
+ |  
+ |  dsrdtr
+ |      Get the current DSR/DTR flow control setting.
+ |  
+ |  dtr
+ |  
+ |  exclusive
+ |      Get the current exclusive access setting.
+ |  
+ |  interCharTimeout
+ |  
+ |  inter_byte_timeout
+ |      Get the current inter-character timeout setting.
+ |  
+ |  parity
+ |      Get the current parity setting.
+ |  
+ |  port
+ |      Get the current port setting. The value that was passed on init or using
+ |      setPort() is passed back.
+ |  
+ |  rs485_mode
+ |      Enable RS485 mode and apply new settings, set to None to disable.
+ |      See serial.rs485.RS485Settings for more info about the value.
+ |  
+ |  rts
+ |  
+ |  rtscts
+ |      Get the current RTS/CTS flow control setting.
+ |  
+ |  stopbits
+ |      Get the current stop bits setting.
+ |  
+ |  timeout
+ |      Get the current timeout setting.
+ |  
+ |  writeTimeout
+ |  
+ |  write_timeout
+ |      Get the current timeout setting.
+ |  
+ |  xonxoff
+ |      Get the current XON/XOFF setting.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from serial.serialutil.SerialBase:
+ |  
+ |  BAUDRATES = (50, 75, 110, 134, 150, 200, 300, 600, 1200, 1800, 2400, 4...
+ |  
+ |  BYTESIZES = (5, 6, 7, 8)
+ |  
+ |  PARITIES = ('N', 'E', 'O', 'M', 'S')
+ |  
+ |  STOPBITS = (1, 1.5, 2)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from _io._RawIOBase:
+ |  
+ |  readall(self, /)
+ |      Read until EOF, using multiple read() call.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from _io._IOBase:
+ |  
+ |  __del__(...)
+ |  
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |  
+ |  __next__(self, /)
+ |      Implement next(self).
+ |  
+ |  isatty(self, /)
+ |      Return whether this is an 'interactive' stream.
+ |      
+ |      Return False if it can't be determined.
+ |  
+ |  readline(self, size=-1, /)
+ |      Read and return a line from the stream.
+ |      
+ |      If size is specified, at most size bytes will be read.
+ |      
+ |      The line terminator is always b'\n' for binary files; for text
+ |      files, the newlines argument to open can be used to select the line
+ |      terminator(s) recognized.
+ |  
+ |  readlines(self, hint=-1, /)
+ |      Return a list of lines from the stream.
+ |      
+ |      hint can be specified to control the number of lines read: no more
+ |      lines will be read if the total size (in bytes/characters) of all
+ |      lines so far exceeds hint.
+ |  
+ |  seek(...)
+ |      Change stream position.
+ |      
+ |      Change the stream position to the given byte offset. The offset is
+ |      interpreted relative to the position indicated by whence.  Values
+ |      for whence are:
+ |      
+ |      * 0 -- start of stream (the default); offset should be zero or positive
+ |      * 1 -- current stream position; offset may be negative
+ |      * 2 -- end of stream; offset is usually negative
+ |      
+ |      Return the new absolute position.
+ |  
+ |  tell(self, /)
+ |      Return current stream position.
+ |  
+ |  truncate(...)
+ |      Truncate file to size bytes.
+ |      
+ |      File pointer is left unchanged.  Size defaults to the current IO
+ |      position as reported by tell().  Returns the new size.
+ |  
+ |  writelines(self, lines, /)
+ |      Write a list of lines to stream.
+ |      
+ |      Line separators are not added, so it is usual for each of the
+ |      lines provided to have a line separator at the end.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from _io._IOBase:
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from _io._IOBase:
+ |  
+ |  __dict__
+ |  
+ |  closed
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from PlatformSpecific:
+ |  
+ |  TIOCCBRK = 536900730
+ |  
+ |  TIOCSBRK = 536900731
+ |  
+ |  osx_version = ['21', '6', '0']
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from PlatformSpecificBase:
+ |  
+ |  set_low_latency_mode(self, low_latency_settings)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from PlatformSpecificBase:
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from PlatformSpecificBase:
+ |  
+ |  BAUDRATE_CONSTANTS = {}
+
+</pre>
 </div>
 </div>
 </div>
