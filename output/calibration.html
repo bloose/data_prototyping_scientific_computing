@@ -19,7 +19,7 @@
         <meta property="og:title" content="Calibration"/>
         <meta property="og:url" content="./calibration.html"/>
         <meta property="og:description" content="Thermistor calibration.¶ Step 1: Calibration data collection¶ Use your therm_plotter.ipynb script to help you make a file of datetime, temperature, and resistence. Place your thermistor in the bath and then start logging with your thermplotter. Collect measurements of Resistence in a bath of ice water. Collect a minimum of N = 100 measurements over several minutes. This means your delay() should be 1 second or so."/>
-        <meta property="article:published_time" content="2023-10-31" />
+        <meta property="article:published_time" content="2024-10-29" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2023-10-31T00:00:00-04:00"> Tue 31 October 2023</time>
+        <i class="fa fa-calendar"></i><time datetime="2024-10-29T00:00:00-04:00"> Tue 29 October 2024</time>
     </span>
 
 
@@ -174,6 +174,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li>Collect measurements of <strong>Resistence</strong> in a bath of ice water. Collect a minimum of N = 100 measurements over several minutes. This means your delay() should be 1 second or so. </li>
 <li>Move your thermistor to the other bath and collect measurements of <strong>Resistence</strong> in boiling water. Collect a minimum of N = 100 measurements over several minutes.</li>
 <li>Save the data in a .csv file for loading with this .ipynb.</li>
+<li>Plot the data and check that it is clean, no spikes or intermediate temps.  Cut away the bad data as needed.</li>
+<li>Create an dataframe of $T_{Reference}$ that matches the resistance data you collected at 0 and 100 C.</li>
+<li>Use a curve fitting algorithm (curve_fit() in Python, nls() in R) or the least-squares solution below to determine the new fit coefficients in the Steinhart-Hart equation.  These take an objective function - a module with the Steinhar-Hart equation programmed in.</li>
+<li>Quantify the goodness of fit using Pearson's Correlation Coefficient. </li>
 </ol>
 </div>
 </div>
@@ -196,20 +200,29 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the libraries we need.</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">linalg</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">###/////////////// Python /////////////</span>
+<span class="c1"># Load the libraries we need.</span>
+<span class="c1"># import numpy as np</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import datetime as dt</span>
+<span class="c1"># import numpy.linalg as linalg</span>
+<span class="c1"># from scipy.optimize import curve_fit</span>
 <span class="c1">#%matplotlib qt</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">DateFormatter</span>
-<span class="n">myFmt</span> <span class="o">=</span> <span class="n">DateFormatter</span><span class="p">(</span><span class="s2">"%H:%M"</span><span class="p">)</span>
+<span class="c1">#from matplotlib.dates import DateFormatter</span>
+<span class="c1">#myFmt = DateFormatter("%H:%M")</span>
+
+<span class="c1">###/////////////// R /////////////</span>
+<span class="c1">#library(tidyverse)</span>
+<span class="c1">#library(lubridate)</span>
+<span class="c1">#library(xts) # adds ability to merge data frames on date.</span>
+<span class="c1">#library(dplyr)</span>
+<span class="c1">#library(zoo)</span>
+<span class="c1">#library(patchwork)</span>
 </pre></div>
 </div>
 </div>
@@ -220,24 +233,20 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load your recorded measurements and plot the time series to confirm clean data.</span>
 
 <span class="c1"># df = pd.read_csv(filename, parse_dates=[0]);  # Note, use the parse_dates input to tell pandas which column has </span>
 <span class="c1"># datetimes in it.</span>
-<span class="c1"># df.info()</span>
+<span class="c1"># df.info() # Python</span>
+<span class="c1"># summary(df) # R</span>
 
+<span class="c1"># Load the calibration data with pd.read_csv() or read.csv() in R.</span>
 
 
 <span class="c1"># Plot the Resistance vs. datetime to determine if there is some data that needs to be cut out.  </span>
-
-
-
-
-<span class="c1"># This line makes the datetime axis easier to read</span>
-<span class="c1"># ax.xaxis.set_major_formatter(myFmt)</span>
 </pre></div>
 </div>
 </div>
@@ -259,15 +268,14 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cut out bad data points from the beginning and end, or from the transition between ice bath and boiling bath.</span>
 <span class="c1"># These bad data will introduce bias into your results. </span>
-<span class="c1"># Note, pandas lets you compare datetime values against text strings, e.g.  df['time'] > '2021-10-19 09:51:00'</span>
-
-
-<span class="c1">#cut.sum()</span>
+<span class="c1"># Note, R and pands lets you compare datetime values against text strings, e.g.  df['time'] > '2021-10-19 09:51:00' to</span>
+<span class="c1"># make a boolean array and eliminate rows where the boolean array is false. </span>
+<span class="c1"># cut = (df['time'] > '2021-10-19 09:51:00') & (df['time'] < '2021-10-19 09:53:00')</span>
 
 <span class="c1"># df.drop(df.index[cut])</span>
 </pre></div>
@@ -282,7 +290,7 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What-is-$T_%7Bbath%7D$?">What is $T_{bath}$?<a class="anchor-link" href="#What-is-$T_%7Bbath%7D$?">¶</a></h3><p>We explicitly chose to calibrate in boiling and icy water, because we know the temperature at these two phase transitions, on the celcius scale without having to measure it.   Therefore, these are the values of $T_bath$.  You need to create a column vector, called $T_bath$.  Every row (time) that you measured $R_{100}$ the value of $T_bath$ should be 100.   Every row (time) that measured $R_0$, the value of $T_{bath}$ should be 0.</p>
+<h3 id="What-is-$T_%7BReference%7D$?">What is $T_{Reference}$?<a class="anchor-link" href="#What-is-$T_%7BReference%7D$?">¶</a></h3><p>We explicitly chose to calibrate in boiling and icy water, because we know the temperature at these two phase transitions, on the celcius scale without having to measure it.   Therefore, these are the values of $T_{Ref}$.  You need to create a column vector, called $T_{Ref}$.  Every row (time) that you measured $R_{100}$ the value of $T_{Ref}$ should be 100.   Every row (time) that measured $R_0$, the value of $T_{Ref}$ should be 0.</p>
 <p>Hint:  If you also measured temperature, you can round to the 10's place to create a vector or 0 and 100 that matches your measured resistences.</p>
 <pre><code>Tbath = np.round(df['Temp'],-1)+273.16;</code></pre>
 </div>
@@ -295,11 +303,11 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Fit-the-model-using-the-Resistence-and-$T_%7Bbath%7D$-data.">Fit the model using the Resistence and $T_{bath}$ data.<a class="anchor-link" href="#Fit-the-model-using-the-Resistence-and-$T_%7Bbath%7D$-data.">¶</a></h3><p>Choose one of the two approaches:</p>
+<h3 id="Fit-the-model-using-the-Resistence-and-$T_%7BRef%7D$-data.">Fit the model using the Resistence and $T_{Ref}$ data.<a class="anchor-link" href="#Fit-the-model-using-the-Resistence-and-$T_%7BRef%7D$-data.">¶</a></h3><p>Choose one of the two approaches:</p>
 <ol>
 <li><p>Use curve_fit() from scipy.optimize. Refer to the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">Scipy help</a> for details of curve_fit()</p>
 </li>
-<li><p>solve the linear algebraic equation below, with design matrix A. Assemble the elements of $ x = \left(A^TA)^{-1}\times A^T T_{bath} \right) $. The columns in A are a column of 1's and a column of measurements of $R_{100}$ and $R_{0}$, or resistance at 100 and 0 celcius.</p>
+<li><p>solve the linear algebraic equation below, with design matrix A. Assemble the elements of $ x = \left(A^TA)^{-1}\times A^T T_{bath} \right) $. The columns in A are a column of 1's and a column of measurements of $R_{100}$ and $R_{0}$, or resistance at 100 and 0 celcius.  Talk to Brice, he can help you set this up.</p>
 </li>
 </ol>
 </div>
@@ -310,7 +318,7 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Choice 1, define the objective function, which defines the inputs to the Steinhar-Hart equation. You will pass </span>
@@ -318,22 +326,25 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <span class="c1"># https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html</span>
 
 
-<span class="c1">#def steinhart_hart(R,a,b,c):</span>
-<span class="c1">#    # Return the output of the Steinhart-Hart equation, given R and the parameters, a,b,c</span>
-<span class="c1">#    return </span>
+
+<span class="c1"># Make a column vector with values of TRef.</span>
 
 
-<span class="c1"># Make a column vector with values of Tbath.</span>
 
-
-<span class="c1"># Make a pandas pd.series() of values of Resistence from the bath calibration.  You will input these to curve_fit()</span>
+<span class="c1"># Define an R data frame or pandas pd.series() of values of Resistence from the bath calibration.  </span>
+<span class="c1"># You will input these to curve_fit()</span>
 
 
 <span class="c1"># Set up and solve the curve_fit.  Capture the values of a,b,c which are output from curve_fit()</span>
-<span class="c1"># pp,__ = curve_fit(objective_fun,R, 1/Tbath)</span>
-<span class="c1">#a,b,c = pp</span>
+<span class="c1"># pp,__ = curve_fit(objective_fun,R, 1/TRef). # In Python</span>
+<span class="c1"># fit <- nls(1/TRef ~ steinhart_hart(R, A, B, C), start = list(A = ..., B = ..., C = ...))</span>
 
-<span class="c1"># Report the values of a,b,c - how do they compare with coefficients we used last week?</span>
+<span class="c1"># Extract the fitted parameters</span>
+<span class="c1"># coef(fit)</span>
+
+
+<span class="c1"># a,b,c = pp</span>
+<span class="c1"># print(a,b,c)</span>
 </pre></div>
 </div>
 </div>
@@ -344,13 +355,13 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Choice 2, use linear algebra to solve for a, b, c where</span>
 <span class="c1"># x = [a,b,c]^T</span>
 <span class="c1"># A = [1, np.log(R_i), np.log(R_i)^3]</span>
-<span class="c1"># x = inv(A^T*A)*A^T*Tbath</span>
+<span class="c1"># x = inv(A^T*A)*A^T*TRef</span>
 
 
 <span class="c1"># Assemble the columns of the design matrix, A.</span>
@@ -378,17 +389,17 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Model the temperature.</span>
 
-<span class="c1"># Use your measured resistence during calibration and the new S-H coefficients to compute Tmod, </span>
-<span class="c1"># the modeled temperature.</span>
+<span class="c1"># Use your measured resistences and the new S-H coefficients (A,B,C) that you determine from the calibration to compute </span>
+<span class="c1"># Tmod, the modeled temperature.</span>
 
 
 
-<span class="c1"># Make a plot of Resistance vs. Tbath and Resistence vs. Tmod.  Are Tmod and Tbath visually consistent?</span>
+<span class="c1"># Make a plot of Resistance vs. Tref and Resistence vs. Tmod.  Are the modeled values visually consistent?</span>
 </pre></div>
 </div>
 </div>
@@ -401,8 +412,11 @@ $$ \frac{1}{T_{bath}} = a + b \cdot log_e(R) + c \cdot log_e(R)^3 $$<p>Use the S
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Compute-and-report-the-Pearson-correlation-coefficient-to-show-how-well-your-curve-fits-to-the-data.">Compute and report the Pearson correlation coefficient to show how well your curve fits to the data.<a class="anchor-link" href="#Compute-and-report-the-Pearson-correlation-coefficient-to-show-how-well-your-curve-fits-to-the-data.">¶</a></h4>$$ R^2 = 1 - \frac{ \sum\left(T_{bath,i} - T_{mod,i} \right)^2}{\left(\sum T_{bath,i} - n\bar{T_{bath}}\right)^2}   $$<blockquote><p>Here, the values of $T_{bath,i}$ are the 'observations' of temperature at 0 and 100 C and $\hat{T}_i$ are the predicted values from the least-squares fit.</p>
-</blockquote>
+<h4 id="Compute-and-report-the-Pearson-correlation-coefficient-to-show-how-well-your-curve-fits-to-the-data.">Compute and report the Pearson correlation coefficient to show how well your curve fits to the data.<a class="anchor-link" href="#Compute-and-report-the-Pearson-correlation-coefficient-to-show-how-well-your-curve-fits-to-the-data.">¶</a></h4>$$ R^2 = 1 - \frac{SS_{Residual}}{SS_{Total}} $$<p>$T_{mod}$ = Temperature you get from using the new A, B, C's with the Steinhar-Hart Equation.</p>
+<p>$T_{Ref}$ = Reference temperatures in the bath at 0 and 100 C.</p>
+<p>$\overline{T_{Ref}}$ = Mean of the Reference temperatures.</p>
+<p>$SS_{Residual} = \sum_{i=1}^{N} (T_{mod,i} - \overline{T_{ref,i}})^2$</p>
+<p>$SS_{Total} = \sum_{i=1}^{N} (T_{Ref,i} - \overline{T_{Ref}})^2$</p>
 </div>
 </div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Temperature analysis - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>Intro to R Dataframes - 2024 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,18 +9,18 @@
 
 
 
-<link rel="canonical" href="./temperature-analysis.html">
+<link rel="canonical" href="./intro-to-r-dataframes.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Using Pandas dataframes or R dataframes to process and analyze temperature time series data.¶ NOTES: This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation." />
+        <meta name="description" content="Intro to Dataframes¶Dataframes in R provide a sophisticated data structure for organization and analysis including with time series operations. Check out: https://www.youtube.com/watch?v=edifwfMEL_I (c)dataquest.io The DataFrame allows us to load a complicated file into Python and perform multiple data manipulations efficiently, and without having to recast the data. In [ ]: library(readxl) # Read in Excel files" />
 
         <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Temperature analysis"/>
-        <meta property="og:url" content="./temperature-analysis.html"/>
-        <meta property="og:description" content="Using Pandas dataframes or R dataframes to process and analyze temperature time series data.¶ NOTES: This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation."/>
+        <meta property="og:title" content="Intro to R Dataframes"/>
+        <meta property="og:url" content="./intro-to-r-dataframes.html"/>
+        <meta property="og:description" content="Intro to Dataframes¶Dataframes in R provide a sophisticated data structure for organization and analysis including with time series operations. Check out: https://www.youtube.com/watch?v=edifwfMEL_I (c)dataquest.io The DataFrame allows us to load a complicated file into Python and perform multiple data manipulations efficiently, and without having to recast the data. In [ ]: library(readxl) # Read in Excel files"/>
         <meta property="article:published_time" content="2024-10-29" />
-            <meta property="article:section" content="Worksheets" />
+            <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
 
@@ -56,10 +56,10 @@
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="./category/notes.html">Notes</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="./category/worksheets.html">Worksheets</a>
                         </li>
             </ul>
@@ -81,10 +81,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./temperature-analysis.html"
+                    <a href="./intro-to-r-dataframes.html"
                        rel="bookmark"
-                       title="Permalink to Temperature analysis">
-                        Temperature analysis
+                       title="Permalink to Intro to R Dataframes">
+                        Intro to R Dataframes
                     </a>
                 </h1>
             </header>
@@ -157,7 +157,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Using-Pandas-dataframes-or-R-dataframes-to-process-and-analyze-temperature-time-series-data.">Using Pandas dataframes or R dataframes to process and analyze temperature time series data.<a class="anchor-link" href="#Using-Pandas-dataframes-or-R-dataframes-to-process-and-analyze-temperature-time-series-data.">¶</a></h2>
+<h2 id="Intro-to-Dataframes">Intro to Dataframes<a class="anchor-link" href="#Intro-to-Dataframes">¶</a></h2><p><strong>Dataframes in R provide a sophisticated data structure for organization and analysis including with time series operations</strong>.</p>
+<p>Check out: 
+<a href="https://www.youtube.com/watch?v=edifwfMEL_I">https://www.youtube.com/watch?v=edifwfMEL_I</a></p>
 </div>
 </div>
 </div>
@@ -168,13 +170,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>NOTES:</strong>  This week we will analyze the at-home temperature time series you have collected in order to see if we can extract some more information about the quality of the data, and what story the time series can tell us. We are going to compare your at-home temperature with air temperature from a weather station and see if there is a correlation, and/or a lag in the correlation.</p>
-<ol>
-<li>First, download a record of NOAA 5-min weather station temperature from Kingston, RI (<a href="https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2024/">https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2024/</a>). </li>
-<li>Put both your temperature data and the NOAA data onto the same time base by using datetime as the row index for both data sets and merging them.  </li>
-<li>Merge the two data sets into one data frame, so you can use them for time series analysis.</li>
-<li>Last, compute the serial covariance to observe how well the two temperatures are correlated and if there is any lag between the outdoor temperature and your indoor temperature. </li>
-</ol>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/df_blocks.png" />
+(c)dataquest.io</p>
+<p>The  DataFrame allows us to load a complicated file into Python and perform multiple data manipulations efficiently, and without having to recast the data.</p>
 </div>
 </div>
 </div>
@@ -186,47 +184,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Download-and-Read-in-NOAA-Weather-Station-data.">Download and Read in NOAA Weather Station data.<a class="anchor-link" href="#Download-and-Read-in-NOAA-Weather-Station-data.">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Download 5-min temperature data, for a nearby weather station. Look for the neareest 5-min weather stations in RI.</span>
-<span class="c1"># These archives are available at:</span>
-<span class="c1"># https://www1.ncdc.noaa.gov/pub/data/uscrn/products/subhourly01/2024/</span>
-
-
-
-<span class="c1"># Use the pandas function pd.read_csv() to import the data.  Hint, you can indicate whitespace delimiters as '\s+'. </span>
-<span class="c1"># NOTE:  The NOAA file will take some special processing to create a datetime array.  See Pandas intro for an example.</span>
-
-
-
-
-<span class="c1">#Kin_DF.info()</span>
+<div class="highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span><span class="w"> </span><span class="c1"># Read in Excel files</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span><span class="w"> </span><span class="c1"># Create and manipulate date objects and time objects.</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">xts</span><span class="p">)</span><span class="w"> </span><span class="c1"># adds ability to merge data frames on date.</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">zoo</span><span class="p">)</span><span class="w"> </span><span class="c1"># time series features for data frames.</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span><span class="w"> </span><span class="c1">#</span>
 </pre></div>
 </div>
 </div>
@@ -240,15 +204,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the csv data you saved from your overnight data collection.</span>
-
-
-
-<span class="c1"># Use the parse_dates option to ensure a datetime column is created.</span>
-
-
-
-<span class="c1"># Use df.info() function to confirm it has all the correct columns and data types.</span>
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Read the Excel file into an R data frame</span>
+<span class="n">freight</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">read_excel</span><span class="p">(</span><span class="s">"ScienceInventory_Ioffe.xlsx"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -262,114 +219,99 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make it so that both time series use the datetime column as their row index.  </span>
-<span class="c1"># Use the Pandas .set_index() function and apply your changes to the same dataframe using the inplace=True option.</span>
-<span class="c1"># Must merge on index, so setting both timeseries to indices.</span>
+<div class="highlight hl-r"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">freight</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">  </span><span class="c1"># Displays the first 10 rows</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">freight</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">  </span><span class="c1"># Displays the last 10 rows</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Summary gives some insight into the data type of each column.  Also note it is shown in the header when you </span>
+<span class="c1"># type tail or head </span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">freight</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="nf">as.matrix</span><span class="p">(</span><span class="n">freight</span><span class="p">)</span><span class="w"> </span><span class="c1"># You can extract a generic array</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Read in a text file that is delimited by whitespace.  '\s+' allows multiple whitespace characters to exist </span>
+<span class="c1"># between each entry.</span>
 
+<span class="c1"># If file has a header, you need to tell read_csv() how many rows to skip, or it will misinterpret the shape of the</span>
+<span class="c1"># dataframe.</span>
 
-<span class="c1"># Use the datetime column as the array index for the weather station data.</span>
+<span class="n">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">'20151028 blank test.asc'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">'\t'</span><span class="p">,</span><span class="n">skip</span><span class="o">=</span><span class="m">7</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="c1"># This is timeseries data, so we should utilize a datetime data type as the row index.   </span>
+<span class="c1"># First, we have to create datetime. </span>
 
+<span class="n">fname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'timeseries2.txt'</span>
+<span class="c1"># Read in the data and specify all columns as character arrays.  Otherwise we lose leading zeros in the time column.</span>
+<span class="n">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">','</span><span class="p">,</span><span class="n">skip</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span><span class="n">colClasses</span><span class="o">=</span><span class="s">"character"</span><span class="p">)</span>
+<span class="c1"># Add the strings together, convert them to a datetime and save the result in column 3.</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
 
-<span class="c1"># Use the datetime colum as the array index for your home temp.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Truncate-the-weather-station-data">Truncate the weather station data<a class="anchor-link" href="#Truncate-the-weather-station-data">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The Kingston Weather data file covers the entire year up to the present.  We want to cut this down to the time period </span>
-<span class="c1"># that overlaps with your overnight temperature data.  </span>
-<span class="c1"># Use boolean indices or the pandas .truncate() function to truncate the data to a time period that overlaps with</span>
-<span class="c1"># your temperature data.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Visualize-the-two-temperature-records.">Visualize the two temperature records.<a class="anchor-link" href="#Visualize-the-two-temperature-records.">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a single panel plot with datetime on the x-axis and temperature on the y-axis.  Use this plot to confirm that</span>
-<span class="c1"># the truncated weather station data overlaps with your overnight time series.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Are there any bad data points?  If so, use boolean indices to remove them. </span>
-<span class="c1"># Hint: Don't make them NaNs or they will complicate the time series analysis.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The time interval of the overnight temperature data has to match that of the NOAA weather station.  Use the Pandas </span>
-<span class="c1"># resample().mean() function to compute the running mean of your temperature time series at 5 minute intervals, to match the </span>
-<span class="c1"># NOAA data.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Merge the two data sets together using the pandas .join() function.  </span>
+<span class="c1"># specifying the format</span>
+<span class="n">format</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="s">"%Y%m%d %H%M"</span>
+
+<span class="c1"># combining date and time into single object and put it into a new column in the data frame.</span>
+<span class="n">ts</span><span class="o">$</span><span class="n">datetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.POSIXct</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">ts</span><span class="o">$</span><span class="n">V5</span><span class="p">,</span><span class="w"> </span><span class="n">ts</span><span class="o">$</span><span class="n">V6</span><span class="p">),</span><span class="w"> </span><span class="n">format</span><span class="o">=</span><span class="n">format</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -382,7 +324,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Computing-the-serial-covariance-between-your-overnight-and-weather-station-data.">Computing the serial covariance between your overnight and weather station data.<a class="anchor-link" href="#Computing-the-serial-covariance-between-your-overnight-and-weather-station-data.">¶</a></h2><p>Check out the wiki figures and explanation of cross-correlation. <a href="https://en.wikipedia.org/wiki/Cross-correlation">https://en.wikipedia.org/wiki/Cross-correlation</a></p>
+<h2 id="Trim-bad-or-unwanted-data">Trim bad or unwanted data<a class="anchor-link" href="#Trim-bad-or-unwanted-data">¶</a></h2>
 </div>
 </div>
 </div>
@@ -394,15 +336,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a lag vector, k, that spans from -N to N-1, where N is the number of elements in Therm_5min.</span>
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Use boolean arrays to shorten a dataframe before a time interval.</span>
 
-<span class="c1"># Plot the output from np.correlate() as a function of k to see how the correlation changes at negative lag (k < 0),</span>
-<span class="c1"># zero lag (k = 0), and positive lag (k > 0).</span>
+<span class="c1"># Create a begin and end datetime object.</span>
+<span class="n">fin</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">as.POSIXct</span><span class="p">(</span><span class="s">'2020-01-03 23:55:00'</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s">'%Y-%m-%d %H:%M:%S'</span><span class="p">)</span>
+<span class="n">beg</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">as.POSIXct</span><span class="p">(</span><span class="s">'2020-01-01 10:55:00'</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s">'%Y-%m-%d %H:%M:%S'</span><span class="p">)</span>
+<span class="c1">#beg <- as.POSIXct('2024-10-22 00:00:00',format='%Y-%m-%d %H:%M:%S')</span>
 
-<span class="c1"># 1. Where are the two most correlated?</span>
-<span class="c1"># 2. Are the series correlated or anti-correlated?</span>
-<span class="c1"># 3. How long is the lag in minutes?  You can figure this out by multiplying k with your sampling interval.</span>
-<span class="c1"># 4. Can you offer a theory why there is (or isn't) a lag between indoor and outdoor temperature?</span>
+<span class="c1"># Compare the datetime data in ts and get rid of all the data outside of the limits set by beg and fin.</span>
+<span class="n">f_ts</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">ts</span><span class="w"> </span><span class="o">%>%</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="n">ts</span><span class="o">$</span><span class="n">datetime</span><span class="w"> </span><span class="o">>=</span><span class="w"> </span><span class="n">beg</span><span class="w"> </span><span class="o">&</span><span class="w"> </span><span class="n">ts</span><span class="o">$</span><span class="n">datetime</span><span class="w"> </span><span class="o"><=</span><span class="w"> </span><span class="n">fin</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +357,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Subtract-the-mean-from-both-time-series-and-compute-covariance-on-the-temperature-anomaly.">Subtract the mean from both time series and compute covariance on the temperature anomaly.<a class="anchor-link" href="#Subtract-the-mean-from-both-time-series-and-compute-covariance-on-the-temperature-anomaly.">¶</a></h2>
+<h2 id="Fill-in-missing-data.">Fill in missing data.<a class="anchor-link" href="#Fill-in-missing-data.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -427,22 +369,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Subtract the mean from both time series to make both sets of measurements have zero mean.</span>
+<div class="highlight hl-r"><pre><span></span><span class="c1"># Use na.locf() which stands for "last observation carried forward" to fill in the missing data.</span>
 
+<span class="c1"># NOTE xts() can coerce your data into characters if there are non-numeric values in the series.</span>
+<span class="n">xts_data</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">xts</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="w"> </span><span class="n">order.by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ts</span><span class="o">$</span><span class="n">datetime</span><span class="p">)</span>
 
-
-<span class="c1"># Use the function np.correlate(,,mode='full') in Python to compute the serial cross-correlation.</span>
-<span class="c1"># Note, this Numpy function is fully compatible with Pandas dataframes as inputs.</span>
-<span class="c1"># Use cf = ccf(T1,T2,type="correlation",plot=FALSE) in R to compute the serial cross-correlation.</span>
-<span class="c1">#x = cf$lag; y = cf$acf</span>
-
-
-<span class="c1"># Make the lag vector, k, that ranges from -N to N with steps of 1.</span>
-
-
-
-<span class="c1"># Make a 2-panel plot.  In the first panel, plot the Overnight and Weather temperature data. In the second panel, plot the </span>
-<span class="c1"># cross-correlation as a function of lag.  Use these plots to answer the questions above.</span>
+<span class="n">hr_data</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">na.locf</span><span class="p">(</span><span class="n">xts_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -455,11 +387,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="What-to-submit:">What to submit:<a class="anchor-link" href="#What-to-submit:">¶</a></h3><ol>
-<li>This .ipynb with code and answers to the above questions.  Use Markdown cells for practice.</li>
-<li>An image of the 2-panel plot you made above.</li>
-<li>Text files containing your overnight thermistor data and weather station data.</li>
-</ol>
+<h2 id="Resample-the-dataset">Resample the dataset<a class="anchor-link" href="#Resample-the-dataset">¶</a></h2>
 </div>
 </div>
 </div>
@@ -471,7 +399,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-r"><pre><span></span><span class="c1"># apply.daily, apply.monthly, apply.weekly, apply.quarterly</span>
+<span class="n">hr_day</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">apply.daily</span><span class="p">(</span><span class="n">hr_data</span><span class="p">,</span><span class="n">last</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">hr_day</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span>
 </pre></div>
 </div>
 </div>
