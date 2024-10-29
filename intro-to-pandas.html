@@ -19,7 +19,7 @@
         <meta property="og:title" content="Intro to Pandas"/>
         <meta property="og:url" content="./intro-to-pandas.html"/>
         <meta property="og:description" content="Intro to Pandas¶Pandas is a Python library that provides a sophisticated data structure for organization and analysis. It excels at categorizing data and at time series operations. Check out: https://pandas.pydata.org/pandas-docs/stable/10min.html https://www.youtube.com/watch?v=F6kmIpWWEdU Advantages of Pandas Can read many files: .xls, .csv, any delimited text file, as well as JSON and SQL. Very smart with identifying data types, e.g. text, integer, float, or even dates."/>
-        <meta property="article:published_time" content="2023-10-31" />
+        <meta property="article:published_time" content="2024-10-29" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2023-10-31T00:00:00-04:00"> Tue 31 October 2023</time>
+        <i class="fa fa-calendar"></i><time datetime="2024-10-29T00:00:00-04:00"> Tue 29 October 2024</time>
     </span>
 
 
@@ -208,7 +208,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -222,7 +222,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'ScienceInventory_Ioffe.xlsx'</span><span class="p">)</span>
@@ -237,7 +237,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># Plot the first five rows of the dataframe</span>
@@ -251,7 +251,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped="">
@@ -337,7 +337,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas automatically fills in empty data with NaNs.</span>
@@ -352,7 +352,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped="">
@@ -438,7 +438,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas is fairly clever about determining the right data type for each column.  </span>
@@ -479,7 +479,7 @@ memory usage: 3.2+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># You can extract a generic array from the Pandas dataframe, using the .values attribute.</span>
@@ -493,7 +493,7 @@ memory usage: 3.2+ KB
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>array([[1.0, 'Jelly', 'URI Geotracerkitchen', 111.0, '33x27x16',
         'Geophysical Lab'],
@@ -662,7 +662,7 @@ memory usage: 3.2+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Change the row index to the 'Institution', instead of the numeric row number.  </span>
@@ -678,7 +678,7 @@ memory usage: 3.2+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -692,7 +692,7 @@ memory usage: 3.2+ KB
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped="">
@@ -780,7 +780,7 @@ memory usage: 3.2+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="p">[</span><span class="s1">'Weight (lbs)'</span><span class="p">][</span><span class="s1">'U. Illinois Chicago'</span><span class="p">]</span>  <span class="c1"># Report the weights column for UIC freight.</span>
@@ -794,7 +794,7 @@ memory usage: 3.2+ KB
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>Institution
 U. Illinois Chicago    80.0
@@ -812,7 +812,7 @@ Name: Weight (lbs), dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="p">[</span><span class="s1">'Weight (lbs)'</span><span class="p">][</span><span class="s1">'U. Illinois Chicago'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Do arithmetic on on the UIC freight.</span>
@@ -826,9 +826,9 @@ Name: Weight (lbs), dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>321.0</pre>
+<pre>np.float64(321.0)</pre>
 </div>
 </div>
 </div>
@@ -838,10 +838,12 @@ Name: Weight (lbs), dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">freight</span><span class="p">[</span><span class="s1">'U. Illinois Chicago'</span><span class="p">][</span><span class="s1">'Weight (lbs)'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Pandas specifies column indices first, then row indices.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This will fail. Note the reversal of indices.</span>
+
+<span class="n">freight</span><span class="p">[</span><span class="s1">'U. Illinois Chicago'</span><span class="p">][</span><span class="s1">'Weight (lbs)'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Pandas specifies column indices first, then row indices.</span>
 </pre></div>
 </div>
 </div>
@@ -857,43 +859,46 @@ Name: Weight (lbs), dtype: float64</pre>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pandas/core/indexes/base.py:3621</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg">(self, key, method, tolerance)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3620</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">-> 3621</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_engine</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">casted_key</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3622</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
+File <span class="ansi-green-fg">/opt/anaconda3/envs/Renvy/lib/python3.11/site-packages/pandas/core/indexes/base.py:3805</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3804</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-> 3805</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_engine</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">casted_key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3806</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
 
-File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pandas/_libs/index.pyx:136</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">index.pyx:167</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg">()</span>
 
-File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pandas/_libs/index.pyx:163</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">index.pyx:196</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg">()</span>
 
-File <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi:5198</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi:7081</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
 
-File <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi:5206</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
+File <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi:7089</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
 
 <span class="ansi-red-fg">KeyError</span>: 'U. Illinois Chicago'
 
 The above exception was the direct cause of the following exception:
 
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [12]</span>, in <span class="ansi-cyan-fg"><cell line: 1></span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----> 1</span> <span class="ansi-yellow-bg">freight</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">U. Illinois Chicago</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">]</span>[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Weight (lbs)</span><span style="color: rgb(175,0,0)">'</span>]<span style="color: rgb(98,98,98)">.</span>sum()
+Cell <span class="ansi-green-fg">In[14], line 1</span>
+<span class="ansi-green-fg">----> 1</span> <span class="ansi-yellow-bg">freight</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">U. Illinois Chicago</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">]</span>[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Weight (lbs)</span><span style="color: rgb(175,0,0)">'</span>]<span style="color: rgb(98,98,98)">.</span>sum()  <span style="color: rgb(95,135,135)"># Pandas specifies column indices first, then row indices.</span>
 
-File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pandas/core/frame.py:3505</span>, in <span class="ansi-cyan-fg">DataFrame.__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3503</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>columns<span style="color: rgb(98,98,98)">.</span>nlevels <span style="color: rgb(98,98,98)">></span> <span style="color: rgb(98,98,98)">1</span>:
-<span class="ansi-green-intense-fg ansi-bold">   3504</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_getitem_multilevel(key)
-<span class="ansi-green-fg">-> 3505</span> indexer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3506</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_integer(indexer):
-<span class="ansi-green-intense-fg ansi-bold">   3507</span>     indexer <span style="color: rgb(98,98,98)">=</span> [indexer]
+File <span class="ansi-green-fg">/opt/anaconda3/envs/Renvy/lib/python3.11/site-packages/pandas/core/frame.py:4102</span>, in <span class="ansi-cyan-fg">DataFrame.__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4100</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>columns<span style="color: rgb(98,98,98)">.</span>nlevels <span style="color: rgb(98,98,98)">></span> <span style="color: rgb(98,98,98)">1</span>:
+<span class="ansi-green-intense-fg ansi-bold">   4101</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_getitem_multilevel(key)
+<span class="ansi-green-fg">-> 4102</span> indexer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4103</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_integer(indexer):
+<span class="ansi-green-intense-fg ansi-bold">   4104</span>     indexer <span style="color: rgb(98,98,98)">=</span> [indexer]
 
-File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pandas/core/indexes/base.py:3623</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg">(self, key, method, tolerance)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3621</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_engine<span style="color: rgb(98,98,98)">.</span>get_loc(casted_key)
-<span class="ansi-green-intense-fg ansi-bold">   3622</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> err:
-<span class="ansi-green-fg">-> 3623</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span>(key) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">err</span>
-<span class="ansi-green-intense-fg ansi-bold">   3624</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
-<span class="ansi-green-intense-fg ansi-bold">   3625</span>     <span style="color: rgb(95,135,135)"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="ansi-green-intense-fg ansi-bold">   3626</span>     <span style="color: rgb(95,135,135)">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="ansi-green-intense-fg ansi-bold">   3627</span>     <span style="color: rgb(95,135,135)">#  the TypeError.</span>
-<span class="ansi-green-intense-fg ansi-bold">   3628</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_check_indexing_error(key)
+File <span class="ansi-green-fg">/opt/anaconda3/envs/Renvy/lib/python3.11/site-packages/pandas/core/indexes/base.py:3812</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3807</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(casted_key, <span style="color: rgb(0,135,0)">slice</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> (
+<span class="ansi-green-intense-fg ansi-bold">   3808</span>         <span style="color: rgb(0,135,0)">isinstance</span>(casted_key, abc<span style="color: rgb(98,98,98)">.</span>Iterable)
+<span class="ansi-green-intense-fg ansi-bold">   3809</span>         <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">any</span>(<span style="color: rgb(0,135,0)">isinstance</span>(x, <span style="color: rgb(0,135,0)">slice</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> x <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> casted_key)
+<span class="ansi-green-intense-fg ansi-bold">   3810</span>     ):
+<span class="ansi-green-intense-fg ansi-bold">   3811</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> InvalidIndexError(key)
+<span class="ansi-green-fg">-> 3812</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span>(key) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">err</span>
+<span class="ansi-green-intense-fg ansi-bold">   3813</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
+<span class="ansi-green-intense-fg ansi-bold">   3814</span>     <span style="color: rgb(95,135,135)"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="ansi-green-intense-fg ansi-bold">   3815</span>     <span style="color: rgb(95,135,135)">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="ansi-green-intense-fg ansi-bold">   3816</span>     <span style="color: rgb(95,135,135)">#  the TypeError.</span>
+<span class="ansi-green-intense-fg ansi-bold">   3817</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_check_indexing_error(key)
 
 <span class="ansi-red-fg">KeyError</span>: 'U. Illinois Chicago'</pre>
 </div>
@@ -905,7 +910,7 @@ File <span class="ansi-green-fg">~/opt/anaconda3/lib/python3.9/site-packages/pan
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read in a text file that is delimited by whitespace.  '\s+' allows multiple whitespace characters to exist </span>
@@ -950,7 +955,17 @@ None
 </div>
 </div>
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/var/folders/xk/37brlxn92jnf5_cft3dkbmbw0000gp/T/ipykernel_40366/1117515379.py:6: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  ts = pd.read_csv('20151028 blank test.asc',sep='\t',skiprows=7,parse_dates=[0,3])
+/var/folders/xk/37brlxn92jnf5_cft3dkbmbw0000gp/T/ipykernel_40366/1117515379.py:6: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  ts = pd.read_csv('20151028 blank test.asc',sep='\t',skiprows=7,parse_dates=[0,3])
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped="">
@@ -1060,7 +1075,7 @@ None
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This is timeseries data, so we should utilize a datetime data type as the row index.   </span>
@@ -1125,7 +1140,7 @@ memory usage: 187.6+ KB
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set the index to be the datetime column.</span>
@@ -1141,7 +1156,7 @@ memory usage: 187.6+ KB
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped="">
@@ -1337,12 +1352,12 @@ memory usage: 187.6+ KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas provides capabilities to manipulate the time base in your timeseries dataframe.  These are possible, once</span>
@@ -1357,351 +1372,6 @@ memory usage: 187.6+ KB
 <span class="c1"># Upsample, but replace the values by a linear interpolation.</span>
 <span class="c1"># ts.resample('1min').interpolate()</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>...</th>
-<th>14</th>
-<th>15</th>
-<th>16</th>
-<th>17</th>
-<th>18</th>
-<th>19</th>
-<th>20</th>
-<th>21</th>
-<th>22</th>
-<th>23</th>
-</tr>
-<tr>
-<th>4</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>2019-12-31 19:05:00</th>
-<td>0.0</td>
-<td>54796.0</td>
-<td>20200101.0</td>
-<td>5.0</td>
-<td>2019-12-31 19:05:00</td>
-<td>1905</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>2.40</td>
-<td>...</td>
-<td>C</td>
-<td>0.0</td>
-<td>90.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>1257.0</td>
-<td>0.0</td>
-<td>1.210</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2019-12-31 19:06:00</th>
-<td>0.2</td>
-<td>54796.0</td>
-<td>20200101.0</td>
-<td>6.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>2.38</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>90.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>1257.6</td>
-<td>0.0</td>
-<td>1.138</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2019-12-31 19:07:00</th>
-<td>0.4</td>
-<td>54796.0</td>
-<td>20200101.0</td>
-<td>7.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>2.36</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>90.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>1258.2</td>
-<td>0.0</td>
-<td>1.066</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2019-12-31 19:08:00</th>
-<td>0.6</td>
-<td>54796.0</td>
-<td>20200101.0</td>
-<td>8.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>2.34</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>90.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>1258.8</td>
-<td>0.0</td>
-<td>0.994</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2019-12-31 19:09:00</th>
-<td>0.8</td>
-<td>54796.0</td>
-<td>20200101.0</td>
-<td>9.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>2.32</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>90.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>1259.4</td>
-<td>0.0</td>
-<td>0.922</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>2020-01-04 06:16:00</th>
-<td>998.2</td>
-<td>54796.0</td>
-<td>20200104.0</td>
-<td>1116.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>6.30</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>97.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>16.0</td>
-<td>0.0</td>
-<td>0.274</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2020-01-04 06:17:00</th>
-<td>998.4</td>
-<td>54796.0</td>
-<td>20200104.0</td>
-<td>1117.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>6.30</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>97.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>16.0</td>
-<td>0.0</td>
-<td>0.318</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2020-01-04 06:18:00</th>
-<td>998.6</td>
-<td>54796.0</td>
-<td>20200104.0</td>
-<td>1118.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>6.30</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>97.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>16.0</td>
-<td>0.0</td>
-<td>0.362</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2020-01-04 06:19:00</th>
-<td>998.8</td>
-<td>54796.0</td>
-<td>20200104.0</td>
-<td>1119.0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>6.30</td>
-<td>...</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>97.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>16.0</td>
-<td>0.0</td>
-<td>0.406</td>
-<td>0.0</td>
-</tr>
-<tr>
-<th>2020-01-04 06:20:00</th>
-<td>999.0</td>
-<td>54796.0</td>
-<td>20200104.0</td>
-<td>1120.0</td>
-<td>2020-01-04 06:20:00</td>
-<td>0620</td>
-<td>3.0</td>
-<td>-71.54</td>
-<td>41.49</td>
-<td>6.30</td>
-<td>...</td>
-<td>C</td>
-<td>0.0</td>
-<td>97.0</td>
-<td>0.0</td>
-<td>-99.0</td>
-<td>-9999.0</td>
-<td>16.0</td>
-<td>0.0</td>
-<td>0.450</td>
-<td>0.0</td>
-</tr>
-</tbody>
-</table>
-<p>4996 rows × 24 columns</p>
-</div>
 </div>
 </div>
 </div>
