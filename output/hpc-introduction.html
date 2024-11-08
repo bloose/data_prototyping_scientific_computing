@@ -19,7 +19,7 @@
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
         <meta property="og:description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line."/>
-        <meta property="article:published_time" content="2023-11-06" />
+        <meta property="article:published_time" content="2024-11-12" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2023-11-06T00:00:00-05:00"> Mon 06 November 2023</time>
+        <i class="fa fa-calendar"></i><time datetime="2024-11-12T00:00:00-05:00"> Tue 12 November 2024</time>
     </span>
 
 
@@ -190,7 +190,7 @@ Password: whatever_you_specified</code></pre>
 <li><p>Choose your institution and follow the steps to log in.</p>
 </li>
 </ul>
-<p>If this connection is successful, then you can proceed to setting up you Python environment in the next step.</p>
+<p>If this connection is successful, then you can proceed to setting up your Python environment in the next step.</p>
 <p><strong>NOTE:</strong> The Oscar Unity environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module available</code> to see what's available.</p>
 </div>
 </div>
@@ -204,21 +204,22 @@ Password: whatever_you_specified</code></pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
 <li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.
-<pre><code>$ module load anaconda/2022.10
-$ conda create -n <your_env_here> python=3.9 dask mpi4py scikit-image
+<pre><code>$ module load conda/latest
+$ conda create -n <your_env_here> python=3.9 dask mpi4py scikit-image matlplotlib
+$ conda activate <your_env_here> # Activate your environment before installing landsatexplore using pip.
 $ pip install landsatxplore</code></pre>
 </li>
 </ul>
 <ul>
 <li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.
-<pre><code>$ module load anaconda/2022.10
-$ source activate your_env_here</code></pre>
+<pre><code>$ module load conda/latest
+$ source activate <your_env_here></code></pre>
 At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</li>
 </ul>
 <p><strong>RECAP:</strong></p>
 <p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
-<pre><code>$ module load anaconda/2022.10
-$ source activate your_env_here</code></pre>
+<pre><code>$ module load conda/latest
+$ source activate <your_env_here></code></pre>
 </div>
 </div>
 </div>
@@ -229,7 +230,7 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/Intro_Unix_Navigating.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
+<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
 </div>
 </div>
 </div>
@@ -247,7 +248,7 @@ $ source activate your_env_here</code></pre>
 <p>You can do this at the Shell:</p>
 <pre><code>]$ mkdir ocg404</code></pre>
 <p>Or you can create the folder from within the OOD file manager that you opened above with Files-->Home Directory.</p>
-<p>src="<a href="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_FileManager.png">https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_FileManager.png</a>" width="700"/</img></p>
+<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_fileManager.png" width="700" /></p>
 <p>Now transfer your files to the ocg404 directory on Unity OOD.</p>
 <ul>
 <li>Upload landsatexplore.py</li>
@@ -262,13 +263,30 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ul>
-<li>Add the missing items and the graphing section to landsatexplore.py.  You will graph the landsate image.</li>
+<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ol>
+<li>landsat_exploreRI.py uses the landsatxplore API to find and download Landsat images, based on the time and geographic criteria you give it.</li>
+<li>To use the API, you will need to create a <a href="https://ers.cr.usgs.gov/register">USGS EarthExplorer account</a>. </li>
+<li>Fllow the prompts in landsat_exploreRI.py and add the missing code to landsat_exploreRI.py.</li>
+<li>You will download and graph at least one landsat image.</li>
 <li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp. </li>
-<li>Run landsatexplore.py on Oscar:</li>
-</ul>
-<pre><code>]$ python landsatexplore.py</code></pre>
-<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsatexplore.py.</p>
+<li>Run landsat_exploreRI.py on the Unity HPC at the command line using the command below:</li>
+</ol>
+<pre><code>]$ python landsat_exploreRI.py</code></pre>
+<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsat_exploreRI.py.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
