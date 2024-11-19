@@ -205,21 +205,21 @@ Password: whatever_you_specified</code></pre>
 <h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
 <li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.
 <pre><code>$ module load conda/latest
-$ conda create -n <your_env_here> python=3.9 dask mpi4py scikit-image matlplotlib
-$ conda activate <your_env_here> # Activate your environment before installing landsatexplore using pip.
+$ conda create -n [your_env_here] python=3.9 dask mpi4py scikit-image matlplotlib
+$ conda activate [your_env_here] # Activate your environment before installing landsatexplore using pip.
 $ pip install landsatxplore</code></pre>
 </li>
 </ul>
 <ul>
 <li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.
 <pre><code>$ module load conda/latest
-$ source activate <your_env_here></code></pre>
+$ source activate [your_env_here]</code></pre>
 At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</li>
 </ul>
 <p><strong>RECAP:</strong></p>
 <p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
 <pre><code>$ module load conda/latest
-$ source activate <your_env_here></code></pre>
+$ source activate [your_env_here]</code></pre>
 </div>
 </div>
 </div>
