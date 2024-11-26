@@ -175,11 +175,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Log-in-to-Unity-via-OOD.">Step 1:  Log in to Unity via OOD.<a class="anchor-link" href="#Step-1:--Log-in-to-Unity-via-OOD.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
-<p><strong>First</strong>, load your conda environment, following the same steps as in Week09.</p>
-<pre><code>$ module load anaconda/2022.10
-$ source activate your_env_here</code></pre>
-<p>Remember to type  <code>$ source deactivate</code> to close your Anaconda environment.</p>
+<h3 id="Step-1:--Log-in-and-request-resources-for-your-compute-node.">Step 1:  Log in and request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-and-request-resources-for-your-compute-node.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
+<p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
+<p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
+<pre><code>]$ salloc -c 5     # Request 5 cpu nodes</code></pre>
+<p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
+<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu</code></pre>
 </div>
 </div>
 </div>
@@ -190,16 +191,14 @@ $ source activate your_env_here</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2:--Request-resources-for-your-compute-node.">Step 2:  Request resources for your compute node.<a class="anchor-link" href="#Step-2:--Request-resources-for-your-compute-node.">¶</a></h3><p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
-<p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
-<pre><code>]$ salloc -c 5     # Request 5 cpu nodes</code></pre>
-<p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
-<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu</code></pre>
-<p><strong>Note</strong> that the module and environemnt we loaded (Anaconda) get unloaded when the job is allocated. This is because, Unity has assigned us a new compute <code>node</code> with the processing resources on the computer. Because we are occupying a different physical space in the cluster, our computing environment has been reset to the default.  Before we can do our work, we must reload those as below.</p>
+<h3 id="Step-2:--Load-your-conda-environment.">Step 2:  Load your conda environment.<a class="anchor-link" href="#Step-2:--Load-your-conda-environment.">¶</a></h3><p><strong>Load</strong> your conda environment, following the same steps as in Week10.</p>
+<pre><code>]$ module load anaconda/latest
+]$ conda activate your_env_here</code></pre>
+<p>Remember to type  <code>]$ conda deactivate</code> to close your Anaconda environment.</p>
 <p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
-<pre><code>$ chmod a+x start.sh</code></pre>
+<pre><code>]$ chmod a+x start.sh</code></pre>
 <p>The script can be run at the command line using</p>
-<pre><code>$ source start.sh</code></pre>
+<pre><code>]$ source start.sh</code></pre>
 </div>
 </div>
 </div>
@@ -240,7 +239,7 @@ $ source activate your_env_here</code></pre>
 [####                                    ] | 10% Completed | 11.6s</code></pre>
 <ol>
 <li>How long does it take for the code to complete execution?</li>
-<li>Based on 500 instances of coreclock() and the 1 second delay, how long would it take for a single processor to complete the same task?</li>
+<li>Based on 500 instances of coreclock() and the delay you added with time.sleep(), how long would it take for a single processor to complete the same task?</li>
 <li>Is parellel computation working as expected?</li>
 </ol>
 </div>
