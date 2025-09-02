@@ -169,10 +169,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># Import modules</span>
-<span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">np</span>
-<span class="n">import</span><span class="w"> </span><span class="n">matplotlib.pyplot</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -186,7 +186,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R. We only need base R for this, because the matrix library is part of base R.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R. We only need base R for this, because the matrix library is part of base R.</span>
 <span class="c1"># Import modules</span>
 </pre></div>
 </div>
@@ -212,16 +212,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Python</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python</span>
 <span class="c1"># Use array() to create arrays of any dimension if you already know or have the values to put </span>
 <span class="c1"># into the array.</span>
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.array</span><span class="p">([</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Linspace inputs are start, stop, # of elements</span>
-<span class="n">xls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.linspace</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">)</span>
+<span class="n">xls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># arange inputs are start,stop,interval</span>
-<span class="n">xar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.arange</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">0.9999</span><span class="p">)</span>
+<span class="n">xar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.9999</span><span class="p">)</span>
 
 <span class="c1">#print(xar.shape)</span>
 <span class="c1">#xls.shape</span>
@@ -241,21 +241,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Use array() to create arrays of any dimension if you already know or have the values to put </span>
 <span class="c1"># into the array.</span>
-<span class="n">x</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o"><-</span> <span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># seq inputs are from, to, and length.out</span>
-<span class="n">xls</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">100</span><span class="p">)</span>
-<span class="n">xls</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">length.out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+<span class="n">xls</span> <span class="o"><-</span> <span class="n">seq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xls</span> <span class="o"><-</span> <span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
 
 
 <span class="c1"># arange inputs are start,stop,interval</span>
-<span class="n">xar</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.9999</span><span class="p">)</span>
+<span class="n">xar</span> <span class="o"><-</span> <span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="mf">0.9999</span><span class="p">)</span>
 
 <span class="c1">#print(xar.shape)</span>
-<span class="nf">dim</span><span class="p">(</span><span class="n">xar</span><span class="p">)</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">xar</span><span class="p">)</span>
 
 <span class="c1"># This term tells you to pull the last value of the array out</span>
 <span class="c1">#print( xar[-1], xls[-1])</span>
@@ -295,17 +295,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># Assembling a 2D array by concatenating 1D arrays.</span>
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.array</span><span class="p">([[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">],[</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">]])</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">x.shape</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="c1"># Currently this is a 1D array</span>
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.array</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="c1"># Sometimes you need to set an array up to be 2D, so you can add data to it later.</span>
 <span class="c1"># This should be a 2D array</span>
-<span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.array</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">],</span><span class="n">ndmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">ndmin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1">#print("Y has",y.ndim,"dimensions. Y2 has",y2.ndim,"dimensions")</span>
 </pre></div>
@@ -321,20 +321,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Assembling a 2D array by concatenating 1D arrays.</span>
-<span class="n">x</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">x</span> <span class="o"><-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dim</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># Currently this is a 1D array</span>
-<span class="n">y</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o"><-</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Sometimes you need to set an array up to be 2D, so you can add data to it later.</span>
 <span class="c1"># This should be a 2D array</span>
-<span class="n">y2</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o"><-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Print the dimensions</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">"Y has"</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span><span class="w"> </span><span class="s">"dimensions. Y2 has"</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">y2</span><span class="p">)),</span><span class="w"> </span><span class="s">"dimensions"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"Y has"</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">dim</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="s2">"dimensions. Y2 has"</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">dim</span><span class="p">(</span><span class="n">y2</span><span class="p">)),</span> <span class="s2">"dimensions"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -348,7 +348,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="n">y</span><span class="o">*</span><span class="n">y2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">*</span><span class="n">y2</span>
 </pre></div>
 </div>
 </div>
@@ -374,9 +374,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYHON AND R</span>
-<span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y2</span><span class="w">  </span><span class="c1">#This is permitted.  It takes on the higher dimensions.</span>
-<span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y2</span><span class="w">  </span><span class="c1">#Likewise permitted.  It takes on the higher dimensions.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYHON AND R</span>
+<span class="n">y</span> <span class="o">+</span> <span class="n">y2</span>  <span class="c1">#This is permitted.  It takes on the higher dimensions.</span>
+<span class="n">y</span> <span class="o">*</span> <span class="n">y2</span>  <span class="c1">#Likewise permitted.  It takes on the higher dimensions.</span>
 </pre></div>
 </div>
 </div>
@@ -390,24 +390,24 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># Examples of array manipulations.</span>
 
-<span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.arange</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">12</span><span class="p">)</span><span class="w">  </span><span class="c1"># Create a vector of 9 elements</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Create a vector of 9 elements</span>
 
 <span class="c1"># Element-wise operation.  P is the same size as R.</span>
-<span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="o">*</span><span class="n">R</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">R</span>
 
 <span class="c1"># Impliclit element-wise operation.</span>
 
-<span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">P.copy</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span>
-<span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="o">*</span><span class="n">R</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">-</span> <span class="mi">3</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">R</span>
 
 <span class="c1"># Make R into a 3 x 3 matrix (2D array), and store it in S.</span>
-<span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">R.reshape</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># An array multiplication with broadcast operation.  </span>
-<span class="bp">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="o">*</span><span class="nf">np.array</span><span class="p">([</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">])</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">S</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="c1">#print(T)</span>
 </pre></div>
 </div>
@@ -422,23 +422,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Examples of array manipulations.</span>
-<span class="n">R</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">)</span><span class="w">  </span><span class="c1"># Create a vector of 9 elements</span>
+<span class="n">R</span> <span class="o"><-</span> <span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>  <span class="c1"># Create a vector of 9 elements</span>
 
 <span class="c1"># Element-wise operation.  P is the same size as R.</span>
-<span class="n">P</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R</span>
+<span class="n">P</span> <span class="o"><-</span> <span class="n">R</span> <span class="o">*</span> <span class="n">R</span>
 
 <span class="c1"># Implicit element-wise operation.</span>
-<span class="n">Q</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">3</span>
-<span class="n">Q</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R</span>
+<span class="n">Q</span> <span class="o"><-</span> <span class="n">P</span> <span class="o">-</span> <span class="mi">3</span>
+<span class="n">Q</span> <span class="o"><-</span> <span class="n">P</span> <span class="o">*</span> <span class="n">R</span>
 
 <span class="c1"># Make R into a 3 x 3 matrix (2D array), and store it in S.</span>
-<span class="n">S</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">S</span> <span class="o"><-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
 
 <span class="c1"># An array multiplication with broadcast operation. </span>
-<span class="bp">T</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="bp">T</span><span class="p">)</span>
+<span class="n">T</span> <span class="o"><-</span> <span class="n">S</span> <span class="o">*</span> <span class="n">c</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -452,9 +452,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># (Object-oriented notation, Functional notation)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">T.max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="m">0</span><span class="p">),</span><span class="nf">np.max</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="c1">#Take the max along the row axis</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>  <span class="c1">#Take the max along the row axis</span>
 </pre></div>
 </div>
 </div>
@@ -468,9 +468,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Object-oriented notation</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">apply</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w">  </span><span class="c1"># Take the max along the row axis</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">apply</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">along</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># Take the max along the row axis</span>
 </pre></div>
 </div>
 </div>
@@ -484,7 +484,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="nf">help</span><span class="p">(</span><span class="n">apply</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">apply</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -509,19 +509,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1">#In general, when concatenating (merging or pasting together) arrays they must have the same shape and same dimensions </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#In general, when concatenating (merging or pasting together) arrays they must have the same shape and same dimensions </span>
 
 <span class="c1">#help(np.concatenate)</span>
-<span class="nf">np.concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span><span class="w">  </span><span class="c1"># Not permitted.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>  <span class="c1"># Not permitted.</span>
 
-<span class="nf">np.concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np.newaxis</span><span class="p">,</span><span class="o">:</span><span class="p">],</span><span class="n">y2</span><span class="p">))</span><span class="w">   </span><span class="c1">#Expand the dimensions of y before concatenating.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span><span class="n">y2</span><span class="p">))</span>   <span class="c1">#Expand the dimensions of y before concatenating.</span>
 
 <span class="c1"># Stack vertically.  This has same effect as concatenate</span>
-<span class="nf">np.vstack</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span><span class="w">   </span><span class="c1"># Permitted, because arrays have the same column dimensions</span>
+<span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>   <span class="c1"># Permitted, because arrays have the same column dimensions</span>
 
 
 <span class="c1"># Stack horizontally.  </span>
-<span class="nf">np.hstack</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np.newaxis</span><span class="p">,</span><span class="o">:</span><span class="p">],</span><span class="n">y2</span><span class="p">))</span><span class="w">   </span><span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
+<span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span><span class="n">y2</span><span class="p">))</span>   <span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
 
 <span class="c1">#np.hstack((y[np.newaxis,:],y2))</span>
 </pre></div>
@@ -537,7 +537,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># In general, when concatenating (merging or pasting together) arrays they must have the same shape and same dimensions </span>
 <span class="c1">## GEMINI NOTES:</span>
 <span class="c1"># In R, the equivalents for concatenating arrays along different axes are:</span>
@@ -550,15 +550,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="c1"># similar to the np.newaxis operation in Python.</span>
 
 <span class="c1"># help(np.concatenate)</span>
-<span class="nf">c</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span><span class="w">  </span><span class="c1"># Not permitted.</span>
+<span class="n">c</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>  <span class="c1"># Not permitted.</span>
 
-<span class="nf">rbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span><span class="w">  </span><span class="c1"># Expand the dimensions of y before concatenating.</span>
+<span class="n">rbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>  <span class="c1"># Expand the dimensions of y before concatenating.</span>
 
 <span class="c1"># Stack vertically.  This has same effect as concatenate</span>
-<span class="nf">rbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span><span class="w">  </span><span class="c1"># Permitted, because arrays have the same column dimensions</span>
+<span class="n">rbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>  <span class="c1"># Permitted, because arrays have the same column dimensions</span>
 
 <span class="c1"># Stack horizontally. </span>
-<span class="nf">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span><span class="w">  </span><span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
+<span class="n">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>  <span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
 </pre></div>
 </div>
 </div>
@@ -583,45 +583,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 
-<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.ones</span><span class="p">((</span><span class="m">100</span><span class="p">,</span><span class="m">50</span><span class="p">))</span><span class="w"> </span><span class="c1"># Make a 2D array of ones that is 100 x 50.</span>
-
-<span class="c1"># Index individual row or column in 2D array</span>
-
-<span class="c1"># Save a single row of z to a new variable</span>
-<span class="n">zr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="m">9</span><span class="p">,</span><span class="o">:</span><span class="p">]</span>
-
-<span class="c1"># Save a single column of z to a new variable</span>
-<span class="n">zc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="m">9</span><span class="p">]</span>
-
-<span class="nf">print</span><span class="p">(</span><span class="n">zc.shape</span><span class="p">,</span><span class="n">zr.shape</span><span class="p">,</span><span class="w"> </span><span class="n">z.shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
-
-<span class="n">z</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">)</span><span class="w"> </span><span class="c1"># Make a 2D array of ones that is 100 x 50.</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span> <span class="c1"># Make a 2D array of ones that is 100 x 50.</span>
 
 <span class="c1"># Index individual row or column in 2D array</span>
 
 <span class="c1"># Save a single row of z to a new variable</span>
-<span class="n">zr</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
+<span class="n">zr</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">9</span><span class="p">,:]</span>
 
 <span class="c1"># Save a single column of z to a new variable</span>
-<span class="n">zc</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">z</span><span class="p">[,</span><span class="w"> </span><span class="m">9</span><span class="p">]</span>
+<span class="n">zc</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">9</span><span class="p">]</span>
 
-<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">zc</span><span class="p">),</span><span class="w"> </span><span class="nf">dim</span><span class="p">(</span><span class="n">zr</span><span class="p">),</span><span class="w"> </span><span class="nf">dim</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zc</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">zr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -635,7 +609,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1">#print(z)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
+
+<span class="n">z</span> <span class="o"><-</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># Make a 2D array of ones that is 100 x 50.</span>
+
+<span class="c1"># Index individual row or column in 2D array</span>
+
+<span class="c1"># Save a single row of z to a new variable</span>
+<span class="n">zr</span> <span class="o"><-</span> <span class="n">z</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="p">]</span>
+
+<span class="c1"># Save a single column of z to a new variable</span>
+<span class="n">zc</span> <span class="o"><-</span> <span class="n">z</span><span class="p">[,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dim</span><span class="p">(</span><span class="n">zc</span><span class="p">),</span> <span class="n">dim</span><span class="p">(</span><span class="n">zr</span><span class="p">),</span> <span class="n">dim</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -649,20 +635,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Make a 2D column vector with 10 elements in it. </span>
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.2</span><span class="o">*</span><span class="nf">np.ones</span><span class="p">([</span><span class="m">10</span><span class="p">,</span><span class="m">1</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#print(z)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a 2D column vector with 10 elements in it. </span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">3.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Copy that column vector 10 times to make a square array.</span>
-<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 
 <span class="c1"># Make a vector of 10 elements and then place them in the diagonal of a 10 x 10 square array.</span>
-<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.ones</span><span class="p">(</span><span class="m">10</span><span class="p">)</span><span class="o">*</span><span class="m">100</span>
-<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.diag</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
 <span class="c1"># Use the Matplotlib spy() function to visualize the array b+d</span>
-<span class="nf">plt.spy</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">d</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="m">10</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
-<span class="nf">plt.show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">d</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1">#print(b+d)</span>
 
@@ -681,22 +681,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Make a 2D column vector with 10 elements in it.</span>
-<span class="n">a</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="m">3.2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a 2D column vector with 10 elements in it.</span>
+<span class="n">a</span> <span class="o"><-</span> <span class="mf">3.2</span> <span class="o">*</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Make a 10 x 10 array.</span>
-<span class="n">b</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="m">3.2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="m">3.2</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o"><-</span> <span class="mf">3.2</span> <span class="o">*</span> <span class="n">matrix</span><span class="p">(</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 
 
 <span class="c1"># Make a vector of 10 elements and then place them in the diagonal of a 10 x 10 square array.</span>
-<span class="n">c</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
-<span class="n">d</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span> <span class="o"><-</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">d</span> <span class="o"><-</span> <span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
 <span class="c1"># Use equivalent R functions to visualize the array b + d</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">  </span><span class="c1"># Load ggplot2 for visualization</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>  <span class="c1"># Load ggplot2 for visualization</span>
 
 <span class="c1"># Create a data frame for ggplot</span>
-<span class="n">data</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">)</span>
+<span class="n">data</span> <span class="o"><-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">z</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span>
 
 <span class="c1"># Create the plot (I was not able to find the equivalent solution in R).</span>
 <span class="c1"># ggplot(data, aes(x = x, y = y, fill = z)) +</span>
@@ -720,7 +720,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1">#help(t)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#help(t)</span>
 </pre></div>
 </div>
 </div>
@@ -734,9 +734,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON AND R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON AND R</span>
 <span class="c1"># Check out shape, ndim, dtype</span>
-<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="o">+</span><span class="n">b</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="n">b</span>
 
 <span class="c1">#print(z.shape)</span>
 
@@ -756,16 +756,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># Use boolean operators to change values.</span>
 
-<span class="n">z2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">z.copy</span><span class="p">()</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># Find all the values equa1 to 1.</span>
-<span class="n">id1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">z2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">id1</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># id1 now has a boolean record of which values are ==1.</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -779,17 +779,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Use boolean operators to change values.</span>
 
-<span class="n">z2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">z</span>
 
 <span class="c1"># Find all the values equa1 to 1.</span>
-<span class="n">id1</span><span class="w"> </span><span class="o"><-</span><span class="w"> </span><span class="n">z2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span>
+<span class="n">id1</span> <span class="o"><-</span> <span class="n">z2</span> <span class="o">==</span> <span class="mi">1</span>
 
 <span class="c1"># id1 now has a boolean record of which values are ==1.</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -803,14 +803,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># PYTHON AND R</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON AND R</span>
 <span class="c1"># Let's change all the elements equal to 1.</span>
 
-<span class="n">z2</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.14159</span>
+<span class="n">z2</span><span class="p">[</span><span class="n">id1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.14159</span>
 
 <span class="c1">#z2[z2 == 3.14159] = np.nan</span>
 
-<span class="nf">print</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -860,7 +860,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Convert all the values of z2 that are > 99 into NaNs.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Convert all the values of z2 that are > 99 into NaNs.</span>
 </pre></div>
 </div>
 </div>
@@ -874,7 +874,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="w"> </span>
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
@@ -888,7 +888,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Make a 2D numpy array named Arr of size 10 x 10 and fill it with random values that range between 0 and 99.  You can use numpy's random module</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a 2D numpy array named Arr of size 10 x 10 and fill it with random values that range between 0 and 99.  You can use numpy's random module</span>
 </pre></div>
 </div>
 </div>
@@ -902,7 +902,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Use boolean indexing to replace all the values in Arr greater than 80 and less than 20 with NaNs.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use boolean indexing to replace all the values in Arr greater than 80 and less than 20 with NaNs.</span>
 </pre></div>
 </div>
 </div>
@@ -916,7 +916,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># Use the append() or concatenate() commands in numpy to add more columns to Arr.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use the append() or concatenate() commands in numpy to add more columns to Arr.</span>
 </pre></div>
 </div>
 </div>
@@ -941,7 +941,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="c1"># We already saw that np.diag() can insert elements along the diagonal of a square array.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We already saw that np.diag() can insert elements along the diagonal of a square array.</span>
 <span class="c1"># Use your understanding of for loops to carry out the same operation.</span>
 <span class="c1"># Create a 10 x 10 array of ones and then modify the center diagonal to be 101 instead of 1.</span>
 <span class="c1"># Hint: You will need two indices, e.g i and j to specify the row and column to modify.</span>
