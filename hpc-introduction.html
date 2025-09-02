@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Introduction - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>HPC Introduction - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line." />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -181,14 +181,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>These should be something like:</p>
 <pre><code>Name: first last name
 Login: firstinitiallastname_uri
-Password: whatever_you_specified</code></pre>
+Password: whatever_you_specified
+</code></pre>
 <p>To access the HPC, we will use the Unity On Demand service via web browser.</p>
 <ul>
-<li><p>In your browser type in:</p>
-<pre><code>$ https://ood.unity.rc.umass.edu/</code></pre>
-</li>
-<li><p>Choose your institution and follow the steps to log in.</p>
-</li>
+<li>In your browser type in:</li>
+</ul>
+<pre><code>$ https://ood.unity.rc.umass.edu/
+</code></pre>
+<ul>
+<li>Choose your institution and follow the steps to log in.</li>
 </ul>
 <p>If this connection is successful, then you can proceed to setting up your Python environment in the next step.</p>
 <p><strong>NOTE:</strong> The Oscar Unity environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module available</code> to see what's available.</p>
@@ -203,23 +205,25 @@ Password: whatever_you_specified</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
-<li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.
+<li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</li>
+</ul>
 <pre><code>$ module load conda/latest
 $ conda create -n [your_env_here] python=3.9 dask mpi4py scikit-image matlplotlib
 $ conda activate [your_env_here] # Activate your environment before installing landsatexplore using pip.
-$ pip install landsatxplore</code></pre>
-</li>
-</ul>
+$ pip install landsatxplore
+</code></pre>
 <ul>
-<li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.
-<pre><code>$ module load conda/latest
-$ source activate [your_env_here]</code></pre>
-At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</li>
+<li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.</li>
 </ul>
+<pre><code>$ module load conda/latest
+$ source activate [your_env_here]
+</code></pre>
+<p>At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</p>
 <p><strong>RECAP:</strong></p>
 <p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
 <pre><code>$ module load conda/latest
-$ source activate [your_env_here]</code></pre>
+$ source activate [your_env_here]
+</code></pre>
 </div>
 </div>
 </div>
@@ -246,9 +250,10 @@ $ source activate [your_env_here]</code></pre>
 </ul>
 <p>If you haven't already, make a directory in your Unity home folder entitled <code>ocg404</code>.  This directory should be inside your <code>/home/your_username</code>.</p>
 <p>You can do this at the Shell:</p>
-<pre><code>]$ mkdir ocg404</code></pre>
+<pre><code>]$ mkdir ocg404 
+</code></pre>
 <p>Or you can create the folder from within the OOD file manager that you opened above with Files-->Home Directory.</p>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_fileManager.png" width="700" /></p>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_fileManager.png" width="700" /></p>
 <p>Now transfer your files to the ocg404 directory on Unity OOD.</p>
 <ul>
 <li>Upload landsatexplore.py</li>
@@ -265,13 +270,14 @@ $ source activate [your_env_here]</code></pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ol>
 <li>landsat_exploreRI.py uses the landsatxplore API to find and download Landsat images, based on the time and geographic criteria you give it.</li>
-<li>To use the API, you will need to create a <a href="https://ers.cr.usgs.gov/register">USGS EarthExplorer account</a>. </li>
+<li>To use the API, you will need to create a <a href="https://ers.cr.usgs.gov/register">USGS EarthExplorer account</a>.</li>
 <li>Fllow the prompts in landsat_exploreRI.py and add the missing code to landsat_exploreRI.py.</li>
 <li>You will download and graph at least one landsat image.</li>
-<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp. </li>
+<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp.</li>
 <li>Run landsat_exploreRI.py on the Unity HPC at the command line using the command below:</li>
 </ol>
-<pre><code>]$ python landsat_exploreRI.py</code></pre>
+<pre><code>]$ python landsat_exploreRI.py
+</code></pre>
 <h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsat_exploreRI.py.</p>
 </div>
 </div>
@@ -283,7 +289,7 @@ $ source activate [your_env_here]</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC NDVI - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>HPC NDVI - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="NDVI computation on the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/documentation/. Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place. Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation." />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC NDVI"/>
         <meta property="og:url" content="./hpc-ndvi.html"/>
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -177,18 +177,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Step-1:--Modify-landsatexplore.py-code-to-carry-out-NDVI-computation.">Step 1:  Modify <code>landsatexplore.py</code> code to carry out NDVI computation.<a class="anchor-link" href="#Step-1:--Modify-landsatexplore.py-code-to-carry-out-NDVI-computation.">¶</a></h3><p>The <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Normalized Difference Vegetation Index</a> can be computed directly from two frequency bands in the Landsat satellite data - the Near Infrared band (NIR) and the visible red (Red) spectral reflectance:</p>
-$$ NDVI = \frac{NIR - Red}{NIR + Red} $$<p><strong>NOTE:</strong> The .tif files ending in _B4.tif contain the near-infrared (NIR) spectral wavelengths, and the .tif files ending in _B3.tif contain the Red spectral reflectance.</p>
+<p>$$ NDVI = \frac{NIR - Red}{NIR + Red} $$</p>
+<p><strong>NOTE:</strong> The .tif files ending in _B4.tif contain the near-infrared (NIR) spectral wavelengths, and the .tif files ending in _B3.tif contain the Red spectral reflectance.</p>
 <p><strong>NOTE:</strong> A compilation of Landsat ETM files for the Rhode Island region can be found in <code>/work/pi_csc593_uri_edu/Landsat</code> on the Unity HPC.</p>
 <p>Below is a list of modifications you should make to your script.  Give it a new name, like <code>landsatexplore_NDVI.py</code> or similar.</p>
 <ol>
 <li>Delete, or comment out all usage of graphing and cartopy from Week09. This script will do the NDVI computation using the cluster job and save the results in a Pandas dataframe, nothing more.</li>
-<li><strong>Put all the code of the script inside the <code>if</code> statement below.</strong> This ensures that the cluster resource request will be compiled at runtime before the computations begin:
-<pre><code>if __name__ == '__main__':</code></pre>
-Don't forget to indent</li>
-<li>Add the codeblock from coreclock.py that requests and uses the requested Cluster resources.</li>
+<li><strong>Put all the code of the script inside the <code>if</code> statement below.</strong> This ensures that the cluster resource request will be compiled at runtime before the computations begin:</li>
+</ol>
+<pre><code>if __name__ == '__main__':
+</code></pre>
+<p>Don't forget to indent
+3. Add the codeblock from coreclock.py that requests and uses the requested Cluster resources.</p>
+<ol>
 <li>Create a list of scenes (filenames) from the files ending in _B4.tif. This can be found in the text file called test.out, in the same folder <code>/work/pi_csc593_uri_edu/Landsat</code>.</li>
 <li>Define a module to compute the NDVI with the following operations.  Your module should take a single element of the list of satellite filenames or <code>scenes</code> and it should return the average NDVI value from that item.</li>
-<li>The filenames are found in </li>
+<li>The filenames are found in</li>
 </ol>
 <pre><code># Get the path+filename for the NIR band.  Do the same for the Red band.
 
@@ -204,14 +208,20 @@ Don't forget to indent</li>
 NDVI = np.where(NDVI == np.inf, np.nan, NDVI)
 
 
-# Use np.nanmean() to compute and return the average NDVI value from this satellite item.</code></pre>
-<ol>
+# Use np.nanmean() to compute and return the average NDVI value from this satellite item.
+
+
+</code></pre>
+<ol start="6">
 <li><p>Add the code block from coreclock.py that uses f = client.map() to distribute the computation amongst the cores and displays the progress.  f = client.map() will take your module name and the satellite items list as inputs.</p>
 </li>
 <li><p>Write a <code>for</code> loop to extract the time stamp from the items list, and put it into a separate list array, called 'NDVI_time' or similar.  The datetime is stored in <code>item.datetime</code>.</p>
-<p>Extract the list of Average NVDI computations from your module using client.gather().</p>
-<pre><code>AvNDVI_list = client.gather(f)</code></pre>
 </li>
+</ol>
+<p>Extract the list of Average NVDI computations from your module using client.gather().</p>
+<pre><code>AvNDVI_list = client.gather(f)
+</code></pre>
+<ol start="8">
 <li><p>Make a Pandas dataframe with a 'time' column and an 'NDVI' column.  Put NDVI_time and AvNDVI_list into the Pandas dataframe (they should be the same length).</p>
 </li>
 <li><p>Save the Pandas dataframe for download. I recommend using df.to_pickle('file.pkl'), but you can also use df.to_csv('file.csv');  Depending on which you choose, you then you can read the file with df = pd.read_pickle() or df = read_csv();</p>
@@ -230,7 +240,8 @@ NDVI = np.where(NDVI == np.inf, np.nan, NDVI)
 <h3 id="Step-2:--Download-and-post-process-your-results.">Step 2:  Download and post-process your results.<a class="anchor-link" href="#Step-2:--Download-and-post-process-your-results.">¶</a></h3><ol>
 <li>Write a short script as .py or .ipynb to load and graph the NDVI mean value as a function of time.</li>
 <li>Make a plot of the NDVI index with time, similar to the one below.</li>
-<li>You can improve the rendering of dates on the y-axis using the mdates formatter:
+<li>You can improve the rendering of dates on the y-axis using the mdates formatter:</li>
+</ol>
 <pre><code>import matplotlib.dates as mdates
 # read in .csv..
 # 
@@ -238,20 +249,19 @@ NDVI = np.where(NDVI == np.inf, np.nan, NDVI)
 # f, ax = plt.subplots(figsize=(10,5))
 # 
 #Display only year and month on x-axis.
-ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))</code></pre>
-</li>
-</ol>
-<h4 id="Summary-of-results:">Summary of results:<a class="anchor-link" href="#Summary-of-results:">¶</a></h4><p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/NDVii.png" width="800" /></p>
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m')) 
+</code></pre>
+<h4 id="Summary-of-results:">Summary of results:<a class="anchor-link" href="#Summary-of-results:">¶</a></h4><p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/NDVii.png" width="800" /></p>
 <p><strong>Results:</strong> Report on your results.</p>
 <ol>
 <li>How many satellite scenes did you include?  What span of time do they represent?</li>
-<li>How long did the analysis take to complete?  </li>
+<li>How long did the analysis take to complete?</li>
 <li>What resources did you request?</li>
 <li>What trends, if any, can you discern in the data and in the running average?</li>
 </ol>
 <p><strong>Caveats:</strong></p>
 <ol>
-<li>What other factors might be influencing the results, which might make it harder to achieve a clear interpretation?  </li>
+<li>What other factors might be influencing the results, which might make it harder to achieve a clear interpretation?</li>
 </ol>
 </div>
 </div>

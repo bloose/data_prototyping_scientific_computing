@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Using loops and recursion to solve problems - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>Using loops and recursion to solve problems - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Loops part 2, functions review, and recursion.¶ For loops complete a set of repeat instructions by stepping through a list of elements in sequential order. This is often either the elements in a list, tuple or numpy array data type. A for loop can also be set up to step through an index, where the index steps through array elements." />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Using loops and recursion to solve problems"/>
         <meta property="og:url" content="./using-loops-and-recursion-to-solve-problems.html"/>
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -151,7 +151,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=018cf162">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -169,35 +169,43 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66921be7">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="A-note-about-functions-(modules)">A note about functions (modules)<a class="anchor-link" href="#A-note-about-functions-(modules)">¶</a></h3><ol>
-<li><p>You can pass more than one variable into a function - all these values go inside the parentheses on the 'def' line:</p>
-<pre><code>def calcsomething(input1,input2,input3):</code></pre>
-</li>
-<li><p>You can also specify the default values for an input variable. This is called overloading and it allows the user of the function to specify the input, or not.</p>
-<pre><code>def calcsomething(input1,input2,input3='yesplot')</code></pre>
-</li>
+<li>You can pass more than one variable into a function - all these values go inside the parentheses on the 'def' line:</li>
 </ol>
+<pre><code>def calcsomething(input1,input2,input3): 
+
+</code></pre>
+<ol>
+<li>You can also specify the default values for an input variable. This is called overloading and it allows the user of the function to specify the input, or not.</li>
+</ol>
+<pre><code>def calcsomething(input1,input2,input3='yesplot')
+
+</code></pre>
 <p>When calcsomething is evaluated, it can be called several ways</p>
 <pre><code>I1 = 1.;  I2 = 2.; I3 = 'noplot';
-calcsomething(I1,I2,I3);</code></pre>
+calcsomething(I1,I2,I3); 
+
+</code></pre>
 <p>or</p>
-<pre><code>calcsomething(I1,I2); #In this case, I3 will default to 'yesplot'</code></pre>
-<h3 id="A-function-can-also-pass-a-number-of-variables-out-at-the-return">A function can also pass a number of variables out at the return<a class="anchor-link" href="#A-function-can-also-pass-a-number-of-variables-out-at-the-return">¶</a></h3>
-<pre><code>def calcsomething(input1,input,input3);
+<pre><code>calcsomething(I1,I2); #In this case, I3 will default to 'yesplot' 
+
+</code></pre>
+<h3 id="A-function-can-also-pass-a-number-of-variables-out-at-the-return">A function can also pass a number of variables out at the return<a class="anchor-link" href="#A-function-can-also-pass-a-number-of-variables-out-at-the-return">¶</a></h3><pre><code>def calcsomething(input1,input,input3);
     output1 = input1+input2;
     output2 = output2/output3;
-    return output1, output2</code></pre>
+    return output1, output2 
+</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa9343f8">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -208,7 +216,7 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=117951f6">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -218,14 +226,14 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=61eda612">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="s1">'Fruit'</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
@@ -235,7 +243,7 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b153976">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -245,14 +253,14 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce2de2ae">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
 <span class="c1"># Looping N times to do an operation with an index</span>
 
@@ -269,14 +277,14 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f7a6a67b-a8c5-414e-a9b8-46a0562be78a">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Looping N times to do an operation with an index</span>
 
@@ -294,25 +302,26 @@ calcsomething(I1,I2,I3);</code></pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e8e8eff">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>A for loop can be used to compute the factorial operator:</strong></p>
-$$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
+<p>$$ 5! = (5)*(4)*(3)*(2)*(1) $$
+$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3b66561f">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Algorithm to use a for loop to calculate factorial</span>
 <span class="c1"># N! = N*(N-1)*(N-2)*(N-3)...*(N-(N-1))</span>
 
@@ -338,7 +347,7 @@ $$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=459f04e2">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -348,14 +357,14 @@ $$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bd1ef83a">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python</span>
 <span class="c1"># Write an algorithm to compute the factorial with a while loop.</span>
 <span class="k">def</span> <span class="nf">whilefakt</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>   
@@ -373,14 +382,14 @@ $$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=33044248-25b9-4745-b523-7bd6ecf2c812">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Write an algorithm to compute the factorial with a while loop.</span>
 <span class="n">whilefakt</span> <span class="o"><-</span> <span class="n">function</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
@@ -400,7 +409,7 @@ $$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12d74446">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -411,20 +420,21 @@ $$ 5! = (5)*(4)*(3)*(2)*(1) $$$$ N! = N*(N-1)*(N-2)....(N-(N-1))$$
 $$ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} $$</p>
 <p>This can be applied to e.g. find the roots of a quadratic equation, although there can be some limits on convergence.</p>
 <p>An example from chemistry is the solution to the carbonate system equation, in terms of hydrogen ions [H+]</p>
-$$
+<p>$$
 \frac{K_0K_1pCO_2}{[H+]}+2\frac{K_0 K_1 K_2pCO_2}{[H+]^2}+\frac{K_w}{[H+]}+\frac{TB K_B S}{[K_B H+]}- ALK = 0
-$$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not separable from the rest of the equation, so we must use root finding or fixed-point iteration to determine the solution.</p>
+$$</p>
+<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not separable from the rest of the equation, so we must use root finding or fixed-point iteration to determine the solution.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fe2b537c">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find a root of the equation x^3+2x+1, using Newton's method.</span>
 <span class="c1"># Algorithm:</span>
 <span class="c1"># Specify an initial value for x.  </span>
@@ -464,14 +474,14 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e1cedeeb-96a7-41c3-bba6-a374312450d1">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
@@ -479,13 +489,13 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=86123de4">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Recursive-functions-loop-by-calling-themselves-and-breaking-down-the-problem-into-sub-problems">3. Recursive functions loop by calling themselves and breaking down the problem into sub-problems<a class="anchor-link" href="#3.-Recursive-functions-loop-by-calling-themselves-and-breaking-down-the-problem-into-sub-problems">¶</a></h2><p><img src="https://craftofcoding.files.wordpress.com/2022/02/nestingdolls3.png" width="500" /> Source: The Matryoshka dolls capture the heuristic of of a recursive operation.  At each iteration, the next doll is opened to reveal a new, smaller problem whos solution completes the set.</p>
+<h2 id="3.-Recursive-functions-loop-by-calling-themselves-and-breaking-down-the-problem-into-sub-problems">3. Recursive functions loop by calling themselves and breaking down the problem into sub-problems<a class="anchor-link" href="#3.-Recursive-functions-loop-by-calling-themselves-and-breaking-down-the-problem-into-sub-problems">¶</a></h2><p><img alt="No description has been provided for this image" src="https://craftofcoding.files.wordpress.com/2022/02/nestingdolls3.png" width="500" /> Source: The Matryoshka dolls capture the heuristic of of a recursive operation.  At each iteration, the next doll is opened to reveal a new, smaller problem whos solution completes the set.</p>
 <p>Here is an example of a recursive bedtime story, adapted from <a href="https://stackoverflow.com/questions/3021/what-is-recursion-and-when-should-i-use-it">this stackoverflow article</a>.</p>
 <pre><code>A child couldn't sleep, so her mother told her a story about a little frog who couldn't sleep, 
     and in that story, the frog's mother told her a story about a little bear who couldn't sleep, 
@@ -493,18 +503,19 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
             who fell asleep.
          ...and then the little bear fell asleep;
     ...and then the little frog fell asleep;
-...and finally, the child fell asleep.</code></pre>
+...and finally, the child fell asleep.
+</code></pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6359c7b6-aa04-4bf9-919f-77db9ecfc81b">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
@@ -512,24 +523,24 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6c830ca">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="I-use-recursion-to-step-through-an-unknown-number-of-chromatogram-peaks-and-identify-when-the-peak-started-and-returned-to-the-baseline.--After-each-peak-is-identified,-the-remaining-fragment-of-the-chromatogram-is-passed-forward-into-the-recursive-function,-so-no-peak-is-counted-twice."><strong>I use recursion to step through an unknown number of chromatogram peaks and identify when the peak started and returned to the baseline.  After each peak is identified, the remaining fragment of the chromatogram is passed forward into the recursive function, so no peak is counted twice.</strong><a class="anchor-link" href="#I-use-recursion-to-step-through-an-unknown-number-of-chromatogram-peaks-and-identify-when-the-peak-started-and-returned-to-the-baseline.--After-each-peak-is-identified,-the-remaining-fragment-of-the-chromatogram-is-passed-forward-into-the-recursive-function,-so-no-peak-is-counted-twice.">¶</a></h3><p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/He4_vici_peaks.png" width="500" /></p>
+<h3 id="I-use-recursion-to-step-through-an-unknown-number-of-chromatogram-peaks-and-identify-when-the-peak-started-and-returned-to-the-baseline.--After-each-peak-is-identified,-the-remaining-fragment-of-the-chromatogram-is-passed-forward-into-the-recursive-function,-so-no-peak-is-counted-twice."><strong>I use recursion to step through an unknown number of chromatogram peaks and identify when the peak started and returned to the baseline.  After each peak is identified, the remaining fragment of the chromatogram is passed forward into the recursive function, so no peak is counted twice.</strong><a class="anchor-link" href="#I-use-recursion-to-step-through-an-unknown-number-of-chromatogram-peaks-and-identify-when-the-peak-started-and-returned-to-the-baseline.--After-each-peak-is-identified,-the-remaining-fragment-of-the-chromatogram-is-passed-forward-into-the-recursive-function,-so-no-peak-is-counted-twice.">¶</a></h3><p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/He4_vici_peaks.png" width="500" /></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=30462f32">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python </span>
 <span class="c1"># Algorithm for printing a word in reverse order, using recursion in Python:</span>
 <span class="c1">#</span>
@@ -560,28 +571,28 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=44f15e1b">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'a'</span><span class="o">+</span><span class="s1">'b'</span><span class="o">+</span><span class="s1">'c'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5b69dc75">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python</span>
 <span class="c1"># Algorithm to compute factorials by recursion.</span>
 <span class="c1"># Enter the function</span>
@@ -601,14 +612,14 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c65c80f8-dfc6-41e5-b2b3-93c97297668c">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># R</span>
 <span class="c1"># Algorithm to compute factorials by recursion.</span>
 <span class="c1"># Enter the function</span>
@@ -631,14 +642,16 @@ $$<p>Here, all terms are constant except hydrogen ion, but hydrogen ion is not s
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=505757d2">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Complete-the-exercises-below-and-submit.">Complete the exercises below and submit.<a class="anchor-link" href="#Complete-the-exercises-below-and-submit.">¶</a></h2><h4 id="Fibonacci-sequence">Fibonacci sequence<a class="anchor-link" href="#Fibonacci-sequence">¶</a></h4><p>A Fibonacci sequence starts with 0 and 1 and every number that follows is the sum of the previous two numbers, e.g.:</p>
-$$ F_1 = 0, \; F_2 = 1. $$$$ F_n = F_{n-1}+F_{n-2} $$<p><strong>Your instructions: Write an algorithm and a function (module) to determine the Fibonacci sequence, given N, the number of elements, and by specifying the first values in the sequence as 0 and 1.</strong>
+<p>$$ F_1 = 0, \; F_2 = 1. $$
+$$ F_n = F_{n-1}+F_{n-2} $$</p>
+<p><strong>Your instructions: Write an algorithm and a function (module) to determine the Fibonacci sequence, given N, the number of elements, and by specifying the first values in the sequence as 0 and 1.</strong>
 ** Solve the exercise 3 ways:</p>
 <ol>
 <li>Using a for loop.</li>
@@ -648,14 +661,14 @@ $$ F_1 = 0, \; F_2 = 1. $$$$ F_n = F_{n-1}+F_{n-2} $$<p><strong>Your instruction
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=520f249b">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --------- Write an Algorithm to determine fibonacci sequence, given how many numbers to include in the sequence.</span>
 <span class="c1"># Let N be </span>
 
@@ -668,14 +681,14 @@ $$ F_1 = 0, \; F_2 = 1. $$$$ F_n = F_{n-1}+F_{n-2} $$<p><strong>Your instruction
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6902b48b-fa28-4b16-a79d-3804f22bb2f1">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --------- Write an Algorithm to determine fibonacci sequence, given how many numbers to include in the sequence.</span>
 
 
@@ -686,14 +699,14 @@ $$ F_1 = 0, \; F_2 = 1. $$$$ F_n = F_{n-1}+F_{n-2} $$<p><strong>Your instruction
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=02e05978-ab15-49ca-81ed-8b5ff4615a81">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --------- Write an Algorithm to determine fibonacci sequence, given how many numbers to include in the sequence.</span>
 
 

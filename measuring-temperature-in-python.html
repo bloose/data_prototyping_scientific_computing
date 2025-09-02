@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Measuring Temperature in Python - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>Measuring Temperature in Python - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,13 +12,13 @@
 <link rel="canonical" href="./measuring-temperature-in-python.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial" />
+        <meta name="description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶** For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. ** &gt;&gt;&gt; conda install -c anaconda pyserial Use Anaconda Navigator to install pyserial from the Enivronments tab." />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Measuring Temperature in Python"/>
         <meta property="og:url" content="./measuring-temperature-in-python.html"/>
-        <meta property="og:description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶ For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. &gt;&gt;&gt; conda install -c anaconda pyserial"/>
+        <meta property="og:description" content="Reading and decoding Temperature Data from Arduino¶(This is Part 2 of the Measuring Temperature Lab ).¶** For this lab you will need pyserial. This can be installed thru Anaconda the same way we did Basemap. Try either of the following options for installation. ** &gt;&gt;&gt; conda install -c anaconda pyserial Use Anaconda Navigator to install pyserial from the Enivronments tab."/>
         <meta property="article:published_time" content="2024-10-22" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -157,17 +157,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Reading-and-decoding-Temperature-Data-from-Arduino">Reading and decoding Temperature Data from Arduino<a class="anchor-link" href="#Reading-and-decoding-Temperature-Data-from-Arduino">¶</a></h3><h4 id="(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">(This is Part 2 of the Measuring Temperature Lab ).<a class="anchor-link" href="#(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">¶</a></h4><p><strong> For this lab you will need pyserial.  This can be installed thru Anaconda the same way we did Basemap. 
-Try either of the following options for installation. </strong></p>
+<h3 id="Reading-and-decoding-Temperature-Data-from-Arduino">Reading and decoding Temperature Data from Arduino<a class="anchor-link" href="#Reading-and-decoding-Temperature-Data-from-Arduino">¶</a></h3><h4 id="(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">(This is Part 2 of the Measuring Temperature Lab ).<a class="anchor-link" href="#(This-is-Part-2-of-the-Measuring-Temperature-Lab-).">¶</a></h4><p>** For this lab you will need pyserial.  This can be installed thru Anaconda the same way we did Basemap.
+Try either of the following options for installation. **</p>
 <ol>
-<li>
-<pre><code>>>> conda install -c anaconda pyserial</code></pre>
-</li>
+<li></li>
+</ol>
+<pre><code>>>> conda install -c anaconda pyserial
+</code></pre>
+<ol>
 <li>Use Anaconda Navigator to install pyserial from the Enivronments tab.</li>
 </ol>
 <p>Check out <a href="https://pythonhosted.org/pyserial/pyserial.html">https://pythonhosted.org/pyserial/pyserial.html</a>  for more information on the Package.</p>
 <p>For parsing the incoming serial data you will want to use Python's string Methods:</p>
-<blockquote><p><a href="http://www.thehelloworldprogram.com/python/python-string-methods/">http://www.thehelloworldprogram.com/python/python-string-methods/</a>
+<blockquote>
+<p><a href="http://www.thehelloworldprogram.com/python/python-string-methods/">http://www.thehelloworldprogram.com/python/python-string-methods/</a>
 <a href="https://docs.python.org/2/library/string.html">https://docs.python.org/2/library/string.html</a></p>
 </blockquote>
 <p>Also check out the Regular Expressions (regex) modules. <a href="https://docs.python.org/2/library/re.html#">https://docs.python.org/2/library/re.html#</a>  These are more sophisticated than what we require, but very powerful.</p>
@@ -184,7 +187,9 @@ Try either of the following options for installation. </strong></p>
 <h3 id="Some-Cliff-Notes-on-Pandas">Some Cliff Notes on Pandas<a class="anchor-link" href="#Some-Cliff-Notes-on-Pandas">¶</a></h3><p>This exercise uses Pandas - a Python dataframe module, which is valuable for handling relational data.  Brice will provide a more thorough intro to Pandas next week, when we talk about time series and regression statistics.  For now, we will use Pandas to create a dataframe and save it to a .csv file.  Pandas dataframes use the dict() or dictionary data type.</p>
 <pre><code>>>> df = pd.DataFrame(columns=('time','Resistence','Temp')) # This command declares a new Pandas dataframe with three columns: time, resistence, and Temp.
 
->>> df = df.append({'time':t,'Resistence': R,'Temp':T},ignore_index=True)  # This command appends new values to each of the columns.</code></pre>
+>>> df = df.append({'time':t,'Resistence': R,'Temp':T},ignore_index=True)  # This command appends new values to each of the columns.
+
+</code></pre>
 </div>
 </div>
 </div>
@@ -195,7 +200,7 @@ Try either of the following options for installation. </strong></p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the libraries</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">serial</span> <span class="k">as</span> <span class="nn">ps</span>
@@ -226,7 +231,7 @@ Try either of the following options for installation. </strong></p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Assign the serial object that you will write to and read from</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">'/dev/ttys0'</span><span class="p">,</span><span class="n">baudrate</span><span class="o">=</span><span class="mi">9600</span><span class="p">)</span>
 </pre></div>
@@ -614,7 +619,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize Pandas dataframe to capture time, resistence, and Temp, as shown in datetime notes.</span>
 </pre></div>
 </div>
@@ -639,7 +644,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">##1/T = A + B*Ln(R) + C(Ln(R))^3</span>
 <span class="n">A</span> <span class="o">=</span> <span class="mf">0.001125308852122</span>
 <span class="n">B</span> <span class="o">=</span> <span class="mf">0.000234711863267</span>
@@ -656,7 +661,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set a while loop or for loop.  You can make it go indefinitely until you kill the loop with Kernel -> Interrupt.</span>
 <span class="c1">#lp = 0</span>
 <span class="c1">#stop = 'go'</span>
@@ -730,7 +735,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
@@ -744,7 +749,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Make a plot of Temperature vs. datetime.   Save that plot using plt.savefig() </strong></p>
+<p>**Make a plot of Temperature vs. datetime.   Save that plot using plt.savefig() **</p>
 </div>
 </div>
 </div>
@@ -755,7 +760,7 @@ class Serial(serial.serialutil.SerialBase, PlatformSpecific)
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>

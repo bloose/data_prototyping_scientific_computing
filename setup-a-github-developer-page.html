@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Setup a Github developer page - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>Setup a Github developer page - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Using Git and Github for version control and collaboration.¶Objectives Set up Git to keep track of changes to code for collaboration purposes. Create a Github pages repository and use Markdown to create a simple templated professional website. Use Git to publish your work on Github to share in the Public Domain. Glossary of terms:¶" />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Setup a Github developer page"/>
         <meta property="og:url" content="./setup-a-github-developer-page.html"/>
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -168,7 +168,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li>add  - The git add command adds files or folders to a git repository.</li>
 <li>commit - Stage all files in the local repository with appropriate version information stored.</li>
 <li>push - The git push command is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.</li>
-<li>pull  - The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content. </li>
+<li>pull  - The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content.</li>
 </ol>
 </div>
 </div>
@@ -187,16 +187,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>On MAC:</strong>   First, check whether git may already be installed</p>
 <pre><code>~~~
 git --version
-~~~
-
-</code></pre>
+~~~</code></pre>
 <p><strong>On Windows:</strong>  Git is available as a stand-alone binary, including a unix-like Bash shell.  Go to <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> and download the install binary.</p>
 <p><strong>NOTE:</strong>  Use all the default choices.</p>
-<ol>
+<ol start="3">
 <li>Update the global config with your username and email.  This is necessary to complete the git commit and git push commands.</li>
 </ol>
 <pre><code>$ git config --global user.name <your_username>
-$ git config --global user.email <your_email></code></pre>
+$ git config --global user.email <your_email>
+</code></pre>
 <p><strong>NOTE:</strong> When you push content to github for the first time, you will be prompted for your password or access token (see below).</p>
 </div>
 </div>
@@ -208,20 +207,20 @@ $ git config --global user.email <your_email></code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2:--Set-up-your-github-account-and-github-pages-repository.">Step 2:  Set up your github account and github pages repository.<a class="anchor-link" href="#Step-2:--Set-up-your-github-account-and-github-pages-repository.">¶</a></h3><ol>
+<h3 id="Step-2:--Set-up-your-github-account-and-github-pages-repository.">Step 2:  Set up your github account and github pages repository.<a class="anchor-link" href="#Step-2:--Set-up-your-github-account-and-github-pages-repository.">¶</a></h3><ol start="2">
 <li>Navigate to <a href="https://github.com/OCG404-CSC593/ghpages_template">this repository template</a> and <strong>fork</strong> it.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/fork.png" width="600px" /></p>
-<ol>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/fork.png" width="600px" /></p>
+<ol start="3">
 <li>Click on the repository settings and change the name of the repository to <code><your_username>.github.io</code>.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/rename.png" width="600px" /></p>
-<ol>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/rename.png" width="600px" /></p>
+<ol start="4">
 <li>Scroll down to the Github pages section and select the <code>master</code> branch as the site where your gh_pages will be built from.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/gh_pages.png" width="600px" /></p>
-<ol>
-<li>Copy the <a href="https://github.com/[your_username]/[your_username].github.io.git">https://github.com/[your_username]/[your_username].github.io.git</a> URL to your clipboard in preparation to clone the repository to your local computer.</li>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/gh_pages.png" width="600px" /></p>
+<ol start="5">
+<li>Copy the <a href="https://github.com/%5Byour_username%5D/%5Byour_username%5D.github.io.git">https://github.com/[your_username]/[your_username].github.io.git</a> URL to your clipboard in preparation to clone the repository to your local computer.</li>
 </ol>
 </div>
 </div>
@@ -238,8 +237,9 @@ $ git config --global user.email <your_email></code></pre>
 ]$ mkdir git_repos/     # Make folder to organize all your repositories
 ]$ cd git_repos/
 ]$ git clone https://github.com/<your_username>/<your_username>.github.io.git   #this should be copied from the code dropdown.
-]$ cd <your_username>.github.io     # Change into the directory you created.</code></pre>
-<p>If you navigate your browser to <a href="https://[your_username].github.io">https://[your_username].github.io</a> you should be served up a copy of the templates with the Joker head shot.  Now you need to modify with your info.</p>
+]$ cd <your_username>.github.io     # Change into the directory you created.
+</code></pre>
+<p>If you navigate your browser to <a href="https://%5Byour_username%5D.github.io">https://[your_username].github.io</a> you should be served up a copy of the templates with the Joker head shot.  Now you need to modify with your info.</p>
 </div>
 </div>
 </div>
@@ -274,24 +274,30 @@ $ git config --global user.email <your_email></code></pre>
 <h3 id="Step-5:--Add,-commit,-and-push-your-changes-to-the-git-version-controller-and-to-Github.">Step 5:  Add, commit, and push your changes to the git version controller and to Github.<a class="anchor-link" href="#Step-5:--Add,-commit,-and-push-your-changes-to-the-git-version-controller-and-to-Github.">¶</a></h3><p>First, let's create a directory in your users home folder for our work and then move into that directory:</p>
 <pre><code>$git add --all                  # Add all the modified files to the staging for commit.
 $git commit -m "some updates"   # Commit the changes to version control; include a short description of the changes.
-$git push -u origin master      # Push the changes to the remote repository on github.  You will be prompted to login.</code></pre>
+$git push -u origin master      # Push the changes to the remote repository on github.  You will be prompted to login.
+</code></pre>
 <p><strong>NOTE:</strong> You should be prompted to authenticate or enter your git username and password when you use the <code>git push</code> command.  These credentials will be stored the first time that you do it so you don't have to log in every time.  However, you must enter them the first time.  <strong>NOTE</strong>: Github no longer uses your password for authentication; instead you have to download an authentication token.  <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Instructions for that are here:</a></p>
 <p>Username: your_username</p>
 <p>Password: your_token</p>
 <p><strong>ALSO:</strong> <code>git init</code> will create the local repository inside the folder titled <code>.git/</code></p>
 <p>Check to see if it's there:</p>
-<pre><code>$ ls -a</code></pre>
+<pre><code>$ ls -a
+</code></pre>
 <p>Git uses this hidden folder to store all the info and versions of this folder.
 If <code>.git</code> subdirectory is deleted, we will lose the project's history.  Check the contents:</p>
-<pre><code>$ ls -a .git/</code></pre>
-<pre><code>.       COMMIT_EDITMSG  HEAD        branches    description index       logs        packed-refs
-..      FETCH_HEAD  ORIG_HEAD   config      hooks       info        objects     refs</code></pre>
-<pre><code>$ git status</code></pre>
+<pre><code>$ ls -a .git/
+</code></pre>
+<pre><code>.		COMMIT_EDITMSG	HEAD		branches	description	index		logs		packed-refs
+..		FETCH_HEAD	ORIG_HEAD	config		hooks		info		objects		refs
+</code></pre>
+<pre><code>$ git status
+</code></pre>
 <pre><code>On branch master
 
 No commits yet
 
-nothing to commit (create/copy files and use "git add" to track)</code></pre>
+nothing to commit (create/copy files and use "git add" to track)
+</code></pre>
 </div>
 </div>
 </div>
@@ -314,7 +320,7 @@ nothing to commit (create/copy files and use "git add" to track)</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>

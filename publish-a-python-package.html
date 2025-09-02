@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Publish a Python Package - 2024 | Data Prototyping and Scientific Computing</title>
+    <title>Publish a Python Package - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
         <meta name="author" content="Brice Loose" />
         <meta name="description" content="Making Packages for upload to Github¶TASK: Create a github public repository to share a module or other function as Open Source. MOTIVATION: To maintain the integrity and reproduce scientific results, it is important that both data and code are preserved in a repository. Document and package a module you have written. For example, you can complete this exercise with your fibonacci modules" />
 
-        <meta property="og:site_name" content="2024 | Data Prototyping and Scientific Computing" />
+        <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Publish a Python Package"/>
         <meta property="og:url" content="./publish-a-python-package.html"/>
@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="./" class="navbar-brand">
-2024 | Data Prototyping and Scientific Computing            </a>
+2025 | Data Prototyping and Scientific Computing            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
+                    <li><a href="https://bloose.github.io/data_prototyping_scientific_computing/pages/OCG404_CSC593_Syllabus_2024.pdf">Syllabus</a></li>
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
@@ -170,7 +170,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h3 id="Types-of-Projects">Types of Projects<a class="anchor-link" href="#Types-of-Projects">¶</a></h3><p><a href="https://rabernat.github.io">Ryan Abernathy</a> recommends categorizing your intellectual output into one of three types:</p>
 <ol>
 <li><strong>Exploratory analyses</strong>: When exploring a new idea, a single notebook or script is often all we need.</li>
-<li><strong>Single Paper or Research Report</strong>: The "paper" is a standard unit of scientific output. The code related to a single paper usually belongs together. </li>
+<li><strong>Single Paper or Research Report</strong>: The "paper" is a standard unit of scientific output. The code related to a single paper usually belongs together.</li>
 <li><strong>Reusable software elements</strong>: In the course of our research computing, we often identify specialized routines that we want to package for reuse in other projects, or by other scientists. This is where "scripts" become "software."</li>
 </ol>
 <p>We will focus on the Reusable software element.</p>
@@ -213,22 +213,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="sd">    %-  1) vapor pressure in mb calculate the saturation vapor pressure in mb.  </span>
 <span class="sd">    %- </span>
 <span class="sd">    """</span>
-
+        
     <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
+    
     <span class="n">Lf</span> <span class="o">=</span> <span class="mf">2.453e6</span> <span class="c1"># (J/kg)</span>
     <span class="n">Rv</span> <span class="o">=</span> <span class="mf">461.</span>     <span class="c1"># (J/kg)</span>
-
+    
     <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o"><=</span> <span class="mi">0</span><span class="p">):</span>
-
+    
         <span class="n">Tk</span> <span class="o">=</span> <span class="mf">273.15</span><span class="o">+</span><span class="n">T</span>
-
+        
         <span class="c1"># es in hPa</span>
         <span class="n">loges</span> <span class="o">=</span>  <span class="o">-</span><span class="mf">7.90298</span><span class="o">*</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">5.02808</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="p">)</span> \
         <span class="o">-</span> <span class="mf">1.3816e-7</span><span class="o">*</span><span class="p">(</span><span class="mf">1011.344</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Tk</span><span class="o">/</span><span class="mf">373.16</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">8.1328e-3</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mf">3.49149</span><span class="o">*</span><span class="p">(</span><span class="mf">373.16</span><span class="o">/</span><span class="n">Tk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> \
         <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1013.246</span><span class="p">)</span>
         <span class="n">es</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">loges</span>
-
+        
     <span class="k">else</span><span class="p">:</span>
         <span class="n">Tk</span> <span class="o">=</span> <span class="mf">273.15</span><span class="o">+</span><span class="n">T</span>
         <span class="n">loges</span> <span class="o">=</span> <span class="n">Lf</span><span class="o">/</span><span class="n">Rv</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">273.15</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">Tk</span><span class="p">)</span>
@@ -246,7 +246,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">air_sea</span>
 <span class="n">help</span><span class="p">(</span><span class="n">air_sea</span><span class="p">)</span> 
 </pre></div>
@@ -319,7 +319,7 @@ FILE
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">air_sea</span><span class="o">.</span><span class="n">sat_vp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -330,7 +330,7 @@ FILE
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>5.670131452875462</pre>
@@ -356,7 +356,7 @@ FILE
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
 <span class="n">reload</span><span class="p">(</span><span class="n">air_sea</span><span class="p">)</span> 
 </pre></div>
@@ -368,7 +368,7 @@ FILE
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre><module &#x27;air_sea&#x27; from &#x27; users huero gdrive teaching ocg404 2021 lectures+notes week12_github _lab air_sea __init__.py&#x27;></pre>
@@ -406,12 +406,11 @@ FILE
 LICENSE
 setup.py
 air_sea/__init__.py
-air_sea/sat_vp.py
-
-</code></pre>
+air_sea/sat_vp.py</code></pre>
 <p>The actual package is contained in the <code>air_sea</code> subdirectory. The other files are auxilliary files which help others understand and install your package. Here is an overview of what they do</p>
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>File Name</th>
 <th>Purpose</th>
 </tr>
@@ -464,14 +463,10 @@ air_sea/sat_vp.py
 <span class="p">)</span>
 </pre></div>
 <p>To run the setup script, we call the following from the command line</p>
-<pre><code>python setup.py install
-
-</code></pre>
+<pre><code>python setup.py install</code></pre>
 <p>The package files are copied to our python library directory.
 If we plan to keep developing the package, we can install it in "developer mode" as</p>
-<pre><code>python setup.py develop
-
-</code></pre>
+<pre><code>python setup.py develop</code></pre>
 <p>In this case, the files are symlinked rather than copied.</p>
 </div>
 </div>
@@ -483,15 +478,15 @@ If we plan to keep developing the package, we can install it in "developer mode"
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Follow-similar-steps-to-the-github-pages-in-class-activity.">Follow similar steps to the github pages in-class activity.<a class="anchor-link" href="#Follow-similar-steps-to-the-github-pages-in-class-activity.">¶</a></h3><ol>
+<h3 id="Follow-similar-steps-to-the-github-pages-in-class-activity.">Follow similar steps to the github pages in-class activity.<a class="anchor-link" href="#Follow-similar-steps-to-the-github-pages-in-class-activity.">¶</a></h3><ol start="2">
 <li>Back in a web browser, open your github.com account and make a new empty repository called <code>basic_stats</code> or some other name that describes what the code does. Edit the repository name and description.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_clone.png" width="600px" /></p>
-<ol>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_clone.png" width="600px" /></p>
+<ol start="3">
 <li>Include a LICENSE and README.md.</li>
 </ol>
-<p><img src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_repo.png" width="600px" /></p>
-<ol>
+<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Git_repo.png" width="600px" /></p>
+<ol start="4">
 <li>Copy the .git URL to your clipboard in preparation to clone the repository to your local computer.</li>
 </ol>
 </div>
@@ -508,7 +503,8 @@ If we plan to keep developing the package, we can install it in "developer mode"
 <pre><code>]$ cd ~                 # Change to your home directory
 ]$ cd git_repos/
 ]$ git clone [repository_url].git   #this should be copied from the code dropdown.
-]$ cd [repository_name]     # Change into the directory you created.</code></pre>
+]$ cd [repository_name]     # Change into the directory you created.
+</code></pre>
 <ol>
 <li>Add setup.py to the repository folder.</li>
 <li>Make a folder called basic_stats.py</li>
@@ -537,7 +533,7 @@ If we plan to keep developing the package, we can install it in "developer mode"
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
+<div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
