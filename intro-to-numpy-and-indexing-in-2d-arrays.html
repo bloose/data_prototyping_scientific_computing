@@ -12,14 +12,14 @@
 <link rel="canonical" href="./intro-to-numpy-and-indexing-in-2d-arrays.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [2]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [3]: # Use array() to create arrays of any dimension if you already know or have the values to put into the array." />
+        <meta name="description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [ ]: # Import modules import numpy as np import matplotlib.pyplot as plt In [ ]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [ ]: # Python # Use array() to create arrays of any dimension if you already know or have the values to put" />
 
         <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Intro to Numpy and indexing in 2D arrays"/>
         <meta property="og:url" content="./intro-to-numpy-and-indexing-in-2d-arrays.html"/>
-        <meta property="og:description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [2]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [3]: # Use array() to create arrays of any dimension if you already know or have the values to put into the array."/>
-        <meta property="article:published_time" content="2023-09-22" />
+        <meta property="og:description" content="The Enthought PDF slides give further detail on the different types of indexing that exist.¶Enthought slides In [ ]: # Import modules import numpy as np import matplotlib.pyplot as plt In [ ]: # Import modules import numpy as np import matplotlib.pyplot as plt Creating 1D arrays with array() arange() and linspace()¶ In [ ]: # Python # Use array() to create arrays of any dimension if you already know or have the values to put"/>
+        <meta property="article:published_time" content="2025-09-23" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
 
@@ -94,7 +94,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2023-09-22T00:00:00-04:00"> Fri 22 September 2023</time>
+        <i class="fa fa-calendar"></i><time datetime="2025-09-23T00:00:00-04:00"> Tue 23 September 2025</time>
     </span>
 
 
@@ -166,7 +166,23 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import modules</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import modules</span>
@@ -193,10 +209,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use array() to create arrays of any dimension if you already know or have the values to put into the array.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Use array() to create arrays of any dimension if you already know or have the values to put </span>
+<span class="c1"># into the array.</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Linspace inputs are start, stop, # of elements</span>
@@ -243,12 +261,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Assembling a 2D array by concatenating 1D arrays.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYTHON</span>
+<span class="c1"># Assembling a 2D array by concatenating 1D arrays.</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
-<span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="c1"># Currently this is a 1D array</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
@@ -258,6 +277,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">ndmin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1">#print("Y has",y.ndim,"dimensions. Y2 has",y2.ndim,"dimensions")</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">*</span><span class="n">y2</span>
 </pre></div>
 </div>
 </div>
@@ -275,29 +308,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">+</span> <span class="n">y2</span>  <span class="c1">#This is permitted.  It takes on the higher dimensions.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PYHON AND R</span>
+<span class="n">y</span> <span class="o">+</span> <span class="n">y2</span>  <span class="c1">#This is permitted.  It takes on the higher dimensions.</span>
 <span class="n">y</span> <span class="o">*</span> <span class="n">y2</span>  <span class="c1">#Likewise permitted.  It takes on the higher dimensions.</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([[1, 4, 9]])</pre>
 </div>
 </div>
 </div>
@@ -344,7 +366,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Object-oriented notation</span>
 <span class="c1">#print( T.max(),np.max(T) )  #(Object-oriented notation, Functional notation)</span>
 
-<span class="c1">#print( T.max(axis=0),np.max(T,axis=0) )  #Take the max along the row axis</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>  <span class="c1">#Take the max along the row axis</span>
 </pre></div>
 </div>
 </div>
@@ -371,19 +393,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#In general, when concatenating (merging or pasting together) arrays they must have the same shape and same dimensions </span>
 
-<span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>  <span class="c1"># Not permitted.</span>
+<span class="c1">#help(np.concatenate)</span>
+<span class="c1">#np.concatenate((y,y2))  # Not permitted.</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span><span class="n">y2</span><span class="p">))</span>   <span class="c1">#Expand the dimensions of y before concatenating.</span>
+<span class="c1">#np.concatenate((y[np.newaxis,:],y2))   #Expand the dimensions of y before concatenating.</span>
 
 <span class="c1"># Stack vertically.  This has same effect as concatenate</span>
-<span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>   <span class="c1"># Permitted, because arrays have the same column dimensions</span>
+<span class="c1"># np.vstack((y,y2))   # Permitted, because arrays have the same column dimensions</span>
 
 
 <span class="c1"># Stack horizontally.  </span>
-<span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>   <span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
+<span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span><span class="n">y2</span><span class="p">))</span>   <span class="c1"># Not Permitted, because y and y2 have the different row dimensions</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:],</span><span class="n">y2</span><span class="p">))</span>
+<span class="c1">#np.hstack((y[np.newaxis,:],y2))</span>
 </pre></div>
 </div>
 </div>
@@ -418,7 +440,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="c1"># Save a single column of z to a new variable</span>
 <span class="n">zc</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">9</span><span class="p">]</span>
 
-<span class="c1">#print(zc.shape,zr.shape, z.shape)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zc</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">zr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -448,8 +470,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1">#print(b+d)</span>
-
-
 <span class="c1">#np.random.randn(10)</span>
 </pre></div>
 </div>
@@ -507,7 +527,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="n">id1</span> <span class="o">=</span> <span class="p">(</span><span class="n">z2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># id1 now has a boolean record of which values are ==1.</span>
-<span class="c1">#print(id1)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -527,7 +547,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <span class="c1">#z2[z2 == 3.14159] = np.nan</span>
 
-<span class="c1">#print(z2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -592,7 +612,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a 2D numpy array named Arr of size 10 x 10 and fill it with random values that range between 0 and 99.  You can use numpy's random module</span>
-<span class="c1"># np.random.randint()</span>
+
+<span class="n">Arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
