@@ -2,7 +2,7 @@
 // This is the declaration section.  Assign pin numbers to variables for use in code.
 
 // This line assigns Analog Pin 0 to the variable aPin.
-#define aPin0 0
+#define aPin0 A0
 
 // Do the same thing for Analog Pin 2.   We will use this to measure voltage at a different point
 
