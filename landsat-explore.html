@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HPC Introduction - 2025 | Data Prototyping and Scientific Computing</title>
+    <title>Landsat Explore - 2025 | Data Prototyping and Scientific Computing</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,18 +9,18 @@
 
 
 
-<link rel="canonical" href="./hpc-introduction.html">
+<link rel="canonical" href="./landsat-explore.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line." />
+        <meta name="description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)." />
 
         <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="HPC Introduction"/>
-        <meta property="og:url" content="./hpc-introduction.html"/>
-        <meta property="og:description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line."/>
+        <meta property="og:title" content="Landsat Explore"/>
+        <meta property="og:url" content="./landsat-explore.html"/>
+        <meta property="og:description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)."/>
         <meta property="article:published_time" content="2025-11-17" />
-            <meta property="article:section" content="Notes" />
+            <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
 
 
@@ -56,10 +56,10 @@
                          <li><a href="./pages/calendar.html">
                              Calendar
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="./category/notes.html">Notes</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="./category/worksheets.html">Worksheets</a>
                         </li>
             </ul>
@@ -81,10 +81,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./hpc-introduction.html"
+                    <a href="./landsat-explore.html"
                        rel="bookmark"
-                       title="Permalink to HPC Introduction">
-                        HPC Introduction
+                       title="Permalink to Landsat Explore">
+                        Landsat Explore
                     </a>
                 </h1>
             </header>
@@ -157,16 +157,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Remote-computing-at-the-Unity-cluster.">Remote computing at the Unity cluster.<a class="anchor-link" href="#Remote-computing-at-the-Unity-cluster.">¶</a></h2><p>Use the documentation to supplement this guide</p>
-<p><a href="https://docs.unity.uri.edu/">https://docs.unity.uri.edu/</a></p>
-<h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
-<li>Learn basic unix shell navigation and commands.</li>
-<li>Set up computing environment for Python on the Unity cluster.</li>
-<li>Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif).</li>
-<li>Practice basic tasks at the Unix command line.</li>
-<li>Set up the environment for a parallel computing exercise</li>
+<h2 id="Python-parallel-processing-on-Unity-HPC.">Python parallel processing on Unity HPC.<a class="anchor-link" href="#Python-parallel-processing-on-Unity-HPC.">¶</a></h2><h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
+<li>Learn how to request a parallel processor 'job'and set up a Python environment that will use that job.</li>
+<li>Write a short function to test and confirm that parallel processing is taking place (in-class).</li>
+<li>Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home).</li>
+<li>Use the python library Dask to extend Numpy array and Pandas dataframe calculations over multiple p</li>
 </ol>
-<p>+We will compute the <a href="https://www.usgs.gov/core-science-systems/nli/landsat/landsat-normalized-difference-vegetation-index?qt-science_support_page_related_con=0#qt-science_support_page_related_con">NDVI</a> Normalized Distributed Vegetation Index using LANDSAT satellite imagery  from the bands. Check out the details at the above link.</p>
+<p>Dask documentation explains how Dask works with parallel computing: <a href="https://tutorial.dask.org/02_array.html">https://tutorial.dask.org/02_array.html</a></p>
+<p>Use Unity documentation to understand more using HPC resources:<a href="https://docs.unity.uri.edu/documentation/">https://docs.unity.uri.edu/documentation/</a></p>
 </div>
 </div>
 </div>
@@ -177,52 +175,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-1:--Log-in-to-Unity.">Step 1:  Log in to Unity.<a class="anchor-link" href="#Step-1:--Log-in-to-Unity.">¶</a></h3><p>Your user account and password was created when you requested an account at unity.uri.edu.</p>
-<p>These should be something like:</p>
-<pre><code>Name: first last name
-Login: firstinitiallastname_uri
-Password: whatever_you_specified
+<h3 id="Step-1:--Log-in-and-request-resources-for-your-compute-node.">Step 1:  Log in and request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-and-request-resources-for-your-compute-node.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
+<p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
+<p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
+<pre><code>]$ salloc -c 5     # Request 5 cpu nodes
 </code></pre>
-<p>To access the HPC, we will use the Unity On Demand service via web browser.</p>
-<ul>
-<li>In your browser type in:</li>
-</ul>
-<pre><code>$ https://ood.unity.rc.umass.edu/
-</code></pre>
-<ul>
-<li>Choose your institution and follow the steps to log in.</li>
-</ul>
-<p>If this connection is successful, then you can proceed to setting up your Python environment in the next step.</p>
-<p><strong>NOTE:</strong> The Oscar Unity environment uses PyModules to let the user customize their work environment and even install software via conda or pip.  Type <code>]$ module available</code> to see what's available.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-2:-Set-up-the-working-environment.">Step 2: Set up the working environment.<a class="anchor-link" href="#Step-2:-Set-up-the-working-environment.">¶</a></h3><ul>
-<li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</li>
-</ul>
-<pre><code>$ module load conda/latest
-$ conda create -n [your_env_here] python=3.9 dask mpi4py scikit-image matlplotlib
-$ conda activate [your_env_here] # Activate your environment before installing landsatexplore using pip.
-$ pip install landsatxplore
-</code></pre>
-<ul>
-<li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.</li>
-</ul>
-<pre><code>$ module load conda/latest
-$ source activate [your_env_here]
-</code></pre>
-<p>At the end of the session when you log out, you can enter  <code>source deactivate</code> to end the Anaconda environment.</p>
-<p><strong>RECAP:</strong></p>
-<p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
-<pre><code>$ module load conda/latest
-$ source activate [your_env_here]
+<p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
+<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu  
 </code></pre>
 </div>
 </div>
@@ -234,30 +193,17 @@ $ source activate [your_env_here]
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">Step 4:  Transfer your .py files by OODs web-based file manager.<a class="anchor-link" href="#Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">¶</a></h3><ul>
-<li>Choose Files-->Home Directory from the top menu in Unity Open On Demand.</li>
-</ul>
-<p>If you haven't already, make a directory in your Unity home folder entitled <code>ocg404</code>.  This directory should be inside your <code>/home/your_username</code>.</p>
-<p>You can do this at the Shell:</p>
-<pre><code>]$ mkdir ocg404 
+<h3 id="Step-2:--Load-your-conda-environment.">Step 2:  Load your conda environment.<a class="anchor-link" href="#Step-2:--Load-your-conda-environment.">¶</a></h3><p><strong>Load</strong> your conda environment, following the same steps as in Week10.</p>
+<pre><code>]$ module load conda/latest
+]$ conda activate your_env_here
 </code></pre>
-<p>Or you can create the folder from within the OOD file manager that you opened above with Files-->Home Directory.</p>
-<p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_fileManager.png" width="700" /></p>
-<p>Now transfer your files to the ocg404 directory on Unity OOD.</p>
-<ul>
-<li>Upload landsatexplore.py</li>
-</ul>
+<p>Remember to type  <code>]$ conda deactivate</code> to close your Anaconda environment.</p>
+<p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
+<pre><code>]$ chmod a+x start.sh
+</code></pre>
+<p>The script can be run at the command line using</p>
+<pre><code>]$ source start.sh
+</code></pre>
 </div>
 </div>
 </div>
@@ -268,17 +214,55 @@ $ source activate [your_env_here]
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ol>
-<li>landsat_exploreRI.py uses the landsatxplore API to find and download Landsat images, based on the time and geographic criteria you give it.</li>
-<li>To use the API, you will need to create a <a href="https://ers.cr.usgs.gov/register">USGS EarthExplorer account</a>.</li>
-<li>Fllow the prompts in landsat_exploreRI.py and add the missing code to landsat_exploreRI.py.</li>
-<li>You will download and graph at least one landsat image.</li>
-<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp.</li>
-<li>Run landsat_exploreRI.py on the Unity HPC at the command line using the command below:</li>
+<h3 id="Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 3: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
+<li>Download the script coreclock.py and examine the comments and contents.</li>
+<li>Add a module called coreclock() to the script, following the comments in the script.</li>
+<li>Upload the script to Unity.</li>
+<li>Open the Unity OOD Shell.</li>
+<li>Request compute resources for your job following Step 2.</li>
+<li>Load modules, activate your conda environment.</li>
 </ol>
-<pre><code>]$ python landsat_exploreRI.py
+<h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4><pre><code>	# Client() and LocalCluster() will be used to connect to the job resources that
+	# were requested. 
+	from dask.distributed import Client, LocalCluster
+	# Progress function reports the computation status to the screen
+	from dask.distributed import progress
+	# Use time library for sleep
+	import time
+	# Connect to resources.
+	cluster = LocalCluster()
+	job = Client(cluster)
+	print(job)
 </code></pre>
-<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsat_exploreRI.py.</p>
+<p>The code block above creates a connection to the <code>salloc</code> resources that were requested before starting python.  The resources can be viewed with <code>print(job)</code></p>
+<ol>
+<li>Use client.map() to execute coreclock() 500 times and distribute them over the requested cpus.</li>
+<li>Run coreclock.py at the command line:</li>
+</ol>
+<pre><code>$ python coreclock.py
+<client: &#x27;tcp: 127.0.0.1:37750&#x27; processes="5" threads="5," memory="161.06" gb>
+[####                                    ] | 10% Completed | 11.6s
+</code></pre>
+<ol>
+<li>How long does it take for the code to complete execution?</li>
+<li>Based on 500 instances of coreclock() and the delay you added with time.sleep(), how long would it take for a single processor to complete the same task?</li>
+<li>Is parellel computation working as expected?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-4:-What-to-turn-in?">Step 4: What to turn in?<a class="anchor-link" href="#Step-4:-What-to-turn-in?">¶</a></h3><ul>
+<li>Answer the questions from Step 3 in this .ipynb.</li>
+<li>Upload this .ipynb</li>
+<li>Upload your working version of the coreclock code inside coreclock.py</li>
+</ul>
 </div>
 </div>
 </div>

@@ -21,16 +21,11 @@ if __name__ == '__main__':
 
 
 
-	# WRITE coreclock() module that does the following:
-	# 1. Take input, x.
-	# 2. Do operation on x (this is optional).
-	# 3. Sleep for 1 second. (This is the key line for testing that parallel processing is working.
-	# 4. Return x or f(x).
+	# WRITE a module (function) called coreclock() module that will take an input, sleep for 1 second, and return an output:
 
 	
-	# Use the funciton client.map(module,list_of_x) to distribute the operations of 'module' on 'list_of_x', amongst
-	# the available cpus. Modify the inputs to client.map() to perform the coreclock()
-	# module on a list of 500 values of x.    
+	# Use the Dask function client.map(module,list_of_x) to distribute the operations of 'module' on 'list_of_x', amongst
+	# the available CPUs. Modify the inputs to client.map() to perform the coreclock()  module on a list of 500 values of x.    
 	# f = client.map(module,list_of_500_x)
 
 	
