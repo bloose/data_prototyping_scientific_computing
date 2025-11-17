@@ -12,13 +12,13 @@
 <link rel="canonical" href="./hpc-introduction.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line." />
+        <meta name="description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. (Did on Nov. 5) Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif)." />
 
         <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Introduction"/>
         <meta property="og:url" content="./hpc-introduction.html"/>
-        <meta property="og:description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif). Practice basic tasks at the Unix command line."/>
+        <meta property="og:description" content="Remote computing at the Unity cluster.¶Use the documentation to supplement this guide https://docs.unity.uri.edu/ Objectives¶ Learn basic unix shell navigation and commands. (Did on Nov. 5) Set up computing environment for Python on the Unity cluster. Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif)."/>
         <meta property="article:published_time" content="2025-11-17" />
             <meta property="article:section" content="Notes" />
             <meta property="article:author" content="Brice Loose" />
@@ -160,7 +160,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h2 id="Remote-computing-at-the-Unity-cluster.">Remote computing at the Unity cluster.<a class="anchor-link" href="#Remote-computing-at-the-Unity-cluster.">¶</a></h2><p>Use the documentation to supplement this guide</p>
 <p><a href="https://docs.unity.uri.edu/">https://docs.unity.uri.edu/</a></p>
 <h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
-<li>Learn basic unix shell navigation and commands.</li>
+<li>Learn basic unix shell navigation and commands. (Did on Nov. 5)</li>
 <li>Set up computing environment for Python on the Unity cluster.</li>
 <li>Use file transfer to upload/download files from the remote environment, including Python (.py) scripts and image files (.jpeg, .png, .tif).</li>
 <li>Practice basic tasks at the Unix command line.</li>
@@ -208,9 +208,8 @@ Password: whatever_you_specified
 <li>[Do this only once] Once you have loaded the Anaconda module, you need to install the Python libraries that we will use.  This command creates an Anaconda programming environment called <code>your_env_here</code>.  You will need to activate this environment every time you log in.</li>
 </ul>
 <pre><code>$ module load conda/latest
-$ conda create -n [your_env_here] python=3.9 dask mpi4py scikit-image matlplotlib
+$ conda create -n [your_env_here] python=3.9 dask mpi4py scikit-image matplotlib
 $ conda activate [your_env_here] # Activate your environment before installing landsatexplore using pip.
-$ pip install landsatxplore
 </code></pre>
 <ul>
 <li>[Do this every time you log in] Unity uses modules; modules can be loaded with the load command.  You will load them every time you log in.</li>
@@ -222,7 +221,7 @@ $ source activate [your_env_here]
 <p><strong>RECAP:</strong></p>
 <p>The next time you log in, you won't have to carry out the installation steps.  you will just execute the following command sequence.</p>
 <pre><code>$ module load conda/latest
-$ source activate [your_env_here]
+$ conda activate [your_env_here]
 </code></pre>
 </div>
 </div>
@@ -234,7 +233,7 @@ $ source activate [your_env_here]
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the Oscar directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-Oscar-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
+<h3 id="Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-directories,-creating-files,-etc.">Step 3: Follow this <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix tutorial</a> on navigating around the directories, creating files, etc.<a class="anchor-link" href="#Step-3:-Follow-this-Unix-tutorial-on-navigating-around-the-directories,-creating-files,-etc.">¶</a></h3><p>Also check out Unix shell commands to better understand how to use the command line tools.   <a href="https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners">https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners</a>. You will likely need to use the Unix commands sudo, cd, rm, mkdir, ssh, sftp, and nano.</p>
 </div>
 </div>
 </div>
@@ -245,7 +244,7 @@ $ source activate [your_env_here]
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">Step 4:  Transfer your .py files by OODs web-based file manager.<a class="anchor-link" href="#Step-4:--Transfer-your-.py-files-by-OODs-web-based-file-manager.">¶</a></h3><ul>
+<h3 id="Step-4:--Transfer-your-.py-files-by-OOD's-web-based-file-manager.">Step 4:  Transfer your .py files by OOD's web-based file manager.<a class="anchor-link" href="#Step-4:--Transfer-your-.py-files-by-OOD's-web-based-file-manager.">¶</a></h3><ul>
 <li>Choose Files-->Home Directory from the top menu in Unity Open On Demand.</li>
 </ul>
 <p>If you haven't already, make a directory in your Unity home folder entitled <code>ocg404</code>.  This directory should be inside your <code>/home/your_username</code>.</p>
@@ -254,45 +253,6 @@ $ source activate [your_env_here]
 </code></pre>
 <p>Or you can create the folder from within the OOD file manager that you opened above with Files-->Home Directory.</p>
 <p><img alt="No description has been provided for this image" src="https://bloose.github.io/data_prototyping_scientific_computing/images/Unity_fileManager.png" width="700" /></p>
-<p>Now transfer your files to the ocg404 directory on Unity OOD.</p>
-<ul>
-<li>Upload landsatexplore.py</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">Step 5: Use a text editor to modify landsatexplore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Step-5:-Use-a-text-editor-to-modify-landsatexplore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ol>
-<li>landsat_exploreRI.py uses the landsatxplore API to find and download Landsat images, based on the time and geographic criteria you give it.</li>
-<li>To use the API, you will need to create a <a href="https://ers.cr.usgs.gov/register">USGS EarthExplorer account</a>.</li>
-<li>Fllow the prompts in landsat_exploreRI.py and add the missing code to landsat_exploreRI.py.</li>
-<li>You will download and graph at least one landsat image.</li>
-<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading by ftp.</li>
-<li>Run landsat_exploreRI.py on the Unity HPC at the command line using the command below:</li>
-</ol>
-<pre><code>]$ python landsat_exploreRI.py
-</code></pre>
-<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's in_class assignment, along with your modified version of landsat_exploreRI.py.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
