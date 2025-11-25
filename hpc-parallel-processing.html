@@ -9,16 +9,16 @@
 
 
 
-<link rel="canonical" href="./hpc-parallel-processing.html">
+<link rel="canonical" href="././hpc-parallel-processing.html">
 
         <meta name="author" content="Brice Loose" />
-        <meta name="description" content="Unity practice.¶For this exercise, you will practice using Unix/Linux commands and running python scripts on Unity as well as upload/download of files. Use the tutorials on Unix and HPC_Intro to read and graph a single Landsat _B4.TIF image from the directory /work/pi_csc593_uri_edu/Landsat/ on Unity. This exercise also leverages the other skills we have learned throughout the semester, including the use of matplotlib as well as loading and saving images. Refer back to your prior code solutions; RESIST the urge to use the AI bots." />
+        <meta name="description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)." />
 
         <meta property="og:site_name" content="2025 | Data Prototyping and Scientific Computing" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="HPC Parallel Processing"/>
-        <meta property="og:url" content="./hpc-parallel-processing.html"/>
-        <meta property="og:description" content="Unity practice.¶For this exercise, you will practice using Unix/Linux commands and running python scripts on Unity as well as upload/download of files. Use the tutorials on Unix and HPC_Intro to read and graph a single Landsat _B4.TIF image from the directory /work/pi_csc593_uri_edu/Landsat/ on Unity. This exercise also leverages the other skills we have learned throughout the semester, including the use of matplotlib as well as loading and saving images. Refer back to your prior code solutions; RESIST the urge to use the AI bots."/>
+        <meta property="og:url" content="././hpc-parallel-processing.html"/>
+        <meta property="og:description" content="Python parallel processing on Unity HPC.¶Objectives¶ Learn how to request a parallel processor &#39;job&#39;and set up a Python environment that will use that job. Write a short function to test and confirm that parallel processing is taking place (in-class). Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home)."/>
         <meta property="article:published_time" content="2025-11-17" />
             <meta property="article:section" content="Worksheets" />
             <meta property="article:author" content="Brice Loose" />
@@ -81,7 +81,7 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./hpc-parallel-processing.html"
+                    <a href="././hpc-parallel-processing.html"
                        rel="bookmark"
                        title="Permalink to HPC Parallel Processing">
                         HPC Parallel Processing
@@ -101,7 +101,9 @@
 
 
 
-    
+    <span class="label label-default">Lang</span>
+	<a href="././hpc-parallel-processing.html">en</a>
+
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <style type="text/css">pre { line-height: 125%; }
@@ -151,33 +153,132 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
 .highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
 .highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
-.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2123fc30-dc6c-4166-bee8-00dd150b8921">
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */</style><div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Unity-practice.">Unity practice.<a class="anchor-link" href="#Unity-practice.">¶</a></h2><p>For this exercise, you will practice using Unix/Linux commands and running python scripts on Unity as well as upload/download of files.</p>
-<p>Use the tutorials on <a href="https://bloose.github.io/data_prototyping_scientific_computing/introduction-to-unix.html">Unix</a> and <a href="https://bloose.github.io/data_prototyping_scientific_computing/hpc-parallel-processing.html">HPC_Intro</a> to read and graph a single Landsat _B4.TIF image from the directory /work/pi_csc593_uri_edu/Landsat/ on Unity.</p>
-<p>This exercise also leverages the other skills we have learned throughout the semester, including the use of matplotlib as well as loading and saving images.   Refer back to your prior code solutions;  RESIST the urge to use the AI bots.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f406429b-bbd7-4278-baae-3cf708471c46">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Use-a-text-editor-to-modify-landsat_explore.py-and-upload-via-the-Unity-OOD-file-manager.">Use a text editor to modify landsat_explore.py and upload via the Unity OOD file manager.<a class="anchor-link" href="#Use-a-text-editor-to-modify-landsat_explore.py-and-upload-via-the-Unity-OOD-file-manager.">¶</a></h3><ol>
-<li>Load any of the _B4.TIF images from  /work/pi_csc593_uri_edu/Landsat/ on Unity.</li>
-<li>Graph the image and save it as a .png.</li>
-<li>Note, that because we don't have a graphics connection to Unity, you will need to save the file as a .png or .jpeg for downloading.</li>
-<li>Run landsat_explore.py on the Unity HPC at the command line to load the .TIF image, make a plot and save as a .png.</li>
-<li>Download the PNG using the OOD file manager.</li>
+<h2 id="Python-parallel-processing-on-Unity-HPC.">Python parallel processing on Unity HPC.<a class="anchor-link" href="#Python-parallel-processing-on-Unity-HPC.">¶</a></h2><h3 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">¶</a></h3><ol>
+<li>Learn how to request a parallel processor 'job'and set up a Python environment that will use that job.</li>
+<li>Write a short function to test and confirm that parallel processing is taking place (in-class).</li>
+<li>Use these concepts to modify landsatexplore.py from Week09 and implement the NDVI calculation (take-home).</li>
+<li>Use the python library Dask to extend Numpy array and Pandas dataframe calculations over multiple p</li>
 </ol>
-<h3 id="What-to-turn-in-(in-class-assignment-part-2):">What to turn in (in-class assignment part 2):<a class="anchor-link" href="#What-to-turn-in-(in-class-assignment-part-2):">¶</a></h3><p>Download the image you created and submit that as this week's takehome assignment, along with your modified version of the landsat_explore.py script.</p>
+<p>Dask documentation explains how Dask works with parallel computing: <a href="https://tutorial.dask.org/02_array.html">https://tutorial.dask.org/02_array.html</a></p>
+<p>Use Unity documentation to understand more using HPC resources:<a href="https://docs.unity.uri.edu/documentation/">https://docs.unity.uri.edu/documentation/</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1:--Log-in-and-request-resources-for-your-compute-node.">Step 1:  Log in and request resources for your compute node.<a class="anchor-link" href="#Step-1:--Log-in-and-request-resources-for-your-compute-node.">¶</a></h3><p>Use your login info to connect to <a href="https://ood.unity.rc.umass.edu/">https://ood.unity.rc.umass.edu/</a> as before.</p>
+<p>The <a href="https://docs.unity.uri.edu/documentation/jobs/salloc/">Unity documentation</a> describes how to request cluster computing resources or <code>jobs</code>, which are categorized into several distinct partitions. Unity uses SLURM to manage and allocate resources, but we won't dedicate much time to understanding how SLURM works.  The Python library for distributed processing of array data (dask) will be the tool we focus on.</p>
+<p>The <code>salloc</code> command allows to request cluster jobs on Unity.  Documentation for both is linked above. For <code>salloc</code>, you can request the number of cpu nodes <code>-c</code>, the amount of time you want the job to last <code>--time</code>, and the RAM or memory <code>-mem</code>, and which partition to use <code>-p</code>.  A simple request looks like this:</p>
+<pre><code>]$ salloc -c 5     # Request 5 cpu nodes
+</code></pre>
+<p>The command below requests 12 cpus and 150 GB of RAM for 60 minutes on the partition called 'cpu'.  I find that the fewer processors you request, the faster your job is allocated to you.  <strong>NOTE</strong>: Please do not request more than 24 processors.</p>
+<pre><code>]$ salloc -J interact -c 12 --time=0:60:00 --mem=150G -p cpu  
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-2:--Load-your-conda-environment.">Step 2:  Load your conda environment.<a class="anchor-link" href="#Step-2:--Load-your-conda-environment.">¶</a></h3><p><strong>Load</strong> your conda environment, following the same steps as in Week10.</p>
+<pre><code>]$ module load conda/latest
+]$ conda activate your_env_here
+</code></pre>
+<p>Remember to type  <code>]$ conda deactivate</code> to close your Anaconda environment.</p>
+<p><strong>Aside</strong>.  You can include all of these commands into a text file called a shell script and just run the script to speed up the process.  The script must begin with the line <code>#!/usr/bin/bash</code>.  You can use nano to create this shell script.  The protocol is to give it the file extension <code>.sh</code>, ie <code>start.sh</code>.  After you have created the shell script you need to make it executable with <code>chmod</code> command.</p>
+<pre><code>]$ chmod a+x start.sh
+</code></pre>
+<p>The script can be run at the command line using</p>
+<pre><code>]$ source start.sh
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">Step 3: Make a coreclock script to confirm parallel processing of computations.<a class="anchor-link" href="#Step-3:-Make-a-coreclock-script-to-confirm-parallel-processing-of-computations.">¶</a></h3><ol>
+<li>Download the script coreclock.py and examine the comments and contents.</li>
+<li>Add a module called coreclock() to the script, following the comments in the script.</li>
+<li>Upload the script to Unity.</li>
+<li>Open the Unity OOD Shell.</li>
+<li>Request compute resources for your job following Step 2.</li>
+<li>Load modules, activate your conda environment.</li>
+</ol>
+<h4 id="Notes-about-the-code-in-coreclock.py">Notes about the code in coreclock.py<a class="anchor-link" href="#Notes-about-the-code-in-coreclock.py">¶</a></h4><pre><code>	# Client() and LocalCluster() will be used to connect to the job resources that
+	# were requested. 
+	from dask.distributed import Client, LocalCluster
+	# Progress function reports the computation status to the screen
+	from dask.distributed import progress
+	# Use time library for sleep
+	import time
+	# Connect to resources.
+	cluster = LocalCluster()
+	job = Client(cluster)
+	print(job)
+</code></pre>
+<p>The code block above creates a connection to the <code>salloc</code> resources that were requested before starting python.  The resources can be viewed with <code>print(job)</code></p>
+<ol>
+<li>Use client.map() to execute coreclock() 500 times and distribute them over the requested cpus.</li>
+<li>Run coreclock.py at the command line:</li>
+</ol>
+<pre><code>$ python coreclock.py
+<client: &#x27;tcp: 127.0.0.1:37750&#x27; processes="5" threads="5," memory="161.06" gb>
+[####                                    ] | 10% Completed | 11.6s
+</code></pre>
+<ol>
+<li>How long does it take for the code to complete execution?</li>
+<li>Based on 500 instances of coreclock() and the delay you added with time.sleep(), how long would it take for a single processor to complete the same task?</li>
+<li>Is parellel computation working as expected?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-4:-What-to-turn-in?">Step 4: What to turn in?<a class="anchor-link" href="#Step-4:-What-to-turn-in?">¶</a></h3><ul>
+<li>Answer the questions from Step 3 in this .ipynb.</li>
+<li>Upload this .ipynb</li>
+<li>Upload your working version of the coreclock code inside coreclock.py</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
